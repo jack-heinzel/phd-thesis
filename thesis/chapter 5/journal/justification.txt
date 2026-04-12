@@ -1,0 +1,5 @@
+This work satisfies several PRX criteria:
+1) It significantly advances the state-of-the-art approach to gravitational-wave population analyses by flexibly allowing for correlations in more than two source dimensions.
+2) Successfully demonstrating this with realistic simulations and models for the first time moves the field in a new and exciting direction.
+3) It establishes a stronger connection between gravitational-wave data analysis and simulations of compact-binary evolution by making the complex predictions of the latter accessible through the former.
+4) It sets a landmark for fast evolving population-synthesis predictions by showing they are more difficult to distinguish than previously thought.

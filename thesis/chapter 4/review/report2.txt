@@ -1,0 +1,33 @@
+----------------------------------------------------------------------
+Second Report of Referee A -- LU19707DR/Heinzel
+----------------------------------------------------------------------
+
+As I had mentioned in my previous report to the PRL submission,
+
+"This manuscript focuses on inferring the population properties of
+binary black holes~(BBHs) using the non-parametric population model
+PixelPop, the details of which are summarized by the authors in an
+accompanying methods paper submitted to PRD. The method involves
+pixelating the 2d subspace of specific BBH parameters into
+high-resolution bins and inferring the merger rate density in each bin
+from GW data using a conditional autoregressive prior. Free of the
+strong assumptions that parametric population models rely on, the
+authors can constrain features in the joint distribution of pairwise
+BBH parameters while being driven by the data instead of a priori
+considerations regarding BBH formation channels. The paper is well
+written and the main results are presented in a manner accessible to a
+broad audience."
+
+While I had a major concern regarding the communications of these results to
+PRL:
+
+"While the method itself is novel and has several advantages and a few
+disadvantages relative to existing non-parametric population inference
+methodologies, I have a major concern regarding whether or not the
+current set of results based on GWTC-3 data “substantially advances
+fundamental or applied physical science”, which I elaborate below."
+
+I am happy to recommend this communication, as is, to PRD letters section.
+Congratulations to the authors for the development of this novel method and its
+use in verifying existing findings from GWTC-3 with such high levels of
+flexibility.

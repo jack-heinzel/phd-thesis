@@ -1,0 +1,100 @@
+Hi Sofia, Jack, Matt, Salvo, this is very nice work and I enjoyed reading. Below are the usual pnp comments and then some additional non-pnp comments which are not required for the review.
+
+- Is the author list appropriate?
+
+Yes
+
+- Is any data used in any point/form? This includes data from auxiliary channels and "hidden" usage of data for simulations etc.
+
+No
+
+- Are there statements of what the LVK will or will not do? (this includes searches and hardware).
+
+No
+
+- Are appropriate LVC(K) publications cited?
+
+Mostly yes, I suggest adding the GWTC-3 catalogue paper when quoting the number of observations in the introduction.
+
+-- Added, thanks so much!
+
+- Are appropriate other short-author-list publications cited?
+
+So far, yes, and the authors are working on adding more citations. I include some more suggestions below.
+
+- If the work has benefited from unpublished internal LVK
+research, it may be appropriate to cite (private communication) other LVK individuals, or to include an acknowledgement to individuals, subgroups, or the full LVK.
+
+Not to the best of my knowledge
+
+- Are GW events properly labeled to avoid ambiguity (data and time both listed, where appropriate)
+
+Not applicable
+
+- Check for appropriate mention of Virgo and KAGRA in text and
+citations. For example, LVK collaboration papers and results should not be referred to as simply "LIGO" or "LSC".
+
+Usage is appropriate
+
+- Are references to LIGO instruments/results up to date?
+
+Yes
+
+- Is there an acknowledgement of computing resources accessed through the LIGO-Virgo Collaboration
+
+Yes
+
+- As of April 2021, NSF has mandated that any presentation or publication that uses data from the LIGO instruments must include this acknowledgement text: "This material is based upon work supported by NSF's LIGO Laboratory, which is a major facility fully funded by the National Science Foundation."
+
+Not applicable as not using LIGO data
+
+Non-PnP comments:
+
+- I suggest adding the following citations on inference with population synthesis (https://arxiv.org/abs/1906.08136, https://arxiv.org/abs/2010.11220, https://arxiv.org/abs/2207.00374); and moving the citations on Bayesian hierarchical inference to where first mentioned.
+
+-- Done, thanks for the suggestion!
+
+- I suggest changing ‘[found] a preference for small natal spins for BHs born in the field’ to 'a preference for small natal spins for BHs born in isolation', as first generation BHs for the GC and NSC channels are also given the specified natal spin in the models used, while isolated BHs with prior spin-up of the stellar core due to tidal interactions are born with higher spins.
+
+-- Changed, thanks for the suggestion!
+
+- Are there further details on the normalising flow used for the sensitivity estimation when doing mock PE? E.g. how was it trained and how long for, was it only necessary to capture the broader features of the distribution, and what did a normalising flow offer that e.g. a spline could not? Adding a sentence to clarify this may be informative to readers.
+
+-- We were only interested in capturing broader features of the two-dimensional distribution to sample values for m1 and q. Since the correlations are very complex and not linear/monotonic, we couldn't use splines (a 2d KDE would have also been a fine approach). We moved the details of the injections to an appendix and added more information about the normalizing flow we used; thanks!
+
+
+- The sentence “However, these models are limited by the complexity of evolutionary channels and the absence of a complete underlying physical theory.” at the start of section II.C is slightly unclear to me - does complete underlying physical theory mean including rate information, or using accurate models of astrophysical processes?
+
+-- We mean using accurate models of astrophysical processes. I added this to make the sentence clearer!
+
+- When discussing the inference of low-rate regions of parameter space it may be worth noting that the underlying CE simulation only extends to a minimum m1 of ~2.5 and q of ~0.11. Was there any regularisation included in the population model before generating the mock universe?
+
+-- That's a good point, although the PE uncertainty extends to regions where there are no simulated sources. We do not apply regularization to the population model before generating the mock universe; we sample straight from the simulated population. 
+
+- I suggest clarifying what percentiles the credible regions correspond to in the caption of Fig 4., it is not clear to me which one is 90%.
+
+-- Added, thanks for the suggestion!
+
+- It may be worth noting when discussing the approximation of the likelihood for narrow populations that the narrow feature in the CE model arises from assumptions in the underlying astrophysics (following Fuller & Ma https://iopscience.iop.org/article/10.3847/2041-8213/ab339b) which may not reflect a true astrophysical population. We discuss these assumptions in Colloms et al. (https://arxiv.org/abs/2503.03819).
+
+-- I added a discussion on this the first time we mention it. Thanks so much!
+
+- In the 3D + 1 it may be informative to see a plot of how semi-parametric model handles z-chieff correlation.
+
+-- This is a great point, thanks for bringing it up! We decided we wanted to write an appendix about this. It is not in the current version, but I will make sure to add it before submitting to the journal. In the meantime, here are some plots of how R(chieff=0.035;z) and R(chieff=0.2;z) look like. I'm happy to share with you the appendix once I write it.
+
+- In Fig. 12 it may be useful to add outline of the CE population for direct comparison.
+
+-- Done, thanks for the suggestion!
+
+- The statement that CE and SMT channels ‘only differ in the way mass is transferred between components of the binary’ is not entirely true. They correspond to different parts of initial parameter space of the binary population, and their post-mass transfer evolution will also be different. I suggest adding some discussion on this or softening this statement.
+
+-- We softened the sentence a bit: "We attribute this result to \ac{CE} and \ac{SMT} being field channels that share many evolutionary steps, even though they differ in the way mass is transferred between components of the binary."
+
+
+- With real observations, could the similarity analysis be used to compare any population synthesis model to the PixelPop inference results? Would there be biases resulting from multiple channels present in the real observations?
+
+-- For your first question: Yes, in principle, the similarity metric can be applied to real observations to compare any population-synthesis model with the PixelPop posteriors. However, since real data is most likely a result of a mixture of channels, you would need to adapt the similarity metric to include branching fractions. Otherwise, as you suggest, you would have biases from multiple channels present in real observations.
+
+At O4 sensitivity, we already struggle to distinguish between single-channel populations (e.g., purely CE vs purely SMT). Distinguishing multiple channels in real data will be even more challenging (we added this caveat to the conclusions, thanks for the great question!).  
+

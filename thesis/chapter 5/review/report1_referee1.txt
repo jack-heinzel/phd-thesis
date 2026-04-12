@@ -1,0 +1,70 @@
+----------------------------------------------------------------------
+Report of the Referee -- XG11014/Alvarez-Lopez
+----------------------------------------------------------------------
+
+The study investigates how different formation pathways for merging
+black-hole binaries leave measurable patterns in their masses, spins,
+and redshifts. Because traditional population models often assume
+overly simple, uncorrelated distributions, they can lead to biased
+conclusions about the underlying astrophysics. To address this, the
+authors use PixelPop, a flexible Bayesian non-parametric framework
+designed to capture complex, multidimensional correlations in the
+population without imposing strong assumptions.
+
+I believe the results of this work are technically impeccable. I was
+not fully convinced, however, that some of the conclusions were
+actually supported by the analysis or figures shown (see below). I
+would appreciate if the authors clarified my concerns, before I can
+recommend the paper for publication. If these are resolved, I think
+the work is suitable for a high impact journal as PRX as it might
+demonstrates a result that might have to be taken into account by the
+community working on population inference.
+
+The authors do not apply their method to real data, including O4.
+However, using real observations would not strengthen their
+conclusions and would be outside the scope of the work. Their main
+argument relies on analyzing a population where the true parameter
+correlations are known, in order to test whether their method can
+recover those correlations, and whether simple parametric models
+produce a bias.  Since we do not know the actual correlations in the
+observed population, only a mock analysis can properly demonstrate
+this point.
+
+________________________________________
+
+My main concern is with the conclusion that the non-parametric models
+recover the true distribution, whereas the parametric models do not.
+Part of this argument relies on examining the posterior distribution
+of Xeff. The authors focus on the positive region (paragraph
+beginning on line 385), where it is indeed the case that the
+parametric reconstruction fails to capture the true behavior. However,
+on the negative side of the distribution, Fig. 4 shows that the
+parametric model reproduces the true distribution almost perfectly,
+whereas Fig. 5 indicates that the non-parametric model performs
+noticeably worse. Although the text suggests that this may be related
+to low merger rates, the discrepancy is very large even in portions of
+the distribution where the true merger rate exceeds
+(1,\mathrm{Gpc^{-3},yr^{-1}}). Moreover, even for Xeff> 0, the
+improvement over the parametric models does not seem as clear-cut as
+the paper implies. 
+
+Some key features of the population seem to be better recovered by the
+parametric model. The true Xeff distribution is strongly asymmetric.
+The parametric models successfully recover this feature, yielding a
+posterior that is confidently asymmetric. By contrast, many of the
+non-parametric reconstructions appear broadly consistent with an
+isotropic (symmetric) distribution.
+
+This raises the possibility that the non-parametric method may simply
+lack sufficient flexibility to recover the true structure in regions
+with reasonably high merger rates. Any non-parametric framework
+necessarily depends on a set of internal modeling choices—such as
+binning schemes, kernel widths, or basis resolutions—and these can
+limit the model’s ability to capture sharp or highly asymmetric
+features if not chosen appropriately. In other words, also
+non-parametric models misspecified and possibly perform worse than
+parametric models. A more thorough exploration of how modeling choices
+affect the non-parametric reconstruction would help clarify whether
+the observed discrepancies reflect a true limitation of
+(non-)parametric approaches, suboptimal hyperparameter choices, or
+simply the amount of data available.

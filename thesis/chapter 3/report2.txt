@@ -1,0 +1,43 @@
+----------------------------------------------------------------------
+Second Report of the Referee -- DU13758/Heinzel
+----------------------------------------------------------------------
+
+The authors have addressed all of my minor concerns/ comments. However as for my
+primary concern, the authors, while acknowledging the necessity of the
+recommended demonstrations intend to carry it out as a follow-up work.
+Specifically, they mention:
+
+“The referee has made excellent suggestions for follow-up work and we have
+already started exploring exactly those suggestions. In particular, we are
+applying the PixelPop model to populations in which correlations exist in three
+or four dimensions, investigating the impact of assuming only lower-dimensional
+correlations and the resulting biased inference. In particular, we are targeting
+correlations between primary mass, mass ratio, redshift, and effective spin,
+just as the referee suggests. We prefer leaving this to a followup paper as this
+submission to PRD is primarily focused on describing the method / model and
+applying it to a first test case -- which already has resulted in a long and
+technical paper which we do not want to complicate further!”
+
+I disagree with parts of this statement. While the full systematics study that
+the authors bring up is indeed suitable for follow-up work, I still believe a
+demonstration of one case of mis-modeled correlations is relevant in delineating
+the methods itself. A demonstration of how a 2d population model performs on a
+3d correlated population is a necessary communication to the readers.
+
+The paper already demonstrates the analysis of several simulated populations
+with various correlations, so I do not see why adding one more simulated
+analysis to demonstrate the performance of the method in a context that could be
+a very crucial limitation of the methodology, would “further complicate” the
+paper.
+
+Hence I would still like to see at least one more simulated analysis added to
+the paper, namely the first one from my original suggestion:
+
+“Simulate a population wherein chi_eff is correlated with both mass ratio and
+redshift. Analyze with PixelPoP’s chi_eff-z and chi_eff-q models. In each case
+assume that the parameters that are not binned are uncorrelated with the ones
+that are binned.”
+
+Since the correlations in the recommended population have actually been found in
+data by other works, How PixelPop fairs against such a population is a necessary
+demonstration of the methods presented.

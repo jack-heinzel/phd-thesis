@@ -1,0 +1,21 @@
+Dear Editors,
+
+We are pleased to submit this manuscript for your consideration. While PRX covers astrophysics less frequently than other fields, you have recently published two articles that are useful to put our work in context. 
+
+One is LIGO-Virgo-KAGRA’s (LVK) PRX 13, 011048 (2023). In that paper, the LVK analyzes the collective properties of the detected compact objects (mostly binary black holes) to infer the properties of the underlying astrophysical population, or populations, that originated the sources. Indeed, understanding the formation channels of compact binaires has become one of the most urgent problems in astrophysics, since LIGO made the first detection 10 years ago.
+
+The LVK paper (of which some of us are co-authors) has two main limitations. From one side, some of the models that are used are very “strong”, often making it unclear which features are data-driven and which are model-driven. From the other side, most of the models used in the LVK paper assume that the astrophysical mechanisms that form these black holes leave the distribution of source parameters uncorrelated, an assumption that is contradicted by most numerical simulations. A small number of analyses performed in the LVK paper (and in the community overall) allow for two-dimensional correlations.
+
+The first issue, strong models, has been seriously tackled in the literature, including in Callister and Farr—PRX 14, 021005 (2024)—where the authors use a parameter-free approach to characterize the population of compact binaries. 
+
+Here we present a method that unlocks dramatic progress along the other axes, i.e., allowing for non-trivial high-dimensional correlations in the population. We demonstrate that our approach works by applying it to a simulated population made of black holes with properties predicted by numerical simulation codes (the so-called “population synthesis” algorithms).
+
+First we show how simpler two-dimensional analyses such as those performed by the community would yield biased results, then show how our approach produces accurate results. We also comment on the distinguishability between astrophysical formation scenarios, finding that some of the claims made in the literature are too optimistic. 
+
+
+To our knowledge, this is the first time a realistic analysis of gravitational-wave populations has been shown to yield accurate results on a set of sources produced directly from population synthesis. We also believe that the interdisciplinary nature of the work—relevant for gravitational-wave data analysts, theorists and observers of compact binaries, and colleagues working on population synthesis—make this work appealing to an audience broad enough to deserve the higher visibility that comes with PRX.
+
+Because of this belief, with our submission we send a list of possible referees with diverse expertise.
+
+Thank you for your consideration,
+SAL for the authors

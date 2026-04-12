@@ -1,0 +1,86 @@
+The paper "Probing correlations in the binary black hole population with flexible models" by Heinzel et al. presents a useful and novel analysis of the population properties of gravitational-wave sources.
+The paper is well-written, introduces novel methods, and is careful not to overstate its conclusions. I particularly appreciate the different approaches that the authors use to interpret the results of their nonparametric analysis, and I think these tools will be useful for future nonparametric population inferences. Overall I recommend this paper for publication, but first I have a few comments and suggestions:
+
+    We thank the referee for the review and for the useful suggestions! We have implemented most of the suggested changes and have updated the text as needed to address of the issues pointed out by the referee. Please find our responses in-line below. We highlighted the changes in the pdf in red, shown in the diff.tex document.
+
+1) The first paragraph states that the distribution of spin tilts in GWTC-3 is consistent with isotropy. I believe this isn't true, because the mean of the chi_eff distribution is found to be greater than zero at very high credibility. Could the authors clarify?
+
+    We thank the referee for pointing out this oversight. We modified this sentence to cite some more of the relevant literature and it now reads: "the distribution of the spin tilts relative to the orbital angular momentum is consistent with isotropy, while the distribution of effective aligned spins indicates a slight preference towards positively aligned spins."
+
+2) When interpreting the possible correlation between q and chi_eff,
+the authors report the derivative of the spline at at a reference q =
+0.9. I wonder if the significance of the correlation would change if
+another statistic was used, say the difference between the mean
+chi_eff at q = 0.4 and q = 1?
+
+    We thank the referee for this interesting suggestion! In general, it is likely that the significance is somewhat sensitive to the choice of statistic. For the example suggested by the referee, we compute the significance to be 89%, a bit higher than the significance of the slope at q=0.9, 81% (Table III). 
+
+    We included a line mentioning that this choice is not unique in the end of section 3a: "We note that this is not the only statistic one could use to quantify the significance. For example, we could consider the difference over widely separated regions in parameter space, e.g. the proportion of samples with mean \mu(q=1) < \mu(q=0.4). These statistics tend to find a similar level of significance."
+
+    For the other parameters, the analogous statistics (differences at q=1 and q=0.4, z=0 and z=0.5 and m1=20 and m1=50) we find few percent differences. If the reviewer is interested, we provided the differences in the list below. The first percentage is the significance reported in Table III, and the second percentage is with the alternative statistic. In general, they tend to be quite similar, with the exceptions of the mean in the 3 nodes run correlating the mass ratio and chi_eff (13.4% -> 6.7%), and the mean and width in the 6 nodes run correlating redshift with chi_eff (5.9% -> 35% and 98.6% -> 77.4%, respectively).
+    
+    mass_1
+    linear p(dmu > 0) = 53.9%, 53.9% p(d lnsig > 0) = 93.2%, 93.2%
+    3_nodes p(dmu > 0) = 55.0%, 55.1% p(d lnsig > 0) = 89.5%, 89.6%
+    4_nodes p(dmu > 0) = 60.5%, 53.6% p(d lnsig > 0) = 98.7%, 98.9%
+    5_nodes p(dmu > 0) = 78.3%, 73.2% p(d lnsig > 0) = 95.7%, 95.5%
+    6_nodes p(dmu > 0) = 77.8%, 58.8% p(d lnsig > 0) = 93.6%, 96.6%
+    mass_ratio
+    linear p(dmu > 0) = 2.5%, 2.5% p(d lnsig > 0) = 41.7%, 41.7%
+    3_nodes p(dmu > 0) = 13.4%, 6.7% p(d lnsig > 0) = 33.0%, 30.3%
+    4_nodes p(dmu > 0) = 18.7%, 10.7% p(d lnsig > 0) = 44.5%, 35.5%
+    5_nodes p(dmu > 0) = 21.7%, 19.4% p(d lnsig > 0) = 58.1%, 30.6%
+    6_nodes p(dmu > 0) = 30.0%, 35.3% p(d lnsig > 0) = 65.5%, 51.7%
+    redshift
+    linear p(dmu > 0) = 16.2%, 16.2% p(d lnsig > 0) = 92.7%, 92.7%
+    3_nodes p(dmu > 0) = 14.2%, 13.9% p(d lnsig > 0) = 95.6%, 95.6%
+    4_nodes p(dmu > 0) = 19.6%, 16.6% p(d lnsig > 0) = 98.0%, 97.9%
+    5_nodes p(dmu > 0) = 17.0%, 13.6% p(d lnsig > 0) = 88.8%, 90.7%
+    6_nodes p(dmu > 0) = 5.9%, 35.0% p(d lnsig > 0) = 98.6%, 77.3%
+    
+3) When considering the trend between chi_eff and redshift z, the
+authors consider a spline node up to a very high redshift of z = 2.3.
+This is addressed in footnote [83], but I still think it should be
+stated more prominently in the figure captions that there are very
+likely no detections above z = 1, so that the posterior is expected to
+be dominated by the prior above this redshift (which one can see
+pretty clearly in the spline model). For example,
+https://ui.adsabs.harvard.edu/abs/2023ApJ...957L..31F/abstract show
+that the maximum merger redshift in GWTC-3 is around z = 1.
+
+    We agree with the referee's assessment. We moved the footnote [83] into the main text, and added notes to each figure caption about this point. Indeed one of the points this article is trying to make is that linear models do not accurately reflect our uncertainty about the spin population in the high redshift/small mass ratio regimes, where we have little information. 
+
+    Specifically, we added the lines 
+
+    "For the spline model, the model inference is increasingly prior-driven at small mass ratios, where there is little information in the data."
+    and
+    "We emphasize that there is very little information in the data at $z \gtrsim 1$, hence the spline inference is prior-driven at these higher redshifts. This is in contrast to the linear model."
+
+    to Fig. 1 and Fig. 3 respectively. 
+
+4) For the synthetic catalogs in Sec. IV, the authors state "We then
+select detected events on a network matched filter SNR rho > 9, and
+generate a set of Monte Carlo injections for estimating the selection
+efficiency consistent with this detection criterion." Selecting
+synthetic events based on a matched-filter SNR is different from the
+assumption of the typical population likelihood, in which both the
+selection cut and the parameter estimation for each event are subject
+to the same noise fluctuations. (This is the case for real data, where
+the SNR "observed" by the detectors is the matched filter SNR plus
+some scatter that correlates with the uncertainties on the inferred
+parameters.) The naive way to generate synthetic catalogs assumes some
+noise fluctuations for the sake of mock parameter estimation, but
+neglects those noise fluctuations when selecting "detected" events and
+corresponding injections. I am wondering if this is what the authors
+did for their synthetic catalog. If so, the standard population
+likelihood is not technically consistent with the data generation, and
+accounting for this requires essentially modifying the parameter
+estimation prior so that there are no posterior samples corresponding
+to a matched filter SNR rho > 9. There is a better explanation of this
+issue in Appendix A.2 of
+https://ui.adsabs.harvard.edu/abs/2023arXiv231002017E/abstract.
+
+    We agree that this is an important caveat. We added a description of the issue at the end of paragraph 4 in section IV:
+
+    "This kind of selection criterion implicitly depends on the true binary system parameters, which is not a physical assumption \footnote{There is an issue here with nomenclature. Often, the matched-filter SNR is defined as a \textit{maximization} over a fixed signal bank, however for synthetic catalogs it is typical to compute the matched-filter SNR with the signal from the true source parameters. These statistics are conditioned on different things: the former is conditioned only on the data, because the signal bank is fixed, while the latter is conditioned on the data \textit{and} the true signal parameters.}. This means that the hierarchical likelihood of Eq. 3 should be slightly modified to match this different selection criterion. However, we use the same likelihood of Eq. 3 as an approximation. The bias is likely small for catalogs of relatively small size, such as the ones in this work, but it should be noted that this may be present in our inferences on synthetic catalogs \cite{Essick:2023upv}."
+

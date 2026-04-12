@@ -1,0 +1,70 @@
+\documentclass[%
+ reprint,
+ amsmath,amssymb,
+ aps,
+ prd,nofootinbib,nobibnotes,
+ superscriptaddress,groupedaddress,
+]{revtex4-2}
+
+\bibliographystyle{apsrev4-1}
+
+\usepackage{graphicx}
+\usepackage{dcolumn}
+\usepackage{bm}
+\usepackage[dvipsnames, usenames]{xcolor}
+\usepackage{acronym}
+\usepackage[hidelinks]{hyperref}
+\usepackage{physics}
+\usepackage{orcidlink}
+
+\graphicspath{{referee-plots}}
+
+\newcommand{\red}[1]{{\color{Red} #1}}
+\newcommand{\jh}[1]{{\color{orange}JH: #1}}
+\newcommand{\mm}[1]{{\color{cyan}MM: #1}}
+\newcommand{\sa}[1]{{\color{violet}SA: #1}}
+\newcommand{\sv}[1]{{\color{BurntOrange}SV: #1}}
+\newcommand{\comment}[1]{}
+
+\newcommand{\ligo}{\affiliation{LIGO Laboratory, Massachusetts Institute of Technology, Cambridge, MA 02139, USA}}
+\renewcommand{\mit}{\affiliation{Kavli Institute for Astrophysics and Space Research and Department of Physics, Massachusetts Institute of Technology, Cambridge, MA 02139, USA}}
+
+\begin{document}
+
+\begin{figure*}
+\centering
+\includegraphics[width=0.49\linewidth]{chiq_double_correlated.pdf}
+\includegraphics[width=0.49\linewidth]{chiq_double_correlated_z0is1.0.pdf}
+\caption{\textit{Left.} Inferred comoving merger rate density $\mathcal{R}(\chi_\mathrm{eff}, q;z=0.2)$ at a fixed redshift $z=0.2$ for a simulated population in which there is a three-dimensional correlation between mass ratio, redshift and $\chi_\mathrm{eff}$. \textsc{PixelPop} is used to measure the merger rate jointly over mass ratio $q$ and effective spin $\chi_\mathrm{eff}$, but neglects the correlation with redshift. The central panel displays the two-dimensional posterior median, with lower to higher values shaded darker to brighter. The underlying true population is also sliced at $z=0.2$, and visualized with dashed black lines enclosing 50\%, 90\%, and 99\% of the distribution. The upper panel shows slices $\mathcal{R}(\chi_\mathrm{eff}=0,q)$ (blue) and $\mathcal{R}(\chi_\mathrm{eff}=0.25,q)$ (orange). The solid lines gives the posterior median and the shaded regions encloses the 90\% posterior credible regions. The dashed lines give the marginal distributions of the true population. Similarly, the right-hand panel shows slices $\mathcal{R}(\chi_\mathrm{eff},q=1)$ (blue) and $\mathcal{R}(\chi_\mathrm{eff},q=0.6)$ (orange).\textit{Right.} The same as on the left hand size, with the redshift sliced at $z=1.0$.}
+\label{fig:qchi_doublecor}
+\end{figure*}
+
+
+\begin{figure*}
+\centering
+\includegraphics[width=0.49\linewidth]{spearman_correlations.pdf}
+\includegraphics[width=0.49\linewidth]{spearman_correlations_z0is1.0.pdf}
+\caption{Posterior (solid lines) and prior (dashed lines) distributions for the spearman correlation coefficient for the synthetic population with a three dimensional correlation, and when PixelPop only models the correlation between mass ratio and effective spin. On the left hand panel is when the redshift is sliced at $z=0.2$, and on the right is when the redshift is sliced at $z=1.0$. The true value at these redshift slices is marked with a vertical black line. The histograms look the same because the slicing at different redshifts represents a constant rescaling for each hyperposterior sample--this is baked in the assumption that redshift is uncorrelated with mass ratio and effective spins. The Spearman correlation is invariant to a constant rescaling.
+}
+\label{fig:Spearman_zchi_uncor}
+\end{figure*}
+
+\begin{figure*}
+\centering
+\includegraphics[width=0.49\linewidth]{chiz_double_correlated.pdf}
+\includegraphics[width=0.49\linewidth]{chiz_double_correlated_q0is0.6.pdf}
+\caption{\textit{Left.} Inferred comoving merger rate density $\mathcal{R}(\chi_\mathrm{eff},q=1;z)$ for a simulated population in which there is a three-dimensional correlation between mass ratio, redshift and $\chi_\mathrm{eff}$. \textsc{PixelPop} is used to measure the merger rate jointly over redshift $z$ and effective spin $\chi_\mathrm{eff}$, but neglects the correlation with mass ratio. The central panel displays the two-dimensional posterior median, with lower to higher values shaded darker to brighter. The underlying true population is also sliced at $q=1$ equal mass ratios, and is visualized with dashed black lines enclosing 50\%, 90\%, and 99\% of the distribution. The upper panel shows slices $\mathcal{R}(\chi_\mathrm{eff}=0;z)$ (blue) and $\mathcal{R}(\chi_\mathrm{eff}=0.25;z)$ (orange). The solid lines gives the posterior median and the shaded regions encloses the 90\% posterior credible regions. The dashed lines give the marginal distributions of the true population. Similarly, the right-hand panel shows slices $\mathcal{R}(\chi_\mathrm{eff};z=0.1)$ (blue) and $\mathcal{R}(\chi_\mathrm{eff};z=0.75)$ (orange). \textit{Right.} The same as on the left hand side, where the mass ratio is fixed to the $q=0.6$ slice.}
+\label{fig:zchi_doublecor}
+\end{figure*}
+
+
+\begin{figure*}
+\centering
+\includegraphics[width=0.49\linewidth]{spearman_broadening.pdf}
+\includegraphics[width=0.49\linewidth]{spearman_broadening_q0is0.6.pdf}
+\caption{Posterior (solid lines) and prior (dashed lines) distributions for the Spearman broadening coefficient for the synthetic population with a three dimensional correlation, and when PixelPop only models the correlation between redshift and effective spin. On the left is the Spearman broadening for the slice $q=1$, while on the right is the Spearman broadening coefficient for the slice $q=0.6$. The true value for each mass ratio slice is marked with a vertical black line. The histograms look the same because the slicing at different mass ratios represents a constant rescaling for each hyperposterior sample--this is baked in the assumption that mass ratio is uncorrelated with redshift and effective spins. The Spearman correlation is invariant to a constant rescaling.}
+\label{fig:Spearman_zchi_doublecor}
+\end{figure*}
+
+
+\end{document}

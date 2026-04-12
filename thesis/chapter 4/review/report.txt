@@ -1,0 +1,83 @@
+----------------------------------------------------------------------
+Report of Referee A -- LU19707/Heinzel
+----------------------------------------------------------------------
+
+This manuscript focuses on inferring the population properties of
+binary black holes~(BBHs) using the non-parametric population model
+PixelPop, the details of which are summarized by the authors in an
+accompanying methods paper submitted to PRD. The method involves
+pixelating the 2d subspace of specific BBH parameters into
+high-resolution bins and inferring the merger rate density in each bin
+from GW data using a conditional autoregressive prior. Free of the
+strong assumptions that parametric population models rely on, the
+authors can constrain features in the joint distribution of pairwise
+BBH parameters while being driven by the data instead of a priori
+considerations regarding BBH formation channels. The paper is well
+written and the main results are presented in a manner accessible to a
+broad audience.
+
+While the method itself is novel and has several advantages and a few
+disadvantages relative to existing non-parametric population inference
+methodologies, I have a major concern regarding whether or not the
+current set of results based on GWTC-3 data “substantially advances
+fundamental or applied physical science”, which I elaborate below.
+
+The method used to obtain the results is novel, innovative, and boasts
+significantly higher flexibility in reconstructing the 2d distribution
+of specific pairs of BBH parameters, than similar existing methods.
+However, the results themselves do not constitute something
+substantially new to the field of BBH formation and populations that
+was not already known before.
+
+The primary results presented in the Letter are:
+
+1) A non-parametric constraint on the joint population distribution of
+BBH primary mass and redshift. “Within posterior uncertainty”, the
+authors find no evidence of mass-redshift correlation in the BBH
+population using GWTC-3 data (Fig. 1), which is consistent with the
+findings of existing non-parametric and semi-parametric explorations
+of the same (such as https://arxiv.org/abs/2304.08046, and
+https://arxiv.org/pdf/2111.13991). Hence these results, while
+interesting as validation studies of existing ones, do not represent
+new astrophysical findings.
+
+2) A non-parametric constraint on the joint population distribution of
+BBH asymmetric mass ratio and effective inspiral spin. The authors
+find that the merger rate decreases at smaller mass ratio and higher
+effective spin values indicating the existence of a population-level
+anti-correlation between effective spin and mass ratio (Fig. 2). This
+is consistent with the findings of existing parametric and
+semi-parametric studies (eg https://arxiv.org/abs/2307.15278,
+https://arxiv.org/abs/2312.00993). While this result serves as
+validation of existing results using a highly flexible population
+model, they do not represent new findings in the field.
+
+3) A non-parametric constraint on the joint population distribution of
+BBH redshifts and effective inspiral spins. The authors find that the
+effective spin distribution broadens with redshift. This is consistent
+with the findings of existing parametric and semi-parametric studies
+(eg https://arxiv.org/abs/2204.01578,
+https://arxiv.org/abs/2312.00993). The authors also find hints of a
+new aspect of this spin redshift correlation in which the median
+merger rate at lower redshifts is higher for effective spin = 0 than
+at effective spin=0.25 . However the authors themselves note that this
+feature can be non-existent up to posterior uncertainty. Again, these
+results validate the findings of existing analyses on the same dataset
+but do not contain anything substantially new.
+
+4) For the mass-redshift analysis, the authors also demonstrate that
+the inference of such correlations are “fundamentally limited by the
+detector horizon”. This is an interesting point to note in GW-based
+population inference but again, does not constitute a new
+astrophysical result.
+
+To summarize, the non-parametric constraints on the population
+properties of BBHs presented in this Letter corroborate the findings
+of existing parametric and non-parametric studies and do not represent
+new astrophysical results. The high flexibility of the method makes
+these results interesting validations of past findings and hence
+suitable for submission to other physical review journals such as
+Physical Review D, APJ or lower yet significantly high-impact Letter
+format journals such as MNRAS Letters. However, I do not believe the
+results are novel/impactful enough to the field of BBH populations and
+formations for a Physical Review Letters communication.

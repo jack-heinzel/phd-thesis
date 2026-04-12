@@ -1,0 +1,114 @@
+\documentclass[
+ reprint,
+ amsmath,
+ amssymb,
+ aps,
+ prl,
+ nofootinbib,
+ nobibnotes,
+]{revtex4-2}
+
+\bibliographystyle{apsrev4-1}
+
+\usepackage{graphicx}
+\usepackage{dcolumn}
+\usepackage{bm}
+\usepackage[dvipsnames, usenames]{xcolor}
+\usepackage{acronym}
+\usepackage[hidelinks]{hyperref}
+\usepackage{physics}
+\usepackage{orcidlink}
+
+\graphicspath{{plots}}
+
+\newcommand{\rednote}[1]{{\color{Red} #1}}
+\newcommand{\mm}[1]{{\color{cyan}MM: #1}}
+\newcommand{\jh}[1]{{\color{orange}JH: #1}}
+\newcommand{\sv}[1]{{\color{BurntOrange}SV: #1}}
+\newcommand{\comment}[1]{}
+\newcommand{\heading}[1]{\textbf{\textit{#1.}}}
+
+\newcommand{\ligo}{\affiliation{LIGO Laboratory, Massachusetts Institute of Technology, Cambridge, MA 02139, USA}}
+\renewcommand{\mit}{\affiliation{Kavli Institute for Astrophysics and Space Research and Department of Physics, Massachusetts Institute of Technology, Cambridge, MA 02139, USA}}
+
+\begin{document}
+
+\title{Supplemental material: Nonparametric analysis of correlations in the binary black hole population with LIGO--Virgo--KAGRA data}
+
+\author{Jack Heinzel\,\orcidlink{0000-0002-5794-821X}}
+\email{heinzelj@mit.edu}
+\ligo\mit
+
+\author{Matthew Mould\,\orcidlink{0000-0001-5460-2910}}
+\ligo\mit
+
+\author{Salvatore Vitale\,\orcidlink{0000-0003-2700-0767}}
+\ligo\mit
+
+\date{\today}
+
+\maketitle
+
+We include the analysis of additional pairwise correlations in LIGO--Virgo--KAGRA (LVK) data from the first three gravitational-wave (GW) catalogs using \textsc{PixelPop}. Below, we infer the joint distributions of: (1) primary binary black hole (BH) mass $m_1$ and effective spin $\chi_\mathrm{eff}$; (2) $m_1$ and binary mass ratio $q$; and (3) BH spin magnitudes $a$ and orbital misalignment angles $\theta$.
+
+\heading{Primary mass and effective spin}---\citeauthor{Ray:2024hos} \cite{Ray:2024hos} find evidence that the $\chi_\mathrm{eff}$ distribution is different for merging binary BHs with masses in the range $[30M_\odot,40M_\odot]$, using a three-dimensional binned Gaussian process prior to model primary mass, secondary mass, and effective spin. We use \textsc{PixelPop} to infer the merger rate density $\mathcal{R}(m_1,\chi_\mathrm{eff};z)$ with 100 uniform bins in both $\ln m_1$ between $m_1=2M_\odot$ and $m_1=100M_\odot$ and $\chi_\mathrm{eff}$ over $(-1,1)$. We plot the inferred merger-rate density evaluated at $z=0.2$ in Fig.~\ref{fig:m1chi}.
+
+\begin{figure}
+\centering
+\includegraphics[width=1\linewidth]{m1x.pdf}
+\caption{
+Comoving merger rate density $\mathcal{R}(\ln m_1, \chi_{\rm eff}; z) = m_1\mathcal{R}(m_1, \chi_{\rm eff}; z)$ as a function of primary mass $m_1$ and effective spin $\chi_\mathrm{eff}$, evaluated at a fixed redshift $z=0.2$. The central panel displays the joint two-dimensional posterior median. The merger rate density evaluated at $\chi_\mathrm{eff}=0$ (blue) and $\chi_\mathrm{eff}=0.25$ (orange) is shown as a function of $m_1$ in the upper panel, and evaluated at $m_1=10 M_\odot$ (blue) and $m_1=35 M_\odot$ (orange) as a function of $\chi_\mathrm{eff}$ in the right-hand panel. For the one-dimensional slices the bold line gives the posterior median while the shaded region encloses the 90\% symmetric credible region.}
+\label{fig:m1chi}
+\end{figure}
+
+We find no evidence for different effective-spin distributions at different primary masses. Due to the different nonparametric approaches, this is not necessarily at odds with the findings of \citeauthor{Ray:2024hos} \cite{Ray:2024hos}. Since we do not jointly model the secondary masses in our analysis, this may suggest that when modeled independently, the two component BH mass distributions \cite{Fishbach:2019bbm, Farah:2023swu} have different $\chi_\mathrm{eff}$ distributions. However, no evidence for this has previously been found with parametric population models \cite{Mould:2022xeu}. Interestingly, when modeling the joint $m_1$--$\chi_\mathrm{eff}$ distribution an additional mode between $10<m_1/M_\odot<30$ appears at $\chi_\mathrm{eff}=0$, but at low significance.
+
+\heading{Primary mass and mass ratio}---To assess differences between the component mass distributions, we run \textsc{PixelPop} to infer the merger-rate density $\mathcal{R}(m_1,q;z)$ jointly over primary mass $m_1$ and mass ratio $q$ with the same bin placement as previously. As \textsc{PixelPop} allows for any correlations over the parameter space, this is entirely equivalent to modeling the joint distribution of component masses with a reparametrization, as in Refs. \cite{KAGRA:2021duu, Sadiq:2023zee, Ray:2023upk, Ray:2024hos, Fishbach:2019bbm, Farah:2023swu}. We show the \textsc{PixelPop} results, evaluated at $z=0.2$, in Fig.~\ref{fig: m1q}.
+
+\begin{figure}
+\centering
+\includegraphics[width=1\linewidth]{m1q.pdf}
+\caption{
+Comoving merger rate density $\mathcal{R}(\ln m_1,q;z) = m_1\mathcal{R}(m_1,q;z)$ as a function of primary mass $m_1$ and mass ratio $q$, evaluated at a fixed redshift $z=0.2$. The central panel displays the joint two-dimensional posterior median. The merger rate density evaluated at $q=0.7$ (blue) and $q=1$ (orange) is shown as a function of $m_1$ in the upper panel, and evaluated at $m_1=10 M_\odot$ (blue) and $m_1=35 M_\odot$ (orange) as a function of $q$ in the right-hand panel. For the one-dimensional slices the bold line gives the posterior median while the shaded region encloses the 90\% symmetric credible region.}
+\label{fig: m1q}
+\end{figure}
+
+There is a potential trend in the primary mass distribution shifting to larger masses for mass ratios further from unity, and the marginal mass-ratio distribution may be flatter at larger primary masses. However, within the large \textsc{PixelPop} posterior uncertainties the merger rate may also be uncorrelated and even flat over component masses.
+
+\heading{Component spins}---We also perform a nonparametric inference on the joint distribution of the component spins using \textsc{PixelPop}. These are specified by the dimensionless spin magnitudes $a_1$, $a_2$ and the polar angles $\theta_1$, $\theta_2$ between the component BH spin vectors and the binary orbital angular momentum for the primary (1) and secondary (2) BHs, respectively. We assume that the spins are independent and identically (IID) distributed. Phrased in terms of the comoving differential merger rate density $\mathcal{R} ( a , \cos\theta ; z )$, this means that
+\begin{align}
+& \mathcal{R} ( a_1 , \cos\theta_1 , a_2 , \cos\theta_2 ; z )
+\nonumber \\
+& =
+\frac
+{ \mathcal{R} ( a_1 , \cos\theta_1 ; z ) \mathcal{R} ( a_2 , \cos\theta_2 ; z ) }
+{ \int \dd{a} \dd{(\cos\theta)} \mathcal{R} ( a , \cos\theta ; z ) }
+\, .
+\end{align}
+This enforces the IID probability density for the component BH spins without double counting the overall merger rate.
+
+As the merger rate model contributes twice due to the IID assumption, the uncertainty in the Monte Carlo likelihood estimator mentioned in the Introduction and described in detail in Ref.~\cite{Heinzel:2024jlc} is effectively doubled. We therefore replace the parameter-estimation samples for a subset of GW events (GW150914, GW170608, GW170729, GW170818, GW170823, GW200129\_065458, and GW200112\_155838) with the samples from the \textsc{IMRPhenomXPHM} \cite{Pratten:2020ceb} analyses. This increases the minimum sample count over all events from 3,194 to 14,802, thereby reducing Monte Carlo uncertainty in estimating the likelihood for each event. Additionally, we create a custom set of $\approx 10^9$ simulated GW signals using the \textsc{IMRPhenomXP} waveform approximant \cite{Pratten:2020ceb}, added to Gaussian noise colored by representative power spectral densities from the first, second, and third LVK observing runs, selected according to their respective observing durations \cite{KAGRA:2013rdx}. Sources are drawn from a fixed population using the \textsc{Power Law + Peak} mass model and \textsc{Power Law} redshift model, with parameters chosen to match the distributions inferred in Ref.~\cite{KAGRA:2021duu}. The spin magnitudes are drawn uniformly over $[0,1)$ and their directions are drawn isotropically. The remaining parameters are drawn from the default uniform parameter-estimation priors \cite{LIGOScientific:2021djp}. We approximate the detection criterion by selecting signals with a network matched-filter signal-to-noise ratio $>9$ \cite{Essick:2023toz}, which leaves $\approx1.4\times10^6$ found signals, compared to $\approx4\times10^4$ in the public sensitvity estimates \cite{ligo_scientific_collaboration_and_virgo_2023_7890398}, thereby significantly reducing the Monte Carlo uncertainty when estimating selection effects.
+
+\begin{figure}
+\centering
+\includegraphics[width=1\linewidth]
+{combined_seeds_12_median_2d_filled_both_side.pdf}
+\caption{Comoving merger rate density $\mathcal{R}(a,\cos\theta;z)$ as a function of BH spin magnitude $a$ and polar misalignment angle $\theta$ between the BH spin vector and binary orbital angular momentum, evaluated at a fixed redshift of $z=0.2$. The central panel displays the joint two-dimensional posterior median. The merger rate density evaluated at $\cos\theta=1$ (blue) and $\cos\theta=-1$ (orange) is shown as a function of $a$ in the upper panel, and evaluated at $a=0.3$ (blue) and $a=0.75$ (orange) as a function of $\cos\theta$ in the right-hand panel. The bold lines  the posterior medians while the shaded bands enclose the 90\% symmetric credible regions.}
+\label{fig: at median}
+\end{figure}
+
+In Fig. \ref{fig: at median}, we show the inferred merger rate density over spin magnitudes and tilts evaluated at a fixed redshift $z=0.2$. There is a preference for more slowly spinning BHs positively aligned with the binary orbital angular momentum, as noted in our analyses of the effective spin $\chi_\mathrm{eff}$ distribution. However, there are large uncertainties in the spin distributions, particularly the directions which are also consistent with being isotropic. Information about spins in the binary BH population mostly comes from effective spin degrees of freedom \cite{Miller:2024sui}, primarily $\chi_\mathrm{eff}$ which drives the parameter-estimation uncertainty and to a lesser extent the effective precessing spin parameter $\chi_\mathrm{p}$ \cite{Hannam:2013oca, Schmidt:2014iyl}. If there is no additional information in the data beyond the effective spins then any component-spin distributions that are consistent with the inferred effective-spin distributions are equally favored.
+
+We illustrate this in Fig.~\ref{fig: spins} by plotting the marginal spin magnitude and tilt probability densities inferred by \textsc{PixelPop} and the implied marginal distributions on the effective spins $\chi_\mathrm{eff}$ and $\chi_\mathrm{p}$, computed by renormalizing the merger rate density. These are compared to the \textsc{Default} spin parametric model from Ref.~\cite{KAGRA:2021duu}. Despite \textsc{PixelPop} having much larger posterior uncertainties compared to the parametric model, particular over $\cos\theta$, the uncertainties over $\chi_\mathrm{eff}$ are much smaller and comparable to the parametric analysis. Additionally, while the strong parametric $\textsc{Default}$ model enforces $p(a=0)=0$ a priori, with \textsc{PixelPop} we find that the spin magnitude distribution in fact peaks toward 0. Similarly, the $\cos\theta$ distribution is not required to peak at $\cos\theta=1$ \cite{Vitale:2022dpa}, in contrast to the assumptions of the $\textsc{Default}$ model.
+
+\begin{figure*}
+\centering
+\includegraphics[width=0.95\linewidth]
+{spins_lite.pdf}
+\caption{Marginal distributions of component and effective BH spins inferred with GWTC-3. BH spin magnitudes $a$ and BH spin--orbit misalignment angles $\theta$ are shown in the top and bottom left panels, respectively. Effective aligned and precessing spins, $\chi_\mathrm{eff}$ and $\chi_\mathrm{p}$, are shown in the top and bottom right panels, respectively. The result of our nonparametric \textsc{PixelPop} analysis are shown in green and are compared to the parametric \textsc{Default} spin analysis of Ref.~\cite{KAGRA:2021duu}. The bold lines denote posterior medians while the shaded regions enclose the 90\% symmetric credible regions.}
+\label{fig: spins}
+\end{figure*}
+
+\bibliography{supp}
+
+\end{document}

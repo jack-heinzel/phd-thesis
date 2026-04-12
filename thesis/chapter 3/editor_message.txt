@@ -1,0 +1,37 @@
+Dear editors,
+
+We are grateful for your continuing support in helping us review this manuscript. 
+
+We want to reach out to be clear about some concerns we have had with the referee. After delaying on a response for months, the referee has stood by an unreasonable request. To recap, in the original response the referee mentioned that it would be good to test our model against a population in which there is a three dimensional correlation, but we only allow our model to account for two dimensional correlations. While it is true that populations likely have three dimensional (or more) correlations, the test that the referee is compelling us to do is not useful. Obviously, if a model neglects some feature, it cannot find that feature.
+
+Though it would be useful for the community to study the impact of model misspecification, doing it correctly would represent an expensive study which would dwarf the analyses already present in this paper. In a population analysis, each step is computationally expensive. A study on model misspecification would need to perform multiple population analyses on a variety of different underlying populations, and this rapidly becomes very expensive.
+
+Therefore, we believe the referee's requests are both unreasonably expensive and out of the scope of this paper. We believe we have satisfactorily addressed the requests in our reply, however we also wanted to make our feelings clear to you, the editors.
+
+Thanks again for your help, and we wish you a restful holiday season. 
+
+Best wishes,
+Jack Heinzel, on behalf of the authors
+
+
+=== Salvo's proposed text 
+
+
+Dear Editors,
+
+We are grateful for your help getting the manuscript reviewed. Since our response to the referee is on the long side, we wanted to highlight here an important point. 
+
+The referee keeps asking that we test our model against a population in which a three-dimensional correlation exists, but we only allow our model to account for two-dimensional correlations. While it is absolutely correct that the true astrophysical populations likely have three-dimensional (or more) correlations, we do not believe that the test that the referee is requesting is necessary since in this paper we never claim that our method would give unbiased results in general. We limit ourselves to present a method that improves significantly upon existing ones in the case of *2D* correlations. Why should we defend a claim we do not make?
+
+It is rather obvious that, if a model neglects some feature, it cannot find that feature. But if one uses this threshold to accept a paper, then no paper (including the LVK's) would have been published on this subject because they all neglect the possibility of high-dimension correlations. 
+
+Though it would be useful for the community to study the impact of such model misspecification, doing it correctly would represent an expensive body of work which would dwarf the analyses already present in this paper. In a population analysis, each step is computationally expensive. A study on model misspecification would need to perform multiple population analyses on a variety of different underlying populations (not just one as the referee is asking, if generic answers are sought), and this rapidly becomes very expensive. We are thus really talking of multiple papers and years of work, not an extra test to quickly add to a draft (As a side note, they are asking us to do so at a time where computing withing the LIGO/Virgo/KAGRA collaboration is (rightly) focussing on ongoing O4a analyses).
+
+Therefore, we maintain that this request by the referee is not justified by the statements we make in the paper. In our response we have tried to accomodate at least partially what they asked for to satisfy what we believe is their genuine curiosity, but have not added these extra results in the body as they would be off topic. We believe we have otherwise satisfactorily addressed all other requests. 
+
+Because the referee did not identify any issues with the method and with the results that we present in the paper (as opposed to those we could have presented!) we hope this won't prevent the paper from being accepted.
+
+Thanks again for your help, and we wish you a restful holiday season. 
+
+Best wishes,
+Jack Heinzel, on behalf of the authors

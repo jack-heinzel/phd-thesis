@@ -1,0 +1,45 @@
+----------------------------------------------------------------------
+Report of the Referee -- DU13758/Heinzel
+----------------------------------------------------------------------
+
+This manuscript reports the development of a new non-parametric inference framework (PixelPop) that can reconstruct the joint underlying distribution of compact binary coalescence (CBC) parameters from gravitational wave (GW) data while making minimal assumptions about the distribution’s functional form. The method relies on high-resolution binning of a two dimensional sub-space of the full CBC parameter space and then inferring the merger rate density in each bin using Bayesian methods and a conditional autoregressive prior. Using a thorough simulation campaign, the authors demonstrate that their method can correctly infer the presence, absence, and nature of features and correlations in the population-level distribution of CBC parameters. Furthermore, the authors show that there method is scalable with growing GW catalogs by analyzing mock datasets that comprise a million detected events. The paper is well-written and accessible to a broad audience. In an accompanying paper submitted to PRL, the authors have released the results obtained from real GW data using their new non-parametric method.
+
+I believe this approach will be crucial in extracting insights on compact binary formation from growing GW catalogs beyond the limitations of strongly model-dependent population inference methods. However, I have a few concerns (one major and a few minor) that I would like to see addressed after which I am happy to recommend this manuscript for publication to PRD. I list them below:
+
+
+Major comment:
+---------------------
+
+My primary concern regarding this study is as follows. Despite its high flexibility, PixelPop is restricted to search for only the two and one dimensional features of the CBC population in a model-dependent manner while imposing strong assumptions on features in the other dimensions. Given the primary argument in favour of non-parametric methods presented in this paper and references therein, I believe there needs to be a study of potential systematics arising from incorrect assumptions on population features in the other dimensions that are not binned up.
+
+I recommend the following two simulation recovery studies for understanding these systematics:
+
+Simulate a population wherein chi_eff is correlated with both mass ratio and redshift. Analyze with PixelPoP’s chi_eff-z, chi_eff-q and potentially
+chi_eff-m1 models. In each case assume that the parameters that are not binned are uncorrelated with the ones that are binned. (I would have really liked to see a chi_eff-m1 PixelPop analysis on the mock catalog with intrinsic chi_eff-q correlations already used in the paper).
+On the same simulated population of (1), analyze with PixelPop’s chi_eff-z, and chi_eff-q models but chose the functional form of the marginal parametric m1 distribution to be different from what is injected. For example, if the true population is Powerlaw+Peak in m1, choose PixelPoP’s parametric m1 model to be a Powerlaw and see how the reconstructed two-d distributions are affected by this incorrect assumption.
+
+I believe a study of these effects will be a useful addition to the paper and guide future analyses using PixelPop.
+
+
+Minor questions/comments:
+------------------------------------
+
+>> In Fig 9, the true value has posterior support but is a bit removed
+>> from the
+MAP. Is that an issue with this particular realization (I would be surprised given that there are 10^6 events)? Or is there some other intuitive explanation?
+
+
+>> Do the prior choices on kappa, sigma, and mu have any effect on their
+inferred posteriors?
+
+
+>> I would have liked to see a detailed specification of the reasons (if
+>> any),
+due to which the current analyses are restricted to be non-parametric in only two dimensions, and if there are any planned ways to bypass those specific issues in the future.
+
+
+
+Optional Suggestion:
+---------------------------
+
+An optional suggestion for the authors would be to publicly release their simulated data for the sake of reproducibility of results and so that the community might benefit from re-using them in future studies of new population inference methods.
