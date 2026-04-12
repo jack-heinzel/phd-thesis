@@ -1,0 +1,363 @@
+/*  mitthesis-style.css
+
+    v1.00, 2025-10-22
+	Author: John H. Lienhard
+	License: MIT License, https://ctan.org/license/mit
+    This css code styles the HTML rendering of mitthesis class
+*/
+
+
+/* These settings partially mimic the default printed page size and width. Aims for sans serif font. */
+body {
+    font-family: 	system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	font-size: 		12pt;       
+	line-height: 	1.2;     	/* ~14pt leading */
+	max-width: 		75ch;      	/* ~75 characters per line */
+	margin: 		36pt auto;  /* ~half-inch margins left/right, centered */
+	}
+
+
+/* Adjust fonts of title */
+
+div[data-pdf-se-type="Title"]
+	{
+	font-size: 20pt;
+	font-weight: 500; /* semi-bold */
+	}
+
+
+/* Heading font weights */
+
+h1[data-pdf-se-type="H1"],
+h1[data-pdf-se-type-original="chapter"],
+h2[data-pdf-se-type="H2"],
+h3[data-pdf-se-type="H3"],
+h4[data-pdf-se-type="H4"] 
+	{
+	font-weight: 700;
+	}
+
+/* Heading sizes */
+
+h1[data-pdf-se-type="H1"],
+h1[data-pdf-se-type-original="chapter"] { font-size: 20pt; }
+h2[data-pdf-se-type="H2"] { font-size: 18pt; }
+h3[data-pdf-se-type="H3"] { font-size: 16pt; }
+h4[data-pdf-se-type="H4"] { font-size: 12pt; }
+
+/* Numbered chapter and section titles are composed of two spans. The margin creates space between them. */
+
+h1[data-pdf-se-type="H1"] > span:first-of-type { margin-inline-end: 0.75em; }
+h2[data-pdf-se-type="H2"] > span:first-of-type,
+h3[data-pdf-se-type="H3"] > span:first-of-type,
+h4[data-pdf-se-type="H4"] > span:first-of-type { margin-inline-end: 0.5em; }
+
+
+/* Tables */
+	
+/* Increase the default separation of all table columns */
+
+table[data-pdf-se-type="Table"]
+	{
+	border-collapse: separate;
+	border-spacing: 0;
+	padding-left: 1em;
+	}
+
+table[data-pdf-se-type="Table"] th,
+table[data-pdf-se-type="Table"] td 
+	{ 
+	padding: 0; 
+	}
+
+table[data-pdf-se-type="Table"] th + th,
+table[data-pdf-se-type="Table"] td + td 
+	{
+	padding-left: 0.5em;
+	}
+
+/* Make all table header cells left-aligned */
+
+table[data-pdf-se-type="Table"] th 
+	{
+	text-align: left;
+	}
+
+/* Keep presentation tables (not data tables) at left margin */
+.ARIA-role-presentation[data-pdf-se-type="Table"]
+	{
+	  padding-left: 0;
+	  border-collapse: collapse;
+	}
+
+.ARIA-role-presentation[data-pdf-se-type="Table"] td + td,
+.ARIA-role-presentation[data-pdf-se-type="Table"] th + th 
+	{
+    padding-left: 	0.5em;
+	padding-right: 	0.5em;
+	}
+
+
+/* Captions */
+
+/* Let's keep caption labels on the same line as caption text */
+
+div[data-pdf-se-type="Caption"] > p[data-pdf-se-type="P"] 
+	{    
+	display: inline;	
+	}
+	
+/* with bold labels on captions, with space after label */	
+
+div[data-pdf-se-type="Caption"] > span[data-pdf-se-type="Lbl"] 
+	{
+	font-weight: bold;
+	}
+div[data-pdf-se-type="Caption"] > span[data-pdf-se-type="Lbl"]::after 
+	{
+	content: "";
+	display: inline-block;
+	width: 0.5em;
+	}
+
+
+/* Footnotes */
+
+/* inline footnotes with raised superscript */
+
+div[data-pdf-se-type-original="footnote"] > span[data-pdf-se-type-original="footnotelabel"] 
+	{ 
+	vertical-align: super;  
+	font-size: smaller;
+	}
+
+div[data-pdf-se-type-original="footnote"] [data-pdf-se-type="Part"] 
+	{
+	display: contents;
+	}
+	
+div[data-pdf-se-type-original="footnote"] [data-pdf-se-type="Part"] > p[data-pdf-se-type="P"] 
+	{
+	display: inline;
+	margin: 0;
+	}
+
+span[data-pdf-se-type-original="footnotemark"]
+   {
+   vertical-align: super;
+   font-size: smaller; 
+   }
+
+
+/* TOC, LOF, LOT layout */
+
+/* Baseline: flush all TOC containers */
+ol[data-pdf-se-type="TOC"] 
+	{
+	padding-inline-start: 	0;
+	margin-inline-start: 	0;
+	list-style: 			none; /* override bullets/numbers from inline styles */
+	}
+
+/* Indent any nested TOC level (works with wrapper <li> too) */
+ol[data-pdf-se-type="TOC"] ol[data-pdf-se-type="TOC"] 
+	{
+	padding-inline-start: 2em;
+	}
+
+/* TOCI items: spacing + no markers */
+li[data-pdf-se-type="TOCI"] 
+	{
+	list-style: 			none;
+	margin-inline-start: 	0;
+	margin-bottom: 			0.5em;
+	}
+
+/* Label spacing inside link */
+li[data-pdf-se-type="TOCI"] > a > span[data-pdf-se-type="Lbl"]
+	{
+	font-weight: 600;
+	display: inline-block;
+	margin-inline-end: 0.5em;
+	vertical-align: top;
+	}
+
+/* Ensure a gap between the link and the trailing page number text node */
+li[data-pdf-se-type="TOCI"] > a::after 
+	{
+	content: 	"";
+	display: 	inline-block;
+	width: 		0.5em; 
+	}
+
+/* Add 2em gap after the entire TOC block */
+:is(ul, ol)[data-pdf-se-type="TOC"] 
+	{ 
+	margin-block-end: 2em; 
+	}
+/* but NOT after nested TOC lists */
+li > :is(ul, ol)[data-pdf-se-type="TOC"] 
+	{ 
+	margin-block-end: 0; 
+	}
+
+
+/* Description lists */
+
+/* 3em hanging indent */
+
+dl.description > [data-pdf-se-type="LI"] 
+	{
+	margin: 		0 0 1em 0;
+	padding-left: 	3em;
+	text-indent: 	-3em;
+	}
+
+/* Label (term): bold, inline, with a space */
+
+dl.description dt[data-pdf-se-type="Lbl"] 
+	{
+	display: inline;
+	font-weight: 600;
+	}
+dl.description dt[data-pdf-se-type="Lbl"]::after 
+	{
+	content: " ";
+	}
+
+/* Definition body: keep block container; flatten inner wrappers */
+
+dl.description dd[data-pdf-se-type="LBody"]
+	{
+	display: 	block;   /* <- avoids block-in-inline issues */
+	margin: 	0;
+	}
+dl.description dd[data-pdf-se-type="LBody"] > div 
+	{
+	display: contents;
+	}
+
+/* First paragraph runs in; subsequent paragraphs break and align to the hang */
+
+dl.description dd[data-pdf-se-type="LBody"] p 
+	{
+	display: 	inline;
+	margin: 	0;
+	}
+dl.description dd[data-pdf-se-type="LBody"] p + p 
+	{
+	display: 	block;     /* new paragraphs start on a new line */
+	margin-top: 0.5em;     /* paragraph spacing */
+	}
+
+/* Reference list adjustments (may affect other lists) */
+
+/* Flatten wrappers so label and reference text stay on the same line */
+ul[data-pdf-se-type-original="list"] li[data-pdf-se-type="LI"] > [data-pdf-se-type="LBody"],
+ul[data-pdf-se-type-original="list"] li[data-pdf-se-type="LI"] > [data-pdf-se-type="LBody"] > [data-pdf-se-type="Part"] 
+	{
+	display: contents !important;
+	}
+
+/* Keep first paragraph inline; later paragraphs break normally */
+ul[data-pdf-se-type-original="list"] li[data-pdf-se-type="LI"] p[data-pdf-se-type="P"] 
+	{
+	display: 	inline;
+	margin: 	0;
+	}
+ul[data-pdf-se-type-original="list"] li[data-pdf-se-type="LI"] p[data-pdf-se-type="P"] + p 
+	{
+	display: 	block;
+	margin-top: 0.5em;
+	}
+
+/* Add a space after each reference label */
+ul[data-pdf-se-type-original="list"] li[data-pdf-se-type="LI"] > span[data-pdf-se-type="Lbl"]::after 
+	{
+	content: " ";
+	}
+
+/* Reference block spacing — 1 em total, no hanging indent */
+ul[data-pdf-se-type-original="list"] li[data-pdf-se-type="LI"] 
+	{
+	list-style: none;
+	margin: 		0 0 1em 0;	/* increase bottom gap   */
+	padding: 		0;  		/* remove hanging indent */
+	text-indent: 	0; 			/* ensure flush left     */
+	}
+
+
+/* Nomenclature list — reduce item spacing (may affect other lists) */
+
+ul.list[data-pdf-se-type-original="list"] li[data-pdf-se-type="LI"] 
+	{
+	margin-bottom: 0.25em;   /* tighter vertical spacing */
+	}
+
+/* Flatten converter wrappers (already done in References css above) */
+
+/* Keep labels inline with their text — fixed 0.5em space */
+ul.list[data-pdf-se-type-original="list"]
+  li[data-pdf-se-type="LI"]  > span[data-pdf-se-type="Lbl"]::after 
+	{
+	content:	"";
+	display:	inline-block;
+	width:		0.5em;
+	}
+
+
+/* Other enumerated and itemized lists */
+
+/* Label inline with first line, paragraphs preserved */
+:where(ol[data-pdf-se-type-original="enumerate"],
+    ul[data-pdf-se-type-original="itemize"]) 
+      li[data-pdf-se-type="LI"] 
+	{
+	display: 		flex;      	/* put label and body on the same row 	*/
+	align-items: 	flex-start;	/* align label with top of body 		*/
+	column-gap: 	0.5em;     	/* space between label and text 		*/
+	margin-bottom: 	0.75em;		/* vertical separation between items 	*/
+	}
+
+/* Label stays in the left column */
+:where(ol[data-pdf-se-type-original="enumerate"],
+    ul[data-pdf-se-type-original="itemize"])
+      li[data-pdf-se-type="LI"] > span[data-pdf-se-type="Lbl"] 
+	{
+	flex: 0 0 auto;  /* no grow/shrink */
+	}
+
+/* Body flows in the right column; override inline-block from generator */
+:where(ol[data-pdf-se-type-original="enumerate"],
+    ul[data-pdf-se-type-original="itemize"])
+      li[data-pdf-se-type="LI"] > [data-pdf-se-type="LBody"]
+	{
+	flex: 		1 1 auto;
+	display: 	block !important;   /* ensures normal block flow   */
+	min-width: 	0;                  /* allow wrapping in flex item */
+	}
+
+/* Inner wrappers transparent to layout */
+:where(ol[data-pdf-se-type-original="enumerate"],
+    ul[data-pdf-se-type-original="itemize"])
+      li[data-pdf-se-type="LI"] > [data-pdf-se-type="LBody"] > [data-pdf-se-type="Part"] 
+	{
+	display: contents;
+	}
+
+/* Keep paragraphs as blocks so breaks are preserved */
+:where(ol[data-pdf-se-type-original="enumerate"],
+    ul[data-pdf-se-type-original="itemize"])
+      li[data-pdf-se-type="LI"] p[data-pdf-se-type="P"] 
+	{
+	display: 	block;
+	margin: 	0 0 0.5em 0;   /* paragraph spacing inside the body */
+	}
+
+/* remove any previously added pseudo-space */
+:where(ol[data-pdf-se-type-original="enumerate"],
+    ul[data-pdf-se-type-original="itemize"])
+      li[data-pdf-se-type="LI"] > span[data-pdf-se-type="Lbl"]::after	
+	{
+	content: none;
+	}
