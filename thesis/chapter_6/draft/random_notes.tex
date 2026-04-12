@@ -1,0 +1,400 @@
+\section{delete-later-idea for improved correction factor}
+
+
+Ok we want to compute 
+\beq
+\expectlarge{\frac{\exp[g(\Lambda)]}{\int d\Lambda'\exp[g(\Lambda')]}}
+\eeq
+but in general this is impossible. However, we can assume that 
+\beq
+g(\Lambda) = a_0 - \frac{1}{2}(\Lambda - \expect{\Lambda})^{T}A^{-1}(\Lambda - \expect{\Lambda}) + \delta(\Lambda),
+\eeq
+approximating the posterior as a Gaussian with a covariance matrix $A$, and where $\expect{\Lambda} = \int d\Lambda \Lambda p(\Lambda)$, where 
+\beq
+p(\Lambda) = \frac{\expect{\exp[g(\Lambda)]}}{\int d\Lambda' \expect{\exp[g(\Lambda')]}}
+\eeq
+is the theoretical unbiased posterior.
+
+Then, if we further approximate the draws from the GP $\delta(\Lambda) = d_0 + \vec{d}\cdot \Lambda$ as linear functions, then we can make some progress by computing the normalization analytically. Specifically, 
+\beq
+\int d\Lambda'\exp[g(\Lambda')] = \int d\Lambda\exp\left[
+a_0 - \frac{1}{2}(\Lambda - \expect{\Lambda})^{T}A^{-1}(\Lambda - \expect{\Lambda}) + d_0 + \vec{d}\cdot \Lambda
+\right]
+\eeq
+we can do the traditional completing the square trick, and get
+\beq
+\int d\Lambda'\exp[g(\Lambda')] = \int d\Lambda\exp\left[
+a_0 + d_0 - \frac{1}{2}\Lambda^{T}A^{-1}\Lambda + \Lambda^{T}A^{-1}\left(\expect{\Lambda} + A\vec{d}\right) - \frac{1}{2}\expect{\Lambda}^{T}A^{-1}\expect{\Lambda}
+\right]
+\eeq
+\beq
+\int d\Lambda'\exp[g(\Lambda')] = \int d\Lambda\exp\left[
+a_0  + d_0 - \frac{1}{2}(\Lambda - \expect{\Lambda} - A\vec{d})^{T}A^{-1}(\Lambda - \expect{\Lambda} - A\vec{d}) + \expect{\Lambda}\cdot\vec{d} + \frac{1}{2}\vec{d}^TA\vec{d}
+\right]
+\eeq
+\beq
+\int d\Lambda'\exp[g(\Lambda')] = \sqrt{(2\pi)^{D}\det(A)}\exp\left[
+a_0  + d_0 + \expect{\Lambda}\cdot\vec{d} + \frac{1}{2}\vec{d}^TA\vec{d}
+\right]
+\eeq
+So then,
+\beq
+\frac{\exp[g(\Lambda)]}{\int d\Lambda'\exp[g(\Lambda')]} = \exp\left[
+a_0 - \frac{1}{2}(\Lambda - \expect{\Lambda})^{T}A^{-1}(\Lambda - \expect{\Lambda}) + d_0 + \vec{d}\cdot \Lambda - \left(a_0 + d_0 + \expect{\Lambda}\cdot\vec{d} + \frac{1}{2}\vec{d}^TA\vec{d}\right)
+\right]\frac{1}{\sqrt{(2\pi)^{D}\det(A)}}
+\eeq
+or, being a bit loose with the definition of $p(\Lambda)$---THINK ABOUT THIS LATER---then
+\beq
+\frac{\exp[g(\Lambda)]}{\int d\Lambda'\exp[g(\Lambda')]} = p(\Lambda)\exp\left[
+\vec{d}\cdot \Lambda - \expect{\Lambda}\cdot\vec{d} - \frac{1}{2}\vec{d}^TA\vec{d}
+\right]
+\eeq
+But now comes the genius realization. Remember that 
+\beq
+A_{ij} = \int \Lambda_i\Lambda_jp(\Lambda)d\Lambda \qquad\qquad \expect{\Lambda}_i = \int \Lambda_ip(\Lambda)d\Lambda
+\eeq
+and so we can put these back in and write
+\beq
+\frac{\exp[g(\Lambda)]}{\int d\Lambda'\exp[g(\Lambda')]} = p(\Lambda)\exp\left[
+\sum_id_i\Lambda_i - \sum_id_i\int \Lambda_i p(\Lambda)d\Lambda - \frac{1}{2}\sum_{ij}d_id_j\int\Lambda_i\Lambda_jp(\Lambda)d\Lambda
+\right]
+\eeq
+or
+\beq
+\frac{\exp[g(\Lambda)]}{\int d\Lambda'\exp[g(\Lambda')]} = p(\Lambda)\exp\left[
+\delta(\Lambda) - \int \delta(\Lambda) p(\Lambda)d\Lambda - \frac{1}{2}\int\delta(\Lambda)^2p(\Lambda)d\Lambda
+\right]
+\eeq
+where we are thinking of $\delta(\Lambda)$ as a \textit{zero mean} GP. WLOG. So basically, $d_0 = 0$.
+
+
+Now this is an integral that can be done. Consider a multivariate gaussian $X$. We basically want to compute the integral
+\beq
+\expectlarge{\exp\left[X_j -\sum_it_iX_i -\frac{1}{2}\sum_it_iX_i^2\right]} = \expectlarge{\exp\left[X_j -\frac{1}{2}\sum_it_i\left((X_i+1)^2-1\right)\right]}
+\eeq
+where we identify $t_i = p(\Lambda)d\Lambda > 0$. Since $t_i$ is positive, we should be able to compute this in closed form, it's just a new gaussian basically. Now it will involve a determinant of the covariance matrix I think, which might get a little hairy, so this is something to investigate. BUT, the normalization of the GP already has this determinant, so it will be a weird ratio of these determinants, which is... yeah this is going to be interesting to see. Hm, since each $t_i$ is infinitesimal, probably we can do something? Like it will be a trace, I'm thinking? Hm very interesting.
+
+
+It's worth noting, without the quadratic term, we get the ordinary bias term that I've already derived. So that's interesting on its own.
+
+It turns out that the ratio of determinants is just a multiplicative constant that we don't care about. So the real complexity is in the following: it turns out by completing the square and that nonsense, we have
+\beq
+\propto \exp\left(\frac{1}{2}
+[\mathbbm{1}_j - \mathbbm{p}]^T\left[
+C^{-1} + \mathrm{diag}(\mathbbm{p})
+\right]^{-1}
+[\mathbbm{1}_j - \mathbbm{p}]
+\right)
+\eeq
+where $\mathbbm{p}$ is the vector of probability masses and $\mathbbm{1}_j$ is a vector of 0s with 1 on the $j^{\rm th}$ component.
+
+We have to also recall that we expect the $+0.5 C_{jj}$ term for the unbiased likelihood $e^g$. So we should subtract that out
+\beq
+\propto \exp\left(\frac{1}{2}
+[\mathbbm{1}_j - \mathbbm{p}]^T\left[
+C^{-1} + \mathrm{diag}(\mathbbm{p})
+\right]^{-1}
+[\mathbbm{1}_j - \mathbbm{p}] - \frac{1}{2}\mathbbm{1}_j^TC\mathbbm{1}_j
+\right)
+\eeq
+And of course, if $C << 1$, then notice that the $C^{-1}$ will dominate over ${\rm diag}(\mathbbm{p})$, so we're left with just
+\beq
+\lim_{C << 1}\to \propto \exp\left(-\int p(\Lambda')C(\Lambda, \Lambda')d\Lambda'
+\right)
+\eeq
+Which is the traditional expectation for the lowest order bias. Nice.
+
+So the idea here is that we can draw a bunch of samples from the biased posterior. Then we can compute the covariance matrix, numerically invert, add the diagonal, which I think we should add the IDENTITY diagonal?
+
+The crux of the issue is that we're technically estimating this thing. So like we have 
+\beq
+\exp\left(-\mathbbm{p}^T\left[
+C^{-1} + \mathrm{diag}(\mathbbm{p})
+\right]^{-1}
+\mathbbm{1}_j + \frac{1}{2}\mathbbm{1}_j^T\left(\left[
+C^{-1} + \mathrm{diag}(\mathbbm{p})
+\right]^{-1} - C\right)\mathbbm{1}_j
+\right)
+\eeq
+\beq
+\exp\left(-\mathbbm{p}^TC\left[
+\mathrm{diag}(\mathbbm{1}) + \mathrm{diag}(\mathbbm{p})C
+\right]^{-1}
+\mathbbm{1}_j + \frac{1}{2}\mathbbm{1}_j^T\left(\left[
+C^{-1} + \mathrm{diag}(\mathbbm{p})
+\right]^{-1} - C\right)\mathbbm{1}_j
+\right)
+\eeq
+now
+\beq
+\left[
+\mathrm{diag}(\mathbbm{1}) + \mathrm{diag}(\mathbbm{p})C
+\right]^{-1} = \left[\left[
+\int C(\Lambda, \Lambda'')p(\Lambda'')\delta(\Lambda' - \Lambda'') d\Lambda''
+\right] +\delta(\Lambda - \Lambda')
+\right]^{-1}
+\eeq
+\beq
+\left[
+\mathrm{diag}(\mathbbm{1}) + \mathrm{diag}(\mathbbm{p})C
+\right]^{-1}  = \left[\left[
+C(\Lambda, \Lambda')p(\Lambda')
+\right] +\delta(\Lambda - \Lambda')
+\right]^{-1}
+\eeq
+we also have via a Neumann series expansion, WHEN CONVERGENT:
+\beq
+\left[
+\mathrm{diag}(\mathbbm{1}) + \mathrm{diag}(\mathbbm{p})C
+\right]^{-1} \approx \mathrm{diag}(\mathbbm{1}) - \mathrm{diag}(\mathbbm{p})C + \left[\mathrm{diag}(\mathbbm{p})C\right]^2 - \left[\mathrm{diag}(\mathbbm{p})C\right]^3 ...
+\eeq
+\beq
+\approx \delta(\Lambda - \Lambda') - \int d\Lambda_1 p(\Lambda)\delta(\Lambda - \Lambda_1)C(\Lambda_1,\Lambda') + \int d\Lambda_1  d\Lambda_2d\Lambda_3 p(\Lambda)\delta(\Lambda - \Lambda_1)C(\Lambda_1,\Lambda_2)p(\Lambda_2)\delta(\Lambda_2 - \Lambda_3)C(\Lambda_3,\Lambda') - ...
+\eeq
+\beq
+\approx \delta(\Lambda - \Lambda') - p(\Lambda)C(\Lambda,\Lambda') + p(\Lambda)\int d\Lambda^{i}_1 p(\Lambda^{i}_1)C(\Lambda,\Lambda^{i}_1)C(\Lambda^{i}_1,\Lambda') - p(\Lambda)\int d\Lambda^{i}_1 d\Lambda^{i}_2 p(\Lambda^{i}_1)p(\Lambda^{i}_2)C(\Lambda,\Lambda^{i}_1)C(\Lambda^{i}_1,\Lambda^{i}_2)C(\Lambda^{i}_2,\Lambda') + ...
+\eeq
+\beq
+\approx \delta(\Lambda - \Lambda') - \int d\Lambda p(\Lambda)C(\Lambda,\Lambda') + \int d\Lambda d\Lambda^{i}_1p(\Lambda) p(\Lambda^{i}_1)C(\Lambda,\Lambda^{i}_1)C(\Lambda^{i}_1,\Lambda') - \int d\Lambda d\Lambda^{i}_1 d\Lambda^{i}_2 p(\Lambda)p(\Lambda^{i}_1)p(\Lambda^{i}_2)C(\Lambda,\Lambda^{i}_1)C(\Lambda^{i}_1,\Lambda^{i}_2)C(\Lambda^{i}_2,\Lambda') + ...
+\eeq
+which we can estimate each term with a set of $M$ IID draws $\Lambda_i \sim p(\Lambda)$ and we see
+\beq
+\approx 1 - \frac{1}{M}\sum_{i=1}^M C(\Lambda_i,\Lambda') + \frac{1}{M}\sum_{i=1}^M\frac{1}{M}\sum_{j=1}^MC(\Lambda_i,\Lambda_j)C(\Lambda_j,\Lambda') - \frac{1}{M}\sum_{i=1}^M\frac{1}{M}\sum_{j=1}^M\frac{1}{M}\sum_{k=1}^MC(\Lambda_i,\Lambda_j)C(\Lambda_j,\Lambda_k)C(\Lambda_k,\Lambda') + ...
+\eeq
+and reusing the Neumann series trick:
+\beq
+[{\rm diag}(\mathbbm{1}) + \frac{1}{M}C]^{-1}
+\eeq
+so this is badass a.f. We compute the covariance matrix across all posterior samples, call it $C$. We can then numerically invert it, add a diagonal 1/M to it, then numerically invert AGAIN. Then we average over one of the axes. (Looking at the first equation in the approximation, this seems most numerically stable). 
+
+Now, we also suspect that this procedure is correct ALWAYS, not just in the approximation to Neumann series and back again, because there is probably some functional analysis that we are not aware of, I mean we can also mumble something about convergence and analytic functions or something to argue the approximation should be universally valid. 
+
+So, we propose the following improved estimator correction, which should be asymptotically appropriate for removing the leading order biasing term, but also should be \textit{universally sharp} when the scattering from the true posterior is linear and the posterior is a Gaussian. 
+
+Wait not yet, we need to do the second term to be sure it works how we expect.
+\beq
+\exp\left(-\mathbbm{p}^T\mathrm{diag}(\mathbbm{p}^{-1})\left[
+C^{-1}\mathrm{diag}(\mathbbm{p}^{-1}) + \mathrm{diag}(\mathbbm{1})
+\right]^{-1}
+\mathbbm{1}_j + \frac{1}{2}\mathbbm{1}_j^T\left(\left[
+C^{-1} + \mathrm{diag}(\mathbbm{p})
+\right]^{-1} - C\right)\mathbbm{1}_j
+\right)
+\eeq
+\beq
+\frac{1}{2}\mathbbm{1}_j^T\left(CC^{-1}\left[
+C^{-1} + \mathrm{diag}(\mathbbm{p})
+\right]^{-1} - C\right)\mathbbm{1}_j
+\eeq
+\beq
+\frac{1}{2}\mathbbm{1}_j^T\left(C\left[
+\mathrm{diag}(\mathbbm{1}) + \mathrm{diag}(\mathbbm{p})C
+\right]^{-1} - C\right)\mathbbm{1}_j
+\eeq
+\beq
+\frac{1}{2}\mathbbm{1}_j^T\left(C\left[
+\mathrm{diag}(\mathbbm{1}) - \mathrm{diag}(\mathbbm{p})C + \mathrm{diag}(\mathbbm{p})C\mathrm{diag}(\mathbbm{p})C - \mathrm{diag}(\mathbbm{p})C\mathrm{diag}(\mathbbm{p})C\mathrm{diag}(\mathbbm{p})C + ...
+\right] - C\right)\mathbbm{1}_j
+\eeq
+\beq
+\frac{1}{2}\mathbbm{1}_j^T\left(\int d\Lambda' C(\Lambda, \Lambda') \left[
+\delta(\Lambda' - \Lambda_1) - p(\Lambda')C(\Lambda',\Lambda_1) + \int d\Lambda_2 p(\Lambda')C(\Lambda',\Lambda_1)p(\Lambda_2)C(\Lambda_2,\Lambda_1) - ...
+\right] - C\right)\mathbbm{1}_j
+\eeq
+ok and of course here we apply the same reasoning to do these integrals with MC integration, and so this is just the $jj$ component of
+\beq
+\frac{1}{2}\left(\int d\Lambda_1 C(\Lambda_j, \Lambda_1) \left[
+- p(\Lambda_1)C(\Lambda_1,\Lambda_j) + \int d\Lambda_2 p(\Lambda_1)C(\Lambda_1,\Lambda_2)p(\Lambda_2)C(\Lambda_2,\Lambda_j) - ...
+\right]\right)\mathbbm{1}_j
+\eeq
+\beq
+\frac{1}{2}\left[-\frac{1}{M}\sum_{k=1}^{M}C(\Lambda_j, \Lambda_k)C(\Lambda_k,\Lambda_j) + \frac{1}{M^2}\sum_{k=1}^M\sum_{l=1}^M C(\Lambda_j,\Lambda_k)C(\Lambda_k,\Lambda_l)C(\Lambda_l,\Lambda_j) - ...
+\right]
+\eeq
+\beq
+\frac{1}{2}\left(C[{\rm diag}(\mathbbm{1}) + \frac{1}{M}C]^{-1}-C\right)_{jj}
+\eeq
+Ok, that's amazing. So we want to compute the covariance matrix $C$ for all the biased posterior samples. Then, we numerically invert, add 1/M diagonal matrix, numerically invert that thing. This bad boy, call it 
+\beq
+B = [{\rm diag}(\mathbbm{1}) + \frac{1}{M}C]^{-1}
+\eeq
+gives the bias/correction vector 
+\beq
+\Gamma_i = -\frac{1}{M}\sum_{j=1}^M\sum_{k=1}^M C_{ik}B_{kj} + \frac{1}{2}\sum_{j=1}^MC_{ij}\left(B_{ji} - \delta_{ji}\right)
+\eeq
+so the \textit{correction} should be
+\beq
+w_i = \exp(-\Gamma_i) = \exp\left(\frac{1}{M}\sum_{j=1}^M\sum_{k=1}^M C_{ik}B_{kj} - \frac{1}{2}\sum_{j=1}^MC_{ij}\left(B_{ji} - \delta_{ji}\right)\right)
+\eeq
+this is sick, but if these give insane weights we're still SOL. So we will want to somehow be able to maybe sample ONCE, produce samples from the biased posterior, then compute a correction to add to the log-likelihood, then sample AGAIN. How can this be done? 
+
+Well, say we have a particular point $\Lambda$ that we want to estimate the bias for. We can do this by first computing the covariance between each point, maybe then we can argue the inverse thing $B$ will only slightly change with the inclusion of the extra point? Maybe yeah, let's do that. 
+
+So we have the covariance between our point $\Lambda$ and all the posterior samples. This is a vector $\vec{C}$ which we dot product with the vector mean $B$ along the second axis. This is the first term in the exponential of the gamma weight things. The second term might be an issue. $C_{ij}$ is here just a vector of covariances between the point of interest and our original biased posterior samples. $B_{ij}$ represents the vector of points which -- when dotted with a particular vector
+\beq
+\sum_j B_{ij}[\delta_{jk} + \frac{1}{M}C_{jk}] = \delta_{ik} = B_{ik} + \frac{1}{M}\sum_jB_{ij}C_{jk} 
+\eeq
+nah nah nah
+
+so the pesky term is this one:
+\beq
+\frac{1}{2}\left[-\frac{1}{M}\sum_{k=1}^{M}C(\Lambda_j, \Lambda_k)C(\Lambda_k,\Lambda_j) + \frac{1}{M^2}\sum_{k=1}^M\sum_{l=1}^M C(\Lambda_j,\Lambda_k)C(\Lambda_k,\Lambda_l)C(\Lambda_l,\Lambda_j) - ...
+\right]
+\eeq
+which we can think of as a \textit{row} vector multiplying a matrix multiplying a \textit{column} vector, where $\vec{C}$ is the vector of covariances between the point of interest, and the matrix $C(\Lambda_k, \Lambda_l)$ is the matrxi of covariances for the \textit{biased} posterior samples. 
+\beq
+-\frac{1}{2M}\vec{C}^T\left[\mathbbm{1} - \frac{1}{M}C(\Lambda_k,\Lambda_l) + \frac{1}{M^2}\sum_{\alpha=1}^MC(\Lambda_k,\Lambda_\alpha)C(\Lambda_\alpha,\Lambda_l) - ...
+\right]\vec{C}
+\eeq
+and of course, this is our favorite:
+\beq
+-\frac{1}{2M}\vec{C}^T B \vec{C}
+\eeq
+so we compute the amortized $B$ matrix \textit{once}, then we can compute in closed form the correction term rather easily.
+
+All together, it looks as
+\beq
+w_i = \exp(-\Gamma_i) = \exp\left(\vec{C}\cdot\vec{\langle B\rangle} - \frac{1}{2}\vec{C}^T \cdot \frac{B}{M}\cdot \vec{C}\right)
+\eeq
+where $B$ is the \textit{matrix}, the inverse of 1 plus the matrix of covariances of posterior samples divided by M, which is FIXED, only for the posterior samples. $\vec{C}$ is the vector of covariances between posterior samples and the point of interest, and $\langle\vec{B}\rangle$ is a vector, of mean $B$ over one axis (it doesn't matter bc B is symmetric).
+
+Ok this is officially badass. Hopefully it works lol.
+
+What about when we have just the density across an array of points? Going back to the og,  
+\beq
+\propto \exp\left(\frac{1}{2}
+[\mathbbm{1}_j - \mathbbm{p}]^T\left[
+C^{-1} + \mathrm{diag}(\mathbbm{p})
+\right]^{-1}
+[\mathbbm{1}_j - \mathbbm{p}] - \frac{1}{2}\mathbbm{1}_j^TC\mathbbm{1}_j
+\right)
+\eeq
+\beq
+\propto \exp\left(\frac{1}{2}
+[\mathbbm{1}_j - \mathbbm{p}]^TC\left[
+\mathrm{diag}(\mathbbm{1}) + \mathrm{diag}(\mathbbm{p})C
+\right]^{-1}
+[\mathbbm{1}_j - \mathbbm{p}] - \frac{1}{2}\mathbbm{1}_j^TC\mathbbm{1}_j
+\right)
+\eeq
+\beq
+\implies w_i \propto \exp\left(-\frac{1}{2}
+[\mathbbm{1}_j - \mathbbm{p}]^TC\left[
+\mathrm{diag}(\mathbbm{1}) + \mathrm{diag}(\mathbbm{p})C
+\right]^{-1}
+[\mathbbm{1}_j - \mathbbm{p}] + \frac{1}{2}\mathbbm{1}_j^TC\mathbbm{1}_j
+\right)
+\eeq
+
+Ok so the difficulty is in the proper estimation of $e^C$, we need to calculate the covariance in the estimator for $C$
+
+Our current method is this:
+
+\beq
+\hat{S}^2_q(\hat{\bm W}^\Lambda, \hat{\bm W}^{\Lambda'}) = \frac{1}{M_q-1}\left[\sum_{p=1}^{M_q}\hat{W}_{pq}^\Lambda\hat{W}_{pq}^{\Lambda'} - \frac{1}{M_q}\left(\sum_{i=1}^{M_q}\hat{W}_{pq}^\Lambda\right)\left(\sum_{p=1}^{M_q}\hat{W}_{pq}^{\Lambda'}\right)\right]
+\eeq
+
+\beq
+\exp\left(\int {\rm d}\Lambda' \sum_{p,q=1}^{M_q,N}\left[p(\Lambda') \frac{\partial \ln g(\hat{\bm W}^\Lambda)}{\partial \hat{W}^\Lambda_{pq}}  \frac{\partial \ln g(\hat{\bm W}^{\Lambda'})}{\partial \hat{W}^{\Lambda'}_{pq}}\hat{S}^2_q(\hat{\bm W}^\Lambda, \hat{\bm W}^{\Lambda'})\right]\right)
+\eeq
+
+but maybe we also try instead using an estimator for the moment generating functional, the \textit{empirical central moment generating functional}:
+\beq
+\ECMGF[f] = \frac{1}{N}\sum_{i=1}^N\exp\left(\int f(\Lambda)\left[X_i(\Lambda)-\frac{1}{N}\sum_{j=1}^N X_j(\Lambda)\right]\right)
+\eeq
+and notice that this is approximately
+\beq
+\EMGF[f] = \frac{1}{N}\sum_{i=1}^N\sum_{n=0}^\infty\frac{1}{n!}\left(\int f(\Lambda)X_i(\Lambda)d\Lambda\right)^n
+\eeq
+which is defined for realizations from a process $X_i(\Lambda)$. Now, just like other MGFs, moment generating functionals for sums of stochastic processes multiply, and if we multiply by some number $\alpha$, then we multiply the argument of the MGF $f\to \alpha f$. So say we have the RV which is the sum of a bunch of means of RVs, ie. 
+\beq
+\sum_{q=1}^N\frac{1}{M_q}\sum_{p=1}^{M_q}X_{pq}(\Lambda),
+\eeq
+then the ECMGF is 
+
+\subsection{random}
+
+\beq
+\hat{S}^2_q(\hat{\bm W}^\Lambda, \hat{\bm W}^{\Lambda'}) = \frac{1}{M_q-1}\left[\sum_{p=1}^{M_q}\hat{W}_{pq}^\Lambda\hat{W}_{pq}^{\Lambda'} - \frac{1}{M_q}\left(\sum_{i=1}^{M_q}\hat{W}_{pq}^\Lambda\right)\left(\sum_{p=1}^{M_q}\hat{W}_{pq}^{\Lambda'}\right)\right]
+\eeq
+
+\beq
+\exp\left(\int {\rm d}\Lambda' \sum_{p,q=1}^{M_q,N}\left[p(\Lambda') \frac{\partial \ln g(\hat{\bm W}^\Lambda)}{\partial \hat{W}^\Lambda_{pq}}  \frac{\partial \ln g(\hat{\bm W}^{\Lambda'})}{\partial \hat{W}^{\Lambda'}_{pq}}\hat{S}^2_q(\hat{\bm W}^\Lambda, \hat{\bm W}^{\Lambda'})\right]\right)
+\eeq
+
+\begin{align}
+\frac{\partial \hat{S}^2_q(\hat{\bm W}^\Lambda, \hat{\bm W}^{\Lambda'})}{\partial W_{ij}^\Lambda} &= \begin{cases}
+0 & {\rm if} \; j \neq q \\
+\frac{1}{M_q-1}\left[\hat{W}_{ij}^{\Lambda'} - \frac{1}{M_q}\left(\sum_{p=1}^{M_q}\hat{W}_{pq}^{\Lambda'}\right)\right] & {\rm if}\; j = q 
+\end{cases} \nn
+\\
+\frac{\partial \hat{S}^2_q(\hat{\bm W}^\Lambda, \hat{\bm W}^{\Lambda})}{\partial W_{ij}^\Lambda} &= \begin{cases}
+0 & {\rm if} \; j \neq q \\
+\frac{2}{M_q-1}\left[\hat{W}_{ij}^{\Lambda} - \frac{1}{M_q}\left(\sum_{p=1}^{M_q}\hat{W}_{pq}^{\Lambda}\right)\right] & {\rm if}\; j = q 
+\end{cases} \nn
+\\
+\frac{\partial \hat{S}^2_q(\hat{\bm W}^\Lambda, \hat{\bm W}^{\Lambda'})}{(\partial W_{ij}^\Lambda)^2} &= 0 \nn
+\\
+\frac{\partial^2 \hat{S}^2_q(\hat{\bm W}^\Lambda, \hat{\bm W}^{\Lambda'})}{(\partial W_{ij}^\Lambda)(\partial W_{ij}^{\Lambda'})} &= \begin{cases}
+0 & {\rm if} \; j \neq q \\
+\frac{1}{M_q-1}\left[1 - \frac{1}{M_q}\right] & {\rm if}\; j = q 
+\end{cases} = \begin{cases}
+0 & {\rm if} \; j \neq q \\
+\frac{1}{M_q} & {\rm if}\; j = q \end{cases} \nn
+\\
+\frac{\partial^2 \hat{S}^2_q(\hat{\bm W}^\Lambda, \hat{\bm W}^{\Lambda})}{(\partial W_{ij}^\Lambda)^2} &= \begin{cases}
+0 & {\rm if} \; j \neq q \\
+\frac{2}{M_q-1}\left[1 - \frac{1}{M_q}\right] & {\rm if}\; j = q 
+\end{cases} = \begin{cases}
+0 & {\rm if} \; j \neq q \\
+\frac{2}{M_q} & {\rm if}\; j = q 
+\end{cases}
+\label{eq: variance estimator derivatives}
+\end{align}
+
+
+\begin{gather}
+\hat{S}^2_q(\mathbb{E}[\hat{\bm W}^\Lambda], \mathbb{E}[\hat{\bm W}^{\Lambda'}]) = 0 \qquad \qquad \frac{\partial \hat{S}^2_q(\mathbb{E}[\hat{\bm W}^\Lambda], \mathbb{E}[\hat{\bm W}^{\Lambda}]) }{\partial W_{ij}^\Lambda} = 0
+\qquad \qquad  \frac{\partial^2 \hat{S}^2_q(\mathbb{E}[\hat{\bm W}^\Lambda], \mathbb{E}[\hat{\bm W}^{\Lambda}])}{(\partial W_{ij}^\Lambda)^2} = \begin{cases}
+0 & {\rm if} \; j \neq q \\
+\frac{2}{M_q} & {\rm if}\; j = q.
+\end{cases} \nn \\ 
+\frac{\partial \hat{S}^2_q(\mathbb{E}[\hat{\bm W}^\Lambda], \mathbb{E}[\hat{\bm W}^{\Lambda'}]) }{\partial W_{ij}^\Lambda} = 0 \qquad \qquad  \frac{\partial^2 \hat{S}^2_q(\mathbb{E}[\hat{\bm W}^\Lambda], \mathbb{E}[\hat{\bm W}^{\Lambda'}])}{(\partial W_{ij}^\Lambda)^2} = 0 \qquad \qquad 
+\frac{\partial^2 \hat{S}^2_q(\mathbb{E}[\hat{\bm W}^\Lambda], \mathbb{E}[\hat{\bm W}^{\Lambda'}])}{(\partial W_{ij}^\Lambda)(\partial W_{ij}^{\Lambda'})} = \begin{cases}
+0 & {\rm if} \; j \neq q \\
+\frac{1}{M_q} & {\rm if}\; j = q.
+\end{cases} 
+\label{eq: variance estimator derivatives expectation}
+\end{gather}
+
+\begin{align}
+\exp\left(\int {\rm d}\Lambda' \sum_{p,q=1}^{M_q,N}\left[p(\Lambda') \frac{\partial \ln g(\hat{\bm W}^\Lambda)}{\partial \hat{W}^\Lambda_{pq}}  \frac{\partial \ln g(\hat{\bm W}^{\Lambda'})}{\partial \hat{W}^{\Lambda'}_{pq}}\hat{S}^2_q(\hat{\bm W}^\Lambda, \hat{\bm W}^{\Lambda'})\right]\right) \nn \\
+\exp\left(\int {\rm d}\Lambda' \sum_{p,q=1}^{M_q,N}\left[p(\Lambda') \sum_{n_1,n_2=0}^\infty \frac{(\hat{W}_{pq}^{\Lambda}-\mathbb{E}[\hat{W}_{pq}^{\Lambda}])^{n_1+1}(\hat{W}_{pq}^{\Lambda'}-\mathbb{E}[\hat{W}_{pq}^{\Lambda'}])^{n_2+1}}{n_1!n_2!}\frac{\partial^{n_1+1} \ln g(\mathbb{E}[\hat{\bm W}^{\Lambda}])}{(\partial \hat{W}^\Lambda_{pq})^{n_1+1}}\frac{\partial^{n_2+1} \ln g(\mathbb{E}[\hat{\bm W}^{\Lambda'}])}{(\partial \hat{W}^{\Lambda'}_{pq})^{n_2+1}}\frac{1}{M_q}\right]\right) \nn \\ 
+\sum_{n=0}^\infty \frac{1}{n!}\left(\int {\rm d}\Lambda' \sum_{p,q=1}^{M_q,N}\left[p(\Lambda') (\hat{W}_{pq}^{\Lambda}-\mathbb{E}[\hat{W}_{pq}^{\Lambda}])(\hat{W}_{pq}^{\Lambda'}-\mathbb{E}[\hat{W}_{pq}^{\Lambda'}])\frac{\partial \ln g(\mathbb{E}[\hat{\bm W}^{\Lambda}])}{\partial \hat{W}^\Lambda_{pq}}\frac{\partial \ln g(\mathbb{E}[\hat{\bm W}^{\Lambda'}])}{\partial \hat{W}^{\Lambda'}_{pq}}\frac{1}{M_q}\right]\right)^n
+\end{align}
+we are ignoring h.o.t. derivatives, maybe this will bite us... but anyways
+expand out an marginalize over uncertainty, should be powers of central moments with a bunch of integrals
+\begin{align}
+\sum_{n=0}^\infty \frac{1}{n!}\left(\int {\rm d}\Lambda_1'...{\rm d}\Lambda_n' \sum_{p_1,q_1=1}^{M_q,N}...\sum_{p_n,q_n=1}^{M_q,N} \right. \\ \left. \frac{1}{M_q^n}\prod_{i=1}^n \left[p(\Lambda'_i) (\hat{W}_{p_iq_i}^{\Lambda}-\mathbb{E}[\hat{W}_{p_iq_i}^{\Lambda}])(\hat{W}_{p_iq_i}^{\Lambda'_i}-\mathbb{E}[\hat{W}_{p_iq_i}^{\Lambda'_i}])\frac{\partial \ln g(\mathbb{E}[\hat{\bm W_i}^{\Lambda}])}{\partial \hat{W}^\Lambda_{p_iq_i}}\frac{\partial \ln g(\mathbb{E}[\hat{\bm W}_i^{\Lambda'_i}])}{\partial \hat{W}^{\Lambda'_i}_{p_iq_i}}\right]\right)
+\end{align}
+if we don't allow any p,q repeats in all the summations, then this becomes
+\begin{align}
+\sum_{n=0}^\infty \frac{1}{n!}\left(\int {\rm d}\Lambda_1'...{\rm d}\Lambda_n' \sum_{p_1,q_1=1}^{M_q,N}...\sum_{p_n,q_n=1}^{M_q,N}\frac{1}{M_q^n}\prod_{i=1}^n \left[p(\Lambda'_i) C(\Lambda, \Lambda'_i)_{p_i,q_i} \frac{\partial \ln g(\mathbb{E}[\hat{\bm W_i}^{\Lambda}])}{\partial \hat{W}^\Lambda_{p_iq_i}}\frac{\partial \ln g(\mathbb{E}[\hat{\bm W}_i^{\Lambda'_i}])}{\partial \hat{W}^{\Lambda'_i}_{p_iq_i}}\right]\right) \nn \\
+\sum_{n=0}^\infty \frac{1}{n!} \left( \int {\rm d}\Lambda' \sum_{p,q}^{M_q,N}\frac{1}{M_q}\left[p(\Lambda') C(\Lambda, \Lambda')_{p,q} \frac{\partial \ln g(\mathbb{E}[\hat{\bm W_i}^{\Lambda}])}{\partial \hat{W}^\Lambda_{pq}}\frac{\partial \ln g(\mathbb{E}[\hat{\bm W}^{\Lambda'}])}{\partial \hat{W}^{\Lambda'}_{pq}}\right]\right)^n \nn \\
+\exp\left( \int {\rm d}\Lambda' \sum_{p,q}^{M_q,N}\frac{1}{M_q}\left[p(\Lambda') C(\Lambda, \Lambda')_{p,q} \frac{\partial \ln g(\mathbb{E}[\hat{\bm W_i}^{\Lambda}])}{\partial \hat{W}^\Lambda_{pq}}\frac{\partial \ln g(\mathbb{E}[\hat{\bm W}^{\Lambda'}])}{\partial \hat{W}^{\Lambda'}_{pq}}\right]\right)
+\end{align}
+which is correct. But, we should allow for one order of repeats for now, so
+\begin{align}
+\sum_{n=0}^\infty \frac{1}{n!}\left(\int {\rm d}\Lambda_1'...{\rm d}\Lambda_n' \sum_{p_1,q_1=1}^{M_q,N}...\sum_{p_n,q_n=1}^{M_q,N}\frac{1}{M_q^n}\prod_{i=1}^n \left[p(\Lambda'_i) C(\Lambda, \Lambda'_i)_{p_i,q_i} \frac{\partial \ln g(\mathbb{E}[\hat{\bm W_i}^{\Lambda}])}{\partial \hat{W}^\Lambda_{p_iq_i}}\frac{\partial \ln g(\mathbb{E}[\hat{\bm W}_i^{\Lambda'_i}])}{\partial \hat{W}^{\Lambda'_i}_{p_iq_i}}\right]\right) \nn \\
+\sum_{n=0}^\infty \frac{1}{n!} \left[ A(\Lambda)^n\left(1 + \frac{n(n-1)}{2}\left[\frac{B(\Lambda)}{A(\Lambda)^2} - \frac{1}{NM_q}\right]\right)\right] \nn \\
+\exp\left( A(\Lambda)\left(1 + \frac{1}{2NM_q}\frac{B(\Lambda)}{A(\Lambda)^2}\right)\right)
+\end{align}
+and more terms of B should continue as similar, kind of like another exponential. BTW,
+where
+\beq
+A(\Lambda) = \int {\rm d}\Lambda' \sum_{p,q}^{M_q,N}\frac{1}{M_q}\left[p(\Lambda') C(\Lambda, \Lambda')_{p,q} \frac{\partial \ln g(\mathbb{E}[\hat{\bm W_i}^{\Lambda}])}{\partial \hat{W}^\Lambda_{pq}}\frac{\partial \ln g(\mathbb{E}[\hat{\bm W}^{\Lambda'}])}{\partial \hat{W}^{\Lambda'}_{pq}}\right]
+\eeq
+\beq
+B(\Lambda) = \int {\rm d}\Lambda'_1{\rm d}\Lambda'_2 p(\Lambda'_1)p(\Lambda'_2) \sum_{p,q}^{M_q,N}\frac{1}{M_q}\left[ C(\Lambda, \Lambda, \Lambda'_1, \Lambda'_2)_{p,q} \left[\frac{\partial \ln g(\mathbb{E}[\hat{\bm W_i}^{\Lambda}])}{\partial \hat{W}^\Lambda_{pq}}\right]^2\frac{\partial \ln g(\mathbb{E}[\hat{\bm W}^{\Lambda'_1}])}{\partial \hat{W}^{\Lambda'_1}_{pq}}\frac{\partial \ln g(\mathbb{E}[\hat{\bm W}^{\Lambda'_2}])}{\partial \hat{W}^{\Lambda'_2}_{pq}}\right]
+\eeq
+i dunno, maybe if we subtract out this term in this exponential, we will have better behavior? 

@@ -1,0 +1,1544 @@
+\documentclass[%
+ reprint,
+ amsmath,amssymb,
+ aps,nofootinbib,nobibnotes,onecolumn,prd
+ %superscriptaddress
+]{revtex4-2}
+
+% \bibliographystyle{apsrev4-1}
+
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{dcolumn}
+\usepackage{bm}
+\usepackage[dvipsnames, usenames]{xcolor}
+\usepackage{acronym}
+\usepackage[hidelinks]{hyperref}
+\usepackage{physics}
+\usepackage{orcidlink}
+\usepackage{xspace}
+\usepackage{bbm}
+\usepackage{tikz}
+\usetikzlibrary{bayesnet}
+
+\newcommand{\rednote}[1]{{\color{Red} #1}}
+\newcommand{\sv}[1]{{\color{BurntOrange} #1}}
+\newcommand{\mm}[1]{{\color{ForestGreen}MM: #1}}
+
+\newcommand{\LIGOlabMIT}{\affiliation{LIGO, Massachusetts Institute of Technology, 77 Massachusetts Avenue, Cambridge, MA 02139, USA}}
+\newcommand{\MKI}{\affiliation{Kavli Institute for Astrophysics and Space Research and Department of Physics, Massachusetts Institute of Technology, 77 Massachusetts Avenue, Cambridge, MA 02139, USA}}
+
+%DIF PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%DIF UNDERLINE PREAMBLE %DIF PREAMBLE
+\RequirePackage[normalem]{ulem} %DIF PREAMBLE
+\RequirePackage{color}\definecolor{RED}{rgb}{1,0,0}\definecolor{BLUE}{rgb}{0,0,1} %DIF PREAMBLE
+\providecommand{\DIFaddtex}[1]{{\protect\color{blue}\uwave{#1}}} %DIF PREAMBLE
+\providecommand{\DIFdeltex}[1]{{\protect\color{red}\sout{#1}}}                      %DIF PREAMBLE
+%DIF SAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddbegin}{} %DIF PREAMBLE
+\providecommand{\DIFaddend}{} %DIF PREAMBLE
+\providecommand{\DIFdelbegin}{} %DIF PREAMBLE
+\providecommand{\DIFdelend}{} %DIF PREAMBLE
+\providecommand{\DIFmodbegin}{} %DIF PREAMBLE
+\providecommand{\DIFmodend}{} %DIF PREAMBLE
+%DIF FLOATSAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddFL}[1]{\DIFadd{#1}} %DIF PREAMBLE
+\providecommand{\DIFdelFL}[1]{\DIFdel{#1}} %DIF PREAMBLE
+\providecommand{\DIFaddbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFaddendFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelendFL}{} %DIF PREAMBLE
+%DIF HYPERREF PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFadd}[1]{\texorpdfstring{\DIFaddtex{#1}}{#1}} %DIF PREAMBLE
+\providecommand{\DIFdel}[1]{\texorpdfstring{\DIFdeltex{#1}}{}} %DIF PREAMBLE
+\newcommand{\DIFscaledelfig}{0.5}
+%DIF HIGHLIGHTGRAPHICS PREAMBLE %DIF PREAMBLE
+\RequirePackage{settobox} %DIF PREAMBLE
+\RequirePackage{letltxmacro} %DIF PREAMBLE
+\newsavebox{\DIFdelgraphicsbox} %DIF PREAMBLE
+\newlength{\DIFdelgraphicswidth} %DIF PREAMBLE
+\newlength{\DIFdelgraphicsheight} %DIF PREAMBLE
+% store original definition of \includegraphics %DIF PREAMBLE
+\LetLtxMacro{\DIFOincludegraphics}{\includegraphics} %DIF PREAMBLE
+\newcommand{\DIFaddincludegraphics}[2][]{{\color{blue}\fbox{\DIFOincludegraphics[#1]{#2}}}} %DIF PREAMBLE
+\newcommand{\DIFdelincludegraphics}[2][]{% %DIF PREAMBLE
+\sbox{\DIFdelgraphicsbox}{\DIFOincludegraphics[#1]{#2}}% %DIF PREAMBLE
+\settoboxwidth{\DIFdelgraphicswidth}{\DIFdelgraphicsbox} %DIF PREAMBLE
+\settoboxtotalheight{\DIFdelgraphicsheight}{\DIFdelgraphicsbox} %DIF PREAMBLE
+\scalebox{\DIFscaledelfig}{% %DIF PREAMBLE
+\parbox[b]{\DIFdelgraphicswidth}{\usebox{\DIFdelgraphicsbox}\\[-\baselineskip] \rule{\DIFdelgraphicswidth}{0em}}\llap{\resizebox{\DIFdelgraphicswidth}{\DIFdelgraphicsheight}{% %DIF PREAMBLE
+\setlength{\unitlength}{\DIFdelgraphicswidth}% %DIF PREAMBLE
+\begin{picture}(1,1)% %DIF PREAMBLE
+\thicklines\linethickness{2pt} %DIF PREAMBLE
+{\color[rgb]{1,0,0}\put(0,0){\framebox(1,1){}}}% %DIF PREAMBLE
+{\color[rgb]{1,0,0}\put(0,0){\line( 1,1){1}}}% %DIF PREAMBLE
+{\color[rgb]{1,0,0}\put(0,1){\line(1,-1){1}}}% %DIF PREAMBLE
+\end{picture}% %DIF PREAMBLE
+}\hspace*{3pt}}} %DIF PREAMBLE
+} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddbegin}{\DIFaddbegin} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddend}{\DIFaddend} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelbegin}{\DIFdelbegin} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelend}{\DIFdelend} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddbegin}{\DIFOaddbegin \let\includegraphics\DIFaddincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddend}{\DIFOaddend \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelbegin}{\DIFOdelbegin \let\includegraphics\DIFdelincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelend}{\DIFOaddend \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddbeginFL}{\DIFaddbeginFL} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddendFL}{\DIFaddendFL} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelbeginFL}{\DIFdelbeginFL} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelendFL}{\DIFdelendFL} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddbeginFL}{\DIFOaddbeginFL \let\includegraphics\DIFaddincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddendFL}{\DIFOaddendFL \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelbeginFL}{\DIFOdelbeginFL \let\includegraphics\DIFdelincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelendFL}{\DIFOaddendFL \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+%DIF END PREAMBLE EXTENSION ADDED BY LATEXDIFF
+
+
+%page layout parameters
+\topmargin -0.65in
+\headsep 20.0pt
+\def\theYear{\the\year}
+
+\begin{document}
+
+\setcounter{page}{1}
+
+%---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.
+
+\title{When (not) to trust Monte Carlo approximations for hierarchical posterior estimation}
+
+
+
+
+\newcommand{\expec}[1]{\left\langle#1\right\rangle}  %  < #1 >
+\newcommand{\drm}{{\rm d}}
+\newcommand{\irm}{{\rm i}}
+\newcommand{\nn}{\nonumber}
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\bdm}{\begin{displaymath}}
+\newcommand{\edm}{\end{displaymath}}
+\newcommand{\T}[1]{\tilde{#1}}
+\newcommand{\wT}[1]{\widetilde{#1}}
+\newcommand{\Cdot}{\!\cdot\!}
+\newcommand{\SNR}{\textnormal{SNR}}
+\newcommand{\pvtwo}{\texttt{IMRPhenomPv2}}
+\newcommand{\xphm}{\texttt{IMRPhenomXPHM}}
+\newcommand{\pastro}{p_{\rm astro}}
+\newcommand{\pastroi}{p_{{\rm astro},i}}
+\newcommand{\pastroyj}{p_{{\rm astro}, \gamma(j)}}
+\newcommand{\pastroyzj}{p_{{\rm astro}, \gamma_0(j)}}
+\newcommand{\mcdet}{\mathcal{M}_{\rm c,det}}
+\newcommand{\chieff}{\chi_{\rm eff}}
+\newcommand{\dynesty}{\textsc{dynesty}\xspace}
+\newcommand{\etabar}{\overline{\eta}}
+\newcommand{\muhat}{\hat{\mu}}
+\newcommand{\expectlarge}[1]{\left\langle #1 \right\rangle}
+\newcommand{\variancelarge}[1]{\mathbb{V}\left[#1\right]}
+\newcommand{\expect}[1]{\langle #1\rangle}
+\newcommand{\variance}[1]{\mathbb{V}[#1]}
+\newcommand{\logsumexp}[3]{{\rm LSE}_{#2}^{#3}\left(#1\right)}
+\definecolor{Gray}{gray}{0.9}
+\definecolor{orange}{rgb}{0.9,0.5,0}
+\newcommand{\jh}[1]{{\textcolor{magenta}{\texttt{JH: #1}}}}
+\newcommand{\est}[1]{\hat{\mathfrak{E}}\left[ #1 \right]}
+\newcommand{\Nobs}{N_{\rm obs}}
+\newcommand{\Nexp}{N_{\rm exp}}
+\newcommand{\Neff}{N_{\rm eff}}
+\newcommand{\dataset}{\{d_i\}_{i=1}^{\Nobs}}
+\newcommand{\Ninj}{N_{\rm inj}}
+\newcommand{\Nfound}{N_{\rm found}}
+\newcommand{\Nsamp}{N_{\rm samp}}
+\newcommand{\NPE}{N_{\rm PE}}
+\newcommand{\thresh}{\rho_{\rm thr}}
+\newcommand{\fixme}[1]{\textcolor{red}{FIXME: #1}}
+\newcommand{\innerp}[1]{\left\langle#1\right\rangle}
+\newcommand{\ECMGF}{{\rm ECMGF}}
+\newcommand{\EMGF}{{\rm EMGF}}
+\newcommand{\KLD}{{\rm KL}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% acronyms
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\acrodef{GW}{gravitational wave}
+\newcommand{\GW}{\ac{GW}\xspace}
+\newcommand{\GWs}{\acp{GW}\xspace}
+
+\acrodef{ZAMS}{zero age main sequence}
+\acrodef{LVK}{LIGO-Virgo-KAGRA collaboration}
+
+\acrodef{NS}{neutron star}
+\acrodef{BH}{black hole}
+\newcommand{\BH}{\ac{BH}\xspace}
+\newcommand{\BHs}{\acp{BH}\xspace}
+
+\acrodef{BBH}{binary black hole}
+\newcommand{\BBH}{\ac{BBH}\xspace}
+\newcommand{\BBHs}{\acp{BBH}\xspace}
+
+\acrodef{PE}{parameter estimation}
+\newcommand{\PE}{\ac{PE}\xspace}
+
+\acrodef{HPD}{highest posterior density}
+\newcommand{\HPD}{\ac{HPD}\xspace}
+
+\acrodef{KL}{Kullback--Leibler}
+\newcommand{\KL}{\ac{KL}\xspace}
+
+
+\author{Jack Heinzel\,\orcidlink{0000-0002-5794-821X}}\email{heinzelj@mit.edu}\LIGOlabMIT\MKI
+
+\author{Salvatore Vitale\,\orcidlink{0000-0003-2700-0767}}\LIGOlabMIT\MKI
+
+\date{\today}
+
+\begin{abstract}
+The coming years of gravitational wave astrophysics promises thousands of new detections, which can unlock fundamental scientific insights, if the information in each observation can be properly synthesized into a coherent picture. State-of-the-art approaches often accomplish this with hierarchical Bayesian inference. However, this typically relies on Monte Carlo approximations that are already straining under the weight of current data, and will collapse in the future. In this paper we show how this process can be understood from a first-principles statistical approach. We derive an error estimator $\hat{E}$ for quantifying the amount of information that is lost due to the Monte Carlo approximation and recommend that this error is limited to no more than $\hat{E} \lesssim 0.2$ bits for reliable inference. We also show that the hierarchical likelihood estimator is biased but may be corrected. Finally, we show some practical examples for inference on synthetic gravitational-wave population inference, demonstrating that simple models with strong assumptions can be much more stable to Monte Carlo uncertainty than those with weaker assumptions. 
+\end{abstract}
+
+\maketitle
+
+
+\section{Introduction and summary of results}
+
+The initial detection of \acp{GW} \citep{LIGOScientific:2016aoc} opened a new and unique probe into fundamental questions in astrophysics, cosmology, nuclear physics and gravitational physics. Since then, the \ac{LVK} has \DIFdelbegin \DIFdel{published }\DIFdelend \DIFaddbegin \DIFadd{confidently detected }\DIFaddend nearly 100 fully characterized observations of \acp{GW} \citep{LIGOScientific:2018mvr, LIGOScientific:2020ibl, LIGOScientific:2021usb, KAGRA:2021vkt}, and promises to detect many more in the coming years \citep{KAGRA:2013rdx}. \DIFdelbegin \DIFdel{With the coming avalanche of }%DIFDELCMD < \ac{GW} %%%
+\DIFdel{information, astrophysicists hope to learn about }\DIFdelend \DIFaddbegin \DIFadd{Astrophysicists use these data to probe }\DIFaddend the formation of compact objects like \acp{BH} \DIFdelbegin \DIFdel{or }\DIFdelend \DIFaddbegin \DIFadd{and }\DIFaddend \acp{NS} \citep[e.g.][]{Vitale:2015tea, LIGOScientific:2016vpg, Zevin:2017evb, Mandel:2018hfr, Mandel:2021smh, KAGRA:2021duu}, cosmologists \DIFdelbegin \DIFdel{wish to }\DIFdelend use \acp{GW} to \DIFdelbegin \DIFdel{better }\DIFdelend constrain the structure and evolution of the universe \citep[e.g.][]{Schutz:1986gp, Holz:2005df, Messenger:2011gi, LIGOScientific:2017adf, Christensen:2018iqi, Ezquiaga:2022zkx, Gair:2022zsa}, nuclear scientists use merging \acp{NS} to \DIFdelbegin \DIFdel{probe }\DIFdelend \DIFaddbegin \DIFadd{understand }\DIFaddend the equation of state of matter at supranuclear densities \citep[e.g.][]{Baym:2017whm, Capano:2019eae, Dietrich:2020efo, Chatziioannou:2020pqz, Landry:2020vaw}, and gravitational physicists study the dynamic, strongly curved spacetimes around merging \acp{BH} to test and place limits on the fundamental theory of gravity \citep[e.g.][]{Mirshekari:2011yq, Will:2014kxa, LIGOScientific:2016lio, LIGOScientific:2018dkp, LIGOScientific:2021sio}. In all of these \DIFdelbegin \DIFdel{disciples}\DIFdelend \DIFaddbegin \DIFadd{disciplines}\DIFaddend , modern approaches often work by extracting information from the collection of \ac{GW} observations using a powerful statistical method called hierarchical Bayesian inference \citep[e.g.][]{KAGRA:2021duu, DelPozzo:2011vcw, DelPozzo:2013ala, Isi:2019asy}. Hierarchical Bayesian inference \DIFdelbegin \DIFdel{(also known as population analysis) }\DIFdelend posits an unknown underlying population from which each observation originates, and then \DIFdelbegin \DIFdel{solves the inverse problem }\DIFdelend \DIFaddbegin \DIFadd{using the observed data, infers the underlying population }\DIFaddend by constructing a probabilistic forward model (and corresponding likelihood) for generating the observations \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\citep[see e.g.][]{Essick:2023upv}}\hskip0pt%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\citep[see, e.g.][]{Essick:2023upv}}\hskip0pt%DIFAUXCMD
+}\DIFaddend .
+
+However, the population analysis problem is technically challenging for several reasons. As the number of events included in the catalog grows, the \DIFdelbegin \DIFdel{many }\DIFdelend approximations in a typical hierarchical Bayesian analysis begin to break down. For one, the noise is usually approximated as Gaussian and stationary \citep{Moore:2014lga,LIGOScientific:2019hgc}, however, the non-Gaussian and nonstationary reality can occasionally cause biases in the analysis of single events \citep{Pankow:2018qpo,Chatziioannou:2021ezd,Hourihane:2022doe,Davis:2022ird,Payne:2022spz,Ghonge:2023ksb,Macas:2023wiw,Udall:2024ovp}, which can propagate to biases in the population level analyses. Furthermore, non-astrophysical \DIFdelbegin \DIFdel{glitches }\DIFdelend \DIFaddbegin \DIFadd{noise transients }\DIFaddend present in real noise can \DIFdelbegin \DIFdel{sometimes imitate low significance }\DIFdelend \DIFaddbegin \DIFadd{imitate }\DIFaddend astrophysical \acp{GW}, and sometimes are significant enough to contaminate the catalog of sources included in the \ac{GW} population analysis \citep{Cabero:2019orq, Zevin:2016qwy,LIGO:2021ppb,Soni:2021cjy,Virgo:2022ysc, KAGRA:2020agh,Ashton:2021tvz,Magee:2024xiw}. Third, the results of a population inference are strongly model dependent, and therefore misspecification of the model can cause additional biases or lead to incorrect interpretations of the population \citep[e.g.][]{Cheng:2023ddt, Alvarez-Lopez:2025ltt}.
+
+In this paper, we focus on an additional challenge in the \ac{GW} population inference problem: we do not have \DIFaddbegin \DIFadd{practical }\DIFaddend access to the exact population-level Bayesian likelihood. 
+Instead, it is common to \textit{approximate} the likelihood using a Monte Carlo approach, which estimates the many integrals appearing in the hierarchical likelihood. While this is an acceptable approximation for many simple population inference problems, it fails dramatically for others \citep[e.g.][]{Golomb:2022bon}. 
+
+This problem is well known in the \ac{GW} population analysis community, however the underlying statistical phenomena is still not \DIFdelbegin \DIFdel{widely }\DIFdelend \DIFaddbegin \DIFadd{completely }\DIFaddend understood from a first-principles approach. \DIFdelbegin \DIFdel{Our work is inspired by previous studies (\mbox{%DIFAUXCMD
+\citet{Farr:2019rap, Essick:2022ojx}}\hskip0pt%DIFAUXCMD
+, and \mbox{%DIFAUXCMD
+\citet{Talbot:2023pex}}\hskip0pt%DIFAUXCMD
+) to reconcile two opposing traditions for handling the likelihood uncertainty, one based on ensuring }\textit{\DIFdel{each}} %DIFAUXCMD
+\DIFdel{Monte Carlo integral is acceptable, the other based on a combined uncertainty estimate. To reconcile these approaches, we focus on the }\DIFdelend \DIFaddbegin \DIFadd{In summary, our work focuses on the }\DIFaddend four following results:
+%\sv{what do you do more/different? say it here} 
+
+\begin{enumerate}
+    \item \textbf{Uncertainty quantification:} \DIFdelbegin \DIFdel{we }\DIFdelend \DIFaddbegin \DIFadd{We }\DIFaddend derive an error statistic $\hat{E}$ to estimate the expected amount of information lost due to the Monte Carlo approximations. $\hat{E}$ may be computed in post-processing, and we \DIFaddbegin \DIFadd{empirically }\DIFaddend verify the accuracy of this error estimator\DIFdelbegin \DIFdel{using Monte Carlo simulations}\DIFdelend .
+    \item \textbf{Unbiased likelihood estimator:} \DIFdelbegin \DIFdel{we }\DIFdelend \DIFaddbegin \DIFadd{We }\DIFaddend show the \ac{GW} population analysis likelihood estimator is a biased estimator. The selection efficiency integral enters nonlinearly in the likelihood and causes the likelihood estimate to tend to be biased to larger values when the uncertainty is larger. We show this bias can be corrected with a simple correction term during inference.
+    % \item Even with the unbiased likelihood, the posterior estimator is biased if the likelihood has a nonzero uncertainty. In fact, this is true for any Bayesian inference problem where the likelihood carries some intrinsic uncertainty, e.g. if the likelihood is estimated with Monte Carlo integration.
+    % \item We derive an accuracy statistic $\hat{A}$ which quantifies the amount of bias in the posterior. $\hat{A}$ can be calculated in post-processing.
+    % \item Alternatively, an analyst can include an additional correction term based on samples from the initial biased posterior, and sample from this corrected posterior without the leading-order bias in the posterior estimator. However, for particularly poor estimators, there can still be residual bias which we are unable to quantify in general.
+    % \item Even if the bias is very small, there is intrinsic uncertainty due to using a single posterior estimator, which can lead to problematic results. We derive a precision statistic $\widehat{\Pi}$ that quantifies this additional uncertainty and which can be computed in post-processing.
+    \item \textbf{Log-likelihood variance thresholds are safe...:} \DIFdelbegin \DIFdel{using the Cauchy-Schwarz }\DIFdelend \DIFaddbegin \DIFadd{Using the Cauchy--Schwarz }\DIFaddend inequality, we show that the log-likelihood variance threshold conjectured in \citet{Talbot:2023pex} \textit{ensures} the error in the posterior estimator is bounded. On the other hand, we show \DIFdelbegin \DIFdel{counter-examples }\DIFdelend \DIFaddbegin \DIFadd{counterexamples }\DIFaddend that thresholds based on individual Monte Carlo integrals are not necessarily safe (as \DIFdelbegin \DIFdel{done in e.g.}\DIFdelend \DIFaddbegin \DIFadd{used in e.g., }\DIFaddend previous \ac{LVK} population analyses~\cite{KAGRA:2021duu}).
+    \item \textbf{...However, they can be stricter than necessary:} \DIFdelbegin \DIFdel{in }\DIFdelend \DIFaddbegin \DIFadd{In }\DIFaddend practice, parametric models with only a few parameters are often better behaved than the log-likelihood variance would indicate, but weaker models with many parameters tend to require the strict log-likelihood variance threshold. The analyst can check the validity of an inference using the error statistic $\hat{E}$. 
+\end{enumerate}
+
+\DIFaddbegin \DIFadd{Our work is inspired by previous studies (\mbox{%DIFAUXCMD
+\citet{Farr:2019rap, Essick:2022ojx}}\hskip0pt%DIFAUXCMD
+, and \mbox{%DIFAUXCMD
+\citet{Talbot:2023pex}}\hskip0pt%DIFAUXCMD
+) to reconcile two opposing traditions for handling the likelihood uncertainty, one based on ensuring }\textit{\DIFadd{each}} \DIFadd{Monte Carlo integral is acceptable (made widespread by \mbox{%DIFAUXCMD
+\citet{KAGRA:2021duu}}\hskip0pt%DIFAUXCMD
+), the other based on a combined uncertainty estimate (introduced by \mbox{%DIFAUXCMD
+\citet{Golomb:2022bon}}\hskip0pt%DIFAUXCMD
+). 
+}
+
+\DIFadd{\mbox{%DIFAUXCMD
+\citet{Farr:2019rap} }\hskip0pt%DIFAUXCMD
+showed if the uncertainty in the detection efficiency surpasses a given threshold, then }\ac{GW} \DIFadd{population inference will break down. \mbox{%DIFAUXCMD
+\citet{Farr:2019rap} }\hskip0pt%DIFAUXCMD
+also pointed out that only uncertainty in the }\textit{\DIFadd{relative}} \DIFadd{likelihood is important. However, there are other sources of Monte Carlo uncertainty in }\ac{GW} \DIFadd{population inference beyond the detection efficiency estimate, so \mbox{%DIFAUXCMD
+\citet{KAGRA:2021duu} }\hskip0pt%DIFAUXCMD
+introduced additional convergence checks on each individual Monte Carlo approximation (see  Eq.~\ref{eq: single event estimator} below). \mbox{%DIFAUXCMD
+\citet{Essick:2022ojx} }\hskip0pt%DIFAUXCMD
+built upon these works, introducing ideas about likelihood covariances and argued analysts should check the uncertainty in the }\textit{\DIFadd{relative}} \DIFadd{likelihood across the support of the posterior is small. \mbox{%DIFAUXCMD
+\citet{Essick:2022ojx} }\hskip0pt%DIFAUXCMD
+also point out that this relative likelihood uncertainty due to the selection function asymptotically scales linearly in the number of observations and this relative uncertainty due to other Monte Carlo integrals is asymptotically constant in the number of observations. 
+}
+
+\DIFadd{\mbox{%DIFAUXCMD
+\citet{Talbot:2023pex} }\hskip0pt%DIFAUXCMD
+suggest that the theoretical scaling derived by \mbox{%DIFAUXCMD
+\citet{Essick:2022ojx} }\hskip0pt%DIFAUXCMD
+may not yet hold in realistic settings and recommend the adoption of a simple threshold based on the combined uncertainty in the log-likelihood. As mentioned above, we show with an alternative approach that the threshold introduced in \mbox{%DIFAUXCMD
+\citet{Talbot:2023pex} }\hskip0pt%DIFAUXCMD
+is a sufficient condition for bounding the systematic error from Monte Carlo approximations. We also verify the scalings derived by \mbox{%DIFAUXCMD
+\citet{Essick:2022ojx} }\hskip0pt%DIFAUXCMD
+hold asymptotically, although we discuss caveats in Sec.~\ref{sec: robustness measures}. We suggest these scalings are useful as theoretical tools for forecasting future approximate hierarchical Bayesian inference, but should not be used as a diagnostic for reliable inference.
+}
+
+\DIFaddend The central aim of this paper is to develop a single test to assess the reliability of an approximated posterior. In the \ac{GW} population analysis literature, there are two common tests in use. The first test \DIFdelbegin \DIFdel{derived by \mbox{%DIFAUXCMD
+\citet{Farr:2019rap} }\hskip0pt%DIFAUXCMD
+and \mbox{%DIFAUXCMD
+\citet{Essick:2022ojx} }\hskip0pt%DIFAUXCMD
+}\DIFdelend is based on the convergence of all individual Monte Carlo integrals and \DIFdelbegin \DIFdel{is }\DIFdelend \DIFaddbegin \DIFadd{can be shown to be }\DIFaddend a \textit{necessary condition} for a reliable population inference. That is, given a reliable population inference, \DIFdelbegin \DIFdel{you are }\DIFdelend \DIFaddbegin \DIFadd{one is }\DIFaddend guaranteed to satisfy \DIFdelbegin \DIFdel{these }\DIFdelend \DIFaddbegin \DIFadd{certain }\DIFaddend ``effective sample size'' \DIFdelbegin \DIFdel{tests}\DIFdelend \DIFaddbegin \DIFadd{criteria}\DIFaddend .\footnote{This is not an iron-clad logical statement. The ``guarantee'' is statistical in nature and based on estimators, so it is always possible to have some extremely unlikely counterexample. \label{footnote: stat1}} However, it is possible that an unreliable posterior estimator will still satisfy these tests, as we show in Sec.~\ref{sec: gw example}.
+
+A second approach is based on the combined uncertainty of all the Monte Carlo estimates, discussed by \citet{Talbot:2023pex}. We show in Sec.~\ref{sec: robustness measures} that this a \textit{sufficient condition} for a reliable population inference: given that \DIFdelbegin \DIFdel{you satisfy }\DIFdelend \DIFaddbegin \DIFadd{one satisfies }\DIFaddend the combined uncertainty threshold, \DIFdelbegin \DIFdel{you are }\DIFdelend \DIFaddbegin \DIFadd{one is }\DIFaddend guaranteed to have a reliable posterior estimator up to some bound.\footnote{Again, this logical implication is only statistical in nature.\label{footnote: stat2}} However, this ``log-likelihood variance'' test is, in general, much stricter than the effective sample size test and therefore can threaten to limit the power of approximate hierarchical Bayesian inference beyond what is ultimately required. 
+
+In this paper, we develop a single test which we argue is a \textit{sufficient and necessary condition} for a reliable posterior estimator.\footnote{See footnotes \ref{footnote: stat1} and \ref{footnote: stat2}.} We accomplish this with the error statistic $\hat{E}$. If our approximate posterior is given as $\hat{p}(\Lambda)$ and the true posterior is $p(\Lambda)$, then the error statistic estimates
+\beq
+\hat{E} \approx \expectlarge{\mathrm{KL}(p|\hat{p})} = \expectlarge{\int p(\Lambda) \log_2\left(\frac{p(\Lambda)}{\hat{p}(\Lambda)}\right) \dd\Lambda }, 
+\DIFaddbegin \label{eq: error statistic as kl}
+\DIFaddend \eeq
+where the expectation is taken over the ensemble of \DIFdelbegin \DIFdel{uncertain posterior estimators}\DIFdelend \DIFaddbegin \DIFadd{Monte Carlo realizations of the uncertain posterior estimator}\DIFaddend , and $\mathrm{KL}$ denotes the \ac{KL} divergence. We discuss the theory behind the error statistic in Sec.~\ref{sec: robustness measures} and show examples of the performance of this test in Sec.~\ref{sec: gaussian example} and \ref{sec: gw example}.
+\DIFaddbegin \DIFadd{The error statistic is defined as the sum of two terms, which we call the precision statistic and the accuracy statistic. We note that the precision statistic is proportional to the integrated uncertainty in the relative likelihood proposed initially by \mbox{%DIFAUXCMD
+\citet{Essick:2022ojx} }\hskip0pt%DIFAUXCMD
+and used in \mbox{%DIFAUXCMD
+\citet{Talbot:2023pex}}\hskip0pt%DIFAUXCMD
+. 
+}\DIFaddend 
+
+The rest of the paper is organized as follows. First, in Sec.~\ref{sec: population analysis} we review population inference and describe the popular approach for approximating the Bayesian posterior with Monte Carlo integration. In Sec.~\ref{sec: monte carlo integrals}, we briefly describe the statistical theory underlying Monte Carlo integration and why the \ac{GW} population likelihood estimator is biased. In Sec. \ref{sec: bias in population inference} we discuss bias in a general population analysis, leading into Sec. \ref{sec: robustness measures}\DIFaddbegin \DIFadd{, }\DIFaddend which introduces statistics for quantifying the uncertainty and bias in a population analysis. Section \ref{sec: gaussian example} applies the theory developed within to a simple Gaussian hierarchical inference problem \DIFdelbegin \DIFdel{, }\DIFdelend and Sec. \ref{sec: gw example} shows examples on a realistic \ac{GW} population analysis problem. We conclude in Sec. \ref{sec: conclusion}.
+In this paper, angle brackets $\langle \cdot\rangle$ always denote expectation over the Monte Carlo \DIFdelbegin \DIFdel{samples}\DIFdelend \DIFaddbegin \DIFadd{realizations}\DIFaddend . 
+
+\section{Gravitational wave population analysis}
+\label{sec: population analysis}
+
+Suppose we have a collection of $\Nobs$ data $\{d_i\}$ which each contains a \ac{GW} signal obscured by noise. Our task is to infer the shape of the underlying population of \ac{GW} sources. The most common approach is Bayesian, where we want to infer the Bayesian posterior probability distribution over the underlying population parameters $\Lambda$, based on the observed data. $\Lambda$ are called the \textit{hyperparameters}, and they can refer to physical parameters of the population (e.g. the stellar initial mass function or the efficiency of a common envelope ejection), or they can be purely phenomenological (e.g. the powerlaw index in the \ac{BH} mass function). 
+
+The Bayesian posterior probability distribution is computed with Bayes' theorem
+\beq
+p(\Lambda | \{d_i\}) = \frac{\mathcal{L}(\{d_i\} | \Lambda) \pi(\Lambda)}{\int \mathcal{L}(\{d_i\} | \Lambda') \pi(\Lambda') \dd\Lambda'},
+\label{eq: Bayes theorem}
+\eeq
+where $\pi(\Lambda)$ is the prior probability distribution over $\Lambda$, and the denominator is called the evidence and ensures the posterior is a normalized probability distribution. The likelihood $\mathcal{L}(\{d_i\} | \Lambda)$ is the probability of observing the dataset, conditioned on the population described by $\Lambda$.
+
+The typical likelihood function used in \ac{GW} population analysis is 
+\beq
+\mathcal{L}(\{d_i\}|\Lambda) \propto \xi(\Lambda)^{-\Nobs}\prod_{i=1}^{\Nobs}p(d_i|\Lambda).
+\label{eq: rate marginalized likelihood}
+\eeq
+and is derived in Refs.~\citep{Farr:2013yna,Mandel:2018mve,Vitale2020,Essick:2023upv}.
+$p(d_i|\Lambda)$ is the probability of obtaining the data $d_i$ from the population $\Lambda$, marginalized over the uncertainty in the parameters of that \ac{GW} event $\theta$
+\beq
+p(d_i|\Lambda) = \int p(d_i|\theta) p(\theta|\Lambda)d\theta,
+\label{eq: single event integral}
+\eeq
+and $\xi(\Lambda)$ is the expected fraction of events which are detected,
+\beq
+\xi(\Lambda) = \int p(\theta|\Lambda) p(\mathcal{D}|\theta)p({\rm det}=1|\mathcal{D}) \dd\theta \dd\mathcal{D}.
+\label{eq: selection efficiency}
+\eeq
+
+However, the integral quantities $\xi(\Lambda)$ and $p(d_i|\Lambda)$ are usually impossible to compute in closed form, and so instead are estimated with a Monte Carlo approach (we discuss the statistical theory of Monte Carlo integration in Section~\ref{sec: monte carlo integrals}). Specifically, we often use the approximation
+\beq
+\hat{\mathcal{L}}(\{d\}|\Lambda) \propto \hat{\xi}(\Lambda)^{-\Nobs}\prod_{i=1}^{\Nobs} \hat{p}(d_i|\Lambda),
+\label{eq: estimated hierarchical likelihood}
+\eeq
+where the single event integral quantities are often estimated with 
+\beq
+\hat{p}(d_i|\Lambda) \propto \frac{1}{\NPE}\sum_{j=1}^{\NPE}\frac{p(\theta_{ij}|\Lambda)}{\pi(\theta_{ij}|{\rm PE})}\bigg|_{\theta_{ij}\sim p(\theta|d_i)}
+\label{eq: single event estimator}
+\eeq
+with the $\theta_{ij}$ drawn from the \PE posterior $p(\theta|d_i)$, using the prior $\pi(\theta|{\rm PE})$. We ignore the constant evidence term $\int p(d_i|\theta)\pi(\theta|{\rm PE})\dd\theta$, as constant factors in the likelihood are normalized out in the Bayesian posterior. 
+
+The selection efficiency is estimated with a large number of simulated sources $\{\theta_j\}_{j=1}^{\Ninj} \sim p(\theta|{\rm draw})$ drawn from a fiducial population. The signals are then added to noise from the \GW detectors. Then, search pipeline codes \citep[e.g.][]{Allen:2005fk, Usman:2015kfa, Messick:2016aqy} are run over these data, detecting some subset of the simulated events. We estimate the selection efficiency by \citep{Tiwari:2017ndi, Farr:2019rap}
+\beq
+\hat{\xi}(\Lambda) = \frac{1}{\Ninj}\sum_{j=1}^{\Ninj}\mathbb{D}[d_j]\frac{p(\theta_j|\Lambda)}{p(\theta_j|{\rm draw})} = \frac{1}{\Ninj}\sum_{j=1}^{\Nfound}\frac{p(\theta_j|\Lambda)}{p(\theta_j|{\rm draw})},
+\label{eq: selection effects estimator}
+\eeq
+where the indicator $\mathbb{D}[d_j]$ is 1 when the data segment $d_j$ is detected by the pipelines, and 0 when it is not. Equivalently the sum may be performed over only the found injections. 
+
+We will show in Sec.~\ref{sec: monte carlo integrals} that Eqs.~\ref{eq: single event estimator} and \ref{eq: selection effects estimator} are unbiased estimators for the marginalized $p(d_i|\Lambda)$ in Eq.~\ref{eq: single event integral} and for the selection efficiency integral in Eq.~\ref{eq: selection efficiency}, respectively. A product of uncorrelated unbiased estimators is also an unbiased estimator, and so the bias in the likelihood is not due to the approximation in the single event integrals, but due to how the selection efficiency enters the likelihood.
+We show in Section~\ref{subsec: monte carlo bias} that running any estimator through a nonlinear function, such as $\hat{\xi}(\Lambda)^{-\Nobs}$, produces a biased estimator. In particular, this means the likelihood estimator is biased, as we discuss further below. 
+
+
+
+\section{Monte Carlo Integration}
+\label{sec: monte carlo integrals}
+
+Equations~\ref{eq: single event estimator} and~\ref{eq: selection effects estimator} are examples of Monte Carlo integrals. In this section, we discuss the basic theory of Monte Carlo integration and the uncertainty in the estimator, and biased and unbiased estimation.
+
+Monte Carlo integration is a technique for estimating the value of an integral stochastically. Take many random draws from the domain of integration using a known probability density which is easy to sample, then reweight to the integrand function. Specifically, given an integral 
+\beq
+I = \int f(\theta) \dd\theta,
+\eeq
+then given $M$ independent draws from a distribution $\theta_i \sim p(\theta)$, the Monte Carlo estimate of the integral is (see chapter 29 of \citet{MacKay2003})
+\beq
+\hat{I} = \frac{1}{M}\sum_{i=1}^M \frac{f(\theta_i)}{p(\theta_i)}.
+\eeq
+Monte Carlo integration is a general technique for estimating nonelementary or high dimensional integrals, because the uncertainty in the estimate is not explicitly dependent on the dimension of the domain of the integral. 
+
+We can compute the expectation of the estimator
+\beq
+\langle\hat{I}\rangle = \int \left(\frac{1}{M}\sum_{i=1}^M \frac{f(\theta_i)}{p(\theta_i)}\right) p(\theta_1) \dd\theta_1 p(\theta_2) \dd\theta_2 ... p(\theta_M) \dd\theta_M  = \frac{1}{M}\sum_{i=1}^M \int \left(\frac{f(\theta_i)}{p(\theta_i)}\right)p(\theta_1)\dd\theta_1 p(\theta_2) \dd\theta_2 ... p(\theta_M) \dd\theta_M
+\eeq
+using the fact that integration is linear. Notice that for the $i^{\rm th}$ term in the sum, the integrand is independent of all but one of the integration variables $\theta_i$, and all others integrate away to 1. Therefore, 
+\beq
+\langle\hat{I}\rangle = \frac{1}{M}\sum_{i=1}^M \int \left(\frac{f(\theta_i)}{p(\theta_i)}\right)p(\theta_i)\dd\theta_i = \frac{1}{M}\sum_{i=1}^M \int f(\theta_i) \dd\theta_i = \int f(\theta)\dd\theta = I.
+\label{eq: expectation of Monte Carlo integral}
+\eeq
+Because the expectation of the Monte Carlo integral is correct: $\expect{\hat{I}} = I$, we call the Monte Carlo estimator $\hat{I}$ an \textit{unbiased} estimator for $I$. We should note, however, that the simplification in Eq.~\ref{eq: expectation of Monte Carlo integral} only works if $p(\theta) > 0$ wherever $f(\theta) \neq 0$, otherwise the estimator is in general \textit{biased}. You cannot re-weight a distribution outside its domain.
+
+Using a similar approach, we can compute the variance of the estimator as 
+\beq
+\variance{\hat{I}} = \langle(\hat{I} - \expect{I})^2\rangle = \frac{1}{M}\left(\int \frac{f(\theta)^2}{p(\theta)}\dd\theta - I^2\right),
+\label{eq: variance of Monte Carlo integral}
+\eeq
+which is just a constant value suppressed by a factor of $M^{-1}$. This gives the Monte Carlo integral the attractive property that the uncertainty can be decreased as much as we like, simply by drawing more samples. How \textit{much} we must increase the number of samples, however, depends sensitively on how similar $p(\theta)$ is to $f(\theta)$: the integral in Eq.~\ref{eq: variance of Monte Carlo integral} can be extremely large or even infinite for poorly chosen $p(\theta)$. Indeed, there is a similar issue as Eq.~\ref{eq: expectation of Monte Carlo integral}. If there is a finite-measure subset of the domain where $f(\theta) \neq 0$ but $p(\theta) = 0$, then the variance diverges \textit{for all} $M$. Even if the domain where $f(\theta) \neq 0$ also has $p(\theta) \neq 0$, if $p(\theta)$ becomes too small faster than $f(\theta)$, the variance may still diverge.
+
+% We can use variational calculus to show that the optimal draw probability distribution is just the normalized absolute value of $f(\theta)$
+% \beq
+% p_{\rm opt}(\theta) = \frac{|f(\theta)|}{\int |f(\theta')|\dd\theta'}
+% \eeq
+% This is a double edged sword, however. Monte Carlo integration converges frustratingly slow compared to other integration estimation techniques, and we should only use it when all other options are worse \fixme{cite that integration review book}
+
+% the variance is zero for the optimal draw distribution iff f(\theta) >= 0 almost everywhere. If f(theta) >= 0, then the variance is zero under the optimal draw distribution, because obviously: the normalization already contains the intgral we want to calculate.
+
+Just as we are able to estimate $\hat{I} \approx I$ with Monte Carlo integration, we can estimate $\mathbb{V}[\hat{I}]$ with
+\beq
+\hat{\sigma}^2_{I} = \frac{1}{M-1}\left(\frac{1}{M}\sum_{i=1}^M\frac{f(\theta_i)^2}{p(\theta_i)^2} - \hat{I}^2\right),
+\label{eq: variance estimator}
+\eeq
+which is also an unbiased estimator: $\expect{\hat{\sigma}^2_I} = \mathbb{V}[\hat{I}]$ (this fact can be shown by exactly the same procedure as Eq.~\ref{eq: expectation of Monte Carlo integral}), provided the variance exists. Note the denominator $M-1$ rather than $M$---known as Bessel's correction---is required for the estimator to be unbiased.
+Since Eqs.~\ref{eq: single event estimator} and~\ref{eq: selection effects estimator} are Monte Carlo integrals, they are unbiased estimators for the corresponding integrals: $\langle\hat{p}(d_i|\Lambda)\rangle = p(d_i|\Lambda)$ and $\langle\hat{\xi}(\Lambda)\rangle = \xi(\Lambda)$.\footnote{To be precise, $\hat{\xi}(\Lambda)$ should be thought of as a Monte Carlo integral over the space of all \textit{data} as opposed to a Monte Carlo integral over the space of sources $\theta$. Using the expression in the center of Eq.~\ref{eq: selection effects estimator}, the expectation can be taken directly over the sources $d_j, \theta_j$, without accounting for the data-dependent $N_{\rm found}$.}
+
+
+However, while the variance in each Monte Carlo integral is important, a more appropriate quantity to track is the total variance in the log-likelihood estimator in Eq.~\ref{eq: estimated hierarchical likelihood}. Introduced in \citet{Golomb:2021tll}, the variance in each Monte Carlo ingredient propagates to the total log-likelihood variance as
+\beq
+\hat{\sigma}^2_{\ln\mathcal{L}}(\Lambda) = \left(\sum_{i=1}^{\Nobs}\frac{\hat{\sigma}^2_{p_i}}{\hat{p}(d_i|\Lambda)^2}\right) + \frac{\Nobs^2\hat{\sigma}^2_{\xi}}{\hat{\xi}(\Lambda)^2},
+\label{eq: likelihood variance estimator}
+\eeq
+where $\hat{\sigma}^2_{p_i}$ is the variance calculated from Eq.~\ref{eq: variance estimator} for $\hat{p}(d_i|\Lambda)$ and $\hat{\sigma}^2_{\xi}$ is the variance for $\hat{\xi}(\Lambda)$.
+\citet{Talbot:2023pex} conjecture that thresholding on this variance estimator ensures a safe hyperposterior. By \DIFdelbegin \DIFdel{introducing }\DIFdelend \DIFaddbegin \DIFadd{using }\DIFaddend a generalization of Eq.~\ref{eq: likelihood variance estimator}---the covariance in the log-likelihood at two hyperparameters $\Lambda$ and $\Lambda'$\DIFaddbegin \DIFadd{, first introduced by \mbox{%DIFAUXCMD
+\citet{Essick:2022ojx}}\hskip0pt%DIFAUXCMD
+}\DIFaddend ---we show in Sec.~\ref{sec: robustness measures} that the log-likelihood variance threshold indeed ensures a safe hyperposterior.
+
+\subsection{Nonlinear functions of a Monte Carlo integral}
+\label{subsec: monte carlo bias}
+
+In the hierarchical likelihood for a population inference (Eq.~\ref{eq: rate marginalized likelihood}), we must multiply by a selection efficiency integral, raised to the negative power of the number of events in the catalog $\Nobs$. That is, we run the estimator $\hat{\xi}(\Lambda)$ through the function $g(x) = x^{-\Nobs}$. We may write the expectation of this nonlinear function of the Monte Carlo integral
+\beq
+\expect{g(\hat{I})} = \expectlarge{\hat{I}^{-\Nobs}} = \int \left(\frac{1}{M}\sum_{i=1}^M \frac{f(\theta_i)}{p(\theta_i)}\right)^{-\Nobs} p(\theta_1) \dd\theta_1 p(\theta_2) \dd\theta_2 ... p(\theta_M) \dd\theta_M \neq I^{-\Nobs}
+\eeq
+which cannot be simplified using the techniques from before. In fact, this is generically a \textit{biased} estimator for $I^{-\Nobs}$, and since $g(x) = x^{-\Nobs}$ is a convex function for $x > 0$, then by Jensen's inequality, the estimator is biased \textit{too large}: $\expect{\hat{I}^{-\Nobs}} > I^{-\Nobs}$. 
+
+We can approximate the bias by a Taylor expansion to leading order. Expanding each weight $f(\theta_i) / p(\theta_i)$ around the expectation of that weight, $\expect{f(\theta_i) / p(\theta_i)} = I$, 
+\beq
+\expect{g(\hat{I})} \approx \int \left[g(I) + \frac{g'(I)}{M} \sum_{i=1}^M \left(\frac{f(\theta_i)}{p(\theta_i)} - I\right)  + \frac{g''(I)}{2M^2}\sum_{i=1}^M \left(\frac{f(\theta_i)}{p(\theta_i)} - I\right)^2 + \mathcal{O}\left(\frac{1}{M^2}\right)\right] p(\theta_1) \dd\theta_1 p(\theta_2) \dd\theta_2 ... p(\theta_M) \dd\theta_M,
+\eeq
+where $g'(I)$ and $g''(I)$ are the first and second derivatives of $g$, evaluated at $I$. Using the same techniques as in Eq.~\ref{eq: expectation of Monte Carlo integral} and Eq.~\ref{eq: variance of Monte Carlo integral}, we can simplify to
+\beq
+\expect{g(\hat{I})} \approx g(I) + \frac{g''(I)}{2}\variance{\hat{I}} + \mathcal{O}\left(\frac{1}{M^2}\right) = I^{-\Nobs}\left[1 + \frac{\Nobs(\Nobs + 1)}{2}\frac{\variance{\hat{I}}}{I^2} + \mathcal{O}\left(\frac{1}{M^2}\right)\right].
+\label{eq: bias for mean raised to power}
+\eeq
+
+The approach of Eq.~\ref{eq: bias for mean raised to power} does not assume anything about the distribution for $\hat{I}$, beyond that the mean and variance exist. However, we can make a more reasonable assumption about the distribution of $\hat{I}$, namely, that it is distributed as a normal distribution, by the central limit theorem. If we assume $M$ is sufficiently large, we can assume that the normal distribution is narrow, and thus can also be approximated as a narrow log-normal distribution. It is easy to raise a log-normal distribution to an arbitrary power, and under this assumption one obtains that (also shown in \citet{Essick:2022ojx})
+\beq
+\expect{\hat{I}^{-\Nobs}} \approx I^{-\Nobs}\exp\left(\frac{\Nobs(\Nobs + 1)}{2}\frac{\variance{\hat{I}}}{I^2}\right).
+\label{eq: bias for mean raised to power assuming lognormal}
+\eeq
+For an illustrative example, consider the simple case where we want to estimate the integral of an exponential function raised to the $\Nobs=-100$ power
+\beq
+I_{\rm expo}^{-100} = \left(\int_0^\infty e^{-x} \dd x\right)^{-100} = 1.
+\eeq
+Pretending that we don't already know the analytic value, let's use a Monte Carlo estimator with draws from a \textit{broader} exponential $x_i \sim p(x) = \frac{1}{2}e^{-x/2}$,
+\beq
+\hat{I}_{\rm expo}^{-100} = \left(\frac{1}{M}\sum_{i=1}^M \frac{2e^{-x_i}}{e^{-x_i/2}}\right)^{-100} = \left(\frac{1}{M}\sum_{i=1}^M 2e^{-x_i/2}\right)^{-100}.
+\label{eq: exponential reweighting scheme}
+\eeq
+We can compute the variance in closed form, which gives us the expectation
+\beq
+\variance{\hat{I}_{\rm expo}} = \frac{1}{3M} \implies \expect{\hat{I}_{\rm expo}^{-100}} = \begin{dcases}
+1 + \dfrac{5050}{3M} + \mathcal{O}\left(\dfrac{1}{M^2}\right) & \text{to leading order} \\
+\exp\left(\dfrac{5050}{3M}\right) & \text{assuming log-normal}
+\end{dcases}
+\label{eq: expectation of exponential biased estimator}
+\eeq
+To verify these approximations, we show the histograms of many random realizations using different fixed values of $M$ in Fig.~\ref{fig: exponential powers histograms}, and a comparison of the empirical expectation with the theoretical expectation of this biased estimator (Eq.~\ref{eq: expectation of exponential biased estimator}) as a function of $M$. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{plots/exponetial_powers_hist_linscale.pdf}
+    \caption{
+    \textit{Left}: Histograms of $10^6$ draws of a $\hat{I}^{-100}$ estimated from reweighting a sample of $M$ values from a broader exponential distribution, for various values of $M$. The solid vertical lines show the mean of these draws, $\expect{\hat{I}^{-100}}$. The mean becomes severely biased for small $M$, as the distribution of $\hat{I}^{-100}$ becomes strongly skewed. 
+    \textit{Right}: The bias $\expect{\hat{I}^{-100}} - I^{-100}$ as a function of $M$. In black is the empirical bias computed from an average of $10^6$ estimates with sample size $M$, with the $10\sigma$ (so the envelope is visible) shaded uncertainty envelope. The uncertainty is due averaging with finite number statistics ($10^6$). In green is the theoretical bias assuming the $\hat{I}$ is distributed according to a log-normal, which closely matches the empirically calculated bias, and in red is the leading order theoretical bias, which does not assume an underlying distribution for $\hat{I}$, but deviates at small values of $M$ (see Eq.~\ref{eq: expectation of exponential biased estimator}).
+    }
+    \label{fig: exponential powers histograms}
+\end{figure}
+
+\subsection{Correction Factor}
+
+We can correct for the bias due to the nonlinearity using a correction factor, which we derive in general in appendix~\ref{app: correction in general}, under the restrictions that the improved estimator should remain positive everywhere, and remove the leading order bias. For the function $g(x) = x^{-\Nobs}$, the corrected estimator for $I^{-\Nobs}$ is
+\beq
+\hat{I}_{\rm corr}^{-\Nobs} \equiv \hat{I}^{-\Nobs}\exp(-\frac{\Nobs(\Nobs+1)}{2}\frac{\hat{\sigma}^2_{I}}{\hat{I}^2}).
+\label{eq: corrected integral power estimator}
+\eeq
+
+Having removed the leading order bias at $\mathcal{O}(M^{-1})$, the remaining bias occurs at $\mathcal{O}(M^{-2})$. We show the analogous figure to Fig.~\ref{fig: exponential powers histograms} in Fig.~\ref{fig: corrected exponential powers histograms} and verify the remaining bias scales as expected. 
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{plots/exponetial_powers_corrected_hist_linscale.pdf}
+    \caption{
+    Analogous to Fig.~\ref{fig: exponential powers histograms} except using the corrected estimator $\hat{I}_{\rm corr}$. Note the bias is now negative and the reduced axes relative to Fig.~\ref{fig: exponential powers histograms}. We show the bias now scales as $\mathcal{O}(M^{-2})$ as expected.
+    }
+    \label{fig: corrected exponential powers histograms}
+\end{figure}
+
+\section{Bias in population inference}
+\label{sec: bias in population inference}
+
+%Having gone through the essentials of Monte Carlo integration and estimator theory, we are now ready to understand the source of bias in the likelihood and posterior estimators in \ac{GW} hierarchical inference.
+
+\subsection{Likelihood bias and correction}
+
+We saw in Section~\ref{subsec: monte carlo bias} that running an \textit{unbiased} Monte Carlo estimator through a nonlinear function produces a biased estimator. In \ac{GW} population analyses, the likelihood is estimated by raising the selection effects estimator to the $-\Nobs$ power: $\hat{\xi}(\Lambda)^{-\Nobs}$.
+Without any correction, this means the likelihood estimator is biased as in Eqs.~\ref{eq: bias for mean raised to power} and \ref{eq: bias for mean raised to power assuming lognormal}. 
+
+For an unbiased likelihood estimator, we need to include the following modifying term.\footnote{Note the similarity but opposite sign to the modifying term proposed \citet{Farr:2019rap}. Both approaches compute a bias term $\sim \exp(\Nobs^2/2\Neff)$, though \citet{Farr:2019rap} suggests including this term explicitly as a marginalization over the uncertainty. That is, the correction in \citet{Farr:2019rap} is analogous to the bias term in Eq.~\ref{eq: bias for mean raised to power assuming lognormal}. We suggest that the expectation of the likelihood should be unbiased, and so we \textit{undo} this term, hence it obtains a minus sign in Eq.~\ref{eq: unbiased likelihood estimator}.}
+\beq
+\hat{\mathcal{L}}_{\rm corr}(\{d_i\} | \Lambda) \equiv \hat{\xi}(\Lambda)^{-\Nobs}\exp\left(-\frac{1}{2}\frac{\Nobs(\Nobs+1)\hat{\sigma}_\xi^2(\Lambda)}{\hat{\xi}(\Lambda)^2}\right)\prod_{i=1}^{\Nobs}\hat{p}(d_i|\Lambda)
+\label{eq: unbiased likelihood estimator}
+\eeq
+where $\hat{\sigma}^2_{\xi}$ is the estimated variance in the Monte Carlo integral for $\hat{\xi}$
+\beq
+\hat{\sigma}^2_\xi = \frac{1}{\Ninj-1}\left(\frac{1}{\Ninj}\sum_{j=1}^{\Ninj}\frac{p(\theta_j|\Lambda)^2}{p(\theta_j|{\rm draw})^2} - \hat{\xi}(\Lambda)^2\right).
+\eeq
+With the inclusion of the modifying term, the bias in the likelihood estimator is removed to leading order (that is, it is now at order $\Ninj^{-2}$ rather than $\Ninj^{-1}$). They do not reduce the precision of the estimator meaningfully, and so represent a simple improvement to the likelihood estimator. For the mathematical details on this modifying term, see the Appendices \ref{app: bias in general} and \ref{app: correction in general}.
+
+Now since the estimators $\hat{\xi}(\Lambda)$ and $\hat{p}(d_i|\Lambda)$ are all uncorrelated---the Monte Carlo samples are from unrelated distributions---the expectation over Monte Carlo samples of the likelihood estimator in Eq.~\ref{eq: unbiased likelihood estimator} factors and is now unbiased to $\mathcal{O}(\Ninj^{-2})$
+\beq
+\expectlarge{\hat{\mathcal{L}}_{\rm corr}(\{d_i\} | \Lambda)} = \expectlarge{\hat{\xi}(\Lambda)^{-\Nobs}\exp\left(-\frac{1}{2}\frac{\Nobs(\Nobs+1)\hat{\sigma}_\xi^2(\Lambda)}{\hat{\xi}(\Lambda)^2}\right)}\prod_{i=1}^{\Nobs}\expect{\hat{p}(d_i|\Lambda)} = \mathcal{L}(\{d_i\}|\Lambda)[1 + \mathcal{O}(\Ninj^{-2})].
+\eeq
+
+\subsection{Posterior bias}
+
+However, the issue with the bias extends beyond the likelihood. Even if the likelihood estimator is unbiased, the \textit{posterior} will be biased. This is for a similar reason as the bias in the likelihood: the posterior is a nonlinear function of the likelihood, and so marginalizing the posterior over the uncertainty in the likelihood will leave some residual bias. Mathematically, this is due to the nonlinearity in the normalization and covariance in the likelihood estimator between multiple locations in parameter space $\Lambda, \Lambda'$. Denoting $\mathcal{L}(\{d_i\}|\Lambda) = \mathcal{L}(\Lambda)$ and the scatter $\hat{\mathcal{L}}(\Lambda)/\mathcal{L}(\Lambda) -1 \equiv \hat{\delta}(\Lambda)$,
+\begin{align}
+\expect{\hat{p}(\Lambda|\{d_i\})} 
+&= \expectlarge{\frac{\mathcal{L}(\Lambda)[1 + \hat{\delta}(\Lambda)]}{\int \dd\Lambda' \mathcal{L}(\Lambda')[1 + \hat{\delta}(\Lambda')]}} \label{eq: bias in posterior heuristic} \\
+&\approx p(\Lambda)\left(1 + \expect{\hat{\delta}(\Lambda)} - \int \dd\Lambda' p(\Lambda')\expect{\hat{\delta}(\Lambda')} - \int \dd\Lambda' p(\Lambda')\expect{\hat{\delta}(\Lambda)\hat{\delta}(\Lambda')} + \int \dd\Lambda'\dd\Lambda''p(\Lambda')p(\Lambda'')\expect{\hat{\delta}(\Lambda')\hat{\delta}(\Lambda'')}\right) \nonumber
+\end{align}
+where we have defined $p(\Lambda) = \mathcal{L}(\Lambda) / \int \dd\Lambda' \mathcal{L}(\Lambda')$ as the true posterior, and we have used the binomial expansion to second order for the denominator.
+$\expect{\hat{\delta}(\Lambda)}$ is proportional to the bias in the likelihood, and is zero for an unbiased likelihood (or $\mathcal{O}(\Ninj^{-2})$ for the corrected likelihood in Eq.~\ref{eq: unbiased likelihood estimator}). Notice there are additional biasing terms in the posterior estimator, due to $\expect{\hat{\delta}(\Lambda)\hat{\delta}(\Lambda')}$ terms or two-point \textit{covariance} terms between different locations in parameter space. 
+
+It may seem surprising that we should worry about nonlinearity in a normalization term that only appears implicitly in most applications. We discuss this in Appendix~\ref{app: normalization discussion}.
+
+We derive the general bias to leading order in the Appendix~\ref{app: bias in general}, and for the \ac{GW} population inference problem approximated with Monte Carlo integration (Eq.~\ref{eq: estimated hierarchical likelihood}), the bias $b$ is such that
+\beq
+\expect{\hat{p}(\Lambda | \{d_i\})} = p(\Lambda | \{d_i\})\left(1 +b(\Lambda) - \int b(\Lambda')\dd\Lambda' \right)
+\eeq
+where $b(\Lambda)$ varies across parameter space and the second term simply ensures the posterior remains normalized. To leading order, 
+\beq
+b(\Lambda) = \frac{1}{2}\frac{\Nobs(\Nobs+1)\mathbb{V}[\hat{\xi}(\Lambda)]}{\xi(\Lambda)^2} - \int C_{\ln\mathcal{L}}(\Lambda, \Lambda')p(\Lambda'|\{d_i\})\dd\Lambda'.
+\label{eq: posterior bias}
+\eeq
+The first term is the bias from the nonlinearity at which the selection effects estimator enters the likelihood; $\mathbb{V}[\hat{\xi}(\Lambda)]$ is the variance in the estimator $\hat{\xi}(\Lambda)$. As shown in detail in Appendix~\ref{app: bias in general}, the second term is the \textit{posterior} bias where $C_{\ln\mathcal{L}}(\Lambda, \Lambda')$ is the covariance in the log-likelihood estimator between points $\Lambda$ and $\Lambda'$, and for the \ac{GW} population inference problem, may be estimated with
+\beq
+\hat{C}_{\ln\mathcal{L}}(\Lambda, \Lambda') = \sum_{i=1}^{\Nobs}\frac{\hat{C}_{p_i}(\Lambda, \Lambda')}{\hat{p}(d_i|\Lambda)\hat{p}(d_i|\Lambda')}
++ \frac{\Nobs^2\hat{C}_{\xi}(\Lambda, \Lambda')}{\hat{\xi}(\Lambda)\hat{\xi}(\Lambda')}
+\label{eq: population covariance with selection}    
+\eeq
+where 
+\beq
+\hat{C}_{p_i}(\Lambda, \Lambda') = \frac{1}{\NPE - 1}\left(\left[\frac{1}{\NPE}\sum_{j=1}^{\NPE}\frac{p(\theta_{ij}|\Lambda)}{\pi(\theta_{ij}|{\rm PE})}\frac{p(\theta_{ij}|\Lambda')}{\pi(\theta_{ij}|{\rm PE})}\right] - \hat{p}(d_i|\Lambda)\hat{p}(d_i|\Lambda')\right)
+\label{eq: single event covariance estimator}
+\eeq
+is the covariance between the estimators $\hat{p}(d_i|\Lambda)$ and $\hat{p}(d_i|\Lambda')$ and
+\beq
+\hat{C}_{\xi}(\Lambda, \Lambda') = \frac{1}{\Ninj - 1}\left(\left[\frac{1}{\Ninj}\sum_{j=1}^{\Nfound}\frac{p(\theta_j|\Lambda)}{p(\theta_j|{\rm draw})}\frac{p(\theta_j|\Lambda')}{p(\theta_j|{\rm draw})}\right] - \hat{\xi}(\Lambda)\hat{\xi}(\Lambda')\right)
+\label{eq: selection covariance estimator}
+\eeq
+is the covariance between the selection efficiency estimators $\hat{\xi}(\Lambda)$ and $\hat{\xi}(\Lambda')$.
+These covariances come from the fact that each estimator is using the \textit{same} sets of samples to reweight across $\Lambda$ parameter space \DIFaddbegin \DIFadd{(also see \mbox{%DIFAUXCMD
+\citet{Essick:2022ojx} }\hskip0pt%DIFAUXCMD
+and \mbox{%DIFAUXCMD
+\citet{Talbot:2023pex}}\hskip0pt%DIFAUXCMD
+)}\DIFaddend .
+
+We illustrate the intuition behind the posterior bias in Fig.~\ref{fig: schematic of posterior bias}. Suppose the true likelihood is a standard normal, and we have an unbiased likelihood estimator scattered by a zero-mean log-Gaussian process. Each draw from the scattering process represents a likelihood estimator $\hat{\mathcal{L}}$. We show several draws of the likelihood estimator in the left-hand panel of Fig.~\ref{fig: schematic of posterior bias}. Notice, due to the form of the log-Gaussian process, the uncertainty is small towards the negative end of the parameter space, and grows larger towards the positive end. We also show the true likelihood ($\mathcal{L}$, green) and the average of the likelihood estimators ($\langle\hat{\mathcal{L}}\rangle$, red) to show the likelihood estimator is unbiased, as designed.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{plots/continuous_likelihood_bias_schematic.pdf}
+    \caption{A schematic for how an unbiased likelihood estimator leads to a biased posterior estimator. We draw likelihood scatter from a zero mean log-Gaussian process where the uncertainty is small for negative $x$ and large for positive $x$. Each black curve represents a likelihood (left) or normalized posterior (right) estimator, the red curve is the mean of the estimators and the green curve is the true likelihood and posterior. The likelihood estimator is unbiased (the mean of the likelihood estimators lies on top of the true likelihood estimator) but the corresponding posterior estimators are biased.}
+    \label{fig: schematic of posterior bias}
+\end{figure}
+
+
+However, the resulting posterior estimator is biased. As shown mathematically in Eq.~\ref{eq: bias in posterior heuristic}, this is because of the nonlinearity of the normalization, and we can understand this intuitively from the schematic in Fig.~\ref{fig: schematic of posterior bias}. Consider two cases: one where the likelihood estimator for $x>0$ is scattered upwards, and one where the likelihood estimator is scattered downwards. The likelihood estimator is unbiased, so these cases should average out over an ensemble of estimators to the correct likelihood. That is, the amount of upwards scatter balances the amount of downwards scatter in the likelihood estimator. However, when we consider the corresponding \textit{normalized} posterior estimators, this balance is broken. The normalization is larger for the estimator which scattered upwards, and smaller for the estimator which scattered downwards. The normalization then down-weights the upwardly scattered estimator, and up-weights the downwardly scattered estimators. In general, this means that regions with larger uncertainty in the likelihood will be negatively biased, and regions with smaller uncertainty will be positively biased. 
+Fig.~\ref{fig: schematic of posterior bias} confirms our intuition: where the likelihood estimator uncertainty is small ($x<0$), the posterior is positively biased. We quantify this bias using the \textit{average} of the posterior estimators, denoted $\langle\hat{p}(x)\rangle$. 
+
+For completeness, we include the discussion of general posterior correction in the Appendix~\ref{app: correction in general} and as it applies to some examples in Appendix~\ref{app: examples of posterior correction}. That said, in practice it is expensive to include the full posterior correction factor because it requires an integral over the uncorrected posterior. That typically means performing an initial biased inference followed by a second corrected inference. Another drawback is that in the corrected posterior, we lose the ability to estimate the remaining posterior bias and there is often still significant \textit{uncertainty} which actually dominates the total error. For this reason, it is usually enough to use the corrected likelihood but neglect the posterior correction term. In Section~\ref{sec: robustness measures}, we introduce an estimator to quantify the total error (bias plus uncertainty) in the uncorrected posterior, and the analyst should compute this error statistic to assess the validity of their approximate inference.
+
+
+% Given a set of $N_{\rm samp}$ samples from $\{\Lambda_n\} \sim\hat{p}$, then we can estimate the bias in the $n^{\rm th}$ sample as
+% \beq
+% \hat{b}_n = -\frac{1}{N_{\rm samp}}\sum_{m=1}^{N_{\rm samp}}\hat{C}_{\ln\mathcal{L}}(\Lambda_n, \Lambda_m) + \frac{1}{N_{\rm samp}^2}\sum_{m=1}^{N_{\rm samp}}\sum_{k=1}^{N_{\rm samp}}\hat{C}_{\ln\mathcal{L}}(\Lambda_m, \Lambda_k).
+% \label{eq: bias estimator}
+% \eeq
+% We can then use this to estimate the robustness of a posterior estimator in post-processing; the overall error of a posterior estimator due to bias as well as uncertainty.
+
+
+\section{Robustness measures and uncertainty thresholding}
+\label{sec: robustness measures}
+
+%\rednote{ACTUALLY I THINK THIS SHOULD GO IN FRONT OF THE BIAS CORRECTION SECTION?} maybe. Might be worth rethinking about how to structure the paper honestly. 
+In this section, we introduce a unified statistic $\hat{E}$ for evaluating the total error in an approximated posterior. From this discussion, the concepts of accuracy and precision for posterior estimators naturally appear. We also define the accuracy statistic $\hat{A}$ and precision statistic $\hat{\Pi}$ for estimating these quantities, where the error statistic is the sum $\hat{E} = \hat{A} + \hat{\Pi}$. \DIFaddbegin \DIFadd{We note that the precision statistic is proportional to the doubly-integrated Eq. A10 from \mbox{%DIFAUXCMD
+\citet{Essick:2022ojx}}\hskip0pt%DIFAUXCMD
+.
+}\DIFaddend 
+
+To quantify the error between the posterior estimator and the true posterior, we use the \KL divergence. Given a reference probability distribution $p$ and a test distribution $q$ over a space $\Lambda$, the \KL divergence quantifies the information lost from approximating $p$ with $q$. In units of bits \citep{MacKay2003}
+\beq
+\KLD(p|q) = \int p(\Lambda) \log_2\left(\frac{p(\Lambda)}{q(\Lambda)}\right)\dd\Lambda.
+\label{eq: kl divergence}
+\eeq
+Suppose $q(\Lambda) \propto p(\Lambda)(1+\delta(\Lambda))$ for a small perturbation function $\delta(\Lambda)$. Expanding the logarithm and ensuring $q(\Lambda)$ is normalized gives\footnote{We can also think of Eq.~\ref{eq: kl divergence at leading order} as a different quantification for the distance between distributions: the $L^2$ norm of the centralized perturbation function $||\delta(\Lambda) - \int p(\Lambda')\delta(\Lambda')\dd\Lambda'||^2$ on the probability space defined by $p(\Lambda)$. If this metric (which approximates the \KL divergence) is zero and $p, q$ are continuous, then the perturbation function is constant, or that $p=q$.}
+\beq
+\KLD(p|q) \approx \frac{1}{2\ln(2)} \left[\int p(\Lambda)\delta(\Lambda)^2\dd\Lambda - \left(\int p(\Lambda)\delta(\Lambda)\dd\Lambda\right)^2\right] + \mathcal{O}(\delta^3).
+\label{eq: kl divergence at leading order}
+\eeq
+
+Here, $p$ represents the true posterior and $q=\hat{p}$ the estimator, and so $\delta(\Lambda) = b(\Lambda) + \varepsilon(\Lambda)$ is the sum of a constant bias term $b(\Lambda)$ (defined in Eq.~\ref{eq: posterior bias}) and a (zero mean) scatter term $\varepsilon(\Lambda)$. Taking the expectation of both sides and using that $\expect{\varepsilon(\Lambda)} = 0$, $\expect{\varepsilon(\Lambda)\varepsilon(\Lambda')} = C_{\ln\mathcal{L}}(\Lambda, \Lambda')$ and $C_{\ln\mathcal{L}}(\Lambda, \Lambda) \equiv \sigma^2_{\ln\mathcal{L}}(\Lambda)$
+\beq
+\expect{\KLD(p|\hat{p})} \approx \frac{1}{2\ln(2)} \left[\int p(\Lambda)[b(\Lambda)^2 + \sigma^2_{\ln\mathcal{L}}(\Lambda)]\dd\Lambda - \int p(\Lambda)p(\Lambda')[b(\Lambda)b(\Lambda') + C_{\ln\mathcal{L}}(\Lambda,  \Lambda')]\dd\Lambda\dd\Lambda'\right] + \mathcal{O}(\delta^3).
+\label{eq: expected kl divergence to estimator}
+\eeq
+This motivates the definition of the error statistic $\hat{E}$, which estimates Eq.~\ref{eq: expected kl divergence to estimator}. Given $N_{\rm samp}$ samples $\{\Lambda_n\}$ from the hyperposterior estimator $\hat{p}$, we define the error statistic as 
+\beq
+\hat{E}[\hat{p}] = \hat{A}[\hat{p}] + \hat{\Pi}[\hat{p}]
+\label{eq: error statistic}
+\eeq
+where
+\begin{align}
+    \hat{\Pi}[\hat{p}] &= \frac{1}{2\ln(2)}\left[\frac{1}{N_{\rm samp}}\sum_{n=1}^{N_{\rm samp}}\hat{\sigma}^2_{\ln\mathcal{L}}(\Lambda_n) - \frac{1}{N_{\rm samp}^2}\sum_{n=1}^{N_{\rm samp}}\sum_{m=1}^{N_{\rm samp}}\hat{C}_{\ln\mathcal{L}}(\Lambda_n, \Lambda_m)\right]
+    \label{eq: precision statistic} \\
+    \hat{A}[\hat{p}] &= \frac{1}{2\ln(2)}\frac{1}{N_{\rm samp}-1}\left[\sum_{n=1}^{N_{\rm samp}}w_n^2 - \frac{1}{N_{\rm samp}}\left(\sum_{n=1}^{N_{\rm samp}}w_n\right)^2\right] = \frac{1}{2\ln(2)}{\rm var}[\{w_n\}],
+    \label{eq: accuracy statistic}
+\end{align}
+and $\hat{\sigma}^2_{\ln\mathcal{L}}(\Lambda_m)\equiv\hat{C}_{\ln\mathcal{L}}(\Lambda_n, \Lambda_n)$ is the estimator of the variance of the log-likelihood defined in Eq.~\ref{eq: likelihood variance estimator}, $\hat{C}_{\ln\mathcal{L}}(\Lambda_n, \Lambda_m)$ is the estimator for the covariance of the log-likelihood between points $\Lambda_n$ and $\Lambda_m$ defined in Eq.~\ref{eq: population covariance with selection}, and the weights are given by
+\beq
+w_n = 
+\begin{cases}
+\dfrac{1}{2}\dfrac{\Nobs(\Nobs+1)\hat{\sigma}^2_{\xi}(\Lambda_n)}{\hat{\xi}(\Lambda_n)^2} - \dfrac{1}{N_{\rm samp}}\displaystyle\sum_{m=1}^{N_{\rm samp}} \hat{C}_{\ln\mathcal{L}}(\Lambda_n, \Lambda_m) & \text{if using uncorrected likelihood in Eq.~\ref{eq: estimated hierarchical likelihood}} \\ 
+\dfrac{1}{N_{\rm samp}}\displaystyle\sum_{m=1}^{N_{\rm samp}} \hat{C}_{\ln\mathcal{L}}(\Lambda_n, \Lambda_m)  & \text{if using corrected likelihood in Eq.~\ref{eq: unbiased likelihood estimator}}
+\end{cases}
+\eeq
+where the sum estimates the average covariance between the fixed point $\Lambda_n$ and another random sample in the posterior $\hat{p}$.
+
+The accuracy statistic $\hat{A}[\hat{p}]$ approximates the amount of bias in the posterior estimate $\hat{p}$ from the true posterior $p$. Given that we do not have access to an ensemble of posterior estimators nor the true posterior, we can only estimate the bias to leading order. That means there are higher order terms that should also contribute to the accuracy, however we neglect these. A large accuracy statistic indicates that higher order terms would also contribute significantly to the bias, and the posterior estimator is not trustworthy. 
+
+Similarly, the precision statistic $\hat{\Pi}[\hat{p}]$ measures the average amount of scatter in a theoretical ensemble of posterior estimators. The scatter is the distance between the average posterior estimator (which in general is biased from the true posterior) and the particular realization of the posterior estimator. Again, we do not have access to this theoretical ensemble, and so we can only estimate the precision to leading order based on the estimator we have. 
+We verify the efficacy of the accuracy and precision statistics for a variety of hierarchical inference problems in Sections~\ref{sec: gaussian example} and \ref{sec: gw example}. 
+
+For a variety of problems we consider, we find that when $\hat{E}[\hat{p}] \lesssim 0.2$ bits, the posterior estimator is reliable, and the smaller the error statistic, the more reliable the posterior estimator is. See Fig.~\ref{fig: accuracy vs precision} for a schematic to illustrate the concepts of accuracy and precision in a posterior estimator.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{plots/precision_vs_accuracy.pdf}
+    \caption{Schematic showing the concept of precise and accurate posterior estimators. In all panels the black traces are draws from the posterior estimator $\hat{p}(x)$, the red curve is the mean of the posterior estimators, $\langle \hat{p}(x)\rangle$, and the green is the true posterior. \textit{Top left}: draws from an inaccurate, imprecise posterior estimator. The posterior estimators are inaccurate because the mean $\langle \hat{p}(x)\rangle$ posterior is significantly different from the true posterior $p(x)$, and the estimator is imprecise due to the large scatter around the true posterior. \textit{Top right}: the same as the top left, but with an accurate but imprecise posterior estimator. \textit{Bottom left}: draws from an inaccurate yet precise posterior estimator. \textit{Bottom right}: draws from an accurate and precise posterior estimator.}
+    \label{fig: accuracy vs precision}
+\end{figure}
+
+Notice that the accuracy statistic is on the order of the \textit{square} of the covariance estimator and the precision is on the order of covariance estimator. As the uncertainty in the log-likelihood estimator decreases, the error is dominated by the uncertainty rather than the bias. In practice, though, there are scenarios where the bias dominates as well. Bias and uncertainty in the estimator are due to different aspects of the ``noise process'' in the likelihood estimator. The bias in the posterior happens due to a changing variance/covariance across the support of the posterior, while the uncertainty in the posterior estimator comes from a variance in the log-likelihood estimator which is not matched by equal \textit{covariance} across the posterior support.
+
+% We derive a pair of quantities to measure the accuracy and precision of a given posterior estimator. The accuracy statistic $\hat{A}$ \rednote{notation good?} we derive is directly related to the bias we discuss in detail above -- it represents the similarity between the \textit{average} posterior estimator and the true posterior (e.g. the difference between the red contour and the green contour in Figs.~\ref{fig: nobs 100 gaussian example} and \ref{fig: nobs 1000 gaussian example}). In practice, of course, we cannot calculate this exactly, however we can estimate it to leading order. 
+
+% In addition to the accuracy of the posterior point estimate, there is the random scatter from using a single uncertain approximation to the posterior. We quantify this with a \textit{precision} statistic $\hat{\Pi}$ which measures the information lost -- on average -- between the a point estimate posterior estimator and the average posterior estimator (e.g. the difference between a black contour and the red contour in Figs.~\ref{fig: nobs 100 gaussian example} and \ref{fig: nobs 1000 gaussian example}).
+
+% These are different but related issues associated with using an uncertain approximation for the likelihood. In different cases, posterior estimators may be both accurate and precise, accurate but imprecise, inaccurate but precise, or neither accurate nor precise. We show a simple schematic in Fig.~\ref{fig: accuracy vs precision}, and discuss the accuracy and precision statistics below.
+
+% \subsection{Accuracy}
+
+% For likelihoods with a large uncertainty, the posterior estimator can have a significant bias. We derived a general expression for the leading-order bias in Eq.~\ref{eq: full bias} -- which may be corrected with Eq. ????? -- and in the \ac{GW} population inference problem it's 
+% \beq
+% b(\Lambda) = \frac{1}{2}\frac{\Nobs(\Nobs+1)\hat{\sigma}_\xi^2(\Lambda)}{\hat{\xi}(\Lambda)^2} - \int \hat{C}_{\ln\mathcal{L}}(\Lambda, \Lambda')p(\Lambda')d\Lambda'
+% \label{eq: bias in gw inference}
+% \eeq
+% \rednote{Now the left hand side $b(\Lambda)$ is not an estimator, but the RHS is an estimator. We should correct this -- ie write in terms of the true $C_{\ln\mathcal{L}}(\Lambda, \Lambda')$ which we argue can then be \textit{estimated} using the estimators.}
+% where
+% \beq
+% \hat{\sigma}^2_\xi = \frac{1}{\Ninj-1}\left(\frac{1}{\Ninj}\sum_{j=1}^{\Ninj}\frac{p(\theta_j|\Lambda)^2}{p(\theta_j|{\rm draw})^2} - \hat{\xi}(\Lambda)^2\right)
+% \eeq
+% and
+% \begin{multline}
+% \hat{C}_{\ln\mathcal{L}}(\Lambda, \Lambda') = \sum_{i=1}^{\Nobs}\frac{1}{\NPE - 1}\frac{1}{\hat{p}(d_i|\Lambda)\hat{p}(d_i|\Lambda')}\left(\left[\frac{1}{\NPE}\sum_{j=1}^{\NPE}\frac{p(\theta_j|\Lambda)}{\pi(\theta_j|{\rm PE})}\frac{p(\theta_j|\Lambda')}{\pi(\theta_j|{\rm PE})}\right] - \hat{p}(d_i|\Lambda)\hat{p}(d_i|\Lambda')\right) \\
+% + \frac{\Nobs^2}{\Ninj - 1}\frac{1}{\hat{\xi}(\Lambda)\hat{\xi}(\Lambda')}\left(\left[\frac{1}{\Ninj}\sum_{j=1}^{\Nfound}\frac{p(\theta_j|\Lambda)}{p(\theta_j|{\rm draw})}\frac{p(\theta_j|\Lambda')}{p(\theta_j|{\rm draw})}\right] - \hat{\xi}(\Lambda)\hat{\xi}(\Lambda')\right).
+% \label{eq: gw posterior covariance} 
+% \end{multline}
+% Even including the likelihood unbiasing term, there is a residual bias in the posterior which can only be removed by redoing the analysis with a correction term derived from the initial biased inference. However, we can approximate the information lost (by manner of a \ac{KL} divergence) with Eq.~\ref{eq: kl divergence at leading order} for $\delta$, and therefore we get 
+% \beq
+% \KLD(p|\langle\hat{p}\rangle) = \frac{1}{2\ln(2)}\left[\int p(\Lambda)b(\Lambda)^2d\Lambda - \left(\int p(\Lambda) b(\Lambda)d\Lambda\right)^2\right] + \mathcal{O}(b^3)
+% \eeq
+% We can estimate this with an \textit{accuracy} statistic. 
+% Given $N_{\rm samp}$ samples $\{\Lambda_n\}$ from the hyperposterior estimator $\hat{p}$, we define the accuracy statistic as
+% \beq
+% \hat{A}[\hat{p}] = \frac{1}{2\ln(2)}\mathbb{V}[\{w_n\}_{n=1}^{N_{\rm samp}}\}] \approx \KLD(p|\langle\hat{p}\rangle)
+% \eeq
+% where $\mathbb{V}$ denotes the sample variance in the set of weights 
+% \beq
+% w_n = \frac{1}{N_{\rm samp}}\sum_{m=1}^{N_{\rm samp}} \hat{C}_{\ln\mathcal{L}}(\Lambda_n, \Lambda_m).
+% \eeq
+% The $n^{\rm th}$ weight corresponds to the covariance between the point $\Lambda_n$ and another random sample from the hyperposterior $\Lambda_m \sim \hat{p}$, averaged over random samples $\Lambda_m$. Note the covariance is symmetric in $\Lambda_n \leftrightarrow \Lambda_m$, and so the weights may be equivalently computed as an average over the first argument or the second argument in the covariance.
+
+% The accuracy statistic can be computed in post-processing after a stochastic sampler finishes producing the samples $\{\Lambda_n\} \sim \hat{p}$. \rednote{Ok so we should remove the likelihood biasing term! Just makes everything easier.}
+
+% \subsection{Precision}
+
+% \rednote{These should all have integration measure $\Lambda$}
+
+% In addition to the bias discussed in Section~\ref{sec: monte carlo bias}, there is the uncertainty associated with using a single point estimate of the posterior. We can quantify this with Eq.~\ref{eq: kl divergence at leading order}, by taking the expectation over all $\delta$. This obtains us the \textit{precision} of the posterior estimator 
+% \beq
+% \langle\KLD(\langle \hat{p}\rangle|\hat{p})\rangle \approx \frac{1}{2\ln(2)} \left[\int p(x)\sigma^2(x)dx - \int p(x)p(x')C_{\ln\mathcal{L}}(x, x')dxdx'\right],
+% \label{eq: random kl divergence expectation}
+% \eeq
+% where $C_{\ln\mathcal{L}}(x,x') = \langle\delta(x)\delta(x')\rangle$ is the covariance between two points $x, x'$ and $\sigma^2(x) = C_{\ln\mathcal{L}}(x,x)$.
+% This is useful because we can also estimate this for an analysis without knowing the true posterior or the average of many posteriors. Given our single point estimate of the posterior $\hat{p}$, we define the \textit{precision} statistic as \rednote{we can create an accuracy estimator too based on the bias.}
+% \beq
+% \widehat{\Pi}[\hat{p}] = \frac{1}{2\ln(2)} \left[\int \hat{p}(x)\hat{\sigma}^2(x)dx - \int \hat{p}(x)\hat{p}(x')\hat{C}_{\ln\mathcal{L}}(x, x')dxdx'\right],
+% \label{eq: precision estimator}
+% \eeq
+% \rednote{Write this in terms of samples and weights and shit, as done for the accuracy estimator.}
+
+
+% where $\hat{\sigma}^2(x)$ is the estimator for the variance in the log-likelihood at the point $x$, and $\hat{C}_{\ln\mathcal{L}}(x,x')$ is the estimator for the covariance between the log-likelihood estimates at $x$ and $x'$. The precision statistic approximates the \textit{typical} amount of information lost from the the average posterior, when using a point estimate. It does not account for the additional bias that may be present in the average posterior. 
+
+\subsection{Thresholding on the uncertainty}
+
+Another perspective on the error in the posterior estimator is as a sum of contributions which occur at higher and higher order in the uncertainty of the log-likelihood. The leading order contribution to the error is the precision statistic, which occurs at first order in the covariance of the log-likelihood $C$. The bias occurs at order $C^2$, and in principle, there are contributions at third, fourth, etc. order in the covariance,\footnote{At higher order, there are also higher order moments which contribute, e.g. $\expect{\varepsilon(\Lambda)\varepsilon(\Lambda')\varepsilon(\Lambda'')}$, which must be accounted for.} 
+however we neglect these to describe only the leading order contribution of the precision and the accuracy. If we bound the covariance to be below 1, that bounds the leading order sources of error, and also ensures that the contributions at high order in the covariance are suppressed.
+
+Fortunately, the covariance in the log-likelihood must satisfy
+\beq
+|C_{\ln\mathcal{L}}(\Lambda, \Lambda')| \le \sqrt{|C_{\ln\mathcal{L}}(\Lambda, \Lambda)||C_{\ln\mathcal{L}}(\Lambda', \Lambda')|} \equiv \sigma_{\ln\mathcal{L}}(\Lambda)\sigma_{\ln\mathcal{L}}(\Lambda'),
+\label{eq: covariance Schwarz inequality}
+\eeq
+due to the Cauchy-Schwarz inequality, where $\sigma_{\ln\mathcal{L}}(\Lambda)$ is the square root of the variance of the log-likelihood estimator. The same inequality holds for the covariance and variance \textit{estimators}
+\beq
+|\hat{C}_{\ln\mathcal{L}}(\Lambda, \Lambda')| \le \hat{\sigma}_{\ln\mathcal{L}}(\Lambda)\hat{\sigma}_{\ln\mathcal{L}}(\Lambda').
+\label{eq: covariance Schwarz inequality estimator}
+\eeq
+Showing these inequalities does require some careful application of the Cauchy-Schwarz inequality, which we do in Appendix~\ref{app: covariance cauchy-Schwarz}.
+
+If we require that the variance in the log-likelihood estimator be bounded below some value (e.g. below 1, as recommended by \citet{Talbot:2023pex}), then this shows that the leading order contributions to error in the posterior estimators are bounded. Now, we do not have access to the true variance of the log-likelihood estimator, but we do have access to an estimator of the variance of the log-likelihood. We can cut out regions of $\Lambda$ parameter space wherever our estimator of the variance in the log-likelihood exceeds 1, and we show here that this bounds the error in the posterior estimator.\footnote{The uncertainty in the estimator for the variance in the log-likelihood is typically negligible, especially when the variance estimator itself is below 1.} This verifies the conjectured threshold on the log-likelihood put forth by \citet{Talbot:2023pex}.\footnote{That being said, there are pathological examples where this argument breaks down: for example, the arguments here fail if the likelihood does not admit a Taylor expansion.}
+
+Using the above inequalities of Eqs.~\ref{eq: covariance Schwarz inequality} and \ref{eq: covariance Schwarz inequality estimator}, and a variance threshold $\sigma^2_{\rm MAX}$, the precision, accuracy and error statistics are bounded by 
+\beq
+\hat{\Pi}[\hat{p}] \le \frac{\sigma^2_{\rm MAX}}{\ln(2)} \qquad \qquad \hat{A}[\hat{p}] \le \frac{\sigma^4_{\rm MAX}}{2\ln(2)} \qquad \qquad \hat{E}[\hat{p}] \le \frac{\sigma^2_{\rm MAX}}{\ln(2)} + \frac{\sigma^4_{\rm MAX}}{2\ln(2)} 
+\label{eq: error statistics bounds}
+\eeq
+but in practice tend to be much smaller than these bounds (typically by an order of magnitude or so).
+
+While we show the log-likelihood variance threshold suggested in \citet{Talbot:2023pex} guarantees a trustworthy posterior estimator, it only does so within the domain of $\Lambda$ which is not below the variance threshold. Furthermore, \DIFdelbegin \DIFdel{there are problems }\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\citet{Essick:2022ojx} }\hskip0pt%DIFAUXCMD
+point out that though a threshold on the log-likelihood variance might be sufficient for accurate inference, there are cases }\DIFaddend where thresholding on the log-likelihood variance is much stronger than necessary\DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\citep{Essick:2022ojx}}\hskip0pt%DIFAUXCMD
+}\DIFdelend ; these are the cases where \DIFdelbegin \DIFdel{the precision and accuracy statistics are useful }\DIFdelend \DIFaddbegin \DIFadd{we believe the error statistic is useful (\mbox{%DIFAUXCMD
+\citet{Essick:2022ojx} }\hskip0pt%DIFAUXCMD
+and \mbox{%DIFAUXCMD
+\citet{Talbot:2023pex} }\hskip0pt%DIFAUXCMD
+come to similar conclusions and define a statistic similar to our precision statistic)}\DIFaddend . We discuss examples of the variance threshold being stronger than necessary in Section~\ref{sec: gw example}.
+
+Another common threshold previously used in the literature is based on the effective sample size of a Monte Carlo integral. Somewhat confusingly, there are two related but subtly different definitions of the effective sample size, both of which are used. One definition, defined in \citet{Farr:2019rap}, is commonly applied to the selection efficiency Monte Carlo integral
+\beq
+N_{{\rm eff}, \xi} \equiv \frac{\hat{\xi}^2}{\hat{\sigma}_{\xi}^2}.
+\eeq
+\citet{Farr:2019rap} point out that, when $N_{{\rm eff}, \xi} < 4\Nobs$, then the likelihood estimator is extremely biased and so is almost certainly unreliable. However, the converse is not necessarily true: if $N_{{\rm eff},\xi} > 4\Nobs$ it is still possible that the likelihood estimator is too uncertain to be trusted. Indeed, the variance in the log-likelihood due to the selection efficiency Monte Carlo integral is $\Nobs^2 / N_{{\rm eff},\xi}$, and so for \DIFdelbegin \DIFdel{$\Nobs >> 4$}\DIFdelend \DIFaddbegin \DIFadd{$\Nobs \gg 4$}\DIFaddend , we can have a large effective sample size, but a variance which is much larger than one, with no \textit{guarantee} that the posterior estimator is reliable (only the lack of a guarantee that the posterior estimator is \textit{not} reliable).
+
+Historically, some of the first problems due to single-event Monte Carlo integrals (eq.~\ref{eq: single event estimator}) were encountered by \citet{KAGRA:2021duu}. To handle such issues, another definition of effective sample size due to \citet{kish1965survey} was used to ensure convergence, where
+\beq
+N_{{\rm eff}, p} \equiv \frac{\left(\sum_{j=1}^{\NPE} w_j\right)^2}{\sum_{j=1}^{\NPE} w_j^2} = \frac{\hat{p}^2}{\hat{\sigma}^2_{p} + \hat{p}^2/(\NPE-1)} \qquad\qquad \mathrm{where} \qquad \qquad w_j = \frac{p(\theta_j | \Lambda)}{\pi(\theta_j|{\rm PE})}.
+\eeq
+The threshold used by \citet{KAGRA:2021duu} was to require that \textit{all} single-event Monte Carlo integrals satisfy $N_{{\rm eff}, p} > \Nobs$. Other analyses have used different thresholds, requiring instead that $N_{{\rm eff}, p} > 10$ or some other fixed number. 
+\DIFaddbegin \DIFadd{In particular, the thresholds we refer to as ``effective sample size'' or ``$\Neff$'' thresholds are
+}\begin{enumerate}
+    \item \DIFadd{$N_{{\rm eff},\xi} > 4\Nobs$
+    }\item \DIFadd{$N_{{\rm eff},p} > 10, 30, \Nobs$ depending on the analysis threshold.
+}\end{enumerate}
+\DIFadd{Our claim is that these thresholds are not enough to ensure a reliable posterior estimator. }\DIFaddend Though these may produce reasonable results in some applications, we do not have any theoretical guarantee \DIFdelbegin \DIFdel{that this will produce a reliable posterior estimator. We }\DIFdelend \DIFaddbegin \DIFadd{of reliable results, and we }\DIFaddend show examples in Section~\ref{sec: gw example} where these thresholds are \DIFdelbegin \DIFdel{not enough}\DIFdelend \DIFaddbegin \DIFadd{insufficient}\DIFaddend .
+
+
+\section{Example with Gaussian hierarchical inference}
+\label{sec: gaussian example}
+\subsection{Without selection effects}
+\label{subsec: example without selection effects}
+
+\DIFdelbegin \DIFdel{Let's }\DIFdelend \DIFaddbegin \DIFadd{We now }\DIFaddend consider a more concrete example with a simple hierarchical inference. To eliminate the effects of bias in the likelihood, we consider an example where there are no selection effects; all signals are detected. However, there is some noise associated with each signal, and this uncertainty must be marginalized over. In particular, our population draws events $\theta \sim \mathcal{N}(\mu, \sigma)$ from an underlying Gaussian population with mean $\mu$ and standard deviation $\sigma$. \DIFaddbegin \DIFadd{We note these simulation studies are very similar to those in Sec. III in \mbox{%DIFAUXCMD
+\citet{Essick:2022ojx}}\hskip0pt%DIFAUXCMD
+.
+}\DIFaddend 
+
+Suppose there is some noise $n\sim\mathcal{N}(0, \sigma_n)$ where we observe $d=\theta+n$. Then, we have a Gaussian likelihood for each event
+\beq
+p(d|\theta) = \frac{1}{\sqrt{2\pi\sigma_n^2}}\exp\left(-\frac{(d-\theta)^2}{2\sigma_n^2}\right)
+\eeq
+For a collection of events $\{d_i\}$, we can compute the hierarchical likelihood of Eq.~\ref{eq: rate marginalized likelihood} in closed form (ie. we have a ``ground truth'' for comparison), and also estimate using the traditional Monte Carlo approach of Eq.~\ref{eq: estimated hierarchical likelihood}
+\begin{align}
+\mathcal{L}(\{d_i\}|\Lambda) &= \prod_{i=1}^{\Nobs} \int p(d_i|\theta)p(\theta|\Lambda)\dd\theta = [2\pi(\sigma^2 + \sigma_n^2)]^{-N_{\rm obs} / 2}\exp\left[-\sum_{j=1}^{N_{\rm obs}}\frac{(d_j - \mu)^2}{2(\sigma^2 + \sigma_n^2)}\right] 
+\label{eq: analytic gaussian likelihood} \\
+\hat{\mathcal{L}}(\{d_i\}|\Lambda) &= \prod_{i=1}^{\Nobs}\hat{p}(d_i|\Lambda),
+\qquad\qquad{\rm where}\qquad\qquad
+\hat{p}(d_i|\Lambda)=\left[\frac{1}{\NPE}\sum_{j=1}^{\NPE}\frac{p(\theta_{ij}|\Lambda)}{\pi(\theta_{ij}|{\rm PE})}\right]_{\theta_{ij} \sim p(\theta|d_i)}.
+\label{eq: estimated gaussian likelihood}
+\end{align}
+For all the single event \ac{PE}, we use an improper uniform prior $\pi(\theta|{\rm PE})\propto 1$, so drawing $\theta_j$ from the posterior $p(\theta|d_i)$ is drawing from a Gaussian with mean $d_i$ and standard deviation $\sigma_n$. 
+
+We calculate the posterior on the population hyperparameters $\mu, \sigma$ with a uniform hyperprior $\pi(\mu)=U(0,2)$ and $\pi(\log_{10}\sigma) = U(-1,1)$.
+Though the likelihood estimator is unbiased, we know from Section~\ref{sec: bias in population inference} that the resulting posteriors will be biased. In addition, there is uncertainty in the posterior estimators, and we quantify the uncertainty and bias with the precision and accuracy statistics of Eqs.~\ref{eq: precision statistic} and \ref{eq: accuracy statistic}. To compute these statistics we need
+\beq
+\hat{C}_{\ln\mathcal{L}}(\Lambda, \Lambda') =  \sum_{i=1}^{\Nobs}\frac{\hat{C}_{p_i}(\Lambda, \Lambda')}{\hat{p}(d_i|\Lambda)\hat{p}(d_i|\Lambda')},
+\label{eq: gaussian example covariance}
+\eeq
+which is the estimator for the covariance in the log-likelihood of two hyperparameter points $\Lambda$ and $\Lambda'$. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{plots/gaus_hierarchical/pe_uncertainty_only/N100_4pes_scatter.pdf}
+    \caption{Inference in a Gaussian hierarchical inference with 100 observations and a variable number of \ac{PE} samples. Here, the scale of the noise is comparable to the size of the population ($\sigma_n=\sigma=1$). In the upper panels, we show the 90\% \HPD contours of the Monte Carlo posterior estimators $\hat{p}$ (black) compared to the true posterior $p$ (green) and the mean of the posterior estimators $\langle\hat{p}\rangle$. We show the true value of the population hyperparameters with a black $\times$ symbol ($\mu=1$ and $\sigma = 1$). In the lower panels, we show the accuracy and precision statistics for each posterior estimator and the threshold for a reliable posterior estimator $\hat{E}[\hat{p}] < 0.2$ bits.}
+    \label{fig: nobs 100 gaussian example}
+\end{figure}
+
+In this simplified setting, where the hyperposterior is only two dimensional, we can directly compute the analytic posterior density (with Eq.~\ref{eq: analytic gaussian likelihood}) over a grid of appropriate $\mu$, $\sigma$ values, the Monte Carlo estimator of the posterior density, and the accuracy and precision statistics (using Eqs.~\ref{eq: precision statistic},~\ref{eq: accuracy statistic} and \ref{eq: gaussian example covariance}). In Fig.~\ref{fig: nobs 100 gaussian example}, we show a comparison between the Monte Carlo posterior estimates (in black), the average of the Monte Carlo posteriors (red), and the true analytic posterior (green). Each Monte Carlo posterior estimate has a different randomized set of samples drawn from the single-event posteriors. In the upper panels, are the Monte Carlo posterior estimators compared to the true posterior and the mean of the posterior estimators. In the lower panel are the precision and accuracy statistics for each posterior estimator. As the number $\NPE$ of \PE samples increases for each Monte Carlo integral, the bias begins to disappear below noise between the different posterior estimators -- the accuracy statistic decreases below the precision statistic. Fig.~\ref{fig: nobs 100 gaussian example} is for an example with $\Nobs=100$ observations.
+
+We showed in Section~\ref{sec: robustness measures} that thresholding on the variance in the log-likelihood estimator is enough to bound the total error statistic, however sometimes it is much stronger than necessary, especially for simple population models (like the Gaussian population model we use here) with a large number of observations. In the bottom row of Fig.~\ref{fig: nobs 5000 ehat vs var}, we compare the error statistics to the mean log-likelihood variance across the posterior when using $\Nobs = 5000$ observations. We show that the error statistic can be very small even when the variance in the log-likelihood is large --- see the furthest right panels, using $\NPE = 1000$. The posterior estimators are clearly strongly clustered on the correct posterior (upper panel) and the error statistics correctly reflect this: $\hat{E}[\hat{p}] \sim 0.03$ bits, while the variance is quite large, $\hat{\sigma}^2 \sim 5$.
+
+We show further examples with $\Nobs = 1000$ and $\Nobs = 5000$ and a comparison where the population structure $\sigma$ is smaller than the noise in each single event $\sigma_n$ in the appendix~\ref{app: gaussian pe uncertainty only}. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{plots/gaus_hierarchical/pe_uncertainty_only/N5000_4pes_scatter_error_vs_var.pdf}
+    \caption{Analogous to Fig.~\ref{fig: nobs 100 gaussian example} with $\Nobs = 5000$. In the bottom row, we compare the mean variance estimator across the posterior ($\int \hat{\sigma}^2\hat{p}$) to the error statistic for each posterior estimator and demonstrate that the error in a posterior estimator is more accurately described by the error statistic than the variance in the log-likelihood estimator.}
+    \label{fig: nobs 5000 ehat vs var}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\linewidth]{plots/gaus_hierarchical/selection_effects/selection_1_N100_4vts_scatter_noLikelihoodCorrection.pdf}
+    \caption{Analogous to Fig.~\ref{fig: nobs 100 gaussian example} where we select events for detection using $d=\theta+n > \thresh$ where $\thresh = 1$. We estimate the likelihood using Eq.~\ref{eq: estimated gaussian likelihood with vt}. We use $\Nobs=100$ observations and compare $\Ninj = 10^4,10^5,5\times10^5$ and $\Ninj = 10^6$.}
+    \label{fig: nobs 100 vt 1 gaussian example}
+\end{figure}
+
+\subsection{Example with selection effects}
+\label{subsec: example with selection effects}
+
+As another example, we consider a similar example as the above, where events are drawn from an underlying Gaussian population $\theta \sim\mathcal{N}(\mu, \sigma)$ and we observe data $d=\theta+n$ obscured by noise $n\sim\mathcal{N}(0,\sigma_n)$. This time, however, we include a selection effect where we only detect events such that $d > \thresh$ exceeds the threshold $\thresh$\DIFaddbegin \DIFadd{. We again note these simulation studies are very similar to those in Sec. III in \mbox{%DIFAUXCMD
+\citet{Essick:2022ojx}}\hskip0pt%DIFAUXCMD
+.
+}\DIFaddend 
+
+We may still compute the hierarchical likelihood of Eq.~\ref{eq: rate marginalized likelihood} in closed form (ground truth)
+\beq
+\mathcal{L}(\{d_i\}|\Lambda) = \left[\frac{1}{2}{\rm erfc}\left(\frac{\thresh-\mu}{\sqrt{2(\sigma^2+\sigma_n^2)}}\right)\right]^{-\Nobs}[2\pi(\sigma^2 + \sigma_n^2)]^{-N_{\rm obs} / 2}\exp\left[-\sum_{j=1}^{N_{\rm obs}}\frac{(d_j - \mu)^2}{2(\sigma^2 + \sigma_n^2)}\right],
+\label{eq: analytic gaussian likelihood with vt}
+\eeq
+which is identical to Eq.~\ref{eq: analytic gaussian likelihood} but now includes an analytic selection effects term $\alpha(\Lambda)^{-\Nobs}$ using the complementary error function erfc.
+
+We also compute a variant of the hierarchical likelihood where we calculate the single-event integrals analytically but we estimate the selection effects term with a Monte Carlo integral
+\beq
+\hat{\mathcal{L}}(\{d_i\}|\Lambda) = \left[\frac{1}{\Ninj}\sum_{j=1}^{\Nfound}\frac{p(\theta_{i}|\Lambda)}{p(\theta_{i}|{\rm draw})}\right]_{\theta_{i} \sim p(\theta|{\rm draw})}^{-\Nobs}[2\pi(\sigma^2 + \sigma_n^2)]^{-N_{\rm obs} / 2}\exp\left[-\sum_{j=1}^{N_{\rm obs}}\frac{(d_j - \mu)^2}{2(\sigma^2 + \sigma_n^2)}\right].
+\label{eq: estimated gaussian likelihood with vt}
+\eeq
+We can also think of this as the traditional estimator of Eq.~\ref{eq: estimated hierarchical likelihood} when we take the limit $\NPE \to \infty$. We take the draw distribution for estimating selection effects to be $p(\theta|{\rm draw}) = \mathcal{N}(\mu_{\rm vt}=1,\sigma_{\rm vt}=1.5)$.\footnote{Using Eq.~\ref{eq: variance of Monte Carlo integral}, one can show that the Monte Carlo estimator for the selection effects has a infinite variance when $\sigma^2 > 2\sigma_{\rm vt}^2$, and so the estimator is always unreliable for $\sigma \gtrsim 2.12$. We restrict the hyperprior on $\log_{10}\sigma$ to avoid this domain. In practice, the correction term in Eq.~\ref{eq: unbiased likelihood estimator} should also strongly downweight this region.}
+
+We assume uniform hyperpriors $\pi(\mu)=U(0,2)$ and $\pi(\log_{10}\sigma) = U(-1,0.3)$.
+We show a comparison between the posterior estimators, the mean of the posterior estimators, and the true posterior in Fig.~\ref{fig: nobs 100 vt 1 gaussian example} where $\Nobs=100$ observations and the selection given by $\thresh = 1$. In the lower panels we show the accuracy and precision statistics for each posterior estimator compared to the region $\hat{E}[\hat{p}] < 0.2$ bits.
+The accuracy and precision statistics (Eqs.~\ref{eq: precision statistic} and \ref{eq: accuracy statistic}) rely on the covariance estimator, which for this problem is given as the \textit{second} term in Eq.~\ref{eq: population covariance with selection},
+\beq
+\hat{C}_{\ln\mathcal{L}}(\Lambda, \Lambda') = \frac{\Nobs^2\hat{C}_{\xi}(\Lambda, \Lambda')}{\hat{\xi}(\Lambda)\hat{\xi}(\Lambda')}.
+\label{eq: vt gaussian example covariance}    
+\eeq
+
+Moving to the right in Fig.~\ref{fig: nobs 100 vt 1 gaussian example}, we increase the size $\Ninj$ of the Monte Carlo integrals. Notice the error statistics drop below the recommended threshold, and the error becomes dominated by the precision statistic (the points in the lower panel move below the diagonal dashed line).
+
+For small $\Ninj$, the likelihood estimator in Eq.~\ref{eq: estimated gaussian likelihood with vt} is significantly biased. When we include the likelihood correction term of Eq.~\ref{eq: unbiased likelihood estimator}, this alters the posterior estimators and shifts them away from the biased regime (small $\log_{10}\sigma$), see Fig.~\ref{fig: nobs 100 corrected vt 1 gaussian example}. There is still bias in the posterior, which we discuss in greater detail in appendix~\ref{app: additional gaussians}.
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{plots/gaus_hierarchical/selection_effects/selection_1_N100_4vts_scatter.pdf}
+    \caption{Analogous to Fig.~\ref{fig: nobs 100 vt 1 gaussian example} using the corrected likelihood estimator of Eq.~\ref{eq: unbiased likelihood estimator}. Notice, particularly for small $\Ninj$, the improved behavior of the mean posterior estimator $\langle\hat{p}\rangle$.}
+    \label{fig: nobs 100 corrected vt 1 gaussian example}
+\end{figure}
+
+
+\subsection{Asymptotic scaling and verification}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.6\linewidth]{plots/expKL_npe_vs_est.pdf}
+    \caption{A comparison between the empirically measured \KL divergences (using $10^4$ posterior estimators) and their corresponding estimators, as a function of $\NPE$. We use the simple Gaussian hierarchical inference problem of Section~\ref{subsec: example without selection effects} with $\Nobs = 100$ where the prior for the mean is fixed to the true value $\pi(\mu) = \delta(\mu-1)$. In blue, we show the empirically measured average \KL divergence from the mean of the posterior estimators $\langle\KLD(\langle\hat{p}\rangle|\hat{p})\rangle$. For each posterior estimator, this \KL divergence is itself estimated by the precision statistic $\hat{\Pi}[\hat{p}]$. We show the central 90\% interval for the precision statistic in the blue shaded region, and show that $\langle\KLD(\langle\hat{p}\rangle|\hat{p})\rangle$ and $\hat{\Pi}[\hat{p}]$ asymptotically scale as $\NPE^{-1}$. Similarly, in red we show the empirically measured \KL divergence from the true posterior to the mean of the posterior estimators $\KLD(p|\langle\hat{p}\rangle)$. This is estimated by the accuracy statistic $\hat{A}[\hat{p}]$; the 90\% interval of $\hat{A}[\hat{p}]$ is shaded in red. These quantities, $\KLD(p|\langle\hat{p}\rangle)$ and $\hat{A}[\hat{p}]$ asymptotically scale as $\NPE^{-2}$. Finally, the black points show the empirically measured mean \KL divergence from the true posterior to a posterior estimator $\langle\KLD(p|\hat{p})\rangle$. To leading order, we estimate this with the error statistic $\hat{E}[\hat{p}] = \hat{\Pi}[\hat{p}] + \hat{A}[\hat{p}]$, shaded in black. At large values of $\NPE$, the precision statistic is the dominant contribution to the error and so the error scales as $\NPE^{-1}$. At small values of $\NPE$, higher order terms in the \KL divergence contribute and so the statistics tend to underestimate to the \KL divergences. As $\NPE$ increases, the precision, accuracy and error statistics begin to center on their correct, empirically measured values.} 
+    \label{fig: random KL fn of npe}
+\end{figure}
+
+We show here that the precision, accuracy and error statistics are valid estimators for the information-loss they are meant to quantify. The precision statistic $\hat{\Pi}[\hat{p}]$ estimates the average information loss in the posterior estimator due to random scatter. Formally, it estimates the average \KL divergence from the \textit{mean} of the posterior estimators $\langle\KLD(\langle\hat{p}\rangle|\hat{p})\rangle$. The accuracy statistic $\hat{A}[\hat{p}]$ estimates the information lost due to bias in the posterior estimators; the \KL divergence from the true posterior to the mean of the posterior estimators $\KLD(p|\langle\hat{p}\rangle)$. The error statistic, which we calculate as the sum of the accuracy and precision statistics $\hat{E}[\hat{p}] = \hat{\Pi}[\hat{p}] + \hat{A}[\hat{p}]$, estimates the leading order average \KL divergence from the true posterior $\langle\KLD(p|\hat{p})\rangle$. 
+
+We use the simple Gaussian hierarchical inference model introduced above in Section~\ref{subsec: example without selection effects} to empirically calculate the \KL divergences $\langle\KLD(\langle\hat{p}\rangle|\hat{p})\rangle$, $\KLD(p|\langle\hat{p}\rangle)$ and $\langle\KLD(p|\hat{p})\rangle$ from an ensemble of $10^4$ posterior estimators. 
+We show that the precision statistic, accuracy statistic and error statistics all reliably estimate the associated \KL divergences at larger values of $\NPE$. 
+At small values of $\NPE$ (large uncertainties in the log-likelihood estimator), the statistics \textit{under}-estimate the true \KL divergences, as higher order terms in the expansion begin to contribute meaningfully. 
+
+We also verify that the precision statistic scales as $\NPE^{-1}$ (it scales with the variance in the log-likelihood) at large values of $\NPE$, and the accuracy statistic asymptotically scales with $\NPE^{-2}$ (the \textit{square} of the uncertainty in the log-likelihood).
+
+\begin{table*}[h]
+\normalsize
+\renewcommand{\arraystretch}{1.5}
+\centering
+\begin{tabular}{lllll}
+\hline\hline
+& \multicolumn{2}{l}{PE uncertainty dominates} & \multicolumn{2}{l}{Selection uncertainty} dominates \\ 
+Statistic \quad\, & Asymptotic \quad\, & Worst case \quad\, & Asymptotic \quad\, & Worst case \quad\, \\ \hline 
+$\hat{\Pi}$ & \(\displaystyle \propto \NPE^{-1}\) & \(\displaystyle \propto \Nobs\NPE^{-1}\) & \(\displaystyle \propto \Nobs\Ninj^{-1}\) & \(\displaystyle \propto \Nobs^2\Ninj^{-1}\) \\ 
+$\hat{A}$ & \(\displaystyle \propto \Nobs\NPE^{-2}\) & \(\displaystyle \propto \Nobs^2\NPE^{-2}\) & \(\displaystyle \propto \Nobs^3\Ninj^{-2}\) & \(\displaystyle \propto \Nobs^4\Ninj^{-2}\) \\
+\hline\hline
+\end{tabular}
+\caption{Scaling of the accuracy and precision statistics as a function of $\Nobs$, $\NPE$ and $\Ninj$, assuming limiting behavior for the hyperposteriors (Gaussian, with support scaling as $1 / \sqrt{\Nobs}$) and a leading order quadratic expansion of the covariance $C(\Lambda, \Lambda')$ in the log-likelihood estimator. \DIFaddbeginFL \DIFaddFL{In the worst case where these assumptions break down, the scalings are more appropriately bounded without the $\Nobs^{-1}$ term \citep{Essick:2022ojx, Talbot:2023pex}.\DIFaddendFL}
+}
+\label{tab: scaling}
+\end{table*}
+
+The scaling of the accuracy and precision statistics with $\Nobs$ are, in general, very complex. However, if we assume limiting behavior (large $\Nobs$), then the posteriors $p(\Lambda)$ should be approximately Gaussian. If we approximate the covariance in the log-likelihood estimator to second order in $\Lambda$,\footnote{That is, we approximate $C(\Lambda, \Lambda') \approx a_0 + b_i\sum_i\Lambda_{i} + b'_i\sum_i\Lambda'_{i} + \sum_{ij}c_{ij}\Lambda_i\Lambda'_j + \sum_{ij}d_{ij}\Lambda_i\Lambda_j + \sum_{ij}d'_{ij}\Lambda'_i\Lambda'_j$, and $i,j$ index the components of the $\Lambda$ or $\Lambda'$ vectors. We assume that each of the $a_0$, $b_i$, $b_i'$, $c_{ij}$, $d_{ij}$ and $d_{ij}'$ scale with $\Nobs$, $\NPE$ and $\Ninj$ as Eq.~\ref{eq: population covariance with selection} does. 
+We may justify this by noting that the coefficients of the expansion can be calculated in a usual Taylor series formalism.} 
+then we may show that the accuracy and precision statistics scale as in Table~\ref{tab: scaling}.
+We can justify this approximation over the support of the posterior $p(\Lambda)$ in the limit of large $\Nobs$, as the support asymptotically becomes smaller as \DIFdelbegin \DIFdel{$\Nobs^{-1/2}$}\DIFdelend \DIFaddbegin \DIFadd{$1/\sqrt{\Nobs}$}\DIFaddend . The scalings come from the fact that the precision statistic scales linearly with the covariance estimator $\hat{\Pi} \sim \hat{C}$ and the accuracy statistic scales quadratically $\hat{A} \sim \hat{C}^2$. Both are suppressed by an additional factor $\Nobs^{-1}$ to reflect the narrowing support of the posterior \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\cite{Essick:2022ojx, Gair:2022fsj}}\hskip0pt%DIFAUXCMD
+}\DIFaddend . We verify that these scalings approximately hold in the additional examples shown in Appendix~\ref{app: additional gaussians}. \DIFaddbegin \DIFadd{The asymptotic scalings of the precision statistic are exactly analogous to the Eq. 31 of \mbox{%DIFAUXCMD
+\citet{Essick:2022ojx}}\hskip0pt%DIFAUXCMD
+. Additionally, note the Figs. 2 and 3 in \mbox{%DIFAUXCMD
+\citet{Essick:2022ojx} }\hskip0pt%DIFAUXCMD
+empirically verify the asymptotic scalings of the precision statistic $\hat{\Pi}$.
+}\DIFaddend 
+
+\DIFdelbegin \DIFdel{This are similar to some arguments made by \mbox{%DIFAUXCMD
+\citet{Essick:2022ojx}}\hskip0pt%DIFAUXCMD
+. We should note that this }\DIFdelend \DIFaddbegin \DIFadd{However, we emphasize that this asymptotic scaling }\DIFaddend behavior only holds \DIFdelbegin \DIFdel{in a fixed-dimension model and this argument breaks down for }\DIFdelend \DIFaddbegin \DIFadd{under the following important assumptions \mbox{%DIFAUXCMD
+\cite{Gair:2022fsj}}\hskip0pt%DIFAUXCMD
+:
+}\begin{enumerate}
+    \item \DIFadd{The posterior is in the asymptotic regime (approximately Gaussian, with support scaling as $1/\sqrt{\Nobs}$. See the Bernstein--von Mises theorem \mbox{\citep{Kleijn:2012bvm, Gair:2022fsj}}).
+    }\item \DIFadd{The population model is fixed as $\Nobs$ increases, and has a fixed dimension (e.g., this argument fails for }\DIFaddend trans-dimensional models\DIFaddbegin \DIFadd{).
+    }\item \DIFadd{The support of the posterior is much smaller than the structure in the log-likelihood covariance, such that the log-likelihood covariance is adequately approximated to second order in the hyperparameters $\Lambda$}\DIFaddend .
+\DIFdelbegin \DIFdel{If the true functional form for the population is unknown, as in the }%DIFDELCMD < \ac{GW} %%%
+\DIFdel{case, this argument will also break down: as the number of }%DIFDELCMD < \ac{GW} %%%
+\DIFdel{observations increases, the sophistication and therefore the dimension of the model are likely to increase}\DIFdelend \DIFaddbegin \end{enumerate}
+\DIFadd{In the worst case, if one of these assumptions does not hold, the scalings shown in Table~\ref{tab: scaling} may not include the additional $\Nobs^{-1}$ term, see a more extensive discussion about the scaling for realistic models in \mbox{%DIFAUXCMD
+\citet{Talbot:2023pex}}\hskip0pt%DIFAUXCMD
+. 
+}
+
+\DIFadd{We include these scalings as a theoretical statement: we stress that they should not be used to evaluate the reliability of a posterior estimator. These scalings hold for a }\textit{\DIFadd{fixed population model}}\DIFadd{; the dependence on the population model is nontrivial and so even if an inference with one model is stable to Monte Carlo uncertainty, inference with another different model using the same set of events and injections (same $\Nobs, \NPE, \Ninj$) may have vastly different error statistics and may not be reliable}\DIFaddend . 
+
+
+
+% We also want to understand how the bias scales with the uncertainty in the likelihood. In the \ac{GW} population inference case, this amounts to understanding how the bias scales with the number of samples in each Monte Carlo integral. 
+
+% This is useful for understanding how the \KL divergence scales asymptotically; when the bias $\delta$ is small. For instance, in the simple Gaussian example discussed in Section~\ref{subsubsec: example without selection effects}, the bias from the average posterior $\langle \hat{p}\rangle$ scales as $\NPE^{-1}$, meaning the \KL divergence $\KLD(p |\langle\hat{p}\rangle)$ scales as $\NPE^{-2}$ asymptotically. The bias from the average \textit{corrected} posterior $\langle \hat{p}_C\rangle$ scales as $\NPE^{-2}$, which means $\KLD(p |\langle\hat{p}_C\rangle)$ scales as $\NPE^{-4}$ at large $\NPE$.
+
+% To verify this asymptotic scaling, we reduced the simple Gaussian hierarchical problem above to a one-dimensional inference, (fixing the population mean $\mu$ to the true value), and only consider the posterior on the standard deviation. We compute a set of many ($10^4$ or $10^5$, depending on $\NPE$) randomized Monte Carlo posteriors for a fixed size $\NPE$, then compute the \KL divergence between the average of these Monte Carlo posteriors and the analytic posterior. We repeat this for many $\NPE$, and show the resulting \KL divergence from the mean of these posteriors to the analytic posterior as a function of $\NPE$ in Fig.~\ref{fig: KL fn of npe}. We overplot the scaling with $\NPE^{-2}$ and $\NPE^{-4}$ to verify the corrected posterior is indeed unbiased to leading order.
+
+
+% \begin{figure}[h!]
+%     \centering
+%     \includegraphics[width=0.7\linewidth]{plots/larger_KL_npe_noise1.pdf}
+%     \caption{\KL divergence from the analytic posterior $p(\Lambda|\{x_i\}, \Nobs)$ for posterior estimators with $\NPE$ posterior samples in each Monte Carlo integral for estimating the likelihood. In black are the uncorrected posterior estimators $\hat{p}$, and in red are the corrected posterior estimators $\hat{p}_C$. The shaded regions represent the 90\% region of the \KL divergence from the analytic posterior to the Monte Carlo estimates. The solid points show the \KL divergence to the mean of many Monte Carlo estimators for the posterior, and the error bars represent the $2\sigma$ uncertainty associated with averaging over a finite number ($10^5$) of posterior estimators. Asymptotically, we expect the \KL divergence with the mean of the uncorrected posterior $\langle\hat{p}\rangle$ to scale with $\NPE^{-2}$ and the \KL divergence with the mean of the corrected posterior $\langle\hat{p}_C\rangle$ to scale with $\NPE^{-4}$. We expect the \KL divergence with a typical Monte Carlo estimator to asymptotically scale with $\NPE^{-1}$ (see the shaded regions). \rednote{I think the labels on the KL divergence are backwards...}}
+%     \label{fig: KL fn of npe}
+% \end{figure}
+
+
+\section{Gravitational Wave Example}
+\label{sec: gw example}
+
+\begin{table*}
+\renewcommand{\arraystretch}{1.25}
+\centering
+\begin{tabular}{lllll}
+\hline\hline
+Parameter & Description & True Population & VT Population & Strong Model Prior \\
+\hline $\alpha$ & $m_1$ power-law index & $3.4$ & $3$ & 3.4 \\
+$\beta_q$ & $q$ power-law index & $1.1$ & 1 & $1.1$ \\
+$m_\mathrm{min}$ & minimum BH mass & $5M_\odot$ & $5M_\odot$ & $5M_\odot$ \\
+$m_\mathrm{max}$ & maximum BH mass & $87M_\odot$ & $100M_\odot$ & $87M_\odot$\\
+$\lambda_\mathrm{peak}$ & fraction of BBHs in Gaussian component & $0.04$ & $0.05$ & $0.04$ \\
+$\mu_m$ & $m_1$ Gaussian component mean & $34M_\odot$ & $35 M_\odot$ & $34M_\odot$ \\
+$\sigma_m$ & $m_1$ Gaussian component standard deviation  & $3.6M_\odot$ & $5M_\odot$ & $3.6M_\odot$  \\
+$\delta_m$ & low-mass smoothing parameter & $4.8M_\odot$ & $4M_\odot$ & $4.8M_\odot$ \\
+\hline
+$\kappa$ & $z$ power-law index & $2.73$ & 2 & $2.73$ \\ 
+\hline
+$\alpha_\chi$ & spin magnitude $\alpha$ in Beta distribution & 1.67 & 1 & --- \\
+$\beta_\chi$ & spin magnitude $\beta$ in Beta distribution & 4.43 & 1 & --- \\ 
+$\mu_\chi$ & implied mean of spin magnitude Beta distribution & $0.274$ & $0.5$ & $U(0, 1)$ \\
+$\sigma^2_\chi$ & implied variance of spin magnitude Beta distribution & $0.028$ & $0.083$ & $U(0.005, 0.25)$\\ \hline
+$f_{q=1}$ & fraction in cosine-tilt Gaussian at equal mass ratio & 1 & 0 & 1 \\
+$n$ & index in mass ratio, cosine-tilt correlation & 2 & --- & 2 \\
+$\mu_\tau$ & mean of cosine-tilt Gaussian & 1 & --- & 1 \\
+$\sigma_\tau$ & width of cosine-tilt Gaussian & 1.15 & --- & 1.15 \\
+\hline\hline
+\end{tabular}
+\caption{Parameters for the simulated population. In the ``True Population'' column, we show the true numerical values from \citet{Vitale:2025lms}. In the ``VT Population'' column are the parameter values for the source population for estimating selection effects. In the ``Strong Model Prior'' column are the model priors in our strong model (Beta spin distribution). Wherever we list a numerical value for a prior, we use a delta function prior at the true population value.}
+\label{tab:true_hyper}
+\end{table*}
+
+To show how this works in a realistic \ac{GW} case, we show example hierarchical inferences with synthetic \ac{GW} source populations. 
+As our \ac{GW} source population, we use the large catalog described in \citet{Vitale:2025lms}. For estimating the selection efficiency, we created a injection set with $\Ninj = 4\times 10^9$ total injections, using a network of the Hanford and Livingston \ac{GW} interferometers with sensitivity defined in \citet{O4_psds}. We used a slightly stricter detection threshold than that used in \citet{Vitale:2025lms}.\footnote{We defined the network matched filter SNR as the \textit{real} parts of the matched filter SNRs summed in quadrature, where \citet{Vitale:2025lms} uses the magnitude. \citet{Vitale:2025lms} also uses a Virgo interferometer in addition to Hanford and Livingston. Therefore, the network SNRs computed in \citet{Vitale:2025lms} are always larger than the SNRs we compute here, so it is safe to down-select: a detection for our catalog is always a detection in \citet{Vitale:2025lms}.} Therefore, we down-selected the 1599 detections described therein to 1066 detections, in order to be consistent with our selection criteria. We consider a catalog of 200 observations and a catalog of 1000 observations, and we show the following.
+
+\begin{enumerate}
+    \item We show further examples of the uncertainty in a posterior estimator and the quantification with the error statistic. We show how the inferred \ac{GW} populations can be subject to large errors if adequate error statistics are not met.
+    \item For simple, strong models with well-constrained hyperparameters, thresholding on estimator convergence may be unnecessary (such as a log-likelihood variance threshold). The analyst can instead show the error statistic $\hat{E}[\hat{p}] \lesssim 0.2$ bits to demonstrate a safe analysis. 
+    \item For weaker models, such as nonparametric models, it is necessary to adopt some sort of threshold to ensure a reliable posterior estimator. Thresholding on the log-likelihood variance is the only way to \textit{guarantee} that an analysis is safe, but other heuristic thresholds (e.g. based on Monte Carlo effective samples sizes $\Neff$) may be adopted, so long as the error statistic is shown to be small.
+\end{enumerate}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.78\linewidth]{plots/gw/spins/comparison_strong.pdf}
+    \caption{The inferred spin distributions for different independent posterior estimators using a strong model. We have $\Nobs = 1000$ observations, and we vary the number of independent \ac{PE} samples $\NPE$ and the number of injections $\Ninj$ for estimating the selection efficiency. In the top row, we have eight independent posterior estimators with $\NPE = 1000$ and $\Ninj = 2.5\times 10^8$, the the second row we have four independent posterior estimators with $\NPE = 1000$ and $\Ninj = 10^9$, the third row has four independent posterior estimators with $\NPE = 4000$ and $\Ninj = 10^9$, and in the last row, we only have 1 posterior estimator with $\NPE = 16000$ and $\Ninj = 4\times 10^9$. In the left column we show the 90\% credible interval on the inferred spin distributions for each independent posterior estimator, where the dashed line is the $5^{\rm th}$ percentile and the dotted line is the $95^{\rm th}$ percentile. The black line shows the true spin distribution. In the right column we compare the error statistic $\hat{E}[\hat{p}]$ with the mean log-likelihood variance, showing that some inferences have log-likelihood variances greater than 1 but the error statistics are adequate and the inference is stable.}
+    \label{fig:spins comparison strong}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.78\linewidth]{plots/gw/spins/uniform_prior_comparison_weak_vs_varcut.pdf}
+    \caption{Analogous to Fig.~\ref{fig:spins comparison strong} for a set of independent posterior estimators using a weak model, using $\Nobs = 200$ observations. Here we compare the impact of adopting different variance thresholds. In the top row, we use no threshold, and there is a significant amount of scatter between the independent posterior estimators (some even exclude the truth from the 90\% credible region). Adopting the fiducial variance threshold $\hat{\sigma}^2 < 1$ ensures significantly better behaved posterior estimators and an error statistic $\hat{E}[\hat{p}] \approx 0.25$ bits, which is acceptable although strains our recommendation $\hat{E}[\hat{p}] \lesssim 0.2$ bits. We show a further variance threshold for $\hat{\sigma}^2 < 0.5$ which places the error statistic well within the acceptable range, but at the cost of dramatically reducing the space of spin distributions explored.}
+    \label{fig:spins comparison weak varcut}
+\end{figure}
+
+As discussed in Sec.~\ref{sec: gaussian example}, thresholding on the uncertainty can be more restrictive than is absolutely necessary. We use a strong spin model in Fig.~\ref{fig:spins comparison strong}, assuming a Beta distribution for the spins, where we infer the mean and variance of the Beta spin distribution as described in \citet{Wysocki:2018mpo, KAGRA:2021duu}. In each row, we show the results of a number of inferences using unique realizations of $\NPE$ posterior samples for each observed event and unique realizations of $\Ninj$ draws for estimating the selection efficiency. For example, in the second row we show the results of 4 independent posterior estimators (we produced $4\times10^9$ samples from the VT population and so can down select to $4$ copies of $10^9$ unique sets for estimating the selection efficiency). In the left column, we show the $5^{\rm th}$ and $95^{\rm th}$ percentiles for the predicted spin distribution using the Beta spin model, as compared to the truth. We see some variation between different independent posterior estimators, and to estimate the degree of variation we compute the error statistic for each posterior estimator (the x-axis in the right column), compared to the average variance in the log-likelihood estimator (the y-axis in the right column). 
+
+
+Notice in Fig.~\ref{fig:spins comparison strong} that the variance in the log-likelihood estimator can be as high as $\hat{\sigma}^2 \sim 10$, but the error statistic is in a tolerable range, $\hat{E}[\hat{p}] \lesssim 0.2$ bits. Furthermore, notice that the error statistic qualitatively tracks the degree of variation within the ensemble of posterior estimators (and verified quantitatively in Sections~\ref{sec: robustness measures} and \ref{sec: gaussian example}). For instance, with $\NPE = 4000$ and $\Ninj = 10^9$, the variance in the log-likelihood estimator is $\sim 2-3$. If the analyst was requiring that the log-likelihood variance was less than 1, this would require many more \ac{PE} samples and injections which can become computationally intractable. However, the error statistics are $\hat{E}[\hat{p}] \sim 0.05$ bits, well within a reliable range and indeed, the ensemble of 4 independent posterior estimators in the left column shows that the results are highly stable. 
+
+\DIFaddbegin \DIFadd{Since the results with a strong model are stable with no convergence thresholds, they will also be reliable when using the effective sample size threshold. However, analysts should still be careful if they use an effective sample size threshold, and check the error statistic is small in order to ensure the systematic uncertainty is acceptable.
+}
+
+\DIFaddend \begin{figure}
+    \centering
+    \includegraphics[width=0.78\linewidth]{plots/gw/spins/uniform_prior_comparison_weak.pdf}
+    \caption{Analogous to Fig.~\ref{fig:spins comparison weak varcut} with $\Nobs = 1000$ detections. Here we compare the impact of adopting effective sample size thresholds. Note that none of the inferences shown here are reliable: the independent posterior estimators are quite different, reflected by the large error statistics computed in each inference. Note the log-likelihood variances are large in each of these inferences as well. These represent an example of the insufficiency of effective sample size thresholds \textit{on their own} to produce a reliable posterior estimator. \DIFaddbeginFL \DIFaddFL{In each of these, we also check that the effective sample size for the selection function estimator $N_{{\rm eff},\xi} \gtrsim 10^5 > 4\Nobs=4000$ to satisfy the threshold proposed in \mbox{%DIFAUXCMD
+\citet{Farr:2019rap}}\hskip0pt%DIFAUXCMD
+.}\DIFaddendFL }
+    \label{fig:spins comparison weak}
+\end{figure}
+
+We also show results using a weaker model (sometimes referred to as a data-driven or nonparametric model in the \ac{GW} community) for the spin distribution
+\begin{equation}
+    p(\chi|\{s_n\}) \propto p(\chi|\alpha_{\chi} = 1.67, \beta_{\chi} = 4.43)L(\chi| \exp[\{s_n\}])
+    \label{eq: weak spin model}
+\end{equation}
+where $L(\chi|\exp[\{s_n\}])$ is a linear interpolation for $\chi$ between the nodes $(\chi_n, e^{s_n})$. In log space, this represents adding a linear interpolation scattering term to a base-Beta distribution (using the true population values), similar to the power-law spline model in \citet{KAGRA:2021duu}. We use 10 linear interpolation nodes and the x-axis positions of the nodes are separated linearly between 0 and 1. We use a uniform prior on $s_n \sim U(-10, 10)$ between $-10$ and $10$. Note if all $s_n=0$, then the spin population model reduces to the true spin distribution.
+
+When using a weaker model as in Eq.~\ref{eq: weak spin model}, the resulting hyperposterior will be broader. The posterior estimator is well converged if, for each point in the support, the log-likelihood variance in that point is equally balanced by that point's average covariance with another point in the posterior. Over a larger hyperposterior support, we do not expect the covariance in the log-likelihood estimator surface to balance the variance. In such cases, the analyst may be forced to threshold on the uncertainty in the likelihood estimator, \textit{a posteriori} rejecting samples where some convergence statistic exceeds some threshold. Common thresholds considered in the literature are based on the effective sample size of individual Monte Carlo integrals \citep[e.g.][]{KAGRA:2021duu, Farr:2019rap} or on the total variance in the log-likelihood estimator \citep{Talbot:2023pex}. 
+
+We showed in Section~\ref{sec: robustness measures} that a threshold on the variance of the log-likelihood estimator is \textit{guaranteed} to bound the overall error in the posterior estimator, and we suggested that thresholds on the effective sample size may not be sufficient. Here, we show two examples to demonstrate that (Fig.~\ref{fig:spins comparison weak varcut}) thresholding on the variance of the log-likelihood bounds the error in the posterior estimator and (Fig.~\ref{fig:spins comparison weak}) effective sample size thresholds are not always sufficient. 
+
+In Fig.~\ref{fig:spins comparison weak varcut}, we compare the results between no threshold and a variance cut threshold, where we use $\Nobs = 200, \NPE = 4000, \Ninj = 10^8$. Without using any convergence threshold, there is a large amount of scatter between each posterior estimator and some exclude the true population from the 90\% credible region. Correspondingly, the error statistics are $\hat{E}[\hat{p}]\sim 0.6-0.8$ bits, too large to fall within the tolerable range. Once we turn on a variance threshold, the posterior estimators become much more reliable and the error statistics drop towards a more acceptable $\hat{E}[\hat{p}] \sim 0.25$ bits, though they are still straining the recommended range $\hat{E}[\hat{p}] \lesssim0.2$ bits. However, the space of populations which can be explored is more limited. 
+We also consider an even stricter threshold, where the variance in the log-likelihood is required to be less than $0.5$. The error statistic of these inferences are now well within the acceptable range $\hat{E}[\hat{p}] \sim 0.1$ bits, but at the cost of a severe reduction in the range of hyperparameters allowed by the variance threshold.
+
+In Fig.~\ref{fig:spins comparison weak}, we show how effective sample size thresholds can sometimes be insufficient. We expect this to be particularly bad for weak models with a large number of observations.\footnote{As the number of observations increases, the log-likelihood variance will increase while the minimum effective sample size may stay roughly constant. Eventually, the minimum effective sample size will not be a good proxy for the overall variance in the log-likelihood, as we demonstrate with $\Nobs =1000$ in Fig.~\ref{fig:spins comparison weak}.}
+We compare thresholds where \DIFdelbegin \DIFdel{$\Neff > 10$, $\Neff > 30$}\DIFdelend \DIFaddbegin \DIFadd{$N_{{\rm eff}, p} > 10$, $N_{{\rm eff}, p} > 30$}\DIFaddend , and an example without any \DIFdelbegin \DIFdel{threshold}\DIFdelend \DIFaddbegin \DIFadd{single-event Monte Carlo integral convergence threshold. In each example we additionally ensure that the effective sample size for the selection function estimator $N_{{\rm eff},\xi} > 4\Nobs$ to satisfy the threshold proposed in \mbox{%DIFAUXCMD
+\citet{Farr:2019rap}}\hskip0pt%DIFAUXCMD
+. In practice, the effective sample size of the selection function estimator is $N_{{\rm eff},\xi} \gtrsim 10^5$, well above the suggested threshold and so it does not come into play}\DIFaddend . Notice the large scatter between independent posterior estimators (the 5th and 95th percentiles on the inferred spin distribution can be significantly different across independent sets of $\NPE$ and $\Ninj$ parameter estimation samples and injection set samples), and that some even exclude the truth.
+
+
+
+
+
+\section{Conclusion}
+\label{sec: conclusion}
+
+In this paper, we focus on the estimation of a hierarchical posterior with Monte Carlo integrals. We reconcile two apparently competing ideas for tracking the accuracy of the posterior estimator with a unified statistic $\hat{E}[\hat{p}]$ for calculating the average information loss due to the approximation. We show that the likelihood estimator suffers from a bias which we argue can be easily corrected, but that the posterior estimator is also biased and, though it may be corrected in principle (examples in Appendix~\ref{app: examples of posterior correction}), it is expensive. In practice, the posterior bias is smaller than the uncertainty in the posterior estimator, and to this end, we derive a \DIFdelbegin \DIFdel{novel} \DIFdelend  precision statistic to quantify this uncertainty \DIFaddbegin \DIFadd{(similar to metrics considered in \mbox{%DIFAUXCMD
+\citet{Essick:2022ojx}}\hskip0pt%DIFAUXCMD
+; \mbox{%DIFAUXCMD
+\citet{Talbot:2023pex}}\hskip0pt%DIFAUXCMD
+)}\DIFaddend. We suggest that analysts should ensure their posterior estimator does not suffer from significant Monte Carlo error by calculating the error statistic in post-processing and verifying $\hat{E}[\hat{p}] \lesssim 0.2$ bits. 
+
+To enable analysts to compute the error statistics, we published a small \texttt{pip}-installable python package \textcolor{red}{\texttt{placeholder}} based on \texttt{jax}. \textcolor{red}{\texttt{placeholder}} takes as input a $\Nsamp\times\Nobs\times\NPE$ tensor of weights for computing Eq.~\ref{eq: single event covariance estimator} and a $\Nsamp\times\Ninj$ matrix of weights for Eq.~\ref{eq: selection covariance estimator}. These are then used to calculate the accuracy, precision and error statistics. 
+
+% An additional technique for estimating the systematic uncertainty from Monte Carlo approximations was discussed in \citet{Talbot:2023pex}. The idea is to construct the estimate of the covariance matrix $\hat{C}_{\ln\mathcal{L}}(\Lambda_i, \Lambda_j)$ in the log-likelihood for the set of samples from the posterior estimator $\Lambda_i\sim\hat{p}(\Lambda)$. Then, draw \textit{log-weights} from the Gaussian process, and reweight the posterior according to the normalized weights. Repeating this many times obtains an estimate of the systematic uncertainty due to the Monte Carlo approximation.
+
+Even with current catalog sizes of $\mathcal{O}(100)$ events, posterior uncertainty is a major systematic source of error. We show in Sec.~\ref{sec: gw example} that the standard Monte Carlo approach may remain reliable in certain simple models as the number of observations increases, but only under somewhat idealized assumptions (e.g. that simple models will remain appropriate for informative data) but it quickly becomes computationally intractable for weak models and large catalogs. Ultimately, a new approach to avoid Monte Carlo uncertainties \DIFdelbegin \DIFdel{will be needed} \DIFdelend \DIFaddbegin \DIFadd{entirely may become necessary} \DIFaddend . One idea jointly samples the hierarchical posterior by fitting density estimates to each single event, promising to avoid the single-event Monte Carlo integrals \citep{Rinaldi:2021bhm,Callister:2022qwb,Hussain:2024qzl,Mancarella:2025uat}. However, it will also be important to remove the Monte Carlo approximation to the selection efficiency, which may be tackled by analytic or machine learning approaches \citep{Lorenzo-Medina:2024opt, Talbot:2020oeu, Gerosa:2020pgy, Callister:2024qyq}. Another promising technique proposes avoiding approximate likelihoods entirely via likelihood-free, simulation-based inference \citep{Leyde:2023iof}.
+Though the impact of uncertainty due to the approximations in these proposals are typically neglected, we argue that our approach (though based on the common Monte Carlo method for likelihood estimation) can be extended to these in the future as long as one can construct an estimate for the covariance in the log-likelihood surface. 
+
+\section{Acknowledgments}
+
+We gratefully acknowledge helpful conversations with Reed Essick, Will Farr, Jacob Golomb, Matthew Mould and Colm Talbot. 
+%
+Additionally, we thank Reed Essick for agreeing to perform the LIGO internal document review.
+%
+J.H. is supported by the NSF Graduate Research Fellowship under Grant No. DGE1122374.
+%
+J.H. and S.V. are partially supported by the NSF grant PHY-2045740.
+%
+This material is based upon work supported by NSF's LIGO Laboratory which is a major facility fully funded by the National Science Foundation.
+%
+The authors are grateful for computational resources provided by the LIGO Laboratory and supported by National Science Foundation Grants PHY-0757058 and PHY-0823459.
+
+%%%%%%%%%%%%%%%%
+% appendix
+%%%%%%%%%%%%%%%%
+
+\appendix
+
+\section{Why does normalization matter?}
+\label{app: normalization discussion}
+
+\DIFdelbegin \DIFdel{Many probabilistic }\DIFdelend \DIFaddbegin \DIFadd{Probabilistic }\DIFaddend samplers (MCMC, nested sampling, etc.) do not require a normalized estimate of the posterior uncertainty, and so it may seem surprising that sampling routines can be biased by a normalization factor that does not appear explicitly. Briefly, we argue that bias appears in the following manner: consider an ensemble of 1000 independent unnormalized likelihood times prior estimators and samples of 1000 points from each. If the samples are combined uniformly across the ensemble of estimators, then this is equivalent to sampling from the mean of the 1000 \textit{normalized posteriors}. The actual overall normalization itself doesn’t matter, but combining the samples this way means the \textit{relative} normalizations between the likelihood times prior estimators do matter. If the samples are combined by instead weighting by their corresponding evidence, now this would be equivalent to sampling from the mean of the unnormalized likelihoods. 
+
+We used the mean posterior as one method for quantifying a more general phenomenon: with an uncertain likelihood estimator---even if we know that the likelihood estimator is unbiased---one finds that the ``typical'' likelihood estimator is systematically scattered. Likelihood uncertainty tends to be very skewed (a lognormal distribution is often a good approximation; the hierarchical likelihood is the product of many uncertain quantities and hence the multiplicative central limit theorem applies).
+
+To say it in another way, if we want to quantify the bias from using an uncertain likelihood estimator, we need to decide how to average over the samples from the ensemble of uncertain likelihood estimators. If we just want an unbiased likelihood estimator and we therefore weight each set of samples by their evidences, then we will tend to have an extremely inefficient weighting: we have to wait a long time for some very rare likelihood estimator realizations from within the high-skew tail. If we instead demand an unbiased posterior estimator and we combine samples uniformly, then a typical realization from the unbiased posterior estimator should be closer to the average. 
+
+\section{Derivation of bias in a general posterior estimator}
+\label{app: bias in general}
+
+Consider the general case where we have a Bayesian posterior, 
+\beq
+p(\Lambda) = \frac{\pi(\Lambda)\mathcal{L}(\Lambda)}{\int {\rm d}\Lambda' \pi(\Lambda')\mathcal{L}(\Lambda')}
+\eeq
+where the likelihood times prior is not tractable analytically. Suppose we estimate $\pi(\Lambda)\mathcal{L}(\Lambda) \approx g(\hat{\bm X}(\Lambda))$ with a random variable $\hat{\bm X}(\Lambda)$ which varies across parameter space. For instance, $\hat{\bm X}(\Lambda)$ may be a Monte Carlo integral reweighted across $\Lambda$ parameter space, as we examine in detail in this paper. The posterior estimator is then
+\beq
+\hat{p}(\Lambda) = \frac{g(\hat{\bm X}(\Lambda))}{\int {\rm d}\Lambda' g(\hat{\bm X}(\Lambda'))}.
+\label{eq: estimated posterior}
+\eeq
+In general, $\hat{\bm X}(\Lambda)$ is a vector of random variables; in the Monte Carlo example for hierarchical inference, $\hat{\bm X}(\Lambda)$ is the list of the $\Nobs$ single-event Monte Carlo integrals and the selection efficiency Monte Carlo estimator.\footnote{Formally $\hat{\bm X}(\Lambda)$ is a vector of random \textit{processes}. A single component $\hat{X}_i(\Lambda)$ describes a random \textit{function} across $\Lambda$ parameter space, which are known as a random processes.}
+%\footnote{It is generally best practice to sample the posterior using one fixed draw from the random process $\hat{\bm X}(\Lambda)$, otherwise ``shot noise'' from using a different draw from the process $\hat{\bm X}(\Lambda)$ can severely destabilize stochastic sampling algorithms, or may be too computationally expensive. Using one fixed draw from the process, however, ignores the uncertainty inherent to the Monte Carlo estimation of the likelihood. Worse, even if this uncertainty is marginalized over, this procedure is generically \textit{biased}, as we will show below.}
+
+We assume that $\hat{\bm X}$ is designed so that $g(\expect{\hat{\bm X}}) = \pi(\Lambda)\mathcal{L}(\Lambda)$ is exactly equal to the likelihood times prior we are trying to approximate. However, because $g$ may be a nonlinear function of $\hat{\bm X}$, then (as we discuss in Sec.~\ref{subsec: monte carlo bias}) $\expect{g(\hat{\bm X})} \neq g(\expect{\hat{\bm X}})$. We refer to this phenomenon as \textit{likelihood bias}, and we compute a recipe for removing the leading order biasing term. However, because of the nonlinearity in the normalization by the evidence, posterior estimators acquire an additional bias. We derive an additional correction that removes this bias, although it is typically expensive to calculate and in many practical cases it tends to be small.
+
+To compute the bias, we use the same approach as in Sec.~\ref{subsec: monte carlo bias} to take the expectation of Eq.~\ref{eq: estimated posterior} over the random variable $\hat{\bm X}(\Lambda)$. We write the expectation as $\expect{\hat{\bm X}(\Lambda)}$, and the deviation from the expectation as $\hat{\bm \delta}(\Lambda) = \hat{\bm X}(\Lambda) - \expect{\hat{\bm X}(\Lambda)}$. The deviation has components $\hat{\delta}(\Lambda)_i$. Partial derivatives of $g$ with respect to the $i^{\rm th}$ component of $\hat{\bm X}$ will be written $\partial_i$, and repeated indices are implicitly summed over. 
+
+Approximating Eq.~\ref{eq: estimated posterior} to second order in the numerator and denominator using a Taylor expansion around the expectation $\expect{\hat{\bm X}(\Lambda)}$,
+\beq
+\hat{p}(\Lambda) = \frac{g(\expect{\hat{\bm X}(\Lambda)}) + \partial_ig(\expect{\hat{\bm X}(\Lambda)}) \hat{\delta}_i(\Lambda) + \frac{1}{2}\partial_i\partial_jg(\expect{\hat{\bm X}(\Lambda)})\hat{\delta}_i(\Lambda)\hat{\delta}_j(\Lambda) + \mathcal{O}(\hat{\bm \delta}^3)}{\int {\rm d}\Lambda' g(\expect{\hat{\bm X}(\Lambda')}) + \partial_kg(\expect{\hat{\bm X}(\Lambda')}) \hat{\delta}_k(\Lambda') + \frac{1}{2}\partial_k\partial_lg(\expect{\hat{\bm X}(\Lambda')})\hat{\delta}_k(\Lambda')\hat{\delta}_l(\Lambda') + \mathcal{O}(\hat{\bm \delta}^3)} 
+\eeq
+Using the binomial expansion for the denominator and keeping terms only to second order, we are left with
+% \beq
+% \frac{
+% g(\expect{\hat{\bm X}(\Lambda)})
+% }{
+% \mathcal{Z}
+% }
+% \frac{
+% 1 + \frac{g'\left(\overline{X}(\Lambda)\right)}{g(\expect{\hat{\bm X}(\Lambda)})}(\hat{X}(\Lambda) - \overline{X}(\Lambda)) + \frac{1}{2}\frac{g''\left(\overline{X}(\Lambda)\right)}{g(\expect{\hat{\bm X}(\Lambda)})}(\hat{X}(\Lambda) - \overline{X}(\Lambda))^2
+% }{
+% 1 + \frac{1}{\mathcal{Z}}\int {\rm d}\Lambda'g'\left(\overline{X}(\Lambda')\right)(\hat{X}(\Lambda') - \overline{X}(\Lambda')) + \frac{1}{2\mathcal{Z}}\int {\rm d}\Lambda' g''\left(\overline{X}(\Lambda')\right)(\hat{X}(\Lambda') - \overline{X}(\Lambda'))^2
+% }
+% \eeq
+
+% \beq
+% \frac{
+% g(\expect{\hat{\bm X}(\Lambda)})
+% }{
+% \mathcal{Z}
+% }
+% \left(
+% 1 + \frac{g'\left(\overline{X}(\Lambda)\right)}{g(\expect{\hat{\bm X}(\Lambda)})}(\hat{X}(\Lambda) - \overline{X}(\Lambda)) + \frac{1}{2}\frac{g''\left(\overline{X}(\Lambda)\right)}{g(\expect{\hat{\bm X}(\Lambda)})}(\hat{X}(\Lambda) - \overline{X}(\Lambda))^2
+% \right)
+% \left(
+% 1 - \frac{1}{\mathcal{Z}}\int {\rm d}\Lambda'g'\left(\overline{X}(\Lambda')\right)(\hat{X}(\Lambda') - \overline{X}(\Lambda')) - \frac{1}{2\mathcal{Z}}\int {\rm d}\Lambda' g''\left(\overline{X}(\Lambda')\right)(\hat{X}(\Lambda') - \overline{X}(\Lambda'))^2 + 
+% \left[\frac{1}{\mathcal{Z}}\int {\rm d}\Lambda'g'\left(\overline{X}(\Lambda')\right)(\hat{X}(\Lambda') - \overline{X}(\Lambda'))\right]^2
+% \right)
+% \eeq
+% \beq
+% \frac{
+% g(\expect{\hat{\bm X}(\Lambda)})
+% }{
+% \mathcal{Z}
+% }
+% \left(
+% 1 + \frac{g'\left(\overline{X}(\Lambda)\right)}{g(\expect{\hat{\bm X}(\Lambda)})}(\hat{X}(\Lambda) - \overline{X}(\Lambda)) + \frac{1}{2}\frac{g''\left(\overline{X}(\Lambda)\right)}{g(\expect{\hat{\bm X}(\Lambda)})}(\hat{X}(\Lambda) - \overline{X}(\Lambda))^2
+% \right)
+% \left(
+% 1 - \frac{1}{\mathcal{Z}}\int {\rm d}\Lambda'g'\left(\overline{X}(\Lambda')\right)(\hat{X}(\Lambda') - \overline{X}(\Lambda')) - \frac{1}{2\mathcal{Z}}\int {\rm d}\Lambda' g''\left(\overline{X}(\Lambda')\right)(\hat{X}(\Lambda') - \overline{X}(\Lambda'))^2 + 
+% \frac{1}{\mathcal{Z}^2}\int {\rm d}\Lambda' {\rm d}\Lambda''g'\left(\overline{X}(\Lambda')\right)g'\left(\overline{X}(\Lambda'')\right)(\hat{X}(\Lambda') - \overline{X}(\Lambda'))(\hat{X}(\Lambda'') - \overline{X}(\Lambda''))
+% \right)
+% \eeq
+\begin{align}
+\hat{p}(\Lambda) = \frac{
+g(\expect{\hat{\bm X}(\Lambda)})
+}{
+\mathcal{Z}
+}
+&\Bigg(
+1 
++ 
+\frac{\partial_ig(\expect{\hat{\bm X}(\Lambda)})}{g(\expect{\hat{\bm X}(\Lambda)})}\hat{\delta}_i(\Lambda)
++ 
+\frac{1}{2}\frac{\partial_i\partial_jg(\expect{\hat{\bm X}(\Lambda)})}{g(\expect{\hat{\bm X}(\Lambda)})}\hat{\delta}_i(\Lambda)\hat{\delta}_j(\Lambda)
+-
+\frac{1}{\mathcal{Z}}\int {\rm d}\Lambda'\partial_ig(\expect{\hat{\bm X}(\Lambda')})\hat{\delta}_i(\Lambda') \nonumber \\
+&- \frac{1}{2\mathcal{Z}}\int {\rm d}\Lambda' \partial_i\partial_jg(\expect{\hat{\bm X}(\Lambda')})\hat{\delta}_i(\Lambda')\hat{\delta}_j(\Lambda')
+-
+\frac{\partial_ig(\expect{\hat{\bm X}(\Lambda)})}{g(\expect{\hat{\bm X}(\Lambda)})}\hat{\delta}_i(\Lambda) \frac{1}{\mathcal{Z}}\int {\rm d}\Lambda'\partial_jg(\expect{\hat{\bm X}(\Lambda')})\hat{\delta}_j(\Lambda')
+\nonumber \\ 
+&+
+\frac{1}{\mathcal{Z}^2}\int {\rm d}\Lambda' {\rm d}\Lambda''\partial_ig(\expect{\hat{\bm X}(\Lambda')})\partial_jg(\expect{\hat{\bm X}(\Lambda'')})\hat{\delta}_i(\Lambda')\hat{\delta}_j(\Lambda'') + \mathcal{O}(\hat{\bm \delta}^3)\Bigg)
+\end{align}
+To compute the bias, we take the expectation with respect to $\hat{\bm X}$. Each term linear in $\hat{\bm \delta}$ vanishes, since the expectation of $\hat{\bm \delta}$ is zero, and only the quadratic terms remain. The represents the expected posterior probability density over many draws of the random variable $\hat{\bm X}$
+\begin{align}
+\expect{\hat{p}(\Lambda&)} = \frac{
+g(\expect{\hat{\bm X}(\Lambda)})
+}{
+\mathcal{Z}
+}
+\Bigg(
+1 
++ 
+\frac{1}{2}\frac{\partial_i\partial_jg(\expect{\hat{\bm X}(\Lambda)})}{g(\expect{\hat{\bm X}(\Lambda)})}C_{i,j}(\Lambda, \Lambda)
+- 
+\frac{1}{\mathcal{Z}}\frac{\partial_ig(\expect{\hat{\bm X}(\Lambda)})}{g(\expect{\hat{\bm X}(\Lambda)})} \int {\rm d}\Lambda'\partial_jg(\expect{\hat{\bm X}(\Lambda')})C_{i,j}(\Lambda, \Lambda') \nonumber \\
+- &\frac{1}{2\mathcal{Z}}\int {\rm d}\Lambda' \partial_i\partial_jg(\expect{\hat{\bm X}(\Lambda')})C_{i,j}(\Lambda', \Lambda')
++
+\frac{1}{\mathcal{Z}^2}\int {\rm d}\Lambda' {\rm d}\Lambda'' \partial_i g(\expect{\hat{\bm X}(\Lambda')})\partial_j g(\expect{\hat{\bm X}(\Lambda'')})C_{i,j}(\Lambda', \Lambda'')+ \mathcal{O}(\hat{\bm \delta}^3)
+\Bigg)
+\label{eq: full bias}
+\end{align}
+where $C_{i,j}(\Lambda_0, \Lambda_1) = \expect{(\hat{X}_i(\Lambda_0) - \expect{\hat{X}_i(\Lambda_0)})(\hat{X}_j(\Lambda_1) - \expect{\hat{X}_j(\Lambda_1)})} =  \expect{\hat{\delta}_i(\Lambda_0)\hat{\delta_j}(\Lambda_1)}$ is the covariance between $\hat{X}_i$ and $\hat{X}_j$ at points in parameter space $\Lambda_0$ and $\Lambda_1$ respectively (for independent Monte Carlo integrals, this vanishes if $i\neq j$). Explicitly, 
+\beq
+C_{i,j}(\Lambda_0, \Lambda_1) = \int {\rm d}\hat{\bm X} p(\hat{\bm X}) \left(\hat{X}_i(\Lambda_0) - \expect{\hat{X}_i(\Lambda_0)}\right)\left(\hat{X}_j(\Lambda_1) - \expect{\hat{X}_j(\Lambda_1)}\right)
+\label{eq: covariance of single MC integral}
+\eeq
+where $p(\hat{\bm X})$ is the probability density over the random variable $\hat{\bm X}$. 
+
+In Eq.~\ref{eq: full bias} the first two terms vary across $\Lambda$ parameter space, and so contribute nontrivially to the posterior. We refer to these kinds of biasing terms as \textit{parameteric bias}, as they vary across parameter space. The second two terms are simply constants which ensure the posterior is normalized over $\Lambda$. Writing the derivatives out explicitly and noticing that $\partial g /g = \partial \ln g$, then the parameteric bias is given by
+\begin{gather}
+b(\Lambda)= \frac{1}{2}\frac{1}{g(\expect{\hat{\bm X}(\Lambda)})}\frac{\partial^2g(\expect{\hat{\bm X}(\Lambda)})}{[\partial\hat{X}_i(\Lambda)][\partial\hat{X}_j(\Lambda)]}C_{i,j}(\Lambda, \Lambda) - \int {\rm d}\Lambda'p(\Lambda')\frac{\partial\ln g(\expect{\hat{\bm X}(\Lambda)})}{\partial\hat{X}_i(\Lambda)} \frac{\partial\ln g(\expect{\hat{\bm X}(\Lambda')})}{\partial\hat{X}_j(\Lambda')}C_{i,j}(\Lambda, \Lambda') 
+\label{eq: the parametric bias} 
+%\\\qquad\quad {\rm (first\; biasing\; term)} \qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad {\rm (second\; biasing\; term)} \nn
+\end{gather}
+and so 
+\beq
+\expect{\hat{p}(\Lambda)} = p(\Lambda)\left[1 + b(\Lambda) - \int b(\Lambda')\dd\Lambda'\right]
+\eeq
+The first biasing term in Eq.~\ref{eq: the parametric bias} comes from any nonlinearity in the function $g$, or covariance in the estimator $\hat{\bm X}$. For the case of gravitational wave population inference, it becomes the likelihood biasing term in Eq.~\ref{eq: bias for mean raised to power}. If the estimators $\hat{X}_i$ are each independent (the cross terms vanish) and there is no nonlinearity of the estimators (the second derivatives vanish), then the first biasing term is zero. 
+However, in essentially all cases, the second biasing term is nonzero and in some cases, may contribute non-negligibly to the posterior. Notice the integrand in the second term
+\beq
+C_{\ln g}(\Lambda, \Lambda') \equiv \sum_{i,j}\frac{\partial\ln g(\expect{\hat{\bm X}(\Lambda)})}{\partial\hat{X}_i(\Lambda)} \frac{\partial\ln g(\expect{\hat{\bm X}(\Lambda')})}{\partial\hat{X}_j(\Lambda')}C_{i,j}(\Lambda, \Lambda') 
+\label{eq: general covariance in ln g}
+\eeq
+is exactly the propagation of uncertainty rules for the covariance in $\ln g$: the covariance in the log likelihood (here we write out the implicit sum over $i,j$).
+
+\section{Correcting likelihood bias and posterior bias}
+\label{app: correction in general}
+
+We would like to handle the bias in Eq.~\ref{eq: the parametric bias}. Here, we will restrict to the case where $\hat{\bm X}(\Lambda)$ is a family of independent Monte Carlo estimators.
+\beq
+\hat{X}_j(\Lambda) = \frac{1}{M_j}\sum_{i=1}^{M_j}\frac{f_j(\theta_i | \Lambda)}{p_{{\rm draw},j}(\theta_i)},
+\label{eq: family of monte carlo integrals}
+\eeq
+where $g$ is some function of these Monte Carlo integrals. However, to show the modifying term we propose is correct, we will have to consider $g$ from a more general perspective, as a function of the \textit{weights}, where the Monte Carlo integrals are just the averages of the weights along the $i$ axis\footnote{We use a slightly streamlined notation for $\hat{W}_{ij}^\Lambda$ to avoid too many repeated parentheses.}
+\beq
+\hat{W}_{ij}^\Lambda = \frac{f_j(\theta_i | \Lambda)}{p_{{\rm draw},j}(\theta_i)} \qquad\qquad \hat{X}_j(\Lambda) = \frac{1}{M_j}\sum_{i=1}^{M_j}\hat{W}_{ij}^\Lambda.
+\eeq
+In Eq.~\ref{eq: expectation of Monte Carlo integral} we pointed out that the expectation of a Monte Carlo integral (even with just one sample) is simply the integral
+\beq
+\expectlarge{\hat{W}_{ij}^\Lambda} = \int {\rm d}\theta f_j(\theta | \Lambda)
+\eeq
+and so the expectation is independent of $i$.
+
+We must consider each weight as a separate, independent random variable. Let there be an additional modifying term $m$ so that the leading order bias vanishes. 
+\beq
+g(\hat{\bm X}(\Lambda)) \to g\left(\left\{\frac{1}{M_j}\sum_{i=1}^{M_j}\hat{W}_{ij}^\Lambda\right\}_{j=1}^{N}\right)m\left(\left\{\hat{W}_{ij}^\Lambda\right\}_{i=1,j=1}^{M_j,N}, \left\{\hat{W}_{ij}^{\Lambda'}\right\}_{i=1,j=1}^{M_j,N}\right) \equiv g(\hat{\bm W}^\Lambda)m(\hat{\bm W}^\Lambda, \hat{\bm W}^{\Lambda'}).
+\label{eq: definition of m}
+\eeq
+In order to retain the property that $g(\expect{\hat{\bm X}(\Lambda)}) = \pi(\Lambda)\mathcal{L}(\Lambda)$, we demand that $m(\expect{\hat{\bm W}^\Lambda}, \expect{\hat{\bm W}^{\Lambda'}}) = 1$.
+% We can insert Eq.~\ref{eq: definition of m} directly into Eq.~\ref{eq: the parametric bias}, if we identify the random variable $\hat{\bm X}(\Lambda)$ in Eq.~\ref{eq: the parametric bias} to the larger set of weights $\hat{\bm W}^\Lambda$. 
+% \begin{align}
+% \expect{\hat{p}&(\Lambda)} \propto \frac{
+% g(\expect{\hat{\bm W}^\Lambda})m(\expect{\hat{\bm W}^\Lambda})
+% }{
+% \mathcal{Z}
+% }
+% \Bigg(
+% 1 
+% + 
+% \frac{1}{2}\Bigg[\frac{\partial^2g(\expect{\hat{\bm W}^\Lambda})}{(\partial \hat{W}_{pq}^\Lambda)(\partial \hat{W}_{rs}^\Lambda)}\frac{1}{g(\expect{\hat{\bm W}^\Lambda})} + \frac{\partial \ln g(\expect{\hat{\bm W}^\Lambda})}{\partial \hat{W}_{pq}^\Lambda}\frac{\partial \ln m(\expect{\hat{\bm W}^\Lambda})}{\partial \hat{W}_{rs}^\Lambda} \nn \\
+% + &\frac{\partial \ln g(\expect{\hat{\bm W}^\Lambda})}{\partial \hat{W}_{rs}^\Lambda} \frac{\partial \ln m(\expect{\hat{\bm W}^\Lambda})}{\partial \hat{W}_{pq}^\Lambda} +
+% \frac{\partial^2m(\expect{\hat{\bm W}^\Lambda})}{(\partial \hat{W}_{pq}^\Lambda)(\partial \hat{W}_{rs}^\Lambda)}\frac{1}{m(\expect{\hat{\bm W}^\Lambda})}
+% \Bigg]C_{pq,rs}(\Lambda, \Lambda)
+% - \left[\frac{\partial \ln g(\expect{\hat{\bm W}^\Lambda})}{\partial \hat{W}_{pq}^\Lambda} + \frac{\partial \ln m(\expect{\hat{\bm W}^\Lambda})}{\partial \hat{W}_{pq}^\Lambda}\right] \nn \\
+% \times &\int {\rm d}\Lambda'p(\Lambda')\left[\frac{\partial \ln g(\expect{\hat{\bm W}^{\Lambda'}})}{\partial \hat{W}_{rs}^{\Lambda'}} + \frac{\partial \ln m(\expect{\hat{\bm W}^{\Lambda'}})}{\partial \hat{W}_{rs}^{\Lambda'}}\right]C_{pq,rs}(\Lambda, \Lambda')
+% \Bigg),
+% \label{eq: bias with general modifying term}
+% \end{align}
+% Here, the indices $pq,rs$ each run over \textit{all} the $(i,j),(i,j)$ pairs, and remember there are implied sums over the repeated indices. Since each Monte Carlo weight is independent, only the $C_{q,r}$ terms where $q = r$ are nonzero, so we can simplify to
+% \begin{align}
+% \expect{\hat{p}(\Lambda)} &\propto \frac{
+% g(\expect{\hat{\bm W}^\Lambda})
+% }{
+% \mathcal{Z}
+% }
+% \Bigg(
+% 1 
+% + 
+% \frac{1}{2}\Bigg[\frac{\partial^2g(\expect{\hat{\bm W}^\Lambda})}{(\partial \hat{W}_{pq}^\Lambda)^2}\frac{1}{g(\expect{\hat{\bm W}^\Lambda})} + 2\frac{\partial \ln g(\expect{\hat{\bm W}^\Lambda})}{\partial \hat{W}_{pq}^\Lambda}\frac{\partial \ln m(\expect{\hat{\bm W}^\Lambda})}{\partial \hat{W}_{pq}^\Lambda} + \frac{\partial^2m(\expect{\hat{\bm W}^\Lambda})}{(\partial\hat{W}_{pq}^\Lambda)^2}
+% \Bigg]C_{pq,pq}(\Lambda, \Lambda) \nn \\
+% - &\left[\frac{\partial \ln g(\expect{\hat{\bm W}^\Lambda})}{\partial\hat{W}_{pq}^\Lambda}+\frac{\partial \ln m(\expect{\hat{\bm W}^\Lambda})}{\partial\hat{W}_{pq}^\Lambda}\right]
+% \int {\rm d}\Lambda'p(\Lambda')\left[\frac{\partial \ln g(\expect{\hat{\bm W}(\Lambda')})}{\partial\hat{W}_{pq}^{\Lambda'}}+\frac{\partial \ln m(\expect{\hat{\bm W}(\Lambda')})}{\partial\hat{W}_{pq}^{\Lambda'}}\right]C_{pq,pq}(\Lambda, \Lambda')
+% \Bigg),
+% \label{eq: modifying term}
+% \end{align}
+
+So long as the modifying term is biased in exactly the opposite way to the bias in Eq.~\ref{eq: the parametric bias} at leading order, then the leading order bias will vanish. 
+Based on the form of the bias in Eq.~\ref{eq: the parametric bias}, the following modifying term will work: to leading order it is exactly the opposite of the biasing terms in Eq.~\ref{eq: the parametric bias}. Furthermore, it is positive everywhere and, as we will verify, evaluates to 1 at the expectation $\expect{\hat{\bm W}^\Lambda}$
+\beq
+m(\hat{\bm W}^\Lambda, \hat{\bm W}^{\Lambda'}) = \exp\left(\sum_{p,q=1}^{M_q,N}\left[-\frac{1}{2}\frac{\partial^2g(\hat{\bm W}^\Lambda)}{(\partial \hat{W}^\Lambda_{pq})^2}\frac{\hat{C}^2_q(\hat{\bm W}^\Lambda, \hat{\bm W}^\Lambda)}{g(\hat{\bm W}^\Lambda)} + \int {\rm d}\Lambda' \hat{p}(\Lambda') \frac{\partial \ln g(\hat{\bm W}^\Lambda)}{\partial \hat{W}^\Lambda_{pq}}\frac{\partial \ln g(\hat{\bm W}^{\Lambda'})}{\partial \hat{W}^{\Lambda'}_{pq}}\hat{C}^2_q(\hat{\bm W}^\Lambda, \hat{\bm W}^{\Lambda'})\right]\right)
+\label{eq: modifying term}
+\eeq
+where 
+\beq
+\hat{C}^2_q(\hat{\bm W}^\Lambda, \hat{\bm W}^{\Lambda'}) = \frac{1}{M_q-1}\left[\sum_{p=1}^{M_q}\hat{W}_{pq}^\Lambda\hat{W}_{pq}^{\Lambda'} - \frac{1}{M_q}\left(\sum_{i=1}^{M_q}\hat{W}_{iq}^\Lambda\right)\left(\sum_{j=1}^{M_q}\hat{W}_{jq}^{\Lambda'}\right)\right]
+\label{eq: general variance estimator}
+\eeq
+is the minimum variance unbiased estimator for the covariance between $\hat{X}_q(\Lambda)$ and $\hat{X}_q(\Lambda')$. Note the integrand (after performing the sum) in the second term of Eq.~\ref{eq: modifying term} is covariance in the log-likelihood estimator $\ln g$ via the standard propagation of uncertainty rules
+\beq
+\hat{C}_{\ln g}(\Lambda, \Lambda') \equiv \sum_{p,q=1}^{M_q,N} \frac{\partial \ln g(\hat{\bm W}^\Lambda)}{\partial \hat{W}^\Lambda_{pq}}\frac{\partial \ln g(\hat{\bm W}^{\Lambda'})}{\partial \hat{W}^{\Lambda'}_{pq}}\hat{C}^2_q(\hat{\bm W}^\Lambda, \hat{\bm W}^{\Lambda'}).
+\label{eq: general covariance term}
+\eeq
+
+To verify Eq.~\ref{eq: modifying term} removes the bias, we must compute the derivatives
+\begin{align}
+\frac{\partial \hat{C}^2_q(\hat{\bm W}^\Lambda, \hat{\bm W}^{\Lambda'})}{\partial W_{ij}^\Lambda} &= \begin{cases}
+0 & {\rm if} \; j \neq q \\
+\frac{1}{M_q-1}\left[\hat{W}_{ij}^{\Lambda'} - \frac{1}{M_q}\left(\sum_{p=1}^{M_q}\hat{W}_{pq}^{\Lambda'}\right)\right] & {\rm if}\; j = q 
+\end{cases} \nn
+\\
+\frac{\partial \hat{C}^2_q(\hat{\bm W}^\Lambda, \hat{\bm W}^{\Lambda})}{\partial W_{ij}^\Lambda} &= \begin{cases}
+0 & {\rm if} \; j \neq q \\
+\frac{2}{M_q-1}\left[\hat{W}_{ij}^{\Lambda} - \frac{1}{M_q}\left(\sum_{p=1}^{M_q}\hat{W}_{pq}^{\Lambda}\right)\right] & {\rm if}\; j = q 
+\end{cases} \nn
+\\
+\frac{\partial \hat{C}^2_q(\hat{\bm W}^\Lambda, \hat{\bm W}^{\Lambda'})}{(\partial W_{ij}^\Lambda)^2} &= 0 \nn
+\\
+\frac{\partial^2 \hat{C}^2_q(\hat{\bm W}^\Lambda, \hat{\bm W}^{\Lambda'})}{(\partial W_{ij}^\Lambda)(\partial W_{ij}^{\Lambda'})} &= \begin{cases}
+0 & {\rm if} \; j \neq q \\
+\frac{1}{M_q-1}\left[1 - \frac{1}{M_q}\right] & {\rm if}\; j = q 
+\end{cases} = \begin{cases}
+0 & {\rm if} \; j \neq q \\
+\frac{1}{M_q} & {\rm if}\; j = q \end{cases} \nn
+\\
+\frac{\partial^2 \hat{C}^2_q(\hat{\bm W}^\Lambda, \hat{\bm W}^{\Lambda})}{(\partial W_{ij}^\Lambda)^2} &= \begin{cases}
+0 & {\rm if} \; j \neq q \\
+\frac{2}{M_q-1}\left[1 - \frac{1}{M_q}\right] & {\rm if}\; j = q 
+\end{cases} = \begin{cases}
+0 & {\rm if} \; j \neq q \\
+\frac{2}{M_q} & {\rm if}\; j = q 
+\end{cases}
+\label{eq: variance estimator derivatives}
+\end{align}
+Notice, however, when we evaluate Eq.~\ref{eq: general variance estimator} and Eq.~\ref{eq: variance estimator derivatives} on the expectation of $\hat{\bm W}$, we obtain zero for the estimator, zero for the first derivative, and the second derivative does not change
+\begin{gather}
+\hat{C}^2_q(\expect{\hat{\bm W}^\Lambda}, \expect{\hat{\bm W}^{\Lambda'}}) = 0 \qquad\quad \;\qquad \frac{\partial \hat{C}^2_q(\expect{\hat{\bm W}^\Lambda}, \expect{\hat{\bm W}^\Lambda}) }{\partial W_{ij}^\Lambda} = 0
+\qquad \qquad \;\;  \frac{\partial^2 \hat{C}^2_q(\expect{\hat{\bm W}^\Lambda}, \expect{\hat{\bm W}^\Lambda})}{(\partial W_{ij}^\Lambda)^2} = \begin{cases}
+0 & {\rm if} \; j \neq q \\
+\frac{2}{M_q} & {\rm if}\; j = q
+\end{cases} \quad\quad \nn \\ 
+\frac{\partial \hat{C}^2_q(\expect{\hat{\bm W}^\Lambda}, \expect{\hat{\bm W}^{\Lambda'}}) }{\partial W_{ij}^\Lambda} = 0 \qquad \qquad  \frac{\partial^2 \hat{C}^2_q(\expect{\hat{\bm W}^\Lambda}, \expect{\hat{\bm W}^{\Lambda'}})}{(\partial W_{ij}^\Lambda)^2} = 0 \qquad \qquad 
+\frac{\partial^2 \hat{C}^2_q(\expect{\hat{\bm W}^\Lambda}, \expect{\hat{\bm W}^{\Lambda'}})}{(\partial W_{ij}^\Lambda)(\partial W_{ij}^{\Lambda'})} = \begin{cases}
+0 & {\rm if} \; j \neq q \\
+\frac{1}{M_q} & {\rm if}\; j = q.
+\end{cases} 
+\label{eq: variance estimator derivatives expectation}
+\end{gather}
+We want to show that the modifying term corrects the bias.
+To see this, Taylor expand
+\beq
+g(\hat{\bm W}^{\Lambda})\exp\left(\sum_{p,q=1}^{M_q,N}\left[-\frac{1}{2}\frac{\partial^2g(\hat{\bm W}^\Lambda)}{(\partial \hat{W}^\Lambda_{pq})^2}\frac{\hat{C}^2_q(\hat{\bm W}^\Lambda, \hat{\bm W}^\Lambda)}{g(\hat{\bm W}^\Lambda)} + \int {\rm d}\Lambda' \hat{p}(\Lambda') \frac{\partial \ln g(\hat{\bm W}^\Lambda)}{\partial \hat{W}^\Lambda_{pq}}\frac{\partial \ln g(\hat{\bm W}^{\Lambda'})}{\partial \hat{W}^{\Lambda'}_{pq}}\hat{C}^2_q(\hat{\bm W}^\Lambda, \hat{\bm W}^{\Lambda'})\right]\right)
+\eeq
+around the expectation $\expect{\hat{\bm W}^\Lambda}$. Many terms vanish immediately as only the second derivatives in Eq.~\ref{eq: variance estimator derivatives expectation} are nonzero. We are left with all the same terms as Eq.~\ref{eq: full bias}, plus the biasing terms from the modifying function, of which only two terms remain
+\begin{align}
+\hat{p}(\Lambda) &= \frac{
+g(\expect{\hat{\bm W}^\Lambda})
+}{
+\mathcal{Z}
+}
+\Bigg(
+1 
++ 
+\sum_{i,j=1}^{M_j,N}\left(\frac{\partial g(\expect{\hat{\bm W}^\Lambda})}{\partial \hat{W}_{ij}^\Lambda}\frac{\hat{\delta}_{ij}^\Lambda}{g(\expect{\hat{\bm W}^\Lambda})}
+-
+\frac{1}{\mathcal{Z}}\int {\rm d}\Lambda'\frac{\partial g(\expect{\hat{\bm W}^{\Lambda'}})}{\partial \hat{W}_{ij}^{\Lambda'}}\hat{\delta}_{ij}^{\Lambda'}\right) \nonumber \\
+&+ 
+\frac{1}{2}\sum_{i,j=1}^{M_j,N}\sum_{k,l=1}^{M_l,N}
+\left(\frac{\partial^2 g(\expect{\hat{\bm W}^\Lambda})}{(\partial \hat{W}_{ij}^\Lambda)^2}\frac{\hat{\delta}_{ij}^\Lambda\hat{\delta}_{kl}^\Lambda}{g(\expect{\hat{\bm W}^\Lambda})} -
+\frac{\partial g(\expect{\hat{\bm X}(\Lambda)})}{\partial \hat{W}_{ij}^\Lambda}\frac{\hat{\delta}_{ij}^\Lambda}{g(\expect{\hat{\bm X}(\Lambda)})} \frac{1}{\mathcal{Z}}\int {\rm d}\Lambda'\frac{\partial g(\expect{\hat{\bm W}^{\Lambda'}})}{\partial \hat{W}_{kl}^{\Lambda'}}\hat{\delta}_{kl}^{\Lambda'} \right.
+\nonumber \\ 
+&- \left. \frac{1}{2\mathcal{Z}}\int {\rm d}\Lambda' \frac{\partial^2 g(\expect{\hat{\bm W}^{\Lambda'}})}{(\partial \hat{W}_{ij}^{\Lambda'})(\partial \hat{W}_{kl}^{\Lambda'})}\hat{\delta}_{ij}^{\Lambda'}\hat{\delta}_{kl}^{\Lambda'}
++
+\frac{1}{\mathcal{Z}^2}\int {\rm d}\Lambda' {\rm d}\Lambda''\frac{\partial g(\expect{\hat{\bm W}^{\Lambda'}})}{\partial \hat{W}_{ij}^{\Lambda'}}\frac{\partial g(\expect{\hat{\bm W}^{\Lambda''}})}{\partial \hat{W}_{kl}^{\Lambda'}}\hat{\delta}_{ij}^{\Lambda'}\hat{\delta}_{kl}^{\Lambda''} \right. \nonumber \\
+&+ 
+\left. \sum_{p,q=1}^{M_q,N}\left[-\frac{1}{2} \frac{\partial^2g(\expect{\hat{\bm W}^\Lambda})}{(\partial \hat{W}^\Lambda_{pq})^2}\frac{\partial^2\hat{C}^2_q(\expect{\hat{\bm W}^\Lambda}, \expect{\hat{\bm W}^\Lambda})}{(\partial \hat{W}_{ij}^\Lambda)^2}\frac{\hat{\delta}_{ij}^\Lambda\hat{\delta}_{kl}^\Lambda}{g(\expect{\hat{\bm W}^\Lambda})} \nonumber \right.\right. \\ 
+&+ 
+\left.\left. \frac{\partial \ln g(\expect{\hat{\bm W}^\Lambda})}{\partial \hat{W}^\Lambda_{pq}}\int {\rm d}\Lambda' p(\Lambda') \frac{\partial \ln g(\expect{\hat{\bm W}^{\Lambda'}})}{\partial \hat{W}^{\Lambda'}_{pq}}\frac{\partial^2 \hat{C}^2_q(\expect{\hat{\bm W}^\Lambda}, \expect{\hat{\bm W}^{\Lambda'}})}{(\partial \hat{W}_{ij}^\Lambda)(\partial \hat{W}_{kl}^{\Lambda'})}\hat{\delta}_{ij}^\Lambda\hat{\delta}_{kl}^{\Lambda'} \nonumber \right.\right. \\ 
+&+
+\left.\left.
+\frac{1}{2\mathcal{Z}} \int {\rm d}\Lambda' \frac{\partial^2g(\expect{\hat{\bm W}^{\Lambda'}})}{(\partial \hat{W}^{\Lambda'}_{pq})^2}\frac{\partial^2\hat{C}^2_q(\expect{\hat{\bm W}^{\Lambda'}}, \expect{\hat{\bm W}^{\Lambda'}})}{(\partial \hat{W}_{ij}^{\Lambda'})(\partial \hat{W}_{kl}^{\Lambda'})}\hat{\delta}_{ij}^{\Lambda'}\hat{\delta}_{kl}^{\Lambda'} \nonumber \right.\right. \\ 
+&- 
+\left.\left. \frac{1}{\mathcal{Z}}\int {\rm d}\Lambda' \frac{\partial g(\expect{\hat{\bm W}^{\Lambda'}})}{\partial \hat{W}^{\Lambda'}_{pq}}\int {\rm d}{\Lambda''} p(\Lambda'') \frac{\partial \ln g(\expect{\hat{\bm W}^{\Lambda''}})}{\partial \hat{W}^{\Lambda''}_{pq}}\frac{\partial^2 \hat{C}^2_q(\expect{\hat{\bm W}^{\Lambda'}}, \expect{\hat{\bm W}^{\Lambda''}})}{(\partial \hat{W}_{ij}^{\Lambda'})(\partial \hat{W}_{kl}^{\Lambda''})}\hat{\delta}_{ij}^{\Lambda'}\hat{\delta}_{kl}^{\Lambda''}
+\right]\right)
++
+\mathcal{O}(\hat{\bm \delta}^3)\Bigg).
+\end{align}
+As before, we can recognize that $\frac{1}{\mathcal{Z}} = \frac{p(\Lambda)}{g(\Lambda)}$ for any arbitrary $\Lambda$, and pull this inside integrals wherever relevant. Second, we notice that the nonzero branches of Eq.~\ref{eq: variance estimator derivatives expectation} picks out a small subset of the summation. Third and finally, we take the expectation over all $\hat{\delta}$, where the linear terms vanish and the quadratic terms have a nonzero expectation \textit{only} where $i=k, j=l$
+% \begin{align}
+% \expect{\hat{p}&(\Lambda)} = \frac{
+% g(\expect{\hat{\bm W}^\Lambda})
+% }{
+% \mathcal{Z}
+% }
+% \Bigg(
+% 1 
+% + 
+% \frac{1}{2}\sum_{i,j=1}^{M_j,N}
+% \left(\frac{\partial^2 g(\expect{\hat{\bm W}^\Lambda})}{(\partial \hat{W}_{ij}^\Lambda)^2}\frac{C_{ij,ij}(\Lambda, \Lambda)}{g(\expect{\hat{\bm W}^\Lambda})} 
+% -
+% \frac{\partial \ln g(\expect{\hat{\bm X}(\Lambda)})}{\partial \hat{W}_{ij}^\Lambda} \int {\rm d}\Lambda'p(\Lambda')\frac{\partial \ln g(\expect{\hat{\bm W}^{\Lambda'}})}{\partial \hat{W}_{ij}^{\Lambda'}}C_{ij,ij}(\Lambda, \Lambda') \right.
+% \nonumber \\ 
+% &- \left. \frac{1}{2}\int {\rm d}\Lambda' p(\Lambda')\frac{\partial^2 g(\expect{\hat{\bm W}^{\Lambda'}})}{(\partial \hat{W}_{ij}^{\Lambda'})(\partial \hat{W}_{ij}^{\Lambda'})}\frac{C_{ij,ij}(\Lambda', \Lambda')}{g(\mathbb{E}[\hat{\bm W}^{\Lambda}])}
+% +
+% \int {\rm d}\Lambda' {\rm d}\Lambda'' p(\Lambda')p(\Lambda'')\frac{\partial \ln g(\expect{\hat{\bm W}^{\Lambda'}})}{\partial \hat{W}_{ij}^{\Lambda'}}\frac{\partial \ln g(\expect{\hat{\bm W}^{\Lambda''}})}{\partial \hat{W}_{ij}^{\Lambda'}}C_{ij,ij}(\Lambda', \Lambda'') \right. \nonumber \\
+% &+ 
+% \left. \sum_{p,q=1}^{M_q,N}\left[-\frac{1}{2} \frac{\partial^2g(\expect{\hat{\bm W}^\Lambda})}{(\partial \hat{W}^\Lambda_{pq})^2}\left(\left.
+% \begin{cases}
+% 0 & {\rm if}\; j\neq q \\
+% \frac{2}{M_q} & {\rm if}\; j = q 
+% \end{cases}\right\}\right)\frac{C_{ij,ij}(\Lambda, \Lambda)}{g(\expect{\hat{\bm W}^\Lambda})} \nonumber \right.\right. \\
+% &+ 
+% \left.\left. \frac{\partial \ln g(\expect{\hat{\bm W}^\Lambda})}{\partial \hat{W}^\Lambda_{pq}}\int {\rm d}\Lambda' p(\Lambda') \frac{\partial \ln g(\expect{\hat{\bm W}^{\Lambda'}})}{\partial \hat{W}^{\Lambda'}_{pq}} \left(\left.
+% \begin{cases}
+% 0 & {\rm if}\; j\neq q \\
+% \frac{1}{M_q} & {\rm if}\; j = q 
+% \end{cases}\right\}\right)C_{ij,ij}(\Lambda, \Lambda') \nonumber \right.\right. \\ 
+% &+
+% \left.\left.
+% \frac{1}{2} \int {\rm d}\Lambda' p(\Lambda')\frac{\partial^2g(\expect{\hat{\bm W}^{\Lambda'}})}{(\partial \hat{W}^{\Lambda'}_{pq})^2}\left(\left.
+% \begin{cases}
+% 0 & {\rm if}\; j\neq q \\
+% \frac{2}{M_q} & {\rm if}\; j = q 
+% \end{cases}\right\}\right)\frac{C_{ij,ij}(\Lambda', \Lambda')}{g(\expect{\hat{\bm W}^{\Lambda'}})} \nonumber \right.\right. \\ 
+% &- 
+% \left.\left. \int {\rm d}\Lambda' {\rm d}{\Lambda''} p(\Lambda')p(\Lambda'') \frac{\partial \ln g(\expect{\hat{\bm W}^{\Lambda'}})}{\partial \hat{W}^{\Lambda'}_{pq}} \frac{\partial \ln g(\expect{\hat{\bm W}^{\Lambda''}})}{\partial \hat{W}^{\Lambda''}_{pq}}\left(\left.
+% \begin{cases}
+% 0 & {\rm if}\; j\neq q \\
+% \frac{1}{M_q} & {\rm if}\; j = q 
+% \end{cases}\right\}\right)C_{ij,ij}(\Lambda', \Lambda'')
+% \right]\right)
+% +
+% \mathcal{O}(\hat{\bm \delta}^3)\Bigg).
+% \end{align}
+
+\begin{align}
+\expect{\hat{p}&(\Lambda)} = \frac{
+g(\expect{\hat{\bm W}^\Lambda})
+}{
+\mathcal{Z}
+}
+\Bigg(
+1 
++ 
+\frac{1}{2}\sum_{i,j=1}^{M_j,N}
+\left(\frac{\partial^2 g(\expect{\hat{\bm W}^\Lambda})}{(\partial \hat{W}_{ij}^\Lambda)^2}\frac{C_{ij,ij}(\Lambda, \Lambda)}{g(\expect{\hat{\bm W}^\Lambda})} 
+-
+\frac{\partial \ln g(\expect{\hat{\bm X}(\Lambda)})}{\partial \hat{W}_{ij}^\Lambda} \int {\rm d}\Lambda'p(\Lambda')\frac{\partial \ln g(\expect{\hat{\bm W}^{\Lambda'}})}{\partial \hat{W}_{ij}^{\Lambda'}}C_{ij,ij}(\Lambda, \Lambda') \right.
+\nonumber \\ 
+&- \left. \frac{1}{2}\int {\rm d}\Lambda' p(\Lambda')\frac{\partial^2 g(\expect{\hat{\bm W}^{\Lambda'}})}{(\partial \hat{W}_{ij}^{\Lambda'})(\partial \hat{W}_{ij}^{\Lambda'})}\frac{C_{ij,ij}(\Lambda', \Lambda')}{g(\expect{\hat{\bm W}^\Lambda})}
++
+\int {\rm d}\Lambda' {\rm d}\Lambda'' p(\Lambda')p(\Lambda'')\frac{\partial \ln g(\expect{\hat{\bm W}^{\Lambda'}})}{\partial \hat{W}_{ij}^{\Lambda'}}\frac{\partial \ln g(\expect{\hat{\bm W}^{\Lambda''}})}{\partial \hat{W}_{ij}^{\Lambda'}}C_{ij,ij}(\Lambda', \Lambda'') \right. \nonumber \\
+&+ 
+\left. \frac{1}{M_j}\sum_{p}^{M_j}\left[- \frac{\partial^2g(\expect{\hat{\bm W}^\Lambda})}{(\partial \hat{W}^\Lambda_{pj})^2}
+\frac{C_{ij,ij}(\Lambda, \Lambda)}{g(\expect{\hat{\bm W}^\Lambda})}
++ 
+\frac{\partial \ln g(\expect{\hat{\bm W}^\Lambda})}{\partial \hat{W}^\Lambda_{pj}}\int {\rm d}\Lambda' p(\Lambda') \frac{\partial \ln g(\expect{\hat{\bm W}^{\Lambda'}})}{\partial \hat{W}^{\Lambda'}_{pj}}C_{ij,ij}(\Lambda, \Lambda') \nonumber \right.\right. \\ 
+&+
+\left.\left.
+\int {\rm d}\Lambda' p(\Lambda')\frac{\partial^2g(\expect{\hat{\bm W}^{\Lambda'}})}{(\partial \hat{W}^{\Lambda'}_{pj})^2}\frac{C_{ij,ij}(\Lambda', \Lambda')}{g(\expect{\hat{\bm W}^{\Lambda'}})}
+- 
+\int {\rm d}\Lambda' {\rm d}{\Lambda''} p(\Lambda')p(\Lambda'') \frac{\partial \ln g(\expect{\hat{\bm W}^{\Lambda'}})}{\partial \hat{W}^{\Lambda'}_{pq}} \frac{\partial \ln g(\expect{\hat{\bm W}^{\Lambda''}})}{\partial \hat{W}^{\Lambda''}_{pq}}C_{ij,ij}(\Lambda', \Lambda'')
+\right]\right) \nonumber \\
+&+
+\mathcal{O}(\hat{\bm \delta}^3)\Bigg).
+\end{align}
+The final simplification comes in noticing that $g$ is designed as a function of Monte Carlo sums, so within each $j^{\rm th}$ Monte Carlo sum, the partial derivative of with respect to any weight $\hat{W}_{pj}^\Lambda$ is the same for all $p$. In particular, the sum over all $p$ is just $M_j$ copies of the same partial derivative. We can fix the derivatives with respect to $\hat{W}_{pj}^\Lambda$, $\hat{W}_{pj}^{\Lambda'}$ and $\hat{W}_{pj}^{\Lambda''}$ to the $ij$ weight, and multiply by $M_j$. All terms then cancel, leaving only the third order contribution to the bias.
+\beq
+\expect{\hat{p}(\Lambda)} = \frac{g(\expect{\hat{\bm W}^\Lambda})}{\mathcal{Z}}\left(1 + \mathcal{O}(\hat{\bm \delta}^3)\right).
+\eeq
+The first biasing term (the likelihood bias) is corrected by the the first term in the exponential of the modifying term (Eq.~\ref{eq: modifying term}). The second biasing term (the posterior bias) is corrected by the second term in Eq.~\ref{eq: modifying term}. 
+
+The general likelihood bias correction term is therefore
+\beq
+\exp\left(\sum_{p,q=1}^{M_q,N}-\frac{1}{2}\frac{\partial^2g(\hat{\bm W}^\Lambda)}{(\partial \hat{W}^\Lambda_{pq})^2}\frac{\hat{C}^2_q(\hat{\bm W}^\Lambda, \hat{\bm W}^\Lambda)}{g(\hat{\bm W}^\Lambda)}\right)
+\label{eq: general likelihood bias correction}
+\eeq
+which is only nontrivial when there are nonzero second derivatives of the likelihood estimator. On the other hand, the general posterior bias correction term is always nontrivial, but can be estimated with the accuracy statistic $\hat{A}[\hat{p}]$ and tends to be negligible in practice.
+
+We show some examples where we explicitly correct the posterior bias in Appendix~\ref{app: examples of posterior correction}.
+% \begin{enumerate}
+%     \item \textbf{Explicit correction.} Whenever the modifying term (Eq.~\ref{eq: modifying term}) may be calculated explicitly, it can be included to correct the bias. If (as is usually the case) only the first term in the modifying term may be computed explicitly, then the first term should be included during posterior computation, and the second term can be handled via one of the other techniques (2 or 3 below).
+%     \item \textbf{Threshold.} We will show that the second biasing term \rednote{evidence bias?} can be bounded using the Schwarz inequality. In particular, the \rednote{evidence} bias is proportional to the uncertainty in the log-likelihood \textit{marginalized over the posterior}. This motivates the use of a threshold on the uncertainty in the log-likelihood, to ensure the \rednote{evidence} bias is bounded.
+%     \item \textbf{Rejection sample.} If the analyst uses a stochastic sampling algorithm to draw samples from the biased posterior, the samples may either be weighted or rejection sampled according to the modifying term. The reweighted posterior samples will be unbiased to second order.     
+% \end{enumerate}
+
+% \subsection{Bounding the second biasing term}
+
+% \beq
+% b(\Lambda) \leq 
+% 1 
+% + \left | \frac{\partial_ig(\expect{\hat{\bm X}(\Lambda)})}{g(\expect{\hat{\bm X}(\Lambda)})} \int {\rm d}\Lambda'p(\Lambda')\frac{\partial_jg(\expect{\hat{\bm X}(\Lambda')})}{g(\expect{\hat{\bm X}(\Lambda')})}C_{i,j}(\Lambda, \Lambda')
+%  \right|
+% \eeq
+% and we MIGHT need to do this to be able to use Schwarz' inequality, also we include a factor of $g/g$ inside the integral, and pull in the evidence term to give a factor $g/Zg = p / g$, and since $g \ge 0$, then we may write
+% \beq
+% b(\Lambda) \leq 
+% 1 
+% +
+% \left |\frac{\partial_ig(\expect{\hat{\bm X}(\Lambda)})}{g(\expect{\hat{\bm X}(\Lambda)})}\right | \int {\rm d}\Lambda' p(\Lambda')\left|\frac{\partial_jg(\expect{\hat{\bm X}(\Lambda')})}{g(\expect{\hat{\bm X}(\Lambda')})}C_{i,j}(\Lambda, \Lambda')\right|
+% \eeq
+% we also pull the integral out over the trivial coefficient, and write \textit{explicitly} the sum over $C_{i,j}$ and that $C_{i,j}$ is itself an integral over $X$, which we will index with a different variable $Y$ for clarity. This distribution for $Y$ is in principle different at each point $\Lambda$,  
+% \beq
+% b(\Lambda) \leq 
+% 1 
+% +
+% \int {\rm d} \Lambda' \sum_{i,j} \left |\frac{\partial_ig(\expect{\hat{\bm X}(\Lambda)})}{g(\expect{\hat{\bm X}(\Lambda)})}\right | \left|\frac{\partial_jg(\expect{\hat{\bm X}(\Lambda')})}{g(\expect{\hat{\bm X}(\Lambda')})}\right|\left|\int {\rm d}Y p(Y) (Y_i-\langle Y_i\rangle)(Y_j-\langle Y_j\rangle) \right|
+% \eeq
+% Consider the following inner product:
+% \beq
+% \langle \vec{a}(Y), \vec{b}(Y) \rangle = \sum_{i} \int {\rm d}Y p(Y) a_i(Y)b_i(Y).
+% \eeq
+% Clearly, it is positive definite, symmetric, and linear in each argument. It's really nothing more than a dot product and the $L^2$ inner product; both are inner products and so our expression inherits this property. Hence, this defines an \textit{inner product}, and we can then use the Schwarz inequality
+% \beq
+% \langle \vec{a}(Y), \vec{b}(Y) \rangle^2 \leq  \langle \vec{a}(Y), \vec{a}(Y) \rangle \langle \vec{b}(Y), \vec{b}(Y) \rangle
+% \implies 
+% \eeq
+% \beq
+% \left\langle \frac{\partial_ig(\expect{\hat{\bm X}(\Lambda)})}{g(\expect{\hat{\bm X}(\Lambda)})} (Y_i - \langle Y_i\rangle), \frac{\partial_ig(\expect{\hat{\bm X}(\Lambda')})}{g(\expect{\hat{\bm X}(\Lambda')})} (Y_i - \langle Y_i\rangle) \right\rangle^2
+% \leq 
+% \left|\left| \frac{\partial_ig(\expect{\hat{\bm X}(\Lambda)})}{g(\expect{\hat{\bm X}(\Lambda)})}(Y_i - \langle Y_i\rangle)\right|\right|^2
+% \left|\left| \frac{\partial_ig(\expect{\hat{\bm X}(\Lambda')})}{g(\expect{\hat{\bm X}(\Lambda')})}(Y_i - \langle Y_i\rangle)\right|\right|^2
+% \eeq
+% When we consider each dimension of $X$ as being independent, then the cross terms vanish and so the second two terms are exactly the variances in the log-likelihood at each point, $\Lambda$ and $\Lambda'$. This is really just a reflection of a general fact--the covariance is less or equal to the geometric mean of the variances. 
+% We can then write 
+% \beq
+% b(\Lambda) \leq 
+% 1 
+% + \sqrt{\left\langle \left[\ln g\left(\hat{X}(\Lambda)\right)\right]^2\right\rangle} \int {\rm d}\Lambda' \sqrt{\left\langle \left[\ln g\left(\hat{X}(\Lambda')\right)\right]^2\right\rangle} p(\Lambda').
+% \eeq
+% This is an important expression: even after correcting for the `local bias,' there is a non-local biasing term coming from the nonlinearity of the normalization by the evidence. This can add to the bias proportional to the \textit{posterior-averaged-log-likelihood variance}, and therefore motivates the usage for a threshold, probably around log-likelihood variance of 1 to be absolutely safe. 
+
+\section{Proof of covariance inequalities}
+\label{app: covariance cauchy-Schwarz}
+
+In this appendix, we prove the covariance inequalities in Eqs.~\ref{eq: covariance Schwarz inequality} and \ref{eq: covariance Schwarz inequality estimator}. We show the inequality holds for the covariance (as opposed to the estimator) but each step can be replaced with the corresponding estimators to show the analogous inequality in Eq.~\ref{eq: covariance Schwarz inequality estimator}.
+
+We begin with the definition of the covariance of the log-likelihood from Eq.~\ref{eq: general covariance in ln g}, where we restrict ourselves to the case where the covariance between different independent Monte Carlo integrals is zero $C_{i\neq j} = 0$. We know the following holds:
+\beq
+|C_{\ln g}(\Lambda, \Lambda')| = \left|\sum_{i} \frac{\partial\ln g(\expect{\hat{\bm X}(\Lambda)})}{\partial\hat{X}_i(\Lambda)} \frac{\partial\ln g(\expect{\hat{\bm X}(\Lambda')})}{\partial\hat{X}_i(\Lambda')}C_{i}(\Lambda, \Lambda')\right| \le \sum_{i} \left|\frac{\partial\ln g(\expect{\hat{\bm X}(\Lambda)})}{\partial\hat{X}_i(\Lambda)} \frac{\partial\ln g(\expect{\hat{\bm X}(\Lambda')})}{\partial\hat{X}_i(\Lambda')}C_{i}(\Lambda, \Lambda')\right|,
+\eeq
+where $C_i(\Lambda, \Lambda')$ is the covariance from the $i^{\rm th}$ Monte Carlo integral (Eq.~\ref{eq: covariance of single MC integral}). We may apply Cauchy-Schwarz on the $L^2$ inner product in the definition of $C_i(\Lambda, \Lambda')$
+\beq
+|C_{i}(\Lambda, \Lambda')| \equiv \left |\int {\rm d}\hat{\bm X} p(\hat{\bm X}) \left(\hat{X}_i(\Lambda) - \expect{\hat{X}_i(\Lambda)}\right)\left(\hat{X}_i(\Lambda') - \expect{\hat{X}_i(\Lambda')}\right)\right| \le \sqrt{C_i(\Lambda, \Lambda)C_i(\Lambda', \Lambda')}.
+\eeq
+$C_i(\Lambda, \Lambda) \ge 0$ so we drop the absolute value symbols inside the square root.
+Multiplying both sides
+\beq
+\left|\frac{\partial\ln g(\expect{\hat{\bm X}(\Lambda)})}{\partial\hat{X}_i(\Lambda)} \frac{\partial\ln g(\expect{\hat{\bm X}(\Lambda')})}{\partial\hat{X}_i(\Lambda')}C_{i}(\Lambda, \Lambda')\right| \le \sqrt{\left(\frac{\partial\ln g(\expect{\hat{\bm X}(\Lambda)})}{\partial\hat{X}_i(\Lambda)}\right)^2C_i(\Lambda, \Lambda)}\sqrt{\left(\frac{\partial\ln g(\expect{\hat{\bm X}(\Lambda')})}{\partial\hat{X}_i(\Lambda')}\right)^2C_i(\Lambda', \Lambda')},
+\eeq
+and then by the Cauchy-Schwarz inequality applied to the usual dot product $|\sum_i a_i b_i| \leq \sqrt{\sum_i a_i^2\sum_i b_i^2}$ where $a_i$ is the first square root term and $b_i$ is the second square root term, 
+\begin{multline}
+\left|\sum_i\sqrt{\left(\frac{\partial\ln g(\expect{\hat{\bm X}(\Lambda)})}{\partial\hat{X}_i(\Lambda)}\right)^2C_i(\Lambda, \Lambda)}\sqrt{\left(\frac{\partial\ln g(\expect{\hat{\bm X}(\Lambda')})}{\partial\hat{X}_i(\Lambda')}\right)^2C_i(\Lambda', \Lambda')} \right| \le \\
+\sqrt{\sum_i\left(\frac{\partial\ln g(\expect{\hat{\bm X}(\Lambda)})}{\partial\hat{X}_i(\Lambda)}\right)^2C_i(\Lambda, \Lambda)}
+\sqrt{\sum_i\left(\frac{\partial\ln g(\expect{\hat{\bm X}(\Lambda')})}{\partial\hat{X}_i(\Lambda')}\right)^2C_i(\Lambda', \Lambda')} = \sqrt{C_{\ln g}(\Lambda, \Lambda)} \sqrt{C_{\ln g}(\Lambda', \Lambda')}.
+\end{multline}
+Linking together the above inequalities proves the covariance inequality of Eq.~\ref{eq: covariance Schwarz inequality}. As stated above, the same reasoning shows the analogous inequality for the covariance \textit{estimator} of Eq.~\ref{eq: covariance Schwarz inequality estimator}.
+
+\input{gaussian_appendix}
+\input{rate_likelihood_appendix}
+
+\bibliography{main}
+\end{document}

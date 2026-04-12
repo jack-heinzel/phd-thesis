@@ -1,0 +1,22 @@
+    \begin{tikzpicture}
+
+        % Define nodes
+        \node[obs]                                (d)      {$d_i$};
+        \node[obs, below=1cm of d, xshift=-2cm]     (det)    {det${}_{i}$};
+        \node[latent, above=1cm of d, xshift=-2cm]  (theta)  {$\theta_i$};
+        \node[latent, above=1cm of theta, xshift=0cm] (N)      {$N(\theta)$};
+        % \node[latent, right=2cm of y]             (PSD)    {PSD};
+
+        \factor[above=0.5cm of d, xshift=-1.075cm] {theta-d} {above right:$p(d|\theta)$} {} {} ; %
+        \factor[above=0.5cm of det, xshift=1.075cm] {d-det} {above left:$p({\rm det}|d)$} {} {} ; %
+        
+        % Connect the nodes
+        \edge {N} {theta} ; %
+        \edge {theta} {d} ; %
+        \edge {d}{det} ; %
+
+        % Plates
+        \plate[inner sep=0.35cm, yshift=0.25cm] {dx} {(d)(det)(theta)} {$1 \le i \le N_{\rm tot}$} ;
+        % \plate {} {(w)(y)(yx.north west)(yx.south west)} {$M$} ;
+
+    \end{tikzpicture}

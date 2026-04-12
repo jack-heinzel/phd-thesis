@@ -1,0 +1,153 @@
+\documentclass[%
+ reprint,
+ amsmath,amssymb,
+ aps,nofootinbib,nobibnotes,onecolumn
+ %superscriptaddress
+]{revtex4-2}
+
+% \bibliographystyle{apsrev4-1}
+
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{dcolumn}
+\usepackage{bm}
+\usepackage[dvipsnames, usenames]{xcolor}
+\usepackage{acronym}
+\usepackage[hidelinks]{hyperref}
+\usepackage{physics}
+\usepackage{orcidlink}
+\usepackage{xspace}
+\usepackage{bbm}
+\usepackage{tikz}
+\usetikzlibrary{bayesnet}
+
+\newcommand{\rednote}[1]{{\color{Red} #1}}
+\newcommand{\sv}[1]{{\color{BurntOrange} #1}}
+\newcommand{\mm}[1]{{\color{ForestGreen}MM: #1}}
+
+\newcommand{\LIGOlabMIT}{\affiliation{LIGO, Massachusetts Institute of Technology, 77 Massachusetts Avenue, Cambridge, MA 02139, USA}}
+\newcommand{\MKI}{\affiliation{Kavli Institute for Astrophysics and Space Research and Department of Physics, Massachusetts Institute of Technology, 77 Massachusetts Avenue, Cambridge, MA 02139, USA}}
+
+%page layout parameters
+\topmargin -0.65in
+\headsep 20.0pt
+\def\theYear{\the\year}
+
+%\setstretch{1.25}
+
+
+\begin{document}
+
+\setcounter{page}{1}
+
+%---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.---.
+
+\title{When (not) to trust Monte Carlo approximations for hierarchical Bayesian inference}
+
+\newcommand{\expec}[1]{\left\langle#1\right\rangle}  %  < #1 >
+\newcommand{\drm}{{\rm d}}
+\newcommand{\irm}{{\rm i}}
+\newcommand{\nn}{\nonumber}
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\bdm}{\begin{displaymath}}
+\newcommand{\edm}{\end{displaymath}}
+\newcommand{\T}[1]{\tilde{#1}}
+\newcommand{\wT}[1]{\widetilde{#1}}
+\newcommand{\Cdot}{\!\cdot\!}
+\newcommand{\SNR}{\textnormal{SNR}}
+\newcommand{\pvtwo}{\texttt{IMRPhenomPv2}}
+\newcommand{\xphm}{\texttt{IMRPhenomXPHM}}
+\newcommand{\pastro}{p_{\rm astro}}
+\newcommand{\pastroi}{p_{{\rm astro},i}}
+\newcommand{\pastroyj}{p_{{\rm astro}, \gamma(j)}}
+\newcommand{\pastroyzj}{p_{{\rm astro}, \gamma_0(j)}}
+\newcommand{\mcdet}{\mathcal{M}_{\rm c,det}}
+\newcommand{\chieff}{\chi_{\rm eff}}
+\newcommand{\dynesty}{\textsc{dynesty}\xspace}
+\newcommand{\etabar}{\overline{\eta}}
+\newcommand{\muhat}{\hat{\mu}}
+\newcommand{\expectlarge}[1]{\left\langle #1 \right\rangle}
+\newcommand{\variancelarge}[1]{\mathbb{V}\left[#1\right]}
+\newcommand{\expect}[1]{\langle #1\rangle}
+\newcommand{\variance}[1]{\mathbb{V}[#1]}
+\newcommand{\logsumexp}[3]{{\rm LSE}_{#2}^{#3}\left(#1\right)}
+\definecolor{Gray}{gray}{0.9}
+\definecolor{orange}{rgb}{0.9,0.5,0}
+\newcommand{\jh}[1]{{\textcolor{magenta}{\texttt{JH: #1}}}}
+\newcommand{\est}[1]{\hat{\mathfrak{E}}\left[ #1 \right]}
+\newcommand{\Nobs}{N_{\rm obs}}
+\newcommand{\Nexp}{N_{\rm exp}}
+\newcommand{\Neff}{N_{\rm eff}}
+\newcommand{\dataset}{\{d_i\}_{i=1}^{\Nobs}}
+\newcommand{\Ninj}{N_{\rm inj}}
+\newcommand{\Nfound}{N_{\rm found}}
+\newcommand{\Nsamp}{N_{\rm samp}}
+\newcommand{\NPE}{N_{\rm PE}}
+\newcommand{\thresh}{\rho_{\rm thr}}
+\newcommand{\fixme}[1]{\textcolor{red}{FIXME: #1}}
+\newcommand{\innerp}[1]{\left\langle#1\right\rangle}
+\newcommand{\ECMGF}{{\rm ECMGF}}
+\newcommand{\EMGF}{{\rm EMGF}}
+\newcommand{\KLD}{{\rm KL}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% acronyms
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\acrodef{GW}{gravitational wave}
+\newcommand{\GW}{\ac{GW}\xspace}
+\newcommand{\GWs}{\acp{GW}\xspace}
+
+\acrodef{ZAMS}{zero age main sequence}
+\acrodef{LVK}{LIGO-Virgo-KAGRA collaboration}
+
+\acrodef{NS}{neutron star}
+\acrodef{BH}{black hole}
+\newcommand{\BH}{\ac{BH}\xspace}
+\newcommand{\BHs}{\acp{BH}\xspace}
+
+\acrodef{BBH}{binary black hole}
+\newcommand{\BBH}{\ac{BBH}\xspace}
+\newcommand{\BBHs}{\acp{BBH}\xspace}
+
+\acrodef{PE}{parameter estimation}
+\newcommand{\PE}{\ac{PE}\xspace}
+
+\acrodef{HPD}{highest posterior density}
+\newcommand{\HPD}{\ac{HPD}\xspace}
+
+\acrodef{KL}{Kullback--Leibler}
+\newcommand{\KL}{\ac{KL}\xspace}
+
+
+\author{Jack Heinzel\,\orcidlink{0000-0002-5794-821X}}\email{heinzelj@mit.edu}\LIGOlabMIT\MKI
+
+\author{Salvatore Vitale\,\orcidlink{0000-0003-2700-0767}}\LIGOlabMIT\MKI
+
+\date{\today}
+
+\begin{abstract}
+The coming years of gravitational wave astrophysics promises thousands of new detections, which can unlock fundamental scientific insights if the information in each observation can be properly synthesized into a coherent picture. State-of-the-art approaches often accomplish this with hierarchical Bayesian inference. However, this typically relies on Monte Carlo approximations that are already very expensive in current data, and may become prohibitively so in the future. In this paper we show how this process can be understood from a first-principles statistical approach. We derive an error estimator $\hat{E}$ for quantifying the amount of information that is lost due to the Monte Carlo approximation and recommend that this error is limited to no more than $\hat{E} \lesssim 0.2$ bits for reliable inference. We also show that the hierarchical likelihood estimator is biased but may be corrected. Finally, we show some practical examples for inference on synthetic gravitational-wave population inference, demonstrating that simple models with strong assumptions can be much more stable to Monte Carlo uncertainty than those with weaker assumptions. We also provide a \texttt{pip}-installable package \texttt{population-error} with which analysts can calculate the error statistics $\hat{E}$.
+\end{abstract}
+
+\maketitle
+
+\input{introduction}
+\input{monte_carlo_integration}
+\input{robustness_measures}
+\input{gaussian}
+\input{gw_example}
+\input{conclusion}
+
+%%%%%%%%%%%%%%%%
+% appendix
+%%%%%%%%%%%%%%%%
+
+\appendix
+
+\input{general_case}
+\input{gaussian_appendix}
+\input{rate_likelihood_appendix}
+
+\bibliography{main}
+\end{document}

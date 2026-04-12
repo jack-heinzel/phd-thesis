@@ -1,0 +1,37 @@
+\section{Error statistics in rate-explicit likelihood}
+\label{app: rate-explicit equations}
+In Sec.~\ref{sec: robustness measures} we discuss measures of the accuracy and the precision of the posterior estimator, which requires an estimator of the covariance in the log-likelihood estimator. In Appendix~\ref{app: bias in general} and~\ref{app: correction in general} we derive some general expressions for the bias and correction in the likelihood and the posterior. In this appendix, we show expressions for these quantities (which we compute directly from the general expressions derived above) when using the \textit{rate-explicit} likelihood as opposed to the rate-marginalized likelihood in Eq.~\ref{eq: rate marginalized likelihood}. The rate-explicit likelihood is
+\beq
+\mathcal{L}(\{d_i\}|\Lambda,N) \propto N^{\Nobs} e^{-N\xi(\Lambda)}\prod_{i=1}^{\Nobs}p(d_i|\Lambda),
+\label{eq: rate explicit likelihood}
+\eeq
+where $N$ represents the Poisson expectation for the number of events to occur over the observing time. 
+The likelihood may be estimated using Eqs.~\ref{eq: single event estimator} and \ref{eq: selection effects estimator}, but as pointed out in Sec.~\ref{subsec: monte carlo bias}, this represents a biased estimator. 
+
+Applying Eq.~\ref{eq: general covariance term}, the variance in the log-likelihood estimator is therefore
+\beq
+\hat{\sigma}^2_{\ln\mathcal{L}}(\Lambda, N) = \sum_{i=1}^{\Nobs}\frac{\hat{\sigma}^2_{p_i}(\Lambda)}{\hat{p}(d_i|\Lambda)^2}
++ N^2\hat{\sigma}^2_{\xi}(\Lambda)
+\eeq
+where $\hat{p}(d_i|\Lambda)$ is defined in Eq.~\ref{eq: single event estimator}, $\hat{\xi}(\Lambda)$ in Eq.~\ref{eq: selection effects estimator} and the variance in a Monte Carlo integral $\hat{\sigma}^2_I$ is defined in Eq.~\ref{eq: variance estimator}. The covariance in the log-likelihood estimator is
+\beq
+\hat{C}_{\ln\mathcal{L}}(\Lambda, N, \Lambda', N') = \sum_{i=1}^{\Nobs}\frac{\hat{C}_{p_i}(\Lambda, \Lambda')}{\hat{p}(d_i|\Lambda)\hat{p}(d_i|\Lambda')}
++ NN'\hat{C}_{\xi}(\Lambda, \Lambda'),
+\eeq
+where $\hat{C}_{p_i}(\Lambda, \Lambda')$ and $\hat{C}_{\xi}(\Lambda, \Lambda')$ are defined in Eqs.~\ref{eq: single event covariance estimator} and \ref{eq: selection covariance estimator}.
+
+Using Eq.~\ref{eq: general likelihood bias correction}, the correction for the likelihood is given as 
+\beq
+\hat{\mathcal{L}}(\{d_i\} | \Lambda, N) \mapsto \hat{\mathcal{L}}(\{d_i\} | \Lambda, N)\exp\left(-\frac{N^2\hat{\sigma}^2_{\xi}}{2}\right).
+\label{eq: rate likelihood correction}
+\eeq
+Using these expressions, the error, accuracy and precision statistics may be computed with the usual Eqs.~\ref{eq: error statistic}, \ref{eq: precision statistic} and \ref{eq: accuracy statistic}, where the weights are modified if using the uncorrected likelihood estimator
+\beq
+w_n = 
+\begin{cases}
+\dfrac{N_n^2\hat{\sigma}^2_{\xi}(\Lambda)}{2} - \dfrac{1}{N_{\rm samp}}\displaystyle\sum_{m=1}^{N_{\rm samp}} \hat{C}_{\ln\mathcal{L}}(\Lambda_n, N_n, \Lambda_m, N_m) & \text{if using uncorrected likelihood in Eq.~\ref{eq: rate explicit likelihood}} \\ 
+\dfrac{1}{N_{\rm samp}}\displaystyle\sum_{m=1}^{N_{\rm samp}} \hat{C}_{\ln\mathcal{L}}(\Lambda_n, N_n, \Lambda_m, N_m)  & \text{if using corrected likelihood in Eq.~\ref{eq: rate likelihood correction}},
+\end{cases}
+\eeq
+where $N_n$ and $N_m$ are the $n^{\rm th}$ and $m^{\rm th}$ samples for the Poisson expectation hyperparameter $N$.
+The posterior correction is again given by Eq.~\ref{eq: practical posterior correction}.

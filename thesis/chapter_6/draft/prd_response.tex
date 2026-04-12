@@ -1,0 +1,81 @@
+----------------------------------------------------------------------
+Report of the Referee -- DK13815/Heinzel
+----------------------------------------------------------------------
+
+This is a long, dense, and technically demanding paper on gravitational-wave
+population inference. It will be accessible to a relatively small community of
+specialists. That said, the content is extremely valuable and, in my view,
+should be published. The paper carries out low-level and foundational
+calculations that are currently scattered, implicit, or unavailable in the
+literature, and presents a systematic analysis. Making these calculations
+available in a refereed publication is a significant service to the field. I
+expect this work to remain a reference for many years.
+
+Here are some comments and suggestions.
+
+- The title mentions only Bayesian statistics. While the paper is indeed heavily
+statistical, its motivation, context, and examples are specific to
+gravitational-wave astronomy. The title should reflect this more clearly. As it
+stands, it risks misleading readers outside GW astronomy while underselling the
+relevance to the GW community.
+- The introduction is very LVK-centric; I encourage the authors to reframe it
+within a broader GW context. For example, population inference for LISA is
+likely to look very different in the context of a global fit, where multiple
+sources overlap and sources from the same population may be either individually
+resolved or contribute to a stochastic foreground. Mentioning such scenarios
+would help position the paper as a general contribution rather than an LVK
+technical fix.
+- Similarly, I found that the introduction (perhaps implicitly) suggests that
+the issues tackled here are intrinsic shortcomings of hierarchical Bayesian
+statistics, which is misleading. Rather, these issues arise from how
+hierarchical Bayesian inference is implemented in LVK analyses. In particular,
+they stem from the now-standard LVK separation between searches, parameter
+estimation, and population inference. This separation forces population analyses
+to recycle posterior samples from parameter estimation and to rely on injection
+campaigns to account for selection effects. The resulting statistical
+pathologies are therefore implementation-driven, not fundamental. I encourage
+the author to clarify this point.
+- Page 2 surveys previous LVK-related work. I would like to point out the
+related discussion in arXiv:2502.12156, where the authors similarly conclude
+that conditioning on the variance of the likelihood is more stringent than using
+the effective number of samples.
+- Throughout the paper, there is an almost obsessive referencing to Farr,
+Essick, Talbot, and Golomb. Those papers are certainly relevant and should be
+cited, but the present study provides a substantially new contribution and
+should stand on its own. The authors do not need to be quite so deferential to
+earlier work.
+- I have a conceptual question regarding the proposed correction to the
+likelihood, specifically when going from Eq. 18 to Eq. 19. The correction
+assumes log-normality of the estimator, which is only justified when the number
+of samples M is large. However, while the estimator is biased at finite M, it is
+asymptotically unbiased, with the bias vanishing as M goes to infinity.
+Therefore, in the regime where the log-normal approximation is valid, the bias
+is already negligible. What, then, is the practical role of this correction? Is
+this circular reasoning?
+- I find footnote 6 unclear. Are the authors implying that there is a mistake in
+Farr [56]? If so, this should be stated clearly. Leaving the issue ambiguous is
+likely to confuse future readers of both papers.
+- Has the likelihood correction proposed here (Eq. 24) been implemented in any
+LVK population studies to date?
+- I have some confusion (extending beyond this paper, actually) regarding the
+common practice of thresholding on uncertainty in GW population inference,
+discussed here in Sec. 5.A. These practices, which are widely adopted, are based
+either on the variance of the likelihood or on the effective number of samples.
+When implemented, they modify the likelihood (some GW literature has referred to
+this as a data-dependent prior, which I believe is incorrect). Given this, how
+can one be confident that the *thresholded* likelihood is unbiased? The
+likelihood and posterior bias calculations presented in this paper are performed
+on the *unthresholded* likelihood estimator. Do these calculations remain valid
+once thresholding is applied?
+- Starting from the abstract, the paper appears to recommend adopting a generic
+condition  $\hat{E} < 0.2$ . However, in the final paragraph of Sec. 6 the
+authors correctly note that the dependence on the population model is complex,
+and that what is valid for one model may not be valid for another. I agree with
+this latter statement. Given that, I do not understand why a universal numerical
+threshold of 0.2 is recommended. This should be clarified.
+- Finally, I personally found Appendix B more confusing than helpful.
+
+Overall, this is an important and technically solid paper that deserves
+publication. Most of my comments concern framing and clarity rather than
+correctness. Addressing them would improve the paper's accessibility and
+long-term impact.

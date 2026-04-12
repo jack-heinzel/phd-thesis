@@ -1,0 +1,150 @@
+
+\section{Introduction and summary of results}
+
+The initial detection of \acp{GW} \citep{LIGOScientific:2016aoc} opened a new and unique probe into fundamental questions in astrophysics, cosmology, nuclear physics and gravitational physics. Since then, the \ac{LVK} has confidently detected nearly 100 fully characterized observations of \acp{GW} \citep{LIGOScientific:2018mvr, LIGOScientific:2020ibl, LIGOScientific:2021usb, KAGRA:2021vkt} and promises to detect many more in the coming years \citep{KAGRA:2013rdx}. Astrophysicists use these data to probe the formation of compact objects like \acp{BH} and \acp{NS} \citep[e.g.][]{Vitale:2015tea, LIGOScientific:2016vpg, Zevin:2017evb, Mandel:2018hfr, Mandel:2021smh, KAGRA:2021duu}, cosmologists use \acp{GW} to constrain the structure and evolution of the universe \citep[e.g.][]{Schutz:1986gp, Holz:2005df, Messenger:2011gi, LIGOScientific:2017adf, Christensen:2018iqi, Ezquiaga:2022zkx, Gair:2022zsa}, nuclear scientists use merging \acp{NS} to understand the equation of state of matter at supranuclear densities \citep[e.g.][]{Baym:2017whm, Capano:2019eae, Dietrich:2020efo, Chatziioannou:2020pqz, Landry:2020vaw}, and gravitational physicists study the dynamic, strongly curved spacetimes around merging \acp{BH} to test and place limits on the fundamental theory of gravity \citep[e.g.][]{Mirshekari:2011yq, Will:2014kxa, LIGOScientific:2016lio, LIGOScientific:2018dkp, LIGOScientific:2021sio}. In all of these disciplines, modern approaches often work by extracting information from the collection of \ac{GW} observations using a powerful statistical method called hierarchical Bayesian inference \citep[e.g.][]{KAGRA:2021duu, DelPozzo:2011vcw, DelPozzo:2013ala, Isi:2019asy}. Hierarchical Bayesian inference posits an unknown underlying population from which each observation originates, and then, using the observed data, infers the underlying population by constructing a probabilistic forward model (and corresponding likelihood) for generating the observations \citep[see, e.g.][]{Essick:2023upv}.
+
+However, the population analysis problem is technically challenging for several reasons. As the number of events included in the catalog grows, the approximations in a typical hierarchical Bayesian analysis begin to break down. For one, the noise is usually approximated as Gaussian and stationary \citep{Moore:2014lga,LIGOScientific:2019hgc}, however, the non-Gaussian and nonstationary reality can occasionally cause biases in the analysis of single events \citep{Pankow:2018qpo,Chatziioannou:2021ezd,Hourihane:2022doe,Davis:2022ird,Payne:2022spz,Ghonge:2023ksb,Macas:2023wiw,Udall:2024ovp}, which can propagate to biases in the population level analyses. Furthermore, non-astrophysical noise transients present in real noise can imitate astrophysical \acp{GW} and sometimes are significant enough to contaminate the catalog of sources included in the \ac{GW} population analysis \citep{Cabero:2019orq, Zevin:2016qwy,LIGO:2021ppb,Soni:2021cjy,Virgo:2022ysc, KAGRA:2020agh,Ashton:2021tvz,Magee:2024xiw}. Third, the results of a population inference may be strongly model dependent, and therefore misspecification of the model can cause additional biases or lead to incorrect interpretations of the population \citep[e.g.][]{Cheng:2023ddt, Alvarez-Lopez:2025ltt}.
+
+In this paper, we focus on an additional challenge in the \ac{GW} population inference problem: we do not have practical access to the exact population-level Bayesian likelihood. 
+Instead, it is common to \textit{approximate} the likelihood using a Monte Carlo approach, which estimates the many integrals appearing in the hierarchical likelihood. While this is an acceptable approximation for many simple population inference problems, it may fail for others \citep[e.g.][]{Golomb:2022bon}. 
+
+This problem is well known in the \ac{GW} population analysis community. However the underlying statistical phenomena is still not completely understood from a first-principles approach. In summary, our work focuses on the four following results:
+%\sv{what do you do more/different? say it here} 
+
+\begin{enumerate}
+    \item \textbf{Uncertainty quantification:} We derive an error statistic $\hat{E}$ to estimate the expected amount of information lost due to the Monte Carlo approximations. $\hat{E}$ may be computed in post-processing, and we empirically verify the accuracy of this error estimator.
+    \item \textbf{Unbiased likelihood estimator:} We show the \ac{GW} population analysis likelihood estimator is a biased estimator. The selection efficiency integral enters nonlinearly in the likelihood and causes the likelihood estimate to tend to be biased to larger values when the uncertainty is larger. We show this bias can be corrected with a simple correction term during inference.
+    % \item Even with the unbiased likelihood, the posterior estimator is biased if the likelihood has a nonzero uncertainty. In fact, this is true for any Bayesian inference problem where the likelihood carries some intrinsic uncertainty, e.g. if the likelihood is estimated with Monte Carlo integration.
+    % \item We derive an accuracy statistic $\hat{A}$ which quantifies the amount of bias in the posterior. $\hat{A}$ can be calculated in post-processing.
+    % \item Alternatively, an analyst can include an additional correction term based on samples from the initial biased posterior, and sample from this corrected posterior without the leading-order bias in the posterior estimator. However, for particularly poor estimators, there can still be residual bias which we are unable to quantify in general.
+    % \item Even if the bias is very small, there is intrinsic uncertainty due to using a single posterior estimator, which can lead to problematic results. We derive a precision statistic $\widehat{\Pi}$ that quantifies this additional uncertainty and which can be computed in post-processing.
+    \item \textbf{Log-likelihood variance thresholds are safe...:} Using the Cauchy--Schwarz inequality, we show that the log-likelihood variance threshold conjectured in \citet{Talbot:2023pex} \textit{ensures} the error in the posterior estimator is bounded. On the other hand, we show counterexamples that thresholds based on individual Monte Carlo integrals are not necessarily safe (as used in e.g., previous \ac{LVK} population analyses~\cite{KAGRA:2021duu}).
+    \item \textbf{...However, they can be stricter than necessary:} In practice, parametric models with only a few parameters are often better behaved than the log-likelihood variance would indicate, but weaker models with many parameters tend to require the strict log-likelihood variance threshold. The analyst can check the validity of an inference using the error statistic $\hat{E}$. This is related to the fact that only uncertainty in the \textit{differences} in the log-likelihood is important \citep{Farr:2019rap, Essick:2022ojx, Talbot:2023pex}.
+\end{enumerate}
+
+Our work is inspired by previous studies (\citet{Farr:2019rap, Essick:2022ojx}, and \citet{Talbot:2023pex}) to reconcile two opposing traditions for handling the likelihood uncertainty, one based on ensuring \textit{each} Monte Carlo integral is acceptable (made widespread by \citet{KAGRA:2021duu}), the other based on a combined uncertainty estimate (introduced by \citet{Essick:2022ojx}). 
+
+\citet{Farr:2019rap} showed that whenever the uncertainty in the detection efficiency surpasses a derived threshold, \ac{GW} population inference will break down. \citet{Farr:2019rap} also pointed out that only uncertainty in the \textit{relative} likelihood is important. However, there are other sources of Monte Carlo uncertainty beyond the detection efficiency estimate in \ac{GW} population inference beyond the detection efficiency estimate, so \citet{KAGRA:2021duu} introduced additional convergence checks on each individual Monte Carlo approximation (see  Eq.~\ref{eq: single event estimator} below). \citet{Essick:2022ojx} introduced ideas about likelihood covariances and argued analysts should check the uncertainty in the \textit{relative} likelihood across the support of the posterior. \citet{Essick:2022ojx} also point out that this relative likelihood uncertainty due to the selection function asymptotically scales linearly in the number of observations, and this relative uncertainty due to other Monte Carlo integrals is asymptotically constant in the number of observations. 
+
+\citet{Talbot:2023pex} suggest that the theoretical scaling derived by \citet{Essick:2022ojx} may not yet hold in realistic settings and recommend the adoption of a simple threshold based on the combined uncertainty in the log-likelihood. We show that the threshold proposed in \citet{Talbot:2023pex} is stricter than the requirements on the uncertainty in the relative likelihood proposed in \citet{Essick:2022ojx} and that the threshold in \citet{Talbot:2023pex} is a sufficient condition for bounding the systematic error from Monte Carlo approximations. We also verify the scalings derived by \citet{Essick:2022ojx} hold asymptotically, although we discuss caveats in Sec.~\ref{sec: robustness measures}. We suggest these scalings are useful as theoretical tools for forecasting future approximate hierarchical Bayesian inference, but should not be used as a diagnostic for reliable inference.
+
+The central aim of this paper is to develop a single test to assess the reliability of an approximated posterior. In the \ac{GW} population analysis literature, there are two common tests in use. The first test is based on the convergence of all individual Monte Carlo integrals and can be shown to be a \textit{necessary condition} for a reliable population inference. That is, given a reliable population inference, one is guaranteed to satisfy certain ``effective sample size'' criteria.\footnote{This is not an iron-clad logical statement. The ``guarantee'' is statistical in nature and based on estimators, so it is always possible to have some extremely unlikely counterexample. \label{footnote: stat1}} However, it is possible that an unreliable posterior estimator will still satisfy these tests, as we show in Sec.~\ref{sec: gw example}.
+
+A second approach is based on the combined uncertainty of all the Monte Carlo estimates, discussed by \citet{Talbot:2023pex}. We show in Sec.~\ref{sec: robustness measures} that this a \textit{sufficient condition} for a reliable population inference: given that one satisfies the combined uncertainty threshold, one is guaranteed to have a reliable posterior estimator up to some bound.\footnote{Again, this logical implication is only statistical in nature.\label{footnote: stat2}} However, this ``log-likelihood variance'' test is, in general, much stricter than the effective sample size test and therefore can threaten to limit the power of approximate hierarchical Bayesian inference beyond what is ultimately required. 
+
+In this paper, we develop a single test which we argue is a \textit{sufficient and necessary condition} for a reliable posterior estimator.\footnote{See footnotes \ref{footnote: stat1} and \ref{footnote: stat2}.} We accomplish this with the error statistic $\hat{E}$. If our approximate posterior is given as $\hat{p}(\Lambda)$ and the true posterior is $p(\Lambda)$, then the error statistic estimates
+\beq
+\hat{E} \approx \expectlarge{\mathrm{KL}(p|\hat{p})} = \expectlarge{\int p(\Lambda) \log_2\left(\frac{p(\Lambda)}{\hat{p}(\Lambda)}\right) \dd\Lambda }, 
+\label{eq: error statistic as kl}
+\eeq
+where the expectation is taken over the ensemble of Monte Carlo realizations of the uncertain posterior estimator, and $\mathrm{KL}$ denotes the \ac{KL} divergence. We discuss the theory behind the error statistic in Sec.~\ref{sec: robustness measures} and show examples of the performance of this test in Sec.~\ref{sec: gaussian example} and \ref{sec: gw example}.
+The error statistic is defined as the sum of two terms, which we call the precision statistic and the accuracy statistic. We note that the precision statistic is proportional to the integrated uncertainty in the relative likelihood proposed initially by \citet{Essick:2022ojx} and used in \citet{Talbot:2023pex}. 
+
+The rest of the paper is organized as follows. First, in Sec.~\ref{sec: population analysis} we review population inference and describe the popular approach for approximating the Bayesian posterior with Monte Carlo integration. In Sec.~\ref{sec: monte carlo integrals}, we briefly describe the statistical theory underlying Monte Carlo integration and why the \ac{GW} population likelihood estimator is biased. In Sec. \ref{sec: bias in population inference} we discuss bias in a general population analysis, leading into Sec. \ref{sec: robustness measures}, which introduces statistics for quantifying the uncertainty and bias in a population analysis. Section \ref{sec: gaussian example} applies the theory developed within to a simple Gaussian hierarchical inference problem, and Sec. \ref{sec: gw example} shows examples on a realistic \ac{GW} population analysis problem. We conclude in Sec. \ref{sec: conclusion}.
+In this paper, angle brackets $\langle \cdot\rangle$ always denote expectation over the Monte Carlo realizations. 
+
+\section{Gravitational wave population analysis}
+\label{sec: population analysis}
+
+Suppose we have a collection of $\Nobs$ data $\{d_i\}$ which each contains a \ac{GW} signal obscured by noise. Our task is to infer the shape of the underlying population of \ac{GW} sources. The most common approach is Bayesian, where we want to infer the Bayesian posterior probability distribution over the underlying population parameters $\Lambda$, based on the observed data. $\Lambda$ are called the \textit{hyperparameters}, and they can refer to physical parameters of the population (e.g. the stellar initial mass function or the efficiency of a common envelope ejection), or they can be purely phenomenological (e.g. the powerlaw index in the \ac{BH} mass function). 
+
+The Bayesian posterior probability distribution is computed with Bayes' theorem
+\beq
+p(\Lambda | \{d_i\}) = \frac{\mathcal{L}(\{d_i\} | \Lambda) \pi(\Lambda)}{\int \mathcal{L}(\{d_i\} | \Lambda') \pi(\Lambda') \dd\Lambda'},
+\label{eq: Bayes theorem}
+\eeq
+where $\pi(\Lambda)$ is the prior probability distribution over $\Lambda$, and the denominator is called the evidence and ensures the posterior is a normalized probability distribution. The likelihood $\mathcal{L}(\{d_i\} | \Lambda)$ is the probability of observing the dataset, conditioned on the population described by $\Lambda$.
+
+The typical likelihood function used in \ac{GW} population analysis is 
+\beq
+\mathcal{L}(\{d_i\}|\Lambda) \propto \xi(\Lambda)^{-\Nobs}\prod_{i=1}^{\Nobs}p(d_i|\Lambda).
+\label{eq: rate marginalized likelihood}
+\eeq
+and is derived in Refs.~\citep{Farr:2013yna,Mandel:2018mve,Vitale2020,Essick:2023upv}.
+$p(d_i|\Lambda)$ is the probability of obtaining the data $d_i$ from the population $\Lambda$, marginalized over the uncertainty in the parameters of that \ac{GW} event $\theta$
+\beq
+p(d_i|\Lambda) = \int p(d_i|\theta) p(\theta|\Lambda)d\theta,
+\label{eq: single event integral}
+\eeq
+and $\xi(\Lambda)$ is the expected fraction of events which are detected,
+\beq
+\xi(\Lambda) = \int p(\theta|\Lambda) p(\mathcal{D}|\theta) \mathbb{D}[\mathcal{D}] \dd\theta \dd\mathcal{D},
+\label{eq: selection efficiency}
+\eeq
+where $\mathbb{D}[\mathcal{D}]$ is an indicator function which is 0 when the data $\mathcal{D}$ is undetected and 1 when the data is detected.
+
+However, the integral quantities $\xi(\Lambda)$ and $p(d_i|\Lambda)$ are usually impossible to compute in closed form, and so instead are estimated with a Monte Carlo approach (we discuss the statistical theory of Monte Carlo integration in Section~\ref{sec: monte carlo integrals}). Specifically, we often use the approximation
+\beq
+\hat{\mathcal{L}}(\{d\}|\Lambda) \propto \hat{\xi}(\Lambda)^{-\Nobs}\prod_{i=1}^{\Nobs} \hat{p}(d_i|\Lambda),
+\label{eq: estimated hierarchical likelihood}
+\eeq
+where the single event integral quantities are often estimated with 
+\beq
+\hat{p}(d_i|\Lambda) \propto \frac{1}{\NPE}\sum_{j=1}^{\NPE}\frac{p(\theta_{ij}|\Lambda)}{\pi(\theta_{ij}|{\rm PE})}\bigg|_{\theta_{ij}\sim p(\theta|d_i)}
+\label{eq: single event estimator}
+\eeq
+with the $\theta_{ij}$ drawn from the \PE posterior $p(\theta|d_i)$ using the prior $\pi(\theta|{\rm PE})$; $1\le i\le \Nobs$ indexes the event number and $1 \le j \le \NPE$ indexes the individual event samples. We ignore the constant evidence term $\int p(d_i|\theta)\pi(\theta|{\rm PE})\dd\theta$, as constant factors in the likelihood are normalized out in the Bayesian posterior. 
+
+The selection efficiency is estimated with a large number of simulated sources $\{\theta_j\}_{j=1}^{\Ninj} \sim p(\theta|{\rm draw})$ drawn from a fiducial population. The signals are then added to noise from the \GW detectors. Then, searches \citep[e.g.][]{Allen:2005fk, Usman:2015kfa, Messick:2016aqy} are run over these data, detecting some subset of the simulated events. We estimate the selection efficiency by \citep{Tiwari:2017ndi, Farr:2019rap}
+\beq
+\hat{\xi}(\Lambda) = \frac{1}{\Ninj}\sum_{j=1}^{\Ninj}\mathbb{D}[d_j]\frac{p(\theta_j|\Lambda)}{p(\theta_j|{\rm draw})} = \frac{1}{\Ninj}\sum_{j=1}^{\Nfound}\frac{p(\theta_j|\Lambda)}{p(\theta_j|{\rm draw})},
+\label{eq: selection effects estimator}
+\eeq
+where the indicator $\mathbb{D}[d_j]$ is 1 when the data segment $d_j$ is detected by the pipelines, and 0 when it is not. Equivalently the sum may be performed over only the found injections. 
+
+We will show in Sec.~\ref{sec: monte carlo integrals} that Eqs.~\ref{eq: single event estimator} and \ref{eq: selection effects estimator} are unbiased estimators for the marginalized $p(d_i|\Lambda)$ in Eq.~\ref{eq: single event integral} and for the selection efficiency integral in Eq.~\ref{eq: selection efficiency}, respectively. A product of uncorrelated unbiased estimators is also an unbiased estimator, and so the bias in the likelihood is not due to the approximation in the single event integrals but due to how the selection efficiency enters the likelihood.
+We show in Section~\ref{subsec: monte carlo bias} that running any estimator through a nonlinear function, such as $\hat{\xi}(\Lambda)^{-\Nobs}$, produces a biased estimator. In particular, this means the likelihood estimator is biased, as we discuss further below. 
+
+% We will briefly describe the Bayesian hierarchical inference approach, however for a more complete introduction, see Refs.~\cite{}.
+
+
+% \begin{figure}
+%   \begin{center}
+%     \input{dag_GW}
+%   \end{center}
+%   \caption{Hierarchical probabilistic graphical model assumed in \GW population inference. $N(\theta)$ represents the intrinsic number density of mergers at parameters $\theta$. Over some observing time, there are $N_{\rm tot}$ mergers whose \GW are incident on the detectors, however not all are detected. After combining with some noise, the \GW associated with each merger produce data $d$ in the detectors. Detection pipelines are applied to the data $d_i$, and return an indicator ${\rm det}_{i} \in \{0,1\}$, flagging the data as noise or a detection.}
+%   \label{fig: population model dag}
+% \end{figure}
+
+% In the Bayesian approach, the source population is described by an inhomogeneous Poisson process, where each infinitesimal region of parameter space $[\theta, \theta + \dd\theta]$ produces events with Poisson parameter $N(\theta)\dd\theta$. A collection of events $\{\theta_i\}_{i \in \{1, ..., N_{\rm tot}\}}$ are incident on the \GW detectors within some observing time. After combining additively with the noise in the detectors, the resulting data segment $d_i$ is considered a ``detection'' if search pipeline algorithms flag the data ${\rm det}_i = 1$. Under this model, the likelihood of obtaining these $\Nobs$ detections $\{d_i\}$ is then 
+% \beq
+%     \mathcal{L}_r(\{d_i\},\Nobs|\Lambda,N) \propto N^{\Nobs}e^{-N\xi(\Lambda)} \prod_{i=1}^{\Nobs}p(d_i|\Lambda).
+%     \label{eq: hierarchical likelihood}
+% \eeq
+% where $N = \int N(\theta)\dd\theta$ is the total Poisson parameter for the population, and $\xi(\Lambda)$ is the expected fraction of events which are detected,
+% \beq
+% \xi(\Lambda) = \int p(\theta|\Lambda) p(\mathcal{D}|\theta)p({\rm det}=1|\mathcal{D}) d\theta d\mathcal{D},
+% \label{eq: selection efficiency}
+% \eeq
+% and $p(d_i|\Lambda)$ is the probability of obtaining the data $d_i$ from the population $\Lambda$, marginalized over the uncertainty in the parameters of that event $\theta$
+% \beq
+% p(d_i|\Lambda) = \int p(d_i|\theta) p(\theta|\Lambda)d\theta.
+% \eeq
+% %Formally, this is a functional likelihood, as the likelihood $\mathcal{L}$ takes a function $N(\theta)$ as input and returns the likelihood, a real number. However, the space of functions is typically parameterized using some hyperparameters $\Lambda$, so the finite-dimensional posterior on these hyperparameters may be adequately explored. 
+
+% Sometimes, the overall normalized rate $N$ is factored out, and inferred separately from the shape of the population $p(\theta|\Lambda)$. Using a scale-free prior $\pi(N) \propto N^{-1}$, the rate marginalized likelihood becomes
+% \beq
+% \mathcal{L}_m(\{d\},\Nobs|\Lambda) \propto \xi(\Lambda)^{-\Nobs}\prod_{i=1}^{\Nobs}p(d_i|\Lambda).
+% \label{eq: rate marginalized likelihood}
+% \eeq
+% However, the integral quantities $\xi(\Lambda)$ and $p(d_i|\Lambda)$ are usually impossible to compute in closed form, and so instead are estimated with a Monte Carlo approach (see the above discussion on Monte Carlo integration). Specifically, we often use the approximation
+% \beq
+% \hat{\mathcal{L}}_r(\{d\},\Nobs|\Lambda, N) \propto N^{\Nobs} e^{-N\hat{\xi}(\Lambda)}\prod_{i=1}^{\Nobs} \hat{p}(d_i|\Lambda)
+% \eeq
+% and
+% \beq
+% \hat{\mathcal{L}}_m(\{d\},\Nobs|\Lambda) \propto \hat{\xi}(\Lambda)^{-\Nobs}\prod_{i=1}^{\Nobs} \hat{p}(d_i|\Lambda),
+% \eeq
+% where the single event integral quantities are often estimated with Monte Carlo integration
+% \beq
+% \hat{p}(d_i|\Lambda) \propto \frac{1}{\NPE}\sum_{j=1}^{\NPE}\frac{p(\theta_j|\Lambda)}{\pi(\theta_j|{\rm PE})}\bigg|_{\theta_j\sim p(\theta|d_i)}
+% \label{eq: single event estimator}
+% \eeq
+% with the $\theta_j$ drawn from the \PE posterior $p(\theta|d_i)$, using the prior $\pi(\theta|{\rm PE})$. Apart from a constant evidence term, this is (proportional to) an unbiased estimator for the marginalized $p(d_i|\Lambda)$. Indeed, since a product of uncorrelated unbiased estimators is also an unbiased estimator, the likelihood would be unbiased, if not for the selection efficiency Monte Carlo integral.
+
+% The selection efficiency is estimated with a large number of simulated sources $\{\theta_j\}_{j=1}^{\Ninj} \sim p(\theta|{\rm draw})$ drawn from a fiducial population. The signals are then added to noise from the \GW detectors. Then, search pipeline codes are run over these data, detecting some subset of these simulated events. We then estimate the selection efficiency by
+% \beq
+% \hat{\xi}(\Lambda) = \frac{1}{\Ninj}\sum_{j=1}^{\Ninj}\mathbb{D}_j\frac{p(\theta_j|\Lambda)}{p(\theta_j|{\rm draw})} = \frac{1}{\Ninj}\sum_{j=1}^{\Nfound}\frac{p(\theta_j|\Lambda)}{p(\theta_j|{\rm draw})},
+% \label{eq: selection effects estimator}
+% \eeq
+% where the indicator $\mathbb{D}_j$ is 1 when the data segment is detected by the pipelines, and 0 when it is not, or equivalently the sum is performed over only the found injections. While this is an unbiased estimator for the true selection efficiency, since we run this unbiased estimator through a nonlinear function to estimate the likelihood, the likelihood becomes a biased estimator for the true likelihood.
