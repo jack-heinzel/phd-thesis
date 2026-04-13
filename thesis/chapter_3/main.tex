@@ -485,6 +485,7 @@ gives the information gained in each merger rate density bin, where we use base-
 \begin{table*}
 \renewcommand{\arraystretch}{1.25}
 \centering
+\resizebox{\textwidth}{!}{
 \begin{tabular}{lllll}
 \hline\hline
 Parameter & Description & $q$--$\chi_\mathrm{eff}$ correlation & $z$--$\chi_\mathrm{eff}$ correlation & No correlation \\
@@ -507,7 +508,7 @@ $(x_1, \ln\sigma_{\chi_\mathrm{eff}:1})$ & second standard deviation spline node
 $(x_2, \ln\sigma_{\chi_\mathrm{eff}:2})$ & third standard deviation spline node coordinates & $(0.8, -2.5)$ & $(0.65, -1.5)$ &\\
 $(x_3, \ln\sigma_{\chi_\mathrm{eff}:3})$ & fourth standard deviation spline node coordinates & $(1, -2.5)$ & $(2.3, -1.25)$ &\\
 \hline\hline
-\end{tabular}
+\end{tabular}}
 \caption{Parameters for the simulated populations, with descriptions and numerical values. The first section is for the \textsc{Power Law + Peak} mass model, the second for the \textsc{Power Law} redshift model, and the third is for the Gaussian model in effective spin $\chi_\mathrm{eff}$---whose mean $\mu_{\chi_\mathrm{eff}}$ and standard deviation $\sigma_{\chi_\mathrm{eff}}$ can be correlated with other source parameters with a cubic spline function. The spline node placements are given by the $(x_i, \mu_{\chi_\mathrm{eff}:i})$ and $(x_i, \mu_{\ln\sigma_\mathrm{eff}:i})$ coordinate pairs, where $x$ is either binary mass ratio $q$ or redshift $z$. For the population in which $q$ and $\chi_\mathrm{eff}$ are correlated (third right-most column), $\mu_{\chi_\mathrm{eff}}$ increases as $q$ decreases, while $\sigma_{\chi_\mathrm{eff}}$ is constant. For the population in which the $z$ is correlated with $\chi_\mathrm{eff}$ (second right-most column), $\sigma_{\chi_\mathrm{eff}}$ increases as $z$ increases, while $\mu_{\chi_\mathrm{eff}}$ is constant. For the population with no parameter correlations (right-most column), both $\mu_{\chi_\mathrm{eff}}$ and $\sigma_{\chi_\mathrm{eff}}$ are constant. The fourth population we consider is an equal mixture of detections from the $q-\chi_\mathrm{eff}$ and $z-\chi_\mathrm{eff}$ correlated populations.
 }
 \label{tab:true_hyper}

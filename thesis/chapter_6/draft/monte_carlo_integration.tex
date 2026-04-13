@@ -150,17 +150,23 @@ where $\hat{\sigma}^2_{\xi}$ is the estimated variance in the Monte Carlo integr
 With the inclusion of the modifying term, the bias in the likelihood estimator is removed to leading order (that is, it is now at order $\Ninj^{-2}$ rather than $\Ninj^{-1}$). It does not reduce the precision of the estimator meaningfully, and so represent a simple improvement to the likelihood estimator. For the mathematical details on this modifying term, see the Appendices \ref{app: bias in general} and \ref{app: correction in general}.
 
 Now since the estimators $\hat{\xi}(\Lambda)$ and $\hat{p}(d_i|\Lambda)$ are all uncorrelated---the Monte Carlo samples are from unrelated distributions---the expectation over Monte Carlo samples of the likelihood estimator in Eq.~\ref{eq: unbiased likelihood estimator} factors and is now unbiased to $\mathcal{O}(\Ninj^{-2})$
-\beq
-\expectlarge{\hat{\mathcal{L}}_{\rm corr}(\{d_i\} | \Lambda)} = \expectlarge{\hat{\xi}(\Lambda)^{-\Nobs}\exp\left(-\frac{1}{2}\frac{\Nobs(\Nobs+1)\hat{\sigma}_\xi^2(\Lambda)}{\hat{\xi}(\Lambda)^2}\right)}\prod_{i=1}^{\Nobs}\expect{\hat{p}(d_i|\Lambda)} = \mathcal{L}(\{d_i\}|\Lambda)[1 + \mathcal{O}(\Ninj^{-2})].
-\eeq
+
+\begin{equation}\begin{split}
+    \expectlarge{\hat{\mathcal{L}}_{\rm corr}(\{d_i\} | \Lambda)} &= \expectlarge{\hat{\xi}(\Lambda)^{-\Nobs}\exp\left(-\frac{1}{2}\frac{\Nobs(\Nobs+1)\hat{\sigma}_\xi^2(\Lambda)}{\hat{\xi}(\Lambda)^2}\right)}\prod_{i=1}^{\Nobs}\expect{\hat{p}(d_i|\Lambda)} \\ &= \mathcal{L}(\{d_i\}|\Lambda)[1 + \mathcal{O}(\Ninj^{-2})].
+\end{split}\end{equation}
 
 \subsection{Posterior bias}
 
 However, the issue with the bias extends beyond the likelihood. Even if the likelihood estimator is unbiased, the \textit{posterior} can be biased. This is for a similar reason as the bias in the likelihood: the posterior is a nonlinear function of the likelihood, and so marginalizing the posterior over the uncertainty in the likelihood will leave some residual bias. Mathematically, this is due to the nonlinearity in the normalization and covariance in the likelihood estimator between multiple locations in parameter space $\Lambda, \Lambda'$. Denoting $\mathcal{L}(\{d_i\}|\Lambda) = \mathcal{L}(\Lambda)$ and the scatter $\hat{\mathcal{L}}(\Lambda)/\mathcal{L}(\Lambda) -1 \equiv \hat{\delta}(\Lambda)$,
+% \begin{align}
+% \expect{\hat{p}(\Lambda|\{d_i\})} 
+% &= \expectlarge{\frac{\pi(\Lambda)\mathcal{L}(\Lambda)[1 + \hat{\delta}(\Lambda)]}{\int \dd\Lambda' \pi(\Lambda')\mathcal{L}(\Lambda')[1 + \hat{\delta}(\Lambda')]}} \label{eq: bias in posterior heuristic} \\
+% &\approx p(\Lambda)\left(1 + \expect{\hat{\delta}(\Lambda)} - \int \dd\Lambda' p(\Lambda')\expect{\hat{\delta}(\Lambda')} - \int \dd\Lambda' p(\Lambda')\expect{\hat{\delta}(\Lambda)\hat{\delta}(\Lambda')} + \int \dd\Lambda'\dd\Lambda''p(\Lambda')p(\Lambda'')\expect{\hat{\delta}(\Lambda')\hat{\delta}(\Lambda'')}\right) \nonumber
+% \end{align}
 \begin{align}
 \expect{\hat{p}(\Lambda|\{d_i\})} 
 &= \expectlarge{\frac{\pi(\Lambda)\mathcal{L}(\Lambda)[1 + \hat{\delta}(\Lambda)]}{\int \dd\Lambda' \pi(\Lambda')\mathcal{L}(\Lambda')[1 + \hat{\delta}(\Lambda')]}} \label{eq: bias in posterior heuristic} \\
-&\approx p(\Lambda)\left(1 + \expect{\hat{\delta}(\Lambda)} - \int \dd\Lambda' p(\Lambda')\expect{\hat{\delta}(\Lambda')} - \int \dd\Lambda' p(\Lambda')\expect{\hat{\delta}(\Lambda)\hat{\delta}(\Lambda')} + \int \dd\Lambda'\dd\Lambda''p(\Lambda')p(\Lambda'')\expect{\hat{\delta}(\Lambda')\hat{\delta}(\Lambda'')}\right) \nonumber
+&\approx p(\Lambda)\bigg(1 + \expect{\hat{\delta}(\Lambda)} - \int \dd\Lambda' p(\Lambda')\expect{\hat{\delta}(\Lambda')} - \int \dd\Lambda' p(\Lambda')\expect{\hat{\delta}(\Lambda)\hat{\delta}(\Lambda')} + \\ &\qquad\qquad\qquad\int \dd\Lambda'\dd\Lambda''p(\Lambda')p(\Lambda'')\expect{\hat{\delta}(\Lambda')\hat{\delta}(\Lambda'')}\bigg) \nonumber
 \end{align}
 where we have defined $p(\Lambda) = \pi(\Lambda)\mathcal{L}(\Lambda) / \int \dd\Lambda' \pi(\Lambda')\mathcal{L}(\Lambda')$ as the true posterior, and we have used the binomial expansion to second order for the denominator. 
 $\expect{\hat{\delta}(\Lambda)}$ is proportional to the bias in the likelihood, and is zero for an unbiased likelihood (or $\mathcal{O}(\Ninj^{-2})$ for the corrected likelihood in Eq.~\ref{eq: unbiased likelihood estimator}). Notice there are additional biasing terms in the posterior estimator, due to $\expect{\hat{\delta}(\Lambda)\hat{\delta}(\Lambda')}$ terms or two-point \textit{covariance} terms between different locations in parameter space. 

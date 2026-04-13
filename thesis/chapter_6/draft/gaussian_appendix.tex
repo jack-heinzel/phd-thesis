@@ -97,8 +97,8 @@ Instead of estimating the accuracy statistic $\hat{A}$ with Eq.~\ref{eq: accurac
 \beq
 m(\Lambda) = 
 \begin{cases}
-\exp\left[-\dfrac{1}{2}\dfrac{\Nobs(\Nobs+1)\hat{\sigma}^2_{\xi}(\Lambda)}{\hat{\xi}(\Lambda)^2} + \dfrac{1}{N_{\rm samp}}\displaystyle\sum_{m=1}^{N_{\rm samp}} \hat{C}_{\ln \mathcal{L}}(\Lambda, \Lambda_m)\right] & \text{if using uncorrected likelihood in Eq.~\ref{eq: estimated hierarchical likelihood}} \\ 
-\exp\left[\dfrac{1}{N_{\rm samp}}\displaystyle\sum_{m=1}^{N_{\rm samp}} \hat{C}_{\ln \mathcal{L}}(\Lambda, \Lambda_m)\right]  & \text{if using corrected likelihood in Eq.~\ref{eq: unbiased likelihood estimator}}
+\exp\left[-\dfrac{1}{2}\dfrac{\Nobs(\Nobs+1)\hat{\sigma}^2_{\xi}(\Lambda)}{\hat{\xi}(\Lambda)^2} + \dfrac{1}{N_{\rm samp}}\displaystyle\sum_{m=1}^{N_{\rm samp}} \hat{C}_{\ln \mathcal{L}}(\Lambda, \Lambda_m)\right] & \begin{tabular}{@{}l@{}}  \text{if using uncorrected} \\ \text{likelihood (Eq.~\ref{eq: estimated hierarchical likelihood})}\end{tabular} \\ 
+\exp\left[\dfrac{1}{N_{\rm samp}}\displaystyle\sum_{m=1}^{N_{\rm samp}} \hat{C}_{\ln \mathcal{L}}(\Lambda, \Lambda_m)\right]  & \begin{tabular}{@{}l@{}} \text{if using corrected} \\ \text{likelihood (Eq.~\ref{eq: unbiased likelihood estimator}).}\end{tabular}
 \end{cases}
 \label{eq: bias correction term}
 \eeq

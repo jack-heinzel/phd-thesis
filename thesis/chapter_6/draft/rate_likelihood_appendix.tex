@@ -29,8 +29,8 @@ Using these expressions, the error, accuracy and precision statistics may be com
 \beq
 w_n = 
 \begin{cases}
-\dfrac{N_n^2\hat{\sigma}^2_{\xi}(\Lambda)}{2} - \dfrac{1}{N_{\rm samp}}\displaystyle\sum_{m=1}^{N_{\rm samp}} \hat{C}_{\ln\mathcal{L}}(\Lambda_n, N_n, \Lambda_m, N_m) & \text{if using uncorrected likelihood in Eq.~\ref{eq: rate explicit likelihood}} \\ 
-\dfrac{1}{N_{\rm samp}}\displaystyle\sum_{m=1}^{N_{\rm samp}} \hat{C}_{\ln\mathcal{L}}(\Lambda_n, N_n, \Lambda_m, N_m)  & \text{if using corrected likelihood in Eq.~\ref{eq: rate likelihood correction}},
+\dfrac{N_n^2\hat{\sigma}^2_{\xi}(\Lambda)}{2} - \dfrac{1}{N_{\rm samp}}\displaystyle\sum_{m=1}^{N_{\rm samp}} \hat{C}_{\ln\mathcal{L}}(\Lambda_n, N_n, \Lambda_m, N_m) & \begin{tabular}{@{}l@{}}  \text{if using uncorrected} \\ \text{likelihood (Eq.~\ref{eq: rate explicit likelihood})}\end{tabular} \\ 
+\dfrac{1}{N_{\rm samp}}\displaystyle\sum_{m=1}^{N_{\rm samp}} \hat{C}_{\ln\mathcal{L}}(\Lambda_n, N_n, \Lambda_m, N_m)  & \begin{tabular}{@{}l@{}} \text{if using corrected} \\ \text{likelihood (Eq.~\ref{eq: rate likelihood correction}).}\end{tabular}
 \end{cases}
 \eeq
 where $N_n$ and $N_m$ are the $n^{\rm th}$ and $m^{\rm th}$ samples for the Poisson expectation hyperparameter $N$.

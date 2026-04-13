@@ -492,6 +492,7 @@ The data underlying this work can be found on a zenodo data release at https://d
 We show upper bounds on the calculated $\pastro$ for each GW event when we included 20 contaminant blips in Table \ref{tab:gw_pastros}. We also show upper bounds on each $\pastro$, given by the $90\%$ and $99\%$ upper bounds. In Table \ref{tab:blip_params} we show the parameters of the 20 blips that contaminate the catalog in the run with 20 blips. Note we use a random set of blips for each catalog, e.g. the 19 contaminants for the run with 19 blips are not a subset of the 20 contaminants for the run with 20 blips.  
 \renewcommand{\arraystretch}{1.5}
 \begin{table*}
+\resizebox{\textwidth}{!}{
     \centering
     \begin{tabular}{|c|c|c||c|c|c|}
 \hline Event & 90\% Upper bound & 99\% Upper bound & Event & 90\% Upper bound & 99\% Upper bound \\ 
@@ -530,7 +531,7 @@ We show upper bounds on the calculated $\pastro$ for each GW event when we inclu
 \hline GW190725\_174728 & $2.3\times 10^{-6}$ & $8.5\times 10^{-6}$ & GW200311\_115853 & $4.9\times 10^{-4}$ & $1.4\times 10^{-3}$ \\ 
 \hline GW190727\_060333 & $0$ & $0$ & GW200316\_215756 & $1.6\times 10^{-8}$ & $1.2\times 10^{-7}$ \\ 
 \hline GW190728\_064510 & $4.8\times 10^{-12}$ & $7.4\times 10^{-11}$ &  &  &  \\ \hline
-    \end{tabular}
+    \end{tabular}}
     \caption{Inferred $1-\pastro = p_{\rm blip}$ for each event in the catalog of \protect\cite{PhysRevX.13.011048}, calculated from the run with 20 injected blips. We show the upper bounds on the inferred $p_{\rm blip}$ at both 90\% and 99\% credence. Note GW200302 has $p_{\rm blip} \lesssim 7.2\%$, the highest non-astrophysical probability event, and the event GW190503\_185404 has the second highest $p_{\rm blip} \lesssim 7.0\%$.}
     \label{tab:gw_pastros}
 \end{table*}
@@ -571,6 +572,7 @@ Further, it is not the posterior ``overlap'' which is taken into the population 
 \renewcommand{\arraystretch}{1.5}
 \begin{table*}
     \centering
+    \resizebox{\textwidth}{!}{
     \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
     \hline
 Number & $m_1$ & $q$ & $\chieff$ & $z$ & SNR & Median $\pastro$ & $\pastro$ 5\% & $\pastro$ 95\% 
@@ -595,7 +597,7 @@ Number & $m_1$ & $q$ & $\chieff$ & $z$ & SNR & Median $\pastro$ & $\pastro$ 5\% 
  \\ \hline 19 & $40.3^{+1.7}_{-1.5}$ & $0.37^{+0.02}_{-0.03}$ & $-0.94^{+0.05}_{-0.03}$ & $0.039^{+0.014}_{-0.012}$ & $22.9^{+1.6}_{-1.7}$ & $4.1\times 10^{-45}$ & $2.0\times 10^{-77}$ & $7.3\times 10^{-29}$ 
  \\ \hline 20 & $262.0^{+5.7}_{-5.5}$ & $0.06^{+0.0}_{-0.0}$ & $0.31^{+0.01}_{-0.01}$ & $0.1^{+0.0}_{-0.0}$ & $19.9^{+1.7}_{-1.7}$ & $0$ & $0$ & $0$ 
  \\ \hline
-    \end{tabular}
+    \end{tabular}}
     \caption{Median and 90\% credible intervals for the GW effective parameters of the 20 blip contaminants for the 20 injection run, organized by the median $\pastro$. The SNR is the optimal SNR.}
     \label{tab:blip_params}
 \end{table*}

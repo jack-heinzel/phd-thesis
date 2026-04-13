@@ -16,32 +16,32 @@ where $\bar{w}^{(p_i)}_{j}$ is the weight for reweighting the $i^{\rm th}$ event
 Note this is more memory efficient than holding all the weights in memory at the same time; here we first average over the weights along the hyperposterior samples.
 
 To compute the precision statistic, we now compute
-\beq
-    \hat{\Pi}[\hat{p}] = \frac{1}{2\ln(2)}\left[\left(\frac{\Nobs^2}{\Nsamp}\sum_{n=1}^{\Nsamp}\sigma^2_{\ln \xi}(\Lambda_n) - \bar{K}_{\ln\xi}(\Lambda_n)\right) +  \sum_{i=1}^{\Nobs}\left(\frac{1}{\Nsamp}\sum_{n=1}^{\Nsamp}\sigma^2_{\ln p_i}(\Lambda_n) - \bar{K}_{\ln p_i}(\Lambda_n)\right)\right]
+\beq\begin{split}
+    \hat{\Pi}[\hat{p}] &= \frac{1}{2\ln(2)}\bigg[\bigg(\frac{\Nobs^2}{\Nsamp}\sum_{n=1}^{\Nsamp}\sigma^2_{\ln \xi}(\Lambda_n) - \bar{K}_{\ln\xi}(\Lambda_n)\right) + \\ &\qquad \sum_{i=1}^{\Nobs}\left(\frac{1}{\Nsamp}\sum_{n=1}^{\Nsamp}\sigma^2_{\ln p_i}(\Lambda_n) - \bar{K}_{\ln p_i}(\Lambda_n)\bigg)\bigg]
     \label{eq: accelerated precision statistic}
-\eeq
+\end{split}\eeq
 and noticed the first term is the uncertainty in the posterior estimator due to uncertainty in the selection efficiency integral, and the second term is the uncertainty in the posterior estimator due to each single-event Monte Carlo integral. The package \texttt{population-error} provides these values as well. 
 
 For the accuracy statistic, which quantifies the total amount of bias in the posterior, we compute the weights as in Eq.~\ref{eq: weights for computing accuracy} by
 \beq
 \bar{K}_{\ln\mathcal{L}}(\Lambda_n) = 
 \begin{cases}
-\dfrac{1}{2}\dfrac{\Nobs(\Nobs+1)\hat{\sigma}^2_{\xi}(\Lambda_n)}{\hat{\xi}(\Lambda_n)^2} - \left[\Nobs^2\bar{K}_{\ln \xi}(\Lambda_n) + \displaystyle\sum_{i=1}^{\Nobs} \bar{K}_{\ln p_i}(\Lambda_n)\right] & \text{if using uncorrected likelihood (Eq.~\ref{eq: estimated hierarchical likelihood}}) \\ 
-\Nobs^2\bar{K}_{\ln \xi}(\Lambda_n) + \displaystyle\sum_{i=1}^{\Nobs} \bar{K}_{\ln p_i}(\Lambda_n)  & \text{if using corrected likelihood (Eq.~\ref{eq: unbiased likelihood estimator})}
+\dfrac{1}{2}\dfrac{\Nobs(\Nobs+1)\hat{\sigma}^2_{\xi}(\Lambda_n)}{\hat{\xi}(\Lambda_n)^2} - \left[\Nobs^2\bar{K}_{\ln \xi}(\Lambda_n) + \displaystyle\sum_{i=1}^{\Nobs} \bar{K}_{\ln p_i}(\Lambda_n)\right] & \begin{tabular}{@{}l@{}}  \text{if using uncorrected} \\ \text{likelihood (Eq.~\ref{eq: estimated hierarchical likelihood})}\end{tabular} \\ 
+\Nobs^2\bar{K}_{\ln \xi}(\Lambda_n) + \displaystyle\sum_{i=1}^{\Nobs} \bar{K}_{\ln p_i}(\Lambda_n)  & \begin{tabular}{@{}l@{}} \text{if using corrected} \\ \text{likelihood (Eq.~\ref{eq: unbiased likelihood estimator}).}\end{tabular}
 \end{cases}
 \label{eq: weights for computing accuracy accelerated}
 \eeq
 and now the amount of bias in the hyperposterior is divided between the single event terms, the selection efficiency integral, and a third term due to the covariance between the single event and selection efficiency Monte Carlo estimators: 
-\beq
-\hat{A}[\hat{p}] = \frac{1}{2\ln(2)}{\rm var}[\{\bar{K}_{\ln\mathcal{L}}(\Lambda_n)\}] = \frac{1}{2\ln(2)}\bigg[{\rm var}[\{\bar{B}_{\xi}(\Lambda_n)\}] + 2\,{\rm cov}[\{\bar{B}_{\xi}(\Lambda_n)\}, \{\bar{B}_{p}(\Lambda_n)\}] + {\rm var}[\{\bar{B}_{p}(\Lambda_n)\}]\bigg]
+\beq\begin{split}
+\hat{A}[\hat{p}] &= \frac{1}{2\ln(2)}{\rm var}[\{\bar{K}_{\ln\mathcal{L}}(\Lambda_n)\}]  \\ &= \frac{1}{2\ln(2)}\bigg[{\rm var}[\{\bar{B}_{\xi}(\Lambda_n)\}] + 2\,{\rm cov}[\{\bar{B}_{\xi}(\Lambda_n)\}, \{\bar{B}_{p}(\Lambda_n)\}] + {\rm var}[\{\bar{B}_{p}(\Lambda_n)\}]\bigg]
 \label{eq: accelerated accuracy statistic}
-\eeq
+\end{split}\eeq
 where
 \begin{align}
     \bar{B}_{p}(\Lambda_n) &= \sum_{i=1}^{\Nobs} \bar{K}_{\ln p_i}(\Lambda_n) \\
     \bar{B}_{\xi}(\Lambda_n) &= \begin{cases}
-        \dfrac{1}{2}\dfrac{\Nobs(\Nobs+1)\hat{\sigma}^2_{\xi}(\Lambda_n)}{\hat{\xi}(\Lambda_n)^2} - \Nobs^2\bar{K}_{\ln \xi}(\Lambda_n) & \text{if using uncorrected likelihood (Eq.~\ref{eq: estimated hierarchical likelihood}}) \\ 
-\Nobs^2\bar{K}_{\ln \xi}(\Lambda_n)  & \text{if using corrected likelihood (Eq.~\ref{eq: unbiased likelihood estimator})}.
+        \dfrac{1}{2}\dfrac{\Nobs(\Nobs+1)\hat{\sigma}^2_{\xi}(\Lambda_n)}{\hat{\xi}(\Lambda_n)^2} - \Nobs^2\bar{K}_{\ln \xi}(\Lambda_n) & \begin{tabular}{@{}l@{}}  \text{if using uncorrected} \\ \text{likelihood (Eq.~\ref{eq: estimated hierarchical likelihood})}\end{tabular} \\ 
+\Nobs^2\bar{K}_{\ln \xi}(\Lambda_n)  & \begin{tabular}{@{}l@{}} \text{if using corrected} \\ \text{likelihood (Eq.~\ref{eq: unbiased likelihood estimator}).}\end{tabular}
     \end{cases}
 \end{align}
 We provide these three components of the accuracy statistic in \texttt{population-error} as well. These statistics take a slightly different form when using the rate-explicit hierarchical likelihood (Eq.~\ref{eq: rate explicit likelihood}); we allow uses to specify this as an option as well, and show the mathematical form in Appendix~\ref{app: rate-explicit equations}.
@@ -79,70 +79,7 @@ Approximating Eq.~\ref{eq: estimated posterior} to second order in the numerator
 \hat{p}(\Lambda) = \frac{g(\expect{\hat{\bm X}(\Lambda)}) + \partial_ig(\expect{\hat{\bm X}(\Lambda)}) \hat{\delta}_i(\Lambda) + \frac{1}{2}\partial_i\partial_jg(\expect{\hat{\bm X}(\Lambda)})\hat{\delta}_i(\Lambda)\hat{\delta}_j(\Lambda) + \mathcal{O}(\hat{\bm \delta}^3)}
 {\int {\rm d}\Lambda' g(\expect{\hat{\bm X}(\Lambda')}) + \partial_kg(\expect{\hat{\bm X}(\Lambda')}) \hat{\delta}_k(\Lambda') + \frac{1}{2}\partial_k\partial_lg(\expect{\hat{\bm X}(\Lambda')})\hat{\delta}_k(\Lambda')\hat{\delta}_l(\Lambda') + \mathcal{O}(\hat{\bm \delta}^3)} 
 \eeq
-Using the binomial expansion for the denominator and keeping terms only to second order, we are left with
-% \beq
-% \frac{
-% g(\expect{\hat{\bm X}(\Lambda)})
-% }{
-% \mathcal{Z}
-% }
-% \frac{
-% 1 + \frac{g'\left(\overline{X}(\Lambda)\right)}{g(\expect{\hat{\bm X}(\Lambda)})}(\hat{X}(\Lambda) - \overline{X}(\Lambda)) + \frac{1}{2}\frac{g''\left(\overline{X}(\Lambda)\right)}{g(\expect{\hat{\bm X}(\Lambda)})}(\hat{X}(\Lambda) - \overline{X}(\Lambda))^2
-% }{
-% 1 + \frac{1}{\mathcal{Z}}\int {\rm d}\Lambda'g'\left(\overline{X}(\Lambda')\right)(\hat{X}(\Lambda') - \overline{X}(\Lambda')) + \frac{1}{2\mathcal{Z}}\int {\rm d}\Lambda' g''\left(\overline{X}(\Lambda')\right)(\hat{X}(\Lambda') - \overline{X}(\Lambda'))^2
-% }
-% \eeq
-
-% \beq
-% \frac{
-% g(\expect{\hat{\bm X}(\Lambda)})
-% }{
-% \mathcal{Z}
-% }
-% \left(
-% 1 + \frac{g'\left(\overline{X}(\Lambda)\right)}{g(\expect{\hat{\bm X}(\Lambda)})}(\hat{X}(\Lambda) - \overline{X}(\Lambda)) + \frac{1}{2}\frac{g''\left(\overline{X}(\Lambda)\right)}{g(\expect{\hat{\bm X}(\Lambda)})}(\hat{X}(\Lambda) - \overline{X}(\Lambda))^2
-% \right)
-% \left(
-% 1 - \frac{1}{\mathcal{Z}}\int {\rm d}\Lambda'g'\left(\overline{X}(\Lambda')\right)(\hat{X}(\Lambda') - \overline{X}(\Lambda')) - \frac{1}{2\mathcal{Z}}\int {\rm d}\Lambda' g''\left(\overline{X}(\Lambda')\right)(\hat{X}(\Lambda') - \overline{X}(\Lambda'))^2 + 
-% \left[\frac{1}{\mathcal{Z}}\int {\rm d}\Lambda'g'\left(\overline{X}(\Lambda')\right)(\hat{X}(\Lambda') - \overline{X}(\Lambda'))\right]^2
-% \right)
-% \eeq
-% \beq
-% \frac{
-% g(\expect{\hat{\bm X}(\Lambda)})
-% }{
-% \mathcal{Z}
-% }
-% \left(
-% 1 + \frac{g'\left(\overline{X}(\Lambda)\right)}{g(\expect{\hat{\bm X}(\Lambda)})}(\hat{X}(\Lambda) - \overline{X}(\Lambda)) + \frac{1}{2}\frac{g''\left(\overline{X}(\Lambda)\right)}{g(\expect{\hat{\bm X}(\Lambda)})}(\hat{X}(\Lambda) - \overline{X}(\Lambda))^2
-% \right)
-% \left(
-% 1 - \frac{1}{\mathcal{Z}}\int {\rm d}\Lambda'g'\left(\overline{X}(\Lambda')\right)(\hat{X}(\Lambda') - \overline{X}(\Lambda')) - \frac{1}{2\mathcal{Z}}\int {\rm d}\Lambda' g''\left(\overline{X}(\Lambda')\right)(\hat{X}(\Lambda') - \overline{X}(\Lambda'))^2 + 
-% \frac{1}{\mathcal{Z}^2}\int {\rm d}\Lambda' {\rm d}\Lambda''g'\left(\overline{X}(\Lambda')\right)g'\left(\overline{X}(\Lambda'')\right)(\hat{X}(\Lambda') - \overline{X}(\Lambda'))(\hat{X}(\Lambda'') - \overline{X}(\Lambda''))
-% \right)
-% \eeq
-\begin{align}
-\hat{p}(\Lambda) = \frac{
-g(\expect{\hat{\bm X}(\Lambda)})
-}{
-\mathcal{Z}
-}
-&\Bigg(
-1 
-+ 
-\frac{\partial_ig(\expect{\hat{\bm X}(\Lambda)})}{g(\expect{\hat{\bm X}(\Lambda)})}\hat{\delta}_i(\Lambda)
-+ 
-\frac{1}{2}\frac{\partial_i\partial_jg(\expect{\hat{\bm X}(\Lambda)})}{g(\expect{\hat{\bm X}(\Lambda)})}\hat{\delta}_i(\Lambda)\hat{\delta}_j(\Lambda)
--
-\frac{1}{\mathcal{Z}}\int {\rm d}\Lambda'\partial_ig(\expect{\hat{\bm X}(\Lambda')})\hat{\delta}_i(\Lambda') \nonumber \\
-&- \frac{1}{2\mathcal{Z}}\int {\rm d}\Lambda' \partial_i\partial_jg(\expect{\hat{\bm X}(\Lambda')})\hat{\delta}_i(\Lambda')\hat{\delta}_j(\Lambda')
--
-\frac{\partial_ig(\expect{\hat{\bm X}(\Lambda)})}{g(\expect{\hat{\bm X}(\Lambda)})}\hat{\delta}_i(\Lambda) \frac{1}{\mathcal{Z}}\int {\rm d}\Lambda'\partial_jg(\expect{\hat{\bm X}(\Lambda')})\hat{\delta}_j(\Lambda')
-\nonumber \\ 
-&+
-\frac{1}{\mathcal{Z}^2}\int {\rm d}\Lambda' {\rm d}\Lambda''\partial_ig(\expect{\hat{\bm X}(\Lambda')})\partial_jg(\expect{\hat{\bm X}(\Lambda'')})\hat{\delta}_i(\Lambda')\hat{\delta}_j(\Lambda'') + \mathcal{O}(\hat{\bm \delta}^3)\Bigg)
-\end{align}
-To compute the bias, we take the expectation with respect to $\hat{\bm X}$. Each term linear in $\hat{\bm \delta}$ vanishes, since the expectation of $\hat{\bm \delta}$ is zero, and only the quadratic terms remain. The represents the expected posterior probability density over many draws of the random variable $\hat{\bm X}$
+Using the binomial expansion for the denominator and keeping terms only to second order, we are left with a quadratic approximation to the posterior estimator. Now we compute the expectation with respect to $\hat{\bm X}$. Each term linear in $\hat{\bm \delta}$ vanishes, since the expectation of $\hat{\bm \delta}$ is zero, and only the quadratic terms remain. The represents the expected posterior probability density over many draws of the random variable $\hat{\bm X}$
 \begin{align}
 \expect{\hat{p}(\Lambda&)} = \frac{
 g(\expect{\hat{\bm X}(\Lambda)})
@@ -170,7 +107,7 @@ where $p(\hat{\bm X})$ is the probability density over the random variable $\hat
 
 In Eq.~\ref{eq: full bias} the first two terms vary across $\Lambda$ parameter space, and so contribute nontrivially to the posterior. We refer to these kinds of biasing terms as \textit{parameteric bias}, as they vary across parameter space. The second two terms are simply constants which ensure the posterior is normalized over $\Lambda$. Writing the derivatives out explicitly and noticing that $\partial g /g = \partial \ln g$, then the parameteric bias is given by
 \begin{gather}
-b(\Lambda)= \frac{1}{2}\frac{1}{g(\expect{\hat{\bm X}(\Lambda)})}\frac{\partial^2g(\expect{\hat{\bm X}(\Lambda)})}{[\partial\hat{X}_i(\Lambda)][\partial\hat{X}_j(\Lambda)]}C_{i,j}(\Lambda, \Lambda) - \int {\rm d}\Lambda'p(\Lambda')\frac{\partial\ln g(\expect{\hat{\bm X}(\Lambda)})}{\partial\hat{X}_i(\Lambda)} \frac{\partial\ln g(\expect{\hat{\bm X}(\Lambda')})}{\partial\hat{X}_j(\Lambda')}C_{i,j}(\Lambda, \Lambda') 
+b(\Lambda)= \frac{C_{i,j}(\Lambda, \Lambda)}{2g(\expect{\hat{\bm X}(\Lambda)})}\frac{\partial^2g(\expect{\hat{\bm X}(\Lambda)})}{[\partial\hat{X}_i(\Lambda)][\partial\hat{X}_j(\Lambda)]} - \int {\rm d}\Lambda'p(\Lambda')\frac{\partial\ln g(\expect{\hat{\bm X}(\Lambda)})}{\partial\hat{X}_i(\Lambda)} \frac{\partial\ln g(\expect{\hat{\bm X}(\Lambda')})}{\partial\hat{X}_j(\Lambda')}C_{i,j}(\Lambda, \Lambda') 
 \label{eq: the parametric bias} 
 %\\\qquad\quad {\rm (first\; biasing\; term)} \qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad {\rm (second\; biasing\; term)} \nn
 \end{gather}
@@ -296,19 +233,13 @@ To verify Eq.~\ref{eq: modifying term} removes the bias, we must compute the der
 \end{align}
 Notice, however, when we evaluate Eq.~\ref{eq: general variance estimator} and Eq.~\ref{eq: variance estimator derivatives} on the expectation of $\hat{\bm W}$, we obtain zero for the estimator, zero for the first derivative, and the second derivative does not change
 \begin{gather}
-\hat{C}^2_q(\expect{\hat{\bm W}^\Lambda}, \expect{\hat{\bm W}^{\Lambda'}}) = 0 \qquad\quad \;\qquad \frac{\partial \hat{C}^2_q(\expect{\hat{\bm W}^\Lambda}, \expect{\hat{\bm W}^\Lambda}) }{\partial W_{ij}^\Lambda} = 0
-\qquad \qquad \;\;  \frac{\partial^2 \hat{C}^2_q(\expect{\hat{\bm W}^\Lambda}, \expect{\hat{\bm W}^\Lambda})}{(\partial W_{ij}^\Lambda)^2} = \begin{cases}
-0 & {\rm if} \; j \neq q \\
-\frac{2}{M_q} & {\rm if}\; j = q
-\end{cases} \quad\quad \nn \\ 
-\frac{\partial \hat{C}^2_q(\expect{\hat{\bm W}^\Lambda}, \expect{\hat{\bm W}^{\Lambda'}}) }{\partial W_{ij}^\Lambda} = 0 \qquad \qquad  \frac{\partial^2 \hat{C}^2_q(\expect{\hat{\bm W}^\Lambda}, \expect{\hat{\bm W}^{\Lambda'}})}{(\partial W_{ij}^\Lambda)^2} = 0 \qquad \qquad 
-\frac{\partial^2 \hat{C}^2_q(\expect{\hat{\bm W}^\Lambda}, \expect{\hat{\bm W}^{\Lambda'}})}{(\partial W_{ij}^\Lambda)(\partial W_{ij}^{\Lambda'})} = \begin{cases}
-0 & {\rm if} \; j \neq q \\
-\frac{1}{M_q} & {\rm if}\; j = q.
-\end{cases} 
+\hat{C}^2_q(\expect{\hat{\bm W}^\Lambda}, \expect{\hat{\bm W}^{\Lambda'}}) = 0 \quad \;\qquad \frac{\partial \hat{C}^2_q(\expect{\hat{\bm W}^\Lambda}, \expect{\hat{\bm W}^\Lambda}) }{\partial W_{ij}^\Lambda} = 0
+\qquad\quad \frac{\partial^2 \hat{C}^2_q(\expect{\hat{\bm W}^\Lambda}, \expect{\hat{\bm W}^\Lambda})}{(\partial W_{ij}^\Lambda)^2} = \frac{2\Delta_{jq}}{M_q} \nn \\ 
+\frac{\partial \hat{C}^2_q(\expect{\hat{\bm W}^\Lambda}, \expect{\hat{\bm W}^{\Lambda'}}) }{\partial W_{ij}^\Lambda} = 0 \qquad\quad  \frac{\partial^2 \hat{C}^2_q(\expect{\hat{\bm W}^\Lambda}, \expect{\hat{\bm W}^{\Lambda'}})}{(\partial W_{ij}^\Lambda)^2} = 0 \qquad\quad 
+\frac{\partial^2 \hat{C}^2_q(\expect{\hat{\bm W}^\Lambda}, \expect{\hat{\bm W}^{\Lambda'}})}{(\partial W_{ij}^\Lambda)(\partial W_{ij}^{\Lambda'})} = \frac{\Delta_{jq}}{M_q}
 \label{eq: variance estimator derivatives expectation}
 \end{gather}
-We want to show that the modifying term corrects the bias.
+where $\Delta_{jq} = 1$ for $j=q$ and $0$ for $j\neq q$ is the Kronecker delta. We want to show that the modifying term corrects the bias.
 To see this, Taylor expand
 \beq
 g(\hat{\bm W}^{\Lambda})\exp\left(\sum_{p,q=1}^{M_q,N}\left[-\frac{1}{2}\frac{\partial^2g(\hat{\bm W}^\Lambda)}{(\partial \hat{W}^\Lambda_{pq})^2}\frac{\hat{C}^2_q(\hat{\bm W}^\Lambda, \hat{\bm W}^\Lambda)}{g(\hat{\bm W}^\Lambda)} + \int {\rm d}\Lambda' \hat{p}(\Lambda') \frac{\partial \ln g(\hat{\bm W}^\Lambda)}{\partial \hat{W}^\Lambda_{pq}}\frac{\partial \ln g(\hat{\bm W}^{\Lambda'})}{\partial \hat{W}^{\Lambda'}_{pq}}\hat{C}^2_q(\hat{\bm W}^\Lambda, \hat{\bm W}^{\Lambda'})\right]\right)
@@ -338,16 +269,16 @@ g(\expect{\hat{\bm W}^\Lambda})
 \left. \sum_{p,q=1}^{M_q,N}\left[-\frac{1}{2} \frac{\partial^2g(\expect{\hat{\bm W}^\Lambda})}{(\partial \hat{W}^\Lambda_{pq})^2}\frac{\partial^2\hat{C}^2_q(\expect{\hat{\bm W}^\Lambda}, \expect{\hat{\bm W}^\Lambda})}{(\partial \hat{W}_{ij}^\Lambda)^2}\frac{\hat{\delta}_{ij}^\Lambda\hat{\delta}_{kl}^\Lambda}{g(\expect{\hat{\bm W}^\Lambda})} \nonumber \right.\right. \\ 
 &+ 
 \left.\left. \frac{\partial \ln g(\expect{\hat{\bm W}^\Lambda})}{\partial \hat{W}^\Lambda_{pq}}\int {\rm d}\Lambda' p(\Lambda') \frac{\partial \ln g(\expect{\hat{\bm W}^{\Lambda'}})}{\partial \hat{W}^{\Lambda'}_{pq}}\frac{\partial^2 \hat{C}^2_q(\expect{\hat{\bm W}^\Lambda}, \expect{\hat{\bm W}^{\Lambda'}})}{(\partial \hat{W}_{ij}^\Lambda)(\partial \hat{W}_{kl}^{\Lambda'})}\hat{\delta}_{ij}^\Lambda\hat{\delta}_{kl}^{\Lambda'} \nonumber \right.\right. \\ 
-&+
-\left.\left.
-\frac{1}{2\mathcal{Z}} \int {\rm d}\Lambda' \frac{\partial^2g(\expect{\hat{\bm W}^{\Lambda'}})}{(\partial \hat{W}^{\Lambda'}_{pq})^2}\frac{\partial^2\hat{C}^2_q(\expect{\hat{\bm W}^{\Lambda'}}, \expect{\hat{\bm W}^{\Lambda'}})}{(\partial \hat{W}_{ij}^{\Lambda'})(\partial \hat{W}_{kl}^{\Lambda'})}\hat{\delta}_{ij}^{\Lambda'}\hat{\delta}_{kl}^{\Lambda'} \nonumber \right.\right. \\ 
 &- 
 \left.\left. \frac{1}{\mathcal{Z}}\int {\rm d}\Lambda' \frac{\partial g(\expect{\hat{\bm W}^{\Lambda'}})}{\partial \hat{W}^{\Lambda'}_{pq}}\int {\rm d}{\Lambda''} p(\Lambda'') \frac{\partial \ln g(\expect{\hat{\bm W}^{\Lambda''}})}{\partial \hat{W}^{\Lambda''}_{pq}}\frac{\partial^2 \hat{C}^2_q(\expect{\hat{\bm W}^{\Lambda'}}, \expect{\hat{\bm W}^{\Lambda''}})}{(\partial \hat{W}_{ij}^{\Lambda'})(\partial \hat{W}_{kl}^{\Lambda''})}\hat{\delta}_{ij}^{\Lambda'}\hat{\delta}_{kl}^{\Lambda''}
-\right]\right)
+\right.\right. \nonumber \\
+&+
+\left.\left.
+\frac{1}{2\mathcal{Z}} \int {\rm d}\Lambda' \frac{\partial^2g(\expect{\hat{\bm W}^{\Lambda'}})}{(\partial \hat{W}^{\Lambda'}_{pq})^2}\frac{\partial^2\hat{C}^2_q(\expect{\hat{\bm W}^{\Lambda'}}, \expect{\hat{\bm W}^{\Lambda'}})}{(\partial \hat{W}_{ij}^{\Lambda'})(\partial \hat{W}_{kl}^{\Lambda'})}\hat{\delta}_{ij}^{\Lambda'}\hat{\delta}_{kl}^{\Lambda'} \nonumber \right]\right)
 +
 \mathcal{O}(\hat{\bm \delta}^3)\Bigg).
 \end{align}
-As before, we can recognize that $\frac{1}{\mathcal{Z}} = \frac{p(\Lambda)}{g(\Lambda)}$ for any arbitrary $\Lambda$, and pull this inside integrals wherever relevant. Second, we notice that the nonzero branches of Eq.~\ref{eq: variance estimator derivatives expectation} picks out a small subset of the summation. Third and finally, we take the expectation over all $\hat{\delta}$, where the linear terms vanish and the quadratic terms have a nonzero expectation \textit{only} where $i=k, j=l$
+As before, we can recognize that $\frac{1}{\mathcal{Z}} = \frac{p(\Lambda)}{g(\Lambda)}$ for any arbitrary $\Lambda$, and pull this inside integrals wherever relevant. Second, we notice that the nonzero branches of Eq.~\ref{eq: variance estimator derivatives expectation} picks out a small subset of the summation. Third and finally, we take the expectation over all $\hat{\delta}$, where the linear terms vanish and the quadratic terms have a nonzero expectation \textit{only} where $i=k, j=l$.
 % \begin{align}
 % \expect{\hat{p}&(\Lambda)} = \frac{
 % g(\expect{\hat{\bm W}^\Lambda})
@@ -498,22 +429,22 @@ We show some examples where we explicitly correct the posterior bias in Appendix
 In this appendix, we prove the covariance inequalities in Eqs.~\ref{eq: covariance Schwarz inequality} and \ref{eq: covariance Schwarz inequality estimator}. We show the inequality holds for the covariance (as opposed to the estimator) but each step can be replaced with the corresponding estimators to show the analogous inequality in Eq.~\ref{eq: covariance Schwarz inequality estimator}.
 
 We begin with the definition of the covariance of the log-likelihood from Eq.~\ref{eq: general covariance in ln g}, where we restrict ourselves to the case where the covariance between different independent Monte Carlo integrals is zero $C_{i\neq j} = 0$. We know the following holds:
-\beq
-|C_{\ln g}(\Lambda, \Lambda')| = \left|\sum_{i} \frac{\partial\ln g(\expect{\hat{\bm X}(\Lambda)})}{\partial\hat{X}_i(\Lambda)} \frac{\partial\ln g(\expect{\hat{\bm X}(\Lambda')})}{\partial\hat{X}_i(\Lambda')}C_{i}(\Lambda, \Lambda')\right| \le \sum_{i} \left|\frac{\partial\ln g(\expect{\hat{\bm X}(\Lambda)})}{\partial\hat{X}_i(\Lambda)} \frac{\partial\ln g(\expect{\hat{\bm X}(\Lambda')})}{\partial\hat{X}_i(\Lambda')}C_{i}(\Lambda, \Lambda')\right|,
-\eeq
+\beq\begin{split}
+|C_{\ln g}(\Lambda, \Lambda')| &= \left|\sum_{i} \frac{\partial\ln g(\expect{\hat{\bm X}(\Lambda)})}{\partial\hat{X}_i(\Lambda)} \frac{\partial\ln g(\expect{\hat{\bm X}(\Lambda')})}{\partial\hat{X}_i(\Lambda')}C_{i}(\Lambda, \Lambda')\right| \\ &\le \sum_{i} \left|\frac{\partial\ln g(\expect{\hat{\bm X}(\Lambda)})}{\partial\hat{X}_i(\Lambda)} \frac{\partial\ln g(\expect{\hat{\bm X}(\Lambda')})}{\partial\hat{X}_i(\Lambda')}C_{i}(\Lambda, \Lambda')\right|,
+\end{split}\eeq
 where $C_i(\Lambda, \Lambda')$ is the covariance from the $i^{\rm th}$ Monte Carlo integral (Eq.~\ref{eq: covariance of single MC integral}). We may apply Cauchy-Schwarz on the $L^2$ inner product in the definition of $C_i(\Lambda, \Lambda')$
 \beq
 |C_{i}(\Lambda, \Lambda')| \equiv \left |\int {\rm d}\hat{\bm X} p(\hat{\bm X}) \left(\hat{X}_i(\Lambda) - \expect{\hat{X}_i(\Lambda)}\right)\left(\hat{X}_i(\Lambda') - \expect{\hat{X}_i(\Lambda')}\right)\right| \le \sqrt{C_i(\Lambda, \Lambda)C_i(\Lambda', \Lambda')}.
 \eeq
 $C_i(\Lambda, \Lambda) \ge 0$ so we drop the absolute value symbols inside the square root.
 Multiplying both sides
-\beq
-\left|\frac{\partial\ln g(\expect{\hat{\bm X}(\Lambda)})}{\partial\hat{X}_i(\Lambda)} \frac{\partial\ln g(\expect{\hat{\bm X}(\Lambda')})}{\partial\hat{X}_i(\Lambda')}C_{i}(\Lambda, \Lambda')\right| \le \sqrt{\left(\frac{\partial\ln g(\expect{\hat{\bm X}(\Lambda)})}{\partial\hat{X}_i(\Lambda)}\right)^2C_i(\Lambda, \Lambda)}\sqrt{\left(\frac{\partial\ln g(\expect{\hat{\bm X}(\Lambda')})}{\partial\hat{X}_i(\Lambda')}\right)^2C_i(\Lambda', \Lambda')},
-\eeq
+\beq\begin{split}
+&\left|\frac{\partial\ln g(\expect{\hat{\bm X}(\Lambda)})}{\partial\hat{X}_i(\Lambda)} \frac{\partial\ln g(\expect{\hat{\bm X}(\Lambda')})}{\partial\hat{X}_i(\Lambda')}C_{i}(\Lambda, \Lambda')\right| \\ &\le \sqrt{\left(\frac{\partial\ln g(\expect{\hat{\bm X}(\Lambda)})}{\partial\hat{X}_i(\Lambda)}\right)^2C_i(\Lambda, \Lambda)}\sqrt{\left(\frac{\partial\ln g(\expect{\hat{\bm X}(\Lambda')})}{\partial\hat{X}_i(\Lambda')}\right)^2C_i(\Lambda', \Lambda')},
+\end{split}\eeq
 and then by the Cauchy-Schwarz inequality applied to the usual dot product $|\sum_i a_i b_i| \leq \sqrt{\sum_i a_i^2\sum_i b_i^2}$ where $a_i$ is the first square root term and $b_i$ is the second square root term, 
-\begin{multline}
-\left|\sum_i\sqrt{\left(\frac{\partial\ln g(\expect{\hat{\bm X}(\Lambda)})}{\partial\hat{X}_i(\Lambda)}\right)^2C_i(\Lambda, \Lambda)}\sqrt{\left(\frac{\partial\ln g(\expect{\hat{\bm X}(\Lambda')})}{\partial\hat{X}_i(\Lambda')}\right)^2C_i(\Lambda', \Lambda')} \right| \le \\
+\beq\begin{split}
+&\left|\sum_i\sqrt{\left(\frac{\partial\ln g(\expect{\hat{\bm X}(\Lambda)})}{\partial\hat{X}_i(\Lambda)}\right)^2C_i(\Lambda, \Lambda)}\sqrt{\left(\frac{\partial\ln g(\expect{\hat{\bm X}(\Lambda')})}{\partial\hat{X}_i(\Lambda')}\right)^2C_i(\Lambda', \Lambda')} \right|  \\ &\quad\le  
 \sqrt{\sum_i\left(\frac{\partial\ln g(\expect{\hat{\bm X}(\Lambda)})}{\partial\hat{X}_i(\Lambda)}\right)^2C_i(\Lambda, \Lambda)}
-\sqrt{\sum_i\left(\frac{\partial\ln g(\expect{\hat{\bm X}(\Lambda')})}{\partial\hat{X}_i(\Lambda')}\right)^2C_i(\Lambda', \Lambda')} = \sqrt{C_{\ln g}(\Lambda, \Lambda)} \sqrt{C_{\ln g}(\Lambda', \Lambda')}.
-\end{multline}
+\sqrt{\sum_i\left(\frac{\partial\ln g(\expect{\hat{\bm X}(\Lambda')})}{\partial\hat{X}_i(\Lambda')}\right)^2C_i(\Lambda', \Lambda')} \\ &\quad= \sqrt{C_{\ln g}(\Lambda, \Lambda)} \sqrt{C_{\ln g}(\Lambda', \Lambda')}.
+\end{split}\eeq
 Linking together the above inequalities proves the covariance inequality of Eq.~\ref{eq: covariance Schwarz inequality}. As stated above, the same reasoning shows the analogous inequality for the covariance \textit{estimator} of Eq.~\ref{eq: covariance Schwarz inequality estimator}.

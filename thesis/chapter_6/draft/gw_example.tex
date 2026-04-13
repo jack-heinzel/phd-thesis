@@ -4,6 +4,7 @@
 \begin{table*}
 \renewcommand{\arraystretch}{1.25}
 \centering
+\resizebox{\textwidth}{!}{
 \begin{tabular}{lllll}
 \hline\hline
 Parameter & Description & True Population & VT Population & Strong Model Prior \\
@@ -27,7 +28,7 @@ $n$ & index in mass ratio, cosine-tilt correlation & 2 & --- & 2 \\
 $\mu_\tau$ & mean of cosine-tilt Gaussian & 1 & --- & 1 \\
 $\sigma_\tau$ & width of cosine-tilt Gaussian & 1.15 & --- & 1.15 \\
 \hline\hline
-\end{tabular}
+\end{tabular}}
 \caption{Parameters for the simulated population. In the ``True Population'' column, we show the true numerical values from \citet{Vitale:2025lms}. The ``VT Population'' column shows the parameter values for the source population for estimating selection effects. The ``Strong Model Prior'' column shows the model priors in our strong model (Beta spin distribution). Wherever we list a numerical value for a prior, we use a delta function prior at the true population value.}
 \label{tab:true_hyper}
 \end{table*}

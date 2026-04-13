@@ -287,35 +287,24 @@ On the left of Fig.~\ref{fig:2d-z0p2p8}, we show the inferred comoving merger-ra
 
 Note that our result deviates from the true population where the true merger rate is low (e.g., $m_1 \lesssim 3M_\odot$ and $q \lesssim 0.4$). This is characteristic of nonparametric models~\citep{Heinzel:2024jlc}: in particular, they overconfidently exclude merger-rates of $0\,\rateunit$ in the absence of informative data; e.g., in regions of low detectability (see discussion in Section IV of~\citet{Heinzel:2024jlc}). Additionally, note a slight increase in the inferred rate (and uncertainties) near the edges of parameter space (e.g., $q\approx1$). Bins at the boundary of parameter space are coupled to fewer neighboring bins, meaning the uncertainty is generically larger, but larger by a symmetric amount in $\ln\mathcal{R}$. When we marginalize over a range of bins, we integrate over $\mathcal{R}$ rather than $\ln\mathcal{R}$. The uncertainty thus becomes skewed to larger values at larger rates due to the nonlinearity of the exponential function.
 
-\begin{table*}[t]
+\begin{table}[ht]
 \centering
-\setlength{\tabcolsep}{0pt} % Let the \fill handle all spacing
-\begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} llll} % Note the 'l' and spacing position
-\hline\hline
-\noalign{\smallskip}
-\textbf{Model} & \multicolumn{2}{l}{\textbf{Primary mass $m_1$}} & \multicolumn{2}{l}{\textbf{Mass ratio $q$}} \\
-\noalign{\smallskip}
- & \multicolumn{1}{l}{\begin{tabular}{@{}l@{}} Smallest $\Delta\mathcal{R}/\bar{\mathcal{R}}$ \\ (location) \end{tabular}} 
- & \multicolumn{1}{l}{\begin{tabular}{@{}l@{}} Largest $\Delta\mathcal{R}/\bar{\mathcal{R}}$ \\ (location) \end{tabular}} 
- & \multicolumn{1}{l}{\begin{tabular}{@{}l@{}} Smallest $\Delta\mathcal{R}/\bar{\mathcal{R}}$ \\ (location) \end{tabular}} 
- & \multicolumn{1}{l}{\begin{tabular}{@{}l@{}} Largest $\Delta\mathcal{R}/\bar{\mathcal{R}}$ \\ (location) \end{tabular}} \\
-\noalign{\smallskip}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{lllll}
 \hline
-\noalign{\smallskip}
-Two-dim. \PixelPop & 0.9 ($m_1\approx16\,\Msun$) & 3.3 ($m_1\approx4\,\Msun$) & 1.1 ($q\approx0.9$) & 2.9 ($q\approx0.4$) \\
-Three-dim. \PixelPop & 0.8 ($m_1\approx21\,\Msun$) & 3.7 ($m_1\approx5\,\Msun$) & 1.2 ($q\approx0.9$) & 3.5 ($q\approx0.5$) \\
-\Hybrid \PixelPop & 0.8 ($m_1\approx21\,\Msun$) & 3.1 ($m_1\approx4\,\Msun$) & 1.2 ($q\approx0.9$) & 2.9 ($q\approx0.4$) \\ 
-\noalign{\smallskip}
+\textbf{Model} & \textbf{Min $\Delta\mathcal{R}/\bar{\mathcal{R}}$ ($m_1$)} & \textbf{Max $\Delta\mathcal{R}/\bar{\mathcal{R}}$ ($m_1$)} & \textbf{Min $\Delta\mathcal{R}/\bar{\mathcal{R}}$ ($q$)} & \textbf{Max $\Delta\mathcal{R}/\bar{\mathcal{R}}$ ($q$)} \\
 \hline
-\noalign{\smallskip}
-Two-dim. \PixelPop on GWTC-3 & 3.2 ($m_1\approx33\,\Msun$) & 5.3 ($m_1\approx4\,\Msun$) & 3.9 ($q\approx0.8$) & 5.9 ($q\approx0.4$) \\
-Fiducial parametric on GWTC-3 & 0.7 ($m_1\approx19\,\Msun$) & 1.8 ($m_1\approx40\,\Msun$) & 0.8 ($q\approx0.8$) & 1.9 ($q\approx0.4$) \\
-\noalign{\smallskip}
-\hline\hline
-\end{tabular*}
+Two-dim. \PixelPop & 0.9 (16) & 3.3 (4) & 1.1 (0.9) & 2.9 (0.4) \\
+Three-dim. \PixelPop & 0.8 (21) & 3.7 (5) & 1.2 (0.9) & 3.5 (0.5) \\
+\Hybrid \PixelPop & 0.8 (21) & 3.1 (4) & 1.2 (0.9) & 2.9 (0.4) \\
+\hline
+Two-dim. \PixelPop GWTC-3 & 3.2 (33) & 5.3 (4) & 3.9 (0.8) & 5.9 (0.4) \\
+Fiducial Parametric & 0.7 (19) & 1.8 (40) & 0.8 (0.8) & 1.9 (0.4) \\
+\hline
+\end{tabular}}
 \caption{Smallest and largest relative rate uncertainties $\relrate$, together with the parameter values at which they occur in parentheses, for primary mass and mass ratio, evaluated at $z=0.2$. Results are presented for the $m_1$ and $q$ marginals of two-dimensional \PixelPop (Sec.~\ref{sec:2d-inference}), three-dimensional \PixelPop (Sec.~\ref{sec:3d-inference}), and \Hybrid \PixelPop (Sec.~\ref{sec:(3+1)d-inference}) models on the parameters of the simulated \ac{CE} population. For reference, we also show the corresponding relative rate uncertainties obtained with the two-dimensional $m_1$--$q$ \PixelPop study of GWTC-3~\citep{Heinzel:2024hva} and with the fiducial parametric \textsc{Powerlaw+Peak}population model used in GWTC-3~\citep{KAGRA:2021duu}.}
 \label{tab:relrates}
-\end{table*}
+\end{table}
 
 
 % \begin{table*}                       

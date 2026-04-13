@@ -16,10 +16,10 @@ Suppose $q(\Lambda) \propto p(\Lambda)(1+\delta(\Lambda))$ for a small perturbat
 \eeq
 
 Here, $p$ represents the true posterior and $q=\hat{p}$ the estimator, and so $\delta(\Lambda) = b(\Lambda) + \varepsilon(\Lambda)$ is the sum of a constant bias term $b(\Lambda)$ (defined in Eq.~\ref{eq: posterior bias}) and a (zero mean) scatter term $\varepsilon(\Lambda)$. Taking the expectation of both sides and using that $\expect{\varepsilon(\Lambda)} = 0$, $\expect{\varepsilon(\Lambda)\varepsilon(\Lambda')} = C_{\ln\mathcal{L}}(\Lambda, \Lambda')$ and $C_{\ln\mathcal{L}}(\Lambda, \Lambda) \equiv \sigma^2_{\ln\mathcal{L}}(\Lambda)$
-\beq
-\expect{\KLD(p|\hat{p})} \approx \frac{1}{2\ln(2)} \left[\int p(\Lambda)[b(\Lambda)^2 + \sigma^2_{\ln\mathcal{L}}(\Lambda)]\dd\Lambda - \int p(\Lambda)p(\Lambda')[b(\Lambda)b(\Lambda') + C_{\ln\mathcal{L}}(\Lambda,  \Lambda')]\dd\Lambda\dd\Lambda'\right] + \mathcal{O}(\delta^3).
+\begin{align}
+&\expect{\KLD(p|\hat{p})} \approx \\ &\frac{1}{2\ln(2)} \left[\int p(\Lambda)[b(\Lambda)^2 + \sigma^2_{\ln\mathcal{L}}(\Lambda)]\dd\Lambda - \int p(\Lambda)p(\Lambda')[b(\Lambda)b(\Lambda') + C_{\ln\mathcal{L}}(\Lambda,  \Lambda')]\dd\Lambda\dd\Lambda'\right] + \mathcal{O}(\delta^3). \nonumber
 \label{eq: expected kl divergence to estimator}
-\eeq
+\end{align}
 This motivates the definition of the error statistic $\hat{E}$, which estimates Eq.~\ref{eq: expected kl divergence to estimator}. Given $N_{\rm samp}$ samples $\{\Lambda_n\}$ from the hyperposterior estimator $\hat{p}$, we define the error statistic as 
 \beq
 \hat{E}[\hat{p}] = \hat{A}[\hat{p}] + \hat{\Pi}[\hat{p}]
@@ -29,15 +29,15 @@ where $\hat{A}$ estimates the terms containing the bias $b(\Lambda)$, and so the
 \begin{align}
     \hat{\Pi}[\hat{p}] &= \frac{1}{2\ln(2)}\left[\frac{1}{N_{\rm samp}}\sum_{n=1}^{N_{\rm samp}}\hat{\sigma}^2_{\ln\mathcal{L}}(\Lambda_n) - \frac{1}{N_{\rm samp}^2}\sum_{n=1}^{N_{\rm samp}}\sum_{m=1}^{N_{\rm samp}}\hat{C}_{\ln\mathcal{L}}(\Lambda_n, \Lambda_m)\right]
     \label{eq: precision statistic} \\
-    \hat{A}[\hat{p}] &= \frac{1}{2\ln(2)}\frac{1}{N_{\rm samp}-1}\left[\sum_{n=1}^{N_{\rm samp}}\bar{K}_{\ln\mathcal{L}}(\Lambda_n)^2 - \frac{1}{N_{\rm samp}}\left(\sum_{n=1}^{N_{\rm samp}}\bar{K}_{\ln\mathcal{L}}(\Lambda_n)\right)^2\right] = \frac{1}{2\ln(2)}{\rm var}[\{\bar{K}_{\ln\mathcal{L}}(\Lambda_n)\}],
-    \label{eq: accuracy statistic}
+    \hat{A}[\hat{p}] &= \frac{1}{2\ln(2)}\frac{1}{N_{\rm samp}-1}\left[\sum_{n=1}^{N_{\rm samp}}\bar{K}_{\ln\mathcal{L}}(\Lambda_n)^2 - \frac{1}{N_{\rm samp}}\left(\sum_{n=1}^{N_{\rm samp}}\bar{K}_{\ln\mathcal{L}}(\Lambda_n)\right)^2\right] \label{eq: accuracy statistic} \\ &= \frac{1}{2\ln(2)}{\rm var}[\{\bar{K}_{\ln\mathcal{L}}(\Lambda_n)\}],
+    \nonumber
 \end{align}
 and $\hat{\sigma}^2_{\ln\mathcal{L}}(\Lambda_n)\equiv\hat{C}_{\ln\mathcal{L}}(\Lambda_n, \Lambda_n)$ is the estimator of the variance of the log-likelihood defined in Eq.~\ref{eq: likelihood variance estimator}, $\hat{C}_{\ln\mathcal{L}}(\Lambda_n, \Lambda_m)$ is the estimator for the covariance of the log-likelihood between points $\Lambda_n$ and $\Lambda_m$ defined in Eq.~\ref{eq: population covariance with selection}, and the weights are given by
 \beq
 \bar{K}_{\ln\mathcal{L}}(\Lambda_n) = 
 \begin{cases}
-\dfrac{1}{2}\dfrac{\Nobs(\Nobs+1)\hat{\sigma}^2_{\xi}(\Lambda_n)}{\hat{\xi}(\Lambda_n)^2} - \dfrac{1}{N_{\rm samp}}\displaystyle\sum_{m=1}^{N_{\rm samp}} \hat{C}_{\ln\mathcal{L}}(\Lambda_n, \Lambda_m) & \text{if using uncorrected likelihood (Eq.~\ref{eq: estimated hierarchical likelihood})} \\ 
-\dfrac{1}{N_{\rm samp}}\displaystyle\sum_{m=1}^{N_{\rm samp}} \hat{C}_{\ln\mathcal{L}}(\Lambda_n, \Lambda_m)  & \text{if using corrected likelihood (Eq.~\ref{eq: unbiased likelihood estimator})}
+\dfrac{1}{2}\dfrac{\Nobs(\Nobs+1)\hat{\sigma}^2_{\xi}(\Lambda_n)}{\hat{\xi}(\Lambda_n)^2} - \dfrac{1}{N_{\rm samp}}\displaystyle\sum_{m=1}^{N_{\rm samp}} \hat{C}_{\ln\mathcal{L}}(\Lambda_n, \Lambda_m) & \begin{tabular}{@{}l@{}}  \text{if using uncorrected} \\ \text{likelihood (Eq.~\ref{eq: estimated hierarchical likelihood})}\end{tabular} \\ 
+\dfrac{1}{N_{\rm samp}}\displaystyle\sum_{m=1}^{N_{\rm samp}} \hat{C}_{\ln\mathcal{L}}(\Lambda_n, \Lambda_m)  & \begin{tabular}{@{}l@{}} \text{if using corrected} \\ \text{likelihood (Eq.~\ref{eq: unbiased likelihood estimator}).}\end{tabular}
 \end{cases}
 \label{eq: weights for computing accuracy}
 \eeq
