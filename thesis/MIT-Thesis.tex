@@ -15,18 +15,20 @@
 % This package requires TeX Live 2022 or later.
 
 
-%% Don't modify the \DocumentMetadata command unless you know what it does. 
-\DocumentMetadata 
-{
-	lang		= en-US, % default language
-	pdfversion  = 1.7,
-	pdfstandard = a-2b,
+%% Don't modify the \DocumentMetadata command unless you know what it does.
+%% NOTE: DocumentMetadata activates LaTeX3 env tracking which conflicts with \beq/\eeq macros
+%% in \input'd chapters inside biblatex refsections. Disabled until upstream fix available.
+%\DocumentMetadata
+%{
+%	lang		= en-US, % default language
+%	pdfversion  = 1.7,
+%	pdfstandard = a-2b, % disabled: tagging conflicts with equation envs in \input'd refsections
 %	pdfversion  = 2.0,   % default version
 %	pdfstandard = { ua-2, a-4f }, % requires pdfversion  = 2.0
 %	tagging		= on, % For tagging (accessible PDF), run lualatex with TeX Live 2025 or later.
 					  % Do not include appendixa.tex when selecting this option (listings package is not compatible).
 %	debug		= { xmp-export }, % if you want to check your metadata (xmpi file).
-}
+%}
 
 %%%%%%%%%  Documentclass and options  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -75,13 +77,16 @@
 \usepackage{bbm}             % \mathbbm blackboard bold
 \usepackage{multirow}        % multi-row table cells
 \usepackage[caption=false]{subfig} % sub-figures (caption=false avoids caption pkg conflict)
+\makeatletter\providecommand\sf@counterlist{}\makeatother % fix subfig/appendix conflict
 \usepackage{gensymb}         % \degree symbol
 \usepackage{mathtools}       % extends amsmath
+\usepackage{amssymb}         % \gtrsim, \lesssim, \mathbb, etc.
 \usepackage[]{url}           % URL formatting in bibliography
 \usepackage[normalem]{ulem}  % \uline, \sout (normalem keeps \emph intact)
 \usepackage{makecell}        % \makecell in tables
 \usepackage{supertabular}    % multi-page tables
 \usepackage{bold-extra}      % bold small caps (\textbf{\textsc{...}})
+\usepackage{mathrsfs}        % \mathscr font (used in ch1 for PSD notation)
 \usepackage{tikz}
 \usetikzlibrary{bayesnet}    % Bayesian-network diagrams (chapter 6)
 \usepackage{appendix}        % \begin{subappendices} for chapter-scoped appendices
@@ -191,7 +196,7 @@
 % \usepackage[style=authoryear, maxbibnames=10]{biblatex} 
 
 
-\addbibresource{mitthesis-sample.bib}%% kept for sample appendices
+\addbibresource{thesis/mitthesis-sample.bib}%% kept for sample appendices
 %% Chapter bibliography files
 \addbibresource{thesis/chapter_1/references.bib}
 \addbibresource{thesis/chapter_2/main.bib}
@@ -243,16 +248,9 @@
 	% Includes the name[s] of the author[s] 
 	% (If you used \DocumentMetadata at line 14, you can just put "\CopyrightAuthor," for the names.)
 %
-	pdfurl={},
-	% If you have a url for the thesis, put it here. Otherwise delete this.
-	% (MIT Libraries will put your thesis in DSPACE with a persistent url after you submit it.)
-%	
-	pdfcontactemail={},
-	% You can put a [permanent] email address into the metadata, if you like.
-	% Otherwise delete this.
-%
-	pdfauthortitle={},
-	% If you have a title (e.g., Prof. Dr.-Ing.), you can include it here.
+%	pdfurl={},         % requires \DocumentMetadata (re-enable when DocumentMetadata is restored)
+%	pdfcontactemail={},% requires \DocumentMetadata
+%	pdfauthortitle={}, % requires \DocumentMetadata
 }
 
 %%%%%%%%%%%%  Math operators %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -264,7 +262,9 @@
 
 \DeclareMathOperator{\Erf}{erf}
 \DeclareMathOperator{\Erfc}{erfc}
+\let\erf\relax% physics package pre-defines \erf; undefine before re-declaring
 \DeclarePairedDelimiterXPP\erf[1]{\Erf\mkern1mu}(){}{#1}% increase to 2mu with stix2 font
+\let\erfc\relax
 \DeclarePairedDelimiterXPP\erfc[1]{\Erfc\mkern1mu}(){}{#1}
 
 
@@ -282,6 +282,11 @@
 \providecommand{\citetalias}[1]{\cite{#1}}   % fall back to regular cite
 \providecommand{\citealias}[1]{\cite{#1}}
 
+%% Acknowledgments block used inside journal-paper chapters.
+\newenvironment{acknowledgments}%
+  {\medskip\noindent\textit{Acknowledgments.}~\small}%
+  {\par\medskip}
+
 %% Abstract block used inside chapters (distinct from the document-level \begin{abstract}).
 \newenvironment{chapterabstract}%
   {\begin{quote}\small\noindent\textit{Abstract:}~}%
@@ -289,6 +294,39 @@
 
 %% PRL-style inline heading (chapter 4 letter format).
 \providecommand{\heading}[1]{\textbf{\textit{#1.}}}
+
+%%% AAS journal abbreviations (used in .bib files) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\providecommand{\aap}{Astron.\@ Astrophys.}
+\providecommand{\aapr}{Astron.\@ Astrophys.\@ Rev.}
+\providecommand{\aj}{Astron.\@ J.}
+\providecommand{\apj}{Astrophys.\@ J.}
+\providecommand{\apjl}{Astrophys.\@ J.\ Lett.}
+\providecommand{\apjs}{Astrophys.\@ J.\ Suppl.}
+\providecommand{\mnras}{Mon.\@ Not.\@ R.\@ Astron.\@ Soc.}
+\providecommand{\nat}{Nature}
+\providecommand{\pasa}{Publ.\@ Astron.\@ Soc.\@ Aust.}
+\providecommand{\planss}{Planet.\@ Space Sci.}
+\providecommand{\prd}{Phys.\@ Rev.\@ D}
+\providecommand{\prl}{Phys.\@ Rev.\@ Lett.}
+
+%%% Chapter-specific commands not defined in chapter files %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\providecommand{\Msun}{\,M_\odot}
+\providecommand{\PixelPop}{\textsc{PixelPop}\xspace}
+%% Chapter 6 commands also needed in captions/aux (must be global)
+\providecommand{\expect}[1]{\langle #1\rangle}
+\providecommand{\variance}[1]{\mathbb{V}[#1]}
+\providecommand{\variancelarge}[1]{\mathbb{V}\left[#1\right]}
+\providecommand{\Ninj}{N_{\rm inj}}
+\providecommand{\Nfound}{N_{\rm found}}
+\providecommand{\Nsamp}{N_{\rm samp}}
+\providecommand{\NPE}{N_{\rm PE}}
+\providecommand{\KLD}{{\rm KL}}
+%%
+\providecommand{\parint}[1]{\int {\rm d}#1}
+\providecommand{\thetaint}{\parint{\theta}}
+\providecommand{\dataint}{\int_{\mathcal{D}_{\uparrow}} {\rm d}d}
+\providecommand{\pp}{{\sc Power-Law + Peak}}
+\providecommand{\pr}{{\sc Power-Law Redshift}}
 
 %%% Shared physics / notation commands (defined once; chapters use \providecommand) %%%%%%%%%%%%%
 
@@ -448,12 +486,12 @@
 % The abstract environment creates all the required headings and footers. 
 % You only need to the text of the abstract in the file abstract.tex
 \begin{abstract}
-	\input{abstract.tex}% use \input rather than \include because we're inside an environment
+	\input{thesis/abstract.tex}% use \input rather than \include because we're inside an environment
 \end{abstract}
 
-\include{acknowledgments}% acknowledgments.tex (.tex extension is presumed by \include) 
+\include{thesis/acknowledgments}% acknowledgments.tex (.tex extension is presumed by \include)
 
-\include{biography}% biography.tex (optional, see https://libraries.mit.edu/distinctive-collections/thesis-specs/#format)
+\include{thesis/biography}% biography.tex (optional, see https://libraries.mit.edu/distinctive-collections/thesis-specs/#format)
 
 %%% Table of contents and lists of stuff (delete unused lists, i.e., if no tables or figures) %%%%%
 
@@ -475,8 +513,8 @@
 %%% Appendices of thesis  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \appendix
-\include{appendixa}% listings example (not compatible with tagged pdf, as of Oct. 2025)
-\include{appendixb}% longtable example
+\include{thesis/appendixa}% listings example (not compatible with tagged pdf, as of Oct. 2025)
+\include{thesis/appendixb}% longtable example
 
 
 %%% Bibliography (biblatex)  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
