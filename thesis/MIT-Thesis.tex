@@ -15,20 +15,18 @@
 % This package requires TeX Live 2022 or later.
 
 
-%% Don't modify the \DocumentMetadata command unless you know what it does.
-%% NOTE: DocumentMetadata activates LaTeX3 env tracking which conflicts with \beq/\eeq macros
-%% in \input'd chapters inside biblatex refsections. Disabled until upstream fix available.
-%\DocumentMetadata
-%{
-%	lang		= en-US, % default language
-%	pdfversion  = 1.7,
-%	pdfstandard = a-2b, % disabled: tagging conflicts with equation envs in \input'd refsections
-%	pdfversion  = 2.0,   % default version
-%	pdfstandard = { ua-2, a-4f }, % requires pdfversion  = 2.0
-%	tagging		= on, % For tagging (accessible PDF), run lualatex with TeX Live 2025 or later.
-					  % Do not include appendixa.tex when selecting this option (listings package is not compatible).
-%	debug		= { xmp-export }, % if you want to check your metadata (xmpi file).
-%}
+%% Minimal DocumentMetadata: registers PDF infrastructure so hyperxmp contact-info keys
+%% (pdfcontactaddress, etc.) are defined by the mitthesis class without error.
+%% tagging/pdfstandard accessibility options are intentionally omitted -- they trigger
+%% LaTeX3 environment tracking that conflicts with \beq/\eeq inside biblatex refsections.
+\DocumentMetadata
+{
+	lang       = en-US,
+	pdfversion = 1.7,
+%	pdfstandard = a-2b,   % disabled: conflicts with \beq/\eeq in refsections
+%	tagging     = on,     % disabled: requires lualatex + no listings package
+%	debug       = { xmp-export },
+}
 
 %%%%%%%%%  Documentclass and options  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

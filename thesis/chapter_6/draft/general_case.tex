@@ -17,7 +17,7 @@ Note this is more memory efficient than holding all the weights in memory at the
 
 To compute the precision statistic, we now compute
 \beq\begin{split}
-    \hat{\Pi}[\hat{p}] &= \frac{1}{2\ln(2)}\bigg[\bigg(\frac{\Nobs^2}{\Nsamp}\sum_{n=1}^{\Nsamp}\sigma^2_{\ln \xi}(\Lambda_n) - \bar{K}_{\ln\xi}(\Lambda_n)\right) + \\ &\qquad \sum_{i=1}^{\Nobs}\left(\frac{1}{\Nsamp}\sum_{n=1}^{\Nsamp}\sigma^2_{\ln p_i}(\Lambda_n) - \bar{K}_{\ln p_i}(\Lambda_n)\bigg)\bigg]
+    \hat{\Pi}[\hat{p}] &= \frac{1}{2\ln(2)}\bigg[\bigg(\frac{\Nobs^2}{\Nsamp}\sum_{n=1}^{\Nsamp}\sigma^2_{\ln \xi}(\Lambda_n) - \bar{K}_{\ln\xi}(\Lambda_n)\bigg) + \\ &\qquad \sum_{i=1}^{\Nobs}\bigg(\frac{1}{\Nsamp}\sum_{n=1}^{\Nsamp}\sigma^2_{\ln p_i}(\Lambda_n) - \bar{K}_{\ln p_i}(\Lambda_n)\bigg)\bigg]
     \label{eq: accelerated precision statistic}
 \end{split}\eeq
 and noticed the first term is the uncertainty in the posterior estimator due to uncertainty in the selection efficiency integral, and the second term is the uncertainty in the posterior estimator due to each single-event Monte Carlo integral. The package \texttt{population-error} provides these values as well. 
