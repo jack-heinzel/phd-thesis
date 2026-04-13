@@ -1,101 +1,111 @@
-\PassOptionsToPackage{dvipsnames, usenames}{xcolor}
-\documentclass[twocolumn, twocolappendix]{aastex631}
+%\PassOptionsToPackage{dvipsnames, usenames}{xcolor}
+%\documentclass[twocolumn, twocolappendix]{aastex631}
+%
+%
+%%\submitjournal{ApJL}
+%
+%\usepackage{acronym}
+%\usepackage{bold-extra}
+%\usepackage[T1]{fontenc}
+%\usepackage{multirow}
+%\usepackage{physics}
+%\usepackage{orcidlink}
+%\usepackage{xspace}
+%\usepackage{makecell}
+%\usepackage[normalem]{ulem}
+%
+%
+%\input{acronyms}
+%
+%\newcommand{\qone}{0.4}
+%\newcommand{\qtwo}{0.82}
+%\newcommand{\mpeak}{18.7}
+%\newcommand{\xeffone}{0}
+%\newcommand{\xefftwo}{0.25}
+%\newcommand{\zone}{0.2}
+%\newcommand{\ztwo}{0.8}
+%
+%\newcommand{\qonetruezone}{6}
+%\newcommand{\qtwotruezone}{102}
+%\newcommand{\qonetrueztwo}{8}
+%\newcommand{\qtwotrueztwo}{143}
+%
+%\newcommand{\mpeaktruezone}{26}
+%\newcommand{\mpeaktrueztwo}{39}
+%
+%\newcommand{\xeffonetruezone}{285}
+%\newcommand{\xefftwotruezone}{16}
+%
+%\newcommand{\xeffonetrueztwo}{388}
+%\newcommand{\xefftwotrueztwo}{39}
+%
+%
+%\newcommand{\chieff}{\ensuremath{\chi_\mathrm{eff}}}
+%\newcommand{\chip}{\chi_\mathrm{p}}
+%\newcommand{\mc}{\mathcal{M}_\mathrm{c}}
+%\newcommand{\Ndet}{N_\mathrm{det}}
+%\newcommand{\Nobs}{N_\mathrm{obs}}
+%%\newcommand{\dataset}{\{d_i\}_{i=1}^{\Nobs}}
+%\newcommand{\Msun}{M_\odot}
+%\newcommand{\rateunit}
+%{\mathrm{Gpc^{-3}\,yr^{-1}}}
+%\newcommand{\relrate}{\Delta\mathcal{R}/\bar{\mathcal{R}}}
+%
+%\newcommand{\pp}{\textsc{Power Law + Peak}xspace}
+%\newcommand{\pr}{\textsc{Power Law}\xspace}
+%\newcommand{\PixelPop}{\textsc{PixelPop}\xspace}
+%\newcommand{\PeakTukey}{\textsc{Peak + Tukey}\xspace}
+%\newcommand{\Hybrid}{\textsc{Hybrid}\xspace}
+%
+%\newcommand{\comment}[1]{}
+%\newcommand{\red}[1]{{\color{Red} #1}}
+%\newcommand{\sa}[1]{{\bf\color{Thistle}SA: #1}}
+%\newcommand{\jh}[1]{{\color{orange}JH: #1}}
+%\newcommand{\mm}[1]{{\bf\color{ForestGreen}MM: #1}}
+%\newcommand{\sv}[1]{{\textcolor{BurntOrange}{\sf{[sv:#1]}}}\xspace}
+%
+%%\hypersetup{hidelinks}
+%
+%\begin{document}
+%%% ============================================================
+%%% Thesis chapter heading (replaces journal \maketitle block)
+%%% ============================================================
+\chapter{Nowhere Left to Hide: Revealing Realistic Gravitational-Wave Populations in High Dimensions and High Resolution with \PixelPop}
+%\title{...}\author{...}  % journal header — commented out
 
+%% Chapter-specific macros (preamble was commented out; restore here with \providecommand)
+\input{thesis/chapter_5/acronyms}
+\providecommand{\PixelPop}{\textsc{PixelPop}\xspace}
+\providecommand{\PeakTukey}{\textsc{Peak + Tukey}\xspace}
+\providecommand{\Hybrid}{\textsc{Hybrid}\xspace}
+\providecommand{\chip}{\chi_\mathrm{p}}
+\providecommand{\Ndet}{N_\mathrm{det}}
+\providecommand{\rateunit}{\mathrm{Gpc^{-3}\,yr^{-1}}}
+\providecommand{\relrate}{\Delta\mathcal{R}/\bar{\mathcal{R}}}
+\providecommand{\pp}{\textsc{Power Law + Peak}\xspace}
+\providecommand{\pr}{\textsc{Power Law}\xspace}
+\providecommand{\Msun}{M_\odot}
+\providecommand{\qone}{0.4}
+\providecommand{\qtwo}{0.82}
+\providecommand{\mpeak}{18.7}
+\providecommand{\xeffone}{0}
+\providecommand{\xefftwo}{0.25}
+\providecommand{\zone}{0.2}
+\providecommand{\ztwo}{0.8}
+\providecommand{\qonetruezone}{6}
+\providecommand{\qtwozone}{102}
+\providecommand{\qonetrueztwo}{8}
+\providecommand{\qtwotrueztwo}{143}
+\providecommand{\mpeaktruezone}{26}
+\providecommand{\mpeaktrueztwo}{39}
+\providecommand{\xeffonetruezone}{285}
+\providecommand{\xefftwotruezone}{16}
+\providecommand{\xeffonetrueztwo}{388}
+\providecommand{\xefftwotrueztwo}{39}
 
-%\submitjournal{ApJL}
-
-\usepackage{acronym}
-\usepackage{bold-extra}
-\usepackage[T1]{fontenc}
-\usepackage{multirow}
-\usepackage{physics}
-\usepackage{orcidlink}
-\usepackage{xspace}
-\usepackage{makecell}
-\usepackage[normalem]{ulem}
-
-
-\input{acronyms}
-
-\newcommand{\qone}{0.4}
-\newcommand{\qtwo}{0.82}
-\newcommand{\mpeak}{18.7}
-\newcommand{\xeffone}{0}
-\newcommand{\xefftwo}{0.25}
-\newcommand{\zone}{0.2}
-\newcommand{\ztwo}{0.8}
-
-\newcommand{\qonetruezone}{6}
-\newcommand{\qtwotruezone}{102}
-\newcommand{\qonetrueztwo}{8}
-\newcommand{\qtwotrueztwo}{143}
-
-\newcommand{\mpeaktruezone}{26}
-\newcommand{\mpeaktrueztwo}{39}
-
-\newcommand{\xeffonetruezone}{285}
-\newcommand{\xefftwotruezone}{16}
-
-\newcommand{\xeffonetrueztwo}{388}
-\newcommand{\xefftwotrueztwo}{39}
-
-
-\newcommand{\chieff}{\ensuremath{\chi_\mathrm{eff}}}
-\newcommand{\chip}{\chi_\mathrm{p}}
-\newcommand{\mc}{\mathcal{M}_\mathrm{c}}
-\newcommand{\Ndet}{N_\mathrm{det}}
-\newcommand{\Nobs}{N_\mathrm{obs}}
-%\newcommand{\dataset}{\{d_i\}_{i=1}^{\Nobs}}
-\newcommand{\Msun}{M_\odot}
-\newcommand{\rateunit}
-{\mathrm{Gpc^{-3}\,yr^{-1}}}
-\newcommand{\relrate}{\Delta\mathcal{R}/\bar{\mathcal{R}}}
-
-\newcommand{\pp}{\textsc{Power Law + Peak}xspace}
-\newcommand{\pr}{\textsc{Power Law}\xspace}
-\newcommand{\PixelPop}{\textsc{PixelPop}\xspace}
-\newcommand{\PeakTukey}{\textsc{Peak + Tukey}\xspace}
-\newcommand{\Hybrid}{\textsc{Hybrid}\xspace}
-
-\newcommand{\comment}[1]{}
-\newcommand{\red}[1]{{\color{Red} #1}}
-\newcommand{\sa}[1]{{\bf\color{Thistle}SA: #1}}
-\newcommand{\jh}[1]{{\color{orange}JH: #1}}
-\newcommand{\mm}[1]{{\bf\color{ForestGreen}MM: #1}}
-\newcommand{\sv}[1]{{\textcolor{BurntOrange}{\sf{[sv:#1]}}}\xspace}
-
-%\hypersetup{hidelinks}
-
-\begin{document}
-
-\title{
-Nowhere left to hide: revealing realistic gravitational-wave populations in high dimensions and high resolution with \PixelPop}
-
-\author{Sofía Álvarez-López\,\orcidlink{0009-0003-8040-4936}} 
-\email{sofiaal@mit.edu}
-\affiliation{LIGO Laboratory, Massachusetts Institute of Technology, Cambridge, MA 02139, USA}
-\affiliation{Kavli Institute for Astrophysics and Space Research, Massachusetts Institute of Technology, Cambridge, MA 02139, USA}
-\affiliation{Department of Physics, Massachusetts Institute of Technology, Cambridge, MA 02139, USA}
-
-\author{Jack Heinzel\,\orcidlink{0000-0002-5794-821X}}      
-\affiliation{LIGO Laboratory, Massachusetts Institute of Technology, Cambridge, MA 02139, USA}
-\affiliation{Kavli Institute for Astrophysics and Space Research, Massachusetts Institute of Technology, Cambridge, MA 02139, USA}
-\affiliation{Department of Physics, Massachusetts Institute of Technology, Cambridge, MA 02139, USA}
-
-\author{Matthew Mould\,\orcidlink{0000-0001-5460-2910}}
-\affiliation{LIGO Laboratory, Massachusetts Institute of Technology, Cambridge, MA 02139, USA}
-\affiliation{Kavli Institute for Astrophysics and Space Research, Massachusetts Institute of Technology, Cambridge, MA 02139, USA}
-\affiliation{Department of Physics, Massachusetts Institute of Technology, Cambridge, MA 02139, USA}
-
-\author{Salvatore Vitale\,\orcidlink{0000-0003-2700-0767}}  
-\affiliation{LIGO Laboratory, Massachusetts Institute of Technology, Cambridge, MA 02139, USA}
-\affiliation{Kavli Institute for Astrophysics and Space Research, Massachusetts Institute of Technology, Cambridge, MA 02139, USA}
-\affiliation{Department of Physics, Massachusetts Institute of Technology, Cambridge, MA 02139, USA}
-
-
-\begin{abstract}
+\begin{chapterabstract}
 The origins of merging compact binaries observed by the LIGO--Virgo--KAGRA gravitational-wave detectors remain uncertain, with multiple astrophysical channels possibly contributing to the merger rate. Formation processes can imprint nontrivial correlations in the underlying distribution of source properties, but current understanding of the overall population relies heavily on simplified and uncorrelated parametric models. In this work, we use \PixelPop---a high-resolution Bayesian nonparametric model with minimal assumptions---to analyze multidimensional correlations in the astrophysical distribution of masses, spins, and redshifts of black-hole mergers from mock gravitational-wave catalogs constructed using population-synthesis simulations. With full parameter estimation on 400 detections at current sensitivities, we show explicitly that neglecting population-level correlations biases inference. In contrast, modeling all significant correlations with \PixelPop allows us to correctly measure the astrophysical merger rate across all source parameters. We then propose a nonparametric method to distinguish between different formation channels by comparing the \PixelPop results back to astrophysical simulations. For our simulated catalog, we find that only formation channels with significantly different physical processes are distinguishable, whereas channels that share evolutionary stages are not. Given the substantial uncertainties in source formation, our results highlight the necessity of multidimensional astrophysics-agnostic models like \PixelPop for robust interpretation of gravitational-wave catalogs.
-\end{abstract}
+\end{chapterabstract}
 
 \section{Introduction}
 \label{sec:introduction}
@@ -647,9 +657,7 @@ Using the \Hybrid model defined in Eq.~\eqref{eq:(3+1)d-model}, we can study the
 
 Note that the inferred merger-rate density $\mathcal{R}(\chieff; z)$ is consistent with the truth within the central 90\% posterior uncertainty at both $\chieff\approx0.05$ and $\chieff\approx0.2$. At these values, the flexibility of the spline that models the power-law index of the redshift evolution as a function of $\chieff$ is sufficient to capture the behavior of the true distribution. However, $\mathcal{R}(\chieff\approx0; z)$ (top panel) is only consistent within the 90\% credible interval for $z \lesssim 1$. For $z \gtrsim 1$, we see a significant deviation from the truth in the inferred merger rate evolution, which we also find when considering point estimates for the source properties of events in our catalog. The observed bias results from the redshift dependence on the effective spin evolving more steeply around the $\chieff\approx0$ peak than allowed for by our $\chieff$-dependent spline model for the redshift power-law index. There is a visible difference in the shape of $\mathcal{R}(\chieff;z)$ at $\chieff\approx0$ and $\chieff\approx0.05$. In the first case, the true merger rate decreases with redshift for $z\gtrsim 0.5$ while in the second case, the true merger rate monotonically increases with redshift. Additionally, due to the binning we use in the \Hybrid model (i.e., 45 bins for the effective spin), $\chieff\approx0$ and $\chieff\approx0.05$ lie in different bins. To better resolve the fast evolution of the redshift distribution near the effective spin peak, we aim to explore in the future the use of adaptive binning for \PixelPop. This technique would allow to resolve with finer bins the area around the narrow $\chieff$ peak and possibly recover $\mathcal{R}(\chieff\approx0; z)$ closer to the true merger rate.
 
-\bibliography{main}
-\bibliographystyle{aasjournal}
+%\bibliography{main}           % commented out — global biblatex handles bibliography
+%\bibliographystyle{aasjournal}% commented out
 
-
-
-\end{document}
+%\end{document}  % commented out — document ends in MIT-Thesis.tex

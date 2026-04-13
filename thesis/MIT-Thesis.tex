@@ -1,3 +1,6 @@
+% Pass xcolor options before any package loads it
+\PassOptionsToPackage{dvipsnames,usenames}{xcolor}
+%
 % !TEX encoding = UTF-8 Unicode
 % !BIB TS-program = biber
 %
@@ -63,6 +66,25 @@
 \usepackage{lipsum}
 \IfPackageAtLeastTF{lipsum}{2021/09/20}{\setlipsum{auto-lang=false}}{} % to avoid a hyphenation warning
 
+%% Packages needed for chapter content (journal papers)
+\usepackage{physics}         % \dd, \dv, braket notation, etc.
+\usepackage{bm}              % bold math symbols
+\usepackage{acronym}         % \ac, \acf, \acrodef, etc.
+\usepackage{orcidlink}       % clickable ORCID profile links
+\usepackage{xspace}          % smart spacing after macros
+\usepackage{bbm}             % \mathbbm blackboard bold
+\usepackage{multirow}        % multi-row table cells
+\usepackage[caption=false]{subfig} % sub-figures (caption=false avoids caption pkg conflict)
+\usepackage{gensymb}         % \degree symbol
+\usepackage{mathtools}       % extends amsmath
+\usepackage[]{url}           % URL formatting in bibliography
+\usepackage[normalem]{ulem}  % \uline, \sout (normalem keeps \emph intact)
+\usepackage{makecell}        % \makecell in tables
+\usepackage{supertabular}    % multi-page tables
+\usepackage{bold-extra}      % bold small caps (\textbf{\textsc{...}})
+\usepackage{tikz}
+\usetikzlibrary{bayesnet}    % Bayesian-network diagrams (chapter 6)
+
 
 %%%%%%%%%  Other optional packages used sample chapters  %%%%%%%%%%%%%%%%%%
 
@@ -93,9 +115,30 @@
 %%%%%%%%%  Graphics path (to figure files)  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Can set graphicspath to point to specific directories containing figures (the current directory is searched automatically)
-%% For instance, to search a subdirectory of the current directory called "figures" and a parallel directory called "art", set:
-
-% \graphicspath{ {figures/} {../art/} }% For details see: https://latexref.xyz/dev/latex2e.html#g_t_005cgraphicspath
+%% Search all chapter figure directories so \includegraphics works from the project root.
+\graphicspath{
+  {thesis/chapter_1/plots/}
+  {thesis/chapter_2/}
+  {thesis/chapter_3/plots/}
+  {thesis/chapter_3/plots/posterior_samples/}
+  {thesis/chapter_3/plots/prior_samples/}
+  {thesis/chapter_4/plots/}
+  {thesis/chapter_4/arxiv/plots/}
+  {thesis/chapter_5/plots/}
+  {thesis/chapter_5/plots/posterior_samples/}
+  {thesis/chapter_5/plots/prior_samples/}
+  {thesis/chapter_6/draft/}
+  {thesis/chapter_6/draft/plots/}
+  {thesis/chapter_6/draft/plots/gaus_hierarchical/}
+  {thesis/chapter_6/draft/plots/gaus_hierarchical/pe_uncertainty_only/}
+  {thesis/chapter_6/draft/plots/gaus_hierarchical/selection_effects/}
+  {thesis/chapter_6/draft/plots/gw/}
+  {thesis/chapter_6/draft/plots/gw/spins/}
+  {thesis/chapter_6/draft/plots/n_dimensional_posteriors/}
+  {thesis/chapter_6/draft/plots/n_dimensional_posteriors/large_noise/}
+  {thesis/chapter_6/draft/plots/n_dimensional_posteriors/standard_noise/}
+}
+%% For details see: https://latexref.xyz/dev/latex2e.html#g_t_005cgraphicspath
 
 
 %%%%%%%%%  Representative set-up for biblatex  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -105,7 +148,7 @@
 %%   cheat sheet is here:   https://tug.ctan.org/info/biblatex-cheatsheet/biblatex-cheatsheet.pdf
 
 %% Numerical citations of references
-\usepackage[style=ext-numeric-comp,giveninits=true,maxbibnames=10,sorting=none,language=american]{biblatex}
+\usepackage[style=ext-numeric-comp,giveninits=true,maxbibnames=10,sorting=none,language=american,natbib=true]{biblatex}
 
 % and make some changes to that style
 	\renewcommand{\multicitedelim}{\addcomma}% removes space between consecutive cites to give [6,7], not [6, 7]
@@ -145,7 +188,14 @@
 % \usepackage[style=authoryear, maxbibnames=10]{biblatex} 
 
 
-\addbibresource{mitthesis-sample.bib}%% <== change to YOUR bib file <========= CHANGE !!
+\addbibresource{mitthesis-sample.bib}%% kept for sample appendices
+%% Chapter bibliography files
+\addbibresource{thesis/chapter_1/references.bib}
+\addbibresource{thesis/chapter_2/main.bib}
+\addbibresource{thesis/chapter_3/main.bib}
+\addbibresource{thesis/chapter_4/arxiv/main.bib}
+\addbibresource{thesis/chapter_5/main.bib}
+\addbibresource{thesis/chapter_6/draft/main.bib}
 
 
 %% to avoid split urls and stretched white space, you can make the bibliography ragged-right by uncommenting this:
@@ -214,6 +264,61 @@
 \DeclarePairedDelimiterXPP\erf[1]{\Erf\mkern1mu}(){}{#1}% increase to 2mu with stix2 font
 \DeclarePairedDelimiterXPP\erfc[1]{\Erfc\mkern1mu}(){}{#1}
 
+
+%%%%%%%%%%  Compatibility layer for journal-paper chapters  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% RevTeX / AASTeX commands that don't exist in mitthesis -- make them no-ops.
+%% The author/affiliation blocks in each chapter are commented out anyway; these
+%% definitions are a safety net in case any stray usage slips through.
+\providecommand{\affiliation}[1]{}
+\providecommand{\email}[1]{}
+
+%% natbib alias commands used in chapter 1 (MNRAS paper).
+%% biblatex with natbib=true does not provide \defcitealias / \citetalias.
+\providecommand{\defcitealias}[2]{}          % no-op (alias defined inline where needed)
+\providecommand{\citetalias}[1]{\cite{#1}}   % fall back to regular cite
+\providecommand{\citealias}[1]{\cite{#1}}
+
+%% Abstract block used inside chapters (distinct from the document-level \begin{abstract}).
+\newenvironment{chapterabstract}%
+  {\begin{quote}\small\noindent\textit{Abstract:}~}%
+  {\end{quote}}
+
+%% PRL-style inline heading (chapter 4 letter format).
+\providecommand{\heading}[1]{\textbf{\textit{#1.}}}
+
+%%% Shared physics / notation commands (defined once; chapters use \providecommand) %%%%%%%%%%%%%
+
+\newcommand{\chieff}{\chi_{\rm eff}}
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\bdm}{\begin{displaymath}}
+\newcommand{\edm}{\end{displaymath}}
+\newcommand{\nn}{\nonumber}
+\newcommand{\drm}{{\rm d}}
+\newcommand{\irm}{{\rm i}}
+\newcommand{\Cdot}{\!\cdot\!}
+\newcommand{\SNR}{\textnormal{SNR}}
+\newcommand{\pvtwo}{\texttt{IMRPhenomPv2}}
+\newcommand{\xphm}{\texttt{IMRPhenomXPHM}}
+\newcommand{\pastro}{p_{\rm astro}}
+\newcommand{\pastroi}{p_{{\rm astro},i}}
+\newcommand{\pastroyj}{p_{{\rm astro}, \gamma(j)}}
+\newcommand{\pastroyzj}{p_{{\rm astro}, \gamma_0(j)}}
+\newcommand{\mcdet}{\mathcal{M}_{\rm c,det}}
+\newcommand{\dynesty}{\textsc{dynesty}\xspace}
+\newcommand{\etabar}{\overline{\eta}}
+\newcommand{\Nobs}{N_{\rm obs}}
+\newcommand{\dataset}{\{d_i\}_{i=1}^{\Nobs}}
+\newcommand{\mc}{\mathcal{M}_c}
+%%% Review / editing comment commands (silenced here; restore colors for drafting) %%
+\newcommand{\sv}[1]{{\textcolor{BurntOrange}{[sv: #1]}}}
+\newcommand{\jh}[1]{{\textcolor{magenta}{\texttt{JH: #1}}}}
+\newcommand{\mm}[1]{{\textcolor{cyan}{[MM: #1]}}}
+\newcommand{\sa}[1]{{\textcolor{violet}{[SA: #1]}}}
+\newcommand{\rednote}[1]{{\color{Red} #1}}
+\newcommand{\red}[1]{{\color{Red} #1}}
+\newcommand{\comment}[1]{}
 
 %%%%%%%%%%%%%%  End preamble %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

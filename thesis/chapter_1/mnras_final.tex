@@ -1,131 +1,135 @@
-
-% mnras_template.tex 
 %
-% LaTeX template for creating an MNRAS paper
+%% mnras_template.tex 
+%%
+%% LaTeX template for creating an MNRAS paper
+%%
+%% v3.0 released 14 May 2015
+%% (version numbers match those of mnras.cls)
+%%
+%% Copyright (C) Royal Astronomical Society 2015
+%% Authors:
+%% Keith T. Smith (Royal Astronomical Society)
 %
-% v3.0 released 14 May 2015
-% (version numbers match those of mnras.cls)
+%% Change log
+%%
+%% v3.0 May 2015
+%%    Renamed to match the new package name
+%%    Version number matches mnras.cls
+%%    A few minor tweaks to wording
+%% v1.0 September 2013
+%%    Beta testing only - never publicly released
+%%    First version: a simple (ish) template for creating an MNRAS paper
 %
-% Copyright (C) Royal Astronomical Society 2015
-% Authors:
-% Keith T. Smith (Royal Astronomical Society)
-
-% Change log
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Basic setup. Most papers should leave these options alone.
+%\documentclass[fleqn,usenatbib]{mnras}
 %
-% v3.0 May 2015
-%    Renamed to match the new package name
-%    Version number matches mnras.cls
-%    A few minor tweaks to wording
-% v1.0 September 2013
-%    Beta testing only - never publicly released
-%    First version: a simple (ish) template for creating an MNRAS paper
+%% MNRAS is set in Times font. If you don't have this installed (most LaTeX
+%% installations will be fine) or prefer the old Computer Modern fonts, comment
+%% out the following line
+%\usepackage{newtxtext,newtxmath}
+%% Depending on your LaTeX fonts installation, you might get better results with one of these:
+%%\usepackage{mathptmx}
+%%\usepackage{txfonts}
+%
+%% Use vector fonts, so it zooms properly in on-screen viewing software
+%% Don't change these lines unless you know what you are doing
+%\usepackage[T1]{fontenc}
+%\usepackage{ae,aecompl}
+%\usepackage{multirow}
+%\usepackage{tabularx}
+%\usepackage{supertabular}
+%\usepackage{longtable}
+%\usepackage[normalem]{ulem}
+%
+%\defcitealias{LVK_injection_set}{LVK~\citeyearpar{LVK_injection_set}}
+%
+%%%%%% AUTHORS - PLACE YOUR OWN PACKAGES HERE %%%%%
+%\usepackage[]{url}
+%% Only include extra packages if you really need them. Common packages are:
+%\usepackage{graphicx}	% Including figure files
+%%\usepackage{amsmath}	% Advanced maths commands
+%%\usepackage{amssymb}	% Extra maths symbols
+%%\usepackage{caption}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%%%%%% AUTHORS - PLACE YOUR OWN COMMANDS HERE %%%%%
+%\def\deg{$^{\circ}$}
+%% Please keep new commands to a minimum, and use \newcommand not \def to avoid
+%% overwriting existing commands. Example:
+%%\newcommand{\pcm}{\,cm$^{-2}$}	% per cm-squared
+%\usepackage{multirow}
+%\usepackage[left]{lineno}
+%\usepackage{booktabs}
+%\usepackage{gensymb}
+%\usepackage{color}
+%\usepackage[dvipsnames]{xcolor}
+%
+%\usepackage[caption = false]{subfig}
+%
+%%\usepackahttps://www.overleaf.com/project/5bb3afde92734f6c26b6e2c6ge[doublespacing]{setspace}
+%
+%\newcommand{\braket}[2]{\left\langle#1\, |\,#2\,\right\rangle}  %  < #1 | #2 >
+%\newcommand{\expec}[1]{\langle#1\rangle}  %  < #1 >
+%\newcommand{\drm}{{\rm d}}
+%\newcommand{\irm}{{\rm i}}
+%\newcommand{\nn}{\nonumber}
+%\newcommand{\beq}{\begin{equation}}
+%\newcommand{\eeq}{\end{equation}}
+%\newcommand{\bdm}{\begin{displaymath}}
+%\newcommand{\edm}{\end{displaymath}}
+%\newcommand{\T}[1]{\tilde{#1}}
+%\newcommand{\wT}[1]{\widetilde{#1}}
+%\newcommand{\Cdot}{\!\cdot\!}
+%\newcommand{\SNR}{\textnormal{SNR}}
+%\newcommand{\rednote}[1]{{\color{red} (#1)}}
+%\newcommand{\pvtwo}{\texttt{IMRPhenomPv2}}
+%\newcommand{\xphm}{\texttt{IMRPhenomXPHM}}
+%\newcommand{\pastro}{p_{\rm astro}}
+%\newcommand{\pastroi}{p_{{\rm astro},i}}
+%\newcommand{\pastroyj}{p_{{\rm astro}, \gamma(j)}}
+%\newcommand{\pastroyzj}{p_{{\rm astro}, \gamma_0(j)}}
+%\newcommand{\mcdet}{\mathcal{M}_{\rm c,det}}
+%\newcommand{\chieff}{\chi_{\rm eff}}
+%\newcommand{\dynesty}{\textsc{dynesty}}
+%\newcommand{\etabar}{\overline{\eta}}
+%\newcommand{\Nblipexp}{\left\langle N_{\rm blip}\right\rangle}
+%\definecolor{Gray}{gray}{0.9}
+%\definecolor{orange}{rgb}{0.9,0.5,0}
+%\newcommand{\jh}[1]{{\textcolor{magenta}{\texttt{JH: #1}}}}
+%\newcommand{\sv}[1]{{\textcolor{BurntOrange}{{sv: #1}}}}
+%
+%
+%\graphicspath{{./plots/}}
+%
+%
+%\title[Inferring Population of GWs in Presence of Noise]{Inferring the Astrophysical Population of Gravitational Wave Sources in the Presence of Noise Transients}
+%
+%\author[J.~Heinzel~et~al.]{
+%Jack~Heinzel$^{1,2}$,
+%Colm~Talbot$^{1,2}$, 
+%Gregory~Ashton$^{3}$,
+%Salvatore~Vitale$^{1,2}$\\
+%${}^1$ LIGO, Massachusetts Institute of Technology, 77 Massachusetts Avenue, Cambridge, MA 02139, USA \\
+%${}^2$ Kavli Institute for Astrophysics and Space Research and Department of Physics, \\ Massachusetts Institute of Technology, 77 Massachusetts Avenue, Cambridge, MA 02139, USA \\
+%${}^3$ Department of Physics, Royal Holloway, University of London, TW20 0EX, United Kingdom, 
+%}
+%
+%
+%\begin{document}
+%%% ============================================================
+%%% Thesis chapter heading (replaces journal \maketitle block)
+%%% ============================================================
+\chapter{Inferring the Astrophysical Population of Gravitational Wave Sources in the Presence of Noise Transients}
+%\maketitle  % commented out
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Basic setup. Most papers should leave these options alone.
-\documentclass[fleqn,usenatbib]{mnras}
+\begin{chapterabstract}
+The global network of interferometric gravitational wave (GW) observatories (LIGO, Virgo, KAGRA) has detected and characterized nearly 100 mergers of binary compact objects. However, many more real GWs are lurking sub-threshold, which need to be sifted from terrestrial-origin noise triggers (known as glitches). Because glitches are not due to astrophysical phenomena, inference on the glitch under the assumption it has an astrophysical source (e.g. binary black hole coalescence) results in source parameters that are inconsistent with what is known about the astrophysical population. In this work, we show how one can extract unbiased population constraints from a catalog of both real GW events and glitch contaminants by performing Bayesian inference on their source populations simultaneously. In this paper, we assume glitches come from a specific class with a well-characterized effective population (blip glitches). We also calculate posteriors on the probability of each event in the catalog belonging to the astrophysical or glitch class, and obtain posteriors on the number of astrophysical events in the catalog, finding it to be consistent with the actual number of events included.
+\end{chapterabstract}
 
-% MNRAS is set in Times font. If you don't have this installed (most LaTeX
-% installations will be fine) or prefer the old Computer Modern fonts, comment
-% out the following line
-\usepackage{newtxtext,newtxmath}
-% Depending on your LaTeX fonts installation, you might get better results with one of these:
-%\usepackage{mathptmx}
-%\usepackage{txfonts}
-
-% Use vector fonts, so it zooms properly in on-screen viewing software
-% Don't change these lines unless you know what you are doing
-\usepackage[T1]{fontenc}
-\usepackage{ae,aecompl}
-\usepackage{multirow}
-\usepackage{tabularx}
-\usepackage{supertabular}
-\usepackage{longtable}
-\usepackage[normalem]{ulem}
-
-\defcitealias{LVK_injection_set}{LVK~\citeyearpar{LVK_injection_set}}
-
-%%%%% AUTHORS - PLACE YOUR OWN PACKAGES HERE %%%%%
-\usepackage[]{url}
-% Only include extra packages if you really need them. Common packages are:
-\usepackage{graphicx}	% Including figure files
-%\usepackage{amsmath}	% Advanced maths commands
-%\usepackage{amssymb}	% Extra maths symbols
-%\usepackage{caption}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%% AUTHORS - PLACE YOUR OWN COMMANDS HERE %%%%%
-\def\deg{$^{\circ}$}
-% Please keep new commands to a minimum, and use \newcommand not \def to avoid
-% overwriting existing commands. Example:
-%\newcommand{\pcm}{\,cm$^{-2}$}	% per cm-squared
-\usepackage{multirow}
-\usepackage[left]{lineno}
-\usepackage{booktabs}
-\usepackage{gensymb}
-\usepackage{color}
-\usepackage[dvipsnames]{xcolor}
-
-\usepackage[caption = false]{subfig}
-
-%\usepackahttps://www.overleaf.com/project/5bb3afde92734f6c26b6e2c6ge[doublespacing]{setspace}
-
-\newcommand{\braket}[2]{\left\langle#1\, |\,#2\,\right\rangle}  %  < #1 | #2 >
-\newcommand{\expec}[1]{\langle#1\rangle}  %  < #1 >
-\newcommand{\drm}{{\rm d}}
-\newcommand{\irm}{{\rm i}}
-\newcommand{\nn}{\nonumber}
-\newcommand{\beq}{\begin{equation}}
-\newcommand{\eeq}{\end{equation}}
-\newcommand{\bdm}{\begin{displaymath}}
-\newcommand{\edm}{\end{displaymath}}
-\newcommand{\T}[1]{\tilde{#1}}
-\newcommand{\wT}[1]{\widetilde{#1}}
-\newcommand{\Cdot}{\!\cdot\!}
-\newcommand{\SNR}{\textnormal{SNR}}
-\newcommand{\rednote}[1]{{\color{red} (#1)}}
-\newcommand{\pvtwo}{\texttt{IMRPhenomPv2}}
-\newcommand{\xphm}{\texttt{IMRPhenomXPHM}}
-\newcommand{\pastro}{p_{\rm astro}}
-\newcommand{\pastroi}{p_{{\rm astro},i}}
-\newcommand{\pastroyj}{p_{{\rm astro}, \gamma(j)}}
-\newcommand{\pastroyzj}{p_{{\rm astro}, \gamma_0(j)}}
-\newcommand{\mcdet}{\mathcal{M}_{\rm c,det}}
-\newcommand{\chieff}{\chi_{\rm eff}}
-\newcommand{\dynesty}{\textsc{dynesty}}
-\newcommand{\etabar}{\overline{\eta}}
-\newcommand{\Nblipexp}{\left\langle N_{\rm blip}\right\rangle}
-\definecolor{Gray}{gray}{0.9}
-\definecolor{orange}{rgb}{0.9,0.5,0}
-\newcommand{\jh}[1]{{\textcolor{magenta}{\texttt{JH: #1}}}}
-\newcommand{\sv}[1]{{\textcolor{BurntOrange}{{sv: #1}}}}
-
-
-\graphicspath{{./plots/}}
-
-
-\title[Inferring Population of GWs in Presence of Noise]{Inferring the Astrophysical Population of Gravitational Wave Sources in the Presence of Noise Transients}
-
-\author[J.~Heinzel~et~al.]{
-Jack~Heinzel$^{1,2}$,
-Colm~Talbot$^{1,2}$, 
-Gregory~Ashton$^{3}$,
-Salvatore~Vitale$^{1,2}$\\
-${}^1$ LIGO, Massachusetts Institute of Technology, 77 Massachusetts Avenue, Cambridge, MA 02139, USA \\
-${}^2$ Kavli Institute for Astrophysics and Space Research and Department of Physics, \\ Massachusetts Institute of Technology, 77 Massachusetts Avenue, Cambridge, MA 02139, USA \\
-${}^3$ Department of Physics, Royal Holloway, University of London, TW20 0EX, United Kingdom, 
-}
-
-
-\begin{document}
-\maketitle
-
-\begin{abstract}
-The global network of interferometric gravitational wave (GW) observatories (LIGO, Virgo, KAGRA) has detected and characterized nearly 100 mergers of binary compact objects. However, many more real GWs are lurking sub-threshold, which need to be sifted from terrestrial-origin noise triggers (known as glitches). Because glitches are not due to astrophysical phenomena, inference on the glitch under the assumption it has an astrophysical source (e.g. binary black hole coalescence) results in source parameters that are inconsistent with what is known about the astrophysical population. In this work, we show how one can extract unbiased population constraints from a catalog of both real GW events and glitch contaminants by performing Bayesian inference on their source populations simultaneously. In this paper, we assume glitches come from a specific class with a well-characterized effective population (blip glitches). We also calculate posteriors on the probability of each event in the catalog belonging to the astrophysical or glitch class, and obtain posteriors on the number of astrophysical events in the catalog, finding it to be consistent with the actual number of events included. 
-\end{abstract}
-
-\begin{keywords}
-black hole mergers -- gravitational waves -- methods: data analysis -- methods: statistical
-\end{keywords}
+%\begin{keywords}
+%black hole mergers -- gravitational waves -- methods: data analysis -- methods: statistical
+%\end{keywords}
 
 \section{Introduction}
 
@@ -247,7 +251,7 @@ and a selection function
 \eeq
 Eq. \ref{eq:mixture_model} treats the glitch population as an additional ``astrophysical'' population, albeit occupying a different region of parameter space from the population of true astrophysical BBHs. 
 
-There is one additional caveat. In the LVK population analysis of \cite{PhysRevX.13.011048}, events included in the catalog are selected by their FAR ($< 1 {\rm yr}^{-1}$), and so we would like to also select glitches by their FAR to match \cite{PhysRevX.13.011048}. However, this requires us to calculate FARs for many injections from a fiducial glitch population. Running search pipelines to calculate FARs of injected glitches may be necessary for a future study, however for this proof-of-principle paper it is simply too expensive. Instead, we select glitches for inclusion with a cheaper threshold, the signal-to-noise ratio (SNR). We can then estimate $\alpha_G(\Lambda_G)$ with a reweighted Monte Carlo estimator using a custom set of injections, and estimate $\alpha_A(\Lambda_A)$ with the injection set already provided in \citetalias{LVK_injection_set}. 
+There is one additional caveat. In the LVK population analysis of \cite{PhysRevX.13.011048}, events included in the catalog are selected by their FAR ($< 1 {\rm yr}^{-1}$), and so we would like to also select glitches by their FAR to match \cite{PhysRevX.13.011048}. However, this requires us to calculate FARs for many injections from a fiducial glitch population. Running search pipelines to calculate FARs of injected glitches may be necessary for a future study, however for this proof-of-principle paper it is simply too expensive. Instead, we select glitches for inclusion with a cheaper threshold, the signal-to-noise ratio (SNR). We can then estimate $\alpha_G(\Lambda_G)$ with a reweighted Monte Carlo estimator using a custom set of injections, and estimate $\alpha_A(\Lambda_A)$ with the injection set already provided in \cite{LVK_injection_set}. 
 
 \subsection{Characterizing the Glitch Population}
 \label{sec:glitchpop}
@@ -476,8 +480,8 @@ This material is based upon work supported by NSF’s LIGO Laboratory which is a
 The data underlying this work can be found on a zenodo data release at https://doi.org/10.5281/zenodo.7860652. The public gravitational wave data can be found in the Gravitational Wave Open Science Center \citep{theligoscientificcollaboration2023open}.
 
 
-\bibliographystyle{mnras}
-\bibliography{references}
+%\bibliographystyle{mnras}   % commented out — global biblatex handles bibliography
+%\bibliography{references}   % bib entries loaded via \addbibresource in MIT-Thesis.tex
 
 
 \section*{Appendix}
@@ -696,4 +700,4 @@ One may be tempted to use the $k$-expectation as it has continuous support, howe
 This kind of calculation can in principle be done for any population inference with a mixing fraction. That said, our populations are nearly disjoint and as such the posterior width on $\etabar$ is dominated by Poisson uncertainty, not uncertainty on which events in the catalog should belong to which sub-populations. For other population inferences with mixing fractions, the events may not be as easy to differentiate into sub-populations, and the uncertainty on the mixing fraction will have a larger contribution from this uncertainty. The $p_k(\Lambda)$ will have broader support and will more closely mimic the (appropriately rescaled) detectable mixing fraction posterior.
 
 
-\end{document} 
+%\end{document}  % commented out — document ends in MIT-Thesis.tex

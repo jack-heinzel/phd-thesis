@@ -1,58 +1,44 @@
-\documentclass[%
- reprint,
- amsmath,amssymb,
- aps,
- prd,nofootinbib,nobibnotes,
- superscriptaddress,groupedaddress,
-]{revtex4-2}
+%\documentclass[%
+% reprint,
+% amsmath,amssymb,
+% aps,
+% prd,nofootinbib,nobibnotes,
+% superscriptaddress,groupedaddress,
+%]{revtex4-2}
+%
+%% \bibliographystyle{apsrev4-1}
+%
+%\usepackage{graphicx}
+%\usepackage{dcolumn}
+%\usepackage{bm}
+%\usepackage[dvipsnames, usenames]{xcolor}
+%\usepackage{acronym}
+%\usepackage[hidelinks]{hyperref}
+%\usepackage{physics}
+%\usepackage{orcidlink}
+%
+%\graphicspath{{plots}{plots/posterior_samples}{plots/prior_samples}}
+%
+%\newcommand{\red}[1]{{\color{Red} #1}}
+%\newcommand{\jh}[1]{{\color{orange}JH: #1}}
+%\newcommand{\mm}[1]{{\color{cyan}MM: #1}}
+%\newcommand{\sa}[1]{{\color{violet}SA: #1}}
+%\newcommand{\sv}[1]{{\color{BurntOrange}SV: #1}}
+%\newcommand{\comment}[1]{}
+%
+%\newcommand{\ligo}{\affiliation{LIGO Laboratory, Massachusetts Institute of Technology, Cambridge, MA 02139, USA}}
+%\renewcommand{\mit}{\affiliation{Kavli Institute for Astrophysics and Space Research and Department of Physics, Massachusetts Institute of Technology, Cambridge, MA 02139, USA}}
+%
+%\begin{document}
+%%% ============================================================
+%%% Thesis chapter heading (replaces journal \maketitle block)
+%%% ============================================================
+\chapter{PixelPop: High Resolution Nonparametric Inference of Gravitational-Wave Populations in Multiple Dimensions}
+%\title{...}\author{...}\maketitle  % journal header — commented out
 
-% \bibliographystyle{apsrev4-1}
-
-\usepackage{graphicx}
-\usepackage{dcolumn}
-\usepackage{bm}
-\usepackage[dvipsnames, usenames]{xcolor}
-\usepackage{acronym}
-\usepackage[hidelinks]{hyperref}
-\usepackage{physics}
-\usepackage{orcidlink}
-
-\graphicspath{{plots}{plots/posterior_samples}{plots/prior_samples}}
-
-\newcommand{\red}[1]{{\color{Red} #1}}
-\newcommand{\jh}[1]{{\color{orange}JH: #1}}
-\newcommand{\mm}[1]{{\color{cyan}MM: #1}}
-\newcommand{\sa}[1]{{\color{violet}SA: #1}}
-\newcommand{\sv}[1]{{\color{BurntOrange}SV: #1}}
-\newcommand{\comment}[1]{}
-
-\newcommand{\ligo}{\affiliation{LIGO Laboratory, Massachusetts Institute of Technology, Cambridge, MA 02139, USA}}
-\renewcommand{\mit}{\affiliation{Kavli Institute for Astrophysics and Space Research and Department of Physics, Massachusetts Institute of Technology, Cambridge, MA 02139, USA}}
-
-\begin{document}
-
-\title{PixelPop: High Resolution Nonparameteric Inference of Gravitational-Wave Populations in Multiple Dimensions}
-
-\author{Jack Heinzel\,\orcidlink{0000-0002-5794-821X}}
-\email{heinzelj@mit.edu}
-\ligo\mit
-
-\author{Matthew Mould\,\orcidlink{0000-0001-5460-2910}}
-\ligo\mit
-
-\author{Sofía Álvarez-López\,\orcidlink{0009-0003-8040-4936}}
-\ligo\mit
-
-\author{Salvatore Vitale\,\orcidlink{0000-0003-2700-0767}}
-\ligo\mit
-
-\date{March 17, 2025}
-
-\begin{abstract}
+\begin{chapterabstract}
 The origins of merging compact binaries observed by gravitational-wave detectors remains highly uncertain. Several astrophysical channels may contribute to the overall merger rate, with distinct formation processes imprinted on the structure and correlations in the underlying distributions of binary source parameters. In the absence of confident theoretical models, the current understanding of this population mostly relies on simple parametric models that make strong assumptions and are prone to misspecification. Recent work has made progress using more flexible nonparametric models, but detailed measurement of the multidimensional population remains challenging. In pursuit of this, we present \textsc{PixelPop}---a high resolution Bayesian nonparametric model to infer joint distributions and parameter correlations with minimal assumptions. \textsc{PixelPop} densely bins the joint parameter space and directly infers the merger rate in each bin, assuming only that bins are coupled to their nearest neighbors. We demonstrate this method on mock populations with and without bivariate source correlations, employing several statistical metrics for information gain and correlation significance to quantify our nonparametric results. We show that \textsc{PixelPop} correctly recovers the true populations within posterior uncertainties and offers a conservative assessment of population-level features and parameter correlations. Its flexibility and tractability make it a useful data-driven tool to probe gravitational-wave populations in multiple dimensions.
-\end{abstract}
-
-\maketitle
+\end{chapterabstract}
 
 \section{Introduction}
 
@@ -774,6 +760,6 @@ This material is based upon work supported by NSF's LIGO Laboratory which is a m
 %
 The authors are grateful for computational resources provided by the LIGO Laboratory and supported by National Science Foundation Grants PHY-0757058 and PHY-0823459.
 
-\bibliography{main}
+%\bibliography{main}  % commented out — global biblatex handles bibliography
 
-\end{document}
+%\end{document}  % commented out — document ends in MIT-Thesis.tex

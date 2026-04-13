@@ -1,55 +1,44 @@
-\documentclass[%
- reprint,
- amsmath,amssymb,
- aps,
- prd,
- nofootinbib,nobibnotes,
-]{revtex4-2}
+%\documentclass[%
+% reprint,
+% amsmath,amssymb,
+% aps,
+% prd,
+% nofootinbib,nobibnotes,
+%]{revtex4-2}
+%
+%\bibliographystyle{apsrev4-1}
+%
+%\usepackage{graphicx}
+%\usepackage{dcolumn}
+%\usepackage{bm}
+%\usepackage[dvipsnames, usenames]{xcolor}
+%\usepackage{acronym}
+%\usepackage[hidelinks]{hyperref}
+%\usepackage{physics}
+%\usepackage{orcidlink}
+%
+%\graphicspath{{plots}}
+%
+%\newcommand{\rednote}[1]{{\color{Red} #1}}
+%\newcommand{\mm}[1]{{\color{cyan}MM: #1}}
+%\newcommand{\jh}[1]{{\color{orange}JH: #1}}
+%\newcommand{\sv}[1]{{\color{BurntOrange}SV: #1}}
+%\newcommand{\comment}[1]{}
+%\newcommand{\heading}[1]{\textbf{\textit{#1.}}}
+%
+%\newcommand{\ligo}{\affiliation{LIGO Laboratory, Massachusetts Institute of Technology, Cambridge, MA 02139, USA}}
+%\renewcommand{\mit}{\affiliation{Kavli Institute for Astrophysics and Space Research and Department of Physics, Massachusetts Institute of Technology, Cambridge, MA 02139, USA}}
+%
+%\begin{document}
+%%% ============================================================
+%%% Thesis chapter heading (replaces journal \maketitle block)
+%%% ============================================================
+\chapter{Nonparametric Analysis of Correlations in the Binary Black Hole Population with LIGO--Virgo--KAGRA Data}
+%\title{...}\author{...}\maketitle  % journal header — commented out
 
-\bibliographystyle{apsrev4-1}
-
-\usepackage{graphicx}
-\usepackage{dcolumn}
-\usepackage{bm}
-\usepackage[dvipsnames, usenames]{xcolor}
-\usepackage{acronym}
-\usepackage[hidelinks]{hyperref}
-\usepackage{physics}
-\usepackage{orcidlink}
-
-\graphicspath{{plots}}
-
-\newcommand{\rednote}[1]{{\color{Red} #1}}
-\newcommand{\mm}[1]{{\color{cyan}MM: #1}}
-\newcommand{\jh}[1]{{\color{orange}JH: #1}}
-\newcommand{\sv}[1]{{\color{BurntOrange}SV: #1}}
-\newcommand{\comment}[1]{}
-\newcommand{\heading}[1]{\textbf{\textit{#1.}}}
-
-\newcommand{\ligo}{\affiliation{LIGO Laboratory, Massachusetts Institute of Technology, Cambridge, MA 02139, USA}}
-\renewcommand{\mit}{\affiliation{Kavli Institute for Astrophysics and Space Research and Department of Physics, Massachusetts Institute of Technology, Cambridge, MA 02139, USA}}
-
-\begin{document}
-
-\title{Nonparametric analysis of correlations in the binary black hole population with LIGO--Virgo--KAGRA data}
-
-\author{Jack Heinzel\,\orcidlink{0000-0002-5794-821X}}
-\email{heinzelj@mit.edu}
-\ligo\mit
-
-\author{Matthew Mould\,\orcidlink{0000-0001-5460-2910}}
-\ligo\mit
-
-\author{Salvatore Vitale\,\orcidlink{0000-0003-2700-0767}}
-\ligo\mit
-
-\date{March 17, 2025}
-
-\begin{abstract}
+\begin{chapterabstract}
 Formation channels of merging compact binaries imprint themselves on the distributions and correlations of their source parameters, but current understanding of this population is hindered by simplified parametric models. We overcome such limitations using \textsc{PixelPop} [Heinzel \textit{et al.} (2025)]---our Bayesian nonparametric multidimensional population model. We analyze data from the first three LIGO--Virgo--KAGRA observing runs and make high resolution, minimally modeled measurements of the pairwise distributions of binary black hole masses, redshifts, and spins. We find no evidence that the mass spectrum evolves over redshift and show that such measurements are fundamentally limited by the detector horizon. We find support for correlations of the spin distribution with binary mass ratio and redshift, but at reduced significance compared to overly constraining parametric models. Confident data-driven conclusions about population-level correlations with flexible models like \textsc{PixelPop} will require more informative gravitational-wave catalogs.
-\end{abstract}
-
-\maketitle
+\end{chapterabstract}
 
 \heading{Introduction}---From the first gravitational-wave (GW) detection of a merging black hole (BH) binary \cite{TheLIGOScientific:2016wfe} to the catalog observed by the end of the third observing run (O3) \cite{LIGOScientific:2018mvr, LIGOScientific:2020ibl, LIGOScientific:2021usb, LIGOScientific:2021djp} of the LIGO--Virgo--KAGRA collaboration (LVK) \cite{LIGOScientific:2014pky, VIRGO:2014yos, KAGRA:2020tym}, our understanding of the underlying population has improved significantly \cite{LIGOScientific:2018jsj, LIGOScientific:2020kqk, KAGRA:2021duu}: the merger rate increases with redshift, consistent with cosmic star-formation history \cite{Madau:2014bja, Fishbach:2018edt, Callister:2020arv, Schiebelbein-Zwack:2024roj}; there is a continuum of masses with peaks at around $10M_\odot$ and $35M_\odot$, with most binaries having nearly equal masses \cite{Talbot:2018cva, Tiwari:2021yvr, Farah:2023vsc}; and there are relatively fewer BHs with large spins \cite{Callister:2022qwb, Mould:2022xeu, Tong:2022iws, Fishbach:2021xqi}. Potential astrophysical correlations between source parameters have also been identified \cite{Callister:2021fpo, Biscoveanu:2022qac, Franciolini:2022iaa, Li:2023yyt, Pierra:2024fbl}. Despite this, the physical origins of these features are unclear, though there are a plethora of potential formation channels (e.g., Refs. \cite{Ivanova:2012vx, vandenHeuvel:2017pwp, Gallegos-Garcia:2021hti, Mandel:2015qlu, deMink:2016vkw, Marchant:2016wow, Downing:2009ag, Rodriguez:2015oxa, Rodriguez:2019huv, Mapelli:2021gyv, Miller:2008yw, Antonini:2016gqe, Mckernan:2017ssq, Stone:2016wzz, Silsbee:2016djf, Liu:2018nrf}) with distinct GW signatures (e.g., Refs \cite{Bavera:2020uch, Bavera:2022mef, Zevin:2020gbd, Zevin:2022wrw, Broekgaarden:2022nst, Fuller:2019sxi, Bavera:2020inc, Fuller:2022ysb, Barkat:1967zz, Woosley:2016hmi, Tanikawa:2021zfm}). Interpreting GW data in light of these predictions could yield key astrophysical insights.
 
@@ -123,7 +112,7 @@ This material is based upon work supported by NSF's LIGO Laboratory which is a m
 %
 The authors are grateful for computational resources provided by the LIGO Laboratory and supported by National Science Foundation Grants PHY-0757058 and PHY-0823459.
 
-\bibliography{main}
+%\bibliography{main}  % commented out — global biblatex handles bibliography
 
 \clearpage
 
@@ -190,4 +179,4 @@ We illustrate this in Fig.~\ref{fig: spins} by plotting the marginal spin magnit
 \label{fig: spins}
 \end{figure*}
 
-\end{document}
+%\end{document}  % commented out — document ends in MIT-Thesis.tex
