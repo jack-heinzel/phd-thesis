@@ -542,7 +542,7 @@ The authors are grateful for computational resources provided by the LIGO Labora
 \end{acknowledgments}
 
 
-\appendix
+\begin{subappendices}
 \section{Sensitivity injections}\label{app:vtInjs}
 
 To account for selection effects when recovering the \ac{CE} population, we perform a simulation campaign to characterize the sensitivity of the O4 LIGO--Virgo network to \acp{BBH} spanning a range of parameters. We draw the \ac{BBH} injections from the following distributions: a \textsc{Power Law} redshift model~\citep{Fishbach:2018edt}, a mixture of two Gaussian distributions for the effective spin: one narrow for the peak at $\chieff\approx0$ and one wide for the bulk of the distribution. We use a normalizing flow~\citep{Papamakarios:2019fms, Kobyzev:2019ydm} implemented with \textsc{FlowJAX}~\citep{ward2023flowjax} to approximate the two-dimensional $m_1$--$q$ distribution and draw 80\% of the injections from it. Our normalizing flow consists of only three coupling layers with affine transformations \citep{dinh2016density}, each using a conditioner network with two hidden layers of 10 ReLU-activated neurons. We sample the remaining 20\% of the sources from uniform joint distributions in $\log{m_1}$ and $q$. For all the other parameters, we sample from the same priors as used for \ac{PE}. We draw a total of $8.5 \times 10^8$ sources, $2 \times 10^6$ of which are above our SNR threshold of $\rho_\mathrm{opt}=11$, as in Sec.~\ref{sec:detectable catalog}.
@@ -656,6 +656,10 @@ Using the \Hybrid model defined in Eq.~\eqref{eq:(3+1)d-model}, we can study the
 \end{figure}
 
 Note that the inferred merger-rate density $\mathcal{R}(\chieff; z)$ is consistent with the truth within the central 90\% posterior uncertainty at both $\chieff\approx0.05$ and $\chieff\approx0.2$. At these values, the flexibility of the spline that models the power-law index of the redshift evolution as a function of $\chieff$ is sufficient to capture the behavior of the true distribution. However, $\mathcal{R}(\chieff\approx0; z)$ (top panel) is only consistent within the 90\% credible interval for $z \lesssim 1$. For $z \gtrsim 1$, we see a significant deviation from the truth in the inferred merger rate evolution, which we also find when considering point estimates for the source properties of events in our catalog. The observed bias results from the redshift dependence on the effective spin evolving more steeply around the $\chieff\approx0$ peak than allowed for by our $\chieff$-dependent spline model for the redshift power-law index. There is a visible difference in the shape of $\mathcal{R}(\chieff;z)$ at $\chieff\approx0$ and $\chieff\approx0.05$. In the first case, the true merger rate decreases with redshift for $z\gtrsim 0.5$ while in the second case, the true merger rate monotonically increases with redshift. Additionally, due to the binning we use in the \Hybrid model (i.e., 45 bins for the effective spin), $\chieff\approx0$ and $\chieff\approx0.05$ lie in different bins. To better resolve the fast evolution of the redshift distribution near the effective spin peak, we aim to explore in the future the use of adaptive binning for \PixelPop. This technique would allow to resolve with finer bins the area around the narrow $\chieff$ peak and possibly recover $\mathcal{R}(\chieff\approx0; z)$ closer to the true merger rate.
+
+\end{subappendices}
+
+\printbibliography[heading=subbibliography]
 
 %\bibliography{main}           % commented out — global biblatex handles bibliography
 %\bibliographystyle{aasjournal}% commented out

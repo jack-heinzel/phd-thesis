@@ -101,13 +101,16 @@ The coming years of gravitational wave astrophysics promises thousands of new de
 \input{thesis/chapter_6/draft/gw_example}
 \input{thesis/chapter_6/draft/conclusion}
 
-%% Chapter appendix sections (note: \appendix below affects global chapter numbering;
-%% since this is the last chapter, it is safe — the MIT-Thesis.tex \appendix follows.)
-\appendix
+%% Chapter appendix sections — scoped to this chapter via subappendices environment.
+\begin{subappendices}
 
 \input{thesis/chapter_6/draft/general_case}
 \input{thesis/chapter_6/draft/gaussian_appendix}
 \input{thesis/chapter_6/draft/rate_likelihood_appendix}
+
+\end{subappendices}
+
+\printbibliography[heading=subbibliography]
 
 %\bibliography{main}  % commented out — global biblatex handles bibliography
 %\end{document}       % commented out — document ends in MIT-Thesis.tex

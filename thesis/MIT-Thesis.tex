@@ -84,6 +84,7 @@
 \usepackage{bold-extra}      % bold small caps (\textbf{\textsc{...}})
 \usepackage{tikz}
 \usetikzlibrary{bayesnet}    % Bayesian-network diagrams (chapter 6)
+\usepackage{appendix}        % \begin{subappendices} for chapter-scoped appendices
 
 
 %%%%%%%%%  Other optional packages used sample chapters  %%%%%%%%%%%%%%%%%%
@@ -117,6 +118,7 @@
 %% Can set graphicspath to point to specific directories containing figures (the current directory is searched automatically)
 %% Search all chapter figure directories so \includegraphics works from the project root.
 \graphicspath{
+  {thesis/chapter_1/}            % ch1 uses plots/fig.pdf paths
   {thesis/chapter_1/plots/}
   {thesis/chapter_2/}
   {thesis/chapter_3/plots/}
@@ -124,6 +126,7 @@
   {thesis/chapter_3/plots/prior_samples/}
   {thesis/chapter_4/plots/}
   {thesis/chapter_4/arxiv/plots/}
+  {thesis/chapter_5/}            % ch5 uses plots/fig.pdf paths
   {thesis/chapter_5/plots/}
   {thesis/chapter_5/plots/posterior_samples/}
   {thesis/chapter_5/plots/prior_samples/}
@@ -148,7 +151,7 @@
 %%   cheat sheet is here:   https://tug.ctan.org/info/biblatex-cheatsheet/biblatex-cheatsheet.pdf
 
 %% Numerical citations of references
-\usepackage[style=ext-numeric-comp,giveninits=true,maxbibnames=10,sorting=none,language=american,natbib=true]{biblatex}
+\usepackage[style=ext-numeric-comp,giveninits=true,maxbibnames=10,sorting=none,language=american,natbib=true,refsection=chapter]{biblatex}
 
 % and make some changes to that style
 	\renewcommand{\multicitedelim}{\addcomma}% removes space between consecutive cites to give [6,7], not [6, 7]
@@ -478,11 +481,12 @@
 
 %%% Bibliography (biblatex)  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\defbibheading{bibintoc}{\chapter*{#1}\addcontentsline{toc}{backmatter}{\refname}} 
-% this sets the title of contents name for bibliography to \refname (= References)
-% change "backmatter" to "chapter" if you prefer a bold face entry in the table of contents
-
-\printbibliography[title={\refname},heading=bibintoc]
+%\defbibheading{bibintoc}{\chapter*{#1}\addcontentsline{toc}{backmatter}{\refname}}
+% Each chapter prints its own bibliography via \printbibliography[heading=subbibliography]
+% at the end of its file (enabled by refsection=chapter in the biblatex options above).
+% The global \printbibliography below is disabled; re-enable if you add thesis-level appendices
+% that cite new references not already covered by a chapter bibliography.
+%\printbibliography[title={\refname},heading=bibintoc]
 
 % biblatex also supports chapter-by-chapter bibliography, https://tex.stackexchange.com/a/296502/119566
 % see the biblatex manual, section 3.14.3
