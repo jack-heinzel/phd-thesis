@@ -1,16 +1,174 @@
+\acrodef{TOV}{Tolman-Oppenheimer-Volkoff}
+\acrodef{LIGO}{Laser Interferometer Gravitational-Wave Observatory}
 
 \chapter{Introduction}
 \begin{refsection}
 
 
-\Acp{BH} are among the most extreme and enigmatic objects in nature. Yet despite over a century of theoretical work and multiple decades of increasingly detailed and sophisticated observation, the astrophysical formation processes remain elusive. 
+\Acp{BH} represent the most extreme prediction of general relativity. Yet, despite a century of theoretical refinement and decades of increasingly sensitive electromagnetic observation, the specific astrophysical channels responsible for their formation remain a subject of intense debate. Because \acp{BH} are, by definition, decoupled from direct light emission, observational progress was historically constrained by the presence of luminous matter, such as accretion disks or binary companions. Today, however, the landscape has shifted. Through the development of \ac{GW} detectors, we have moved beyond secondary indicators to direct observation. In the gravitational-wave spectrum, binary \ac{BH} mergers are the most luminous events in the Universe, providing a transparent window into their formation and evolution.
+
+There is a long tradition of theoretical work on \acp{BH}. The first recognizable ideas can be traced back to the eighteenth century astronomer \citet{Michell:1784xqa} who speculated about ``dark stars'' in a Newtonian paradigm. These were stars so compact that the escape velocity from the surface exceeds the speed of light. Newtonian corpuscles of light could therefore not escape the gravitational potential of the compact object: Michell's dark star was impossible to observe using traditional astronomical methods. 
+
+Several scientific revolutions later, Michell's speculation was modernized by \citet{Schwarzschild:1916sss} as a spherically symmetric solution to Einstein's new gravitational general theory of relativity (GR) \citep{Einstein:1916vd}. Schwarzschild's solution included a causal horizon beyond which signals---light, in particular---cannot escape. In other words, Schwarzschild \acp{BH} cannot be directly observed with light. 
+
+Early theoretical work on \acp{BH} rarely entertained that \acp{BH} might be physical objects that exist in nature. Over the next sixty years, however, the theoretical case for astrophysical \acp{BH} strengthened with the emergence of singularity theorems, most notably due to Penrose \citep{penrose_gravitational_1965, senovilla_1965_2015}, showing that collapse is not a byproduct of idealized spherical symmetry, but a robust prediction of general relativity. When coupled with the existence of a maximum mass for degenerate matter (the \ac{TOV} limit \citep{tolman_static_1939, oppenheimer_massive_1939}) a \ac{BH} became the only theoretical refuge for sufficiently massive stellar remnants.
+
+Meanwhile, X-ray astronomy was just beginning and almost immediately, energetic sources of cosmic X-rays were observed \citep{Bowyer:1965hxq}. Among these was Cygnus X-1, a bright X-ray source with a periodic flux as a function of time. Clearly, this was a binary system (a pair of stars orbiting their common center of mass), and the orbital period and observed Doppler shifting of the luminous stellar companion indicated a massive unseen companion significantly more massive than $3\Msun$. X-ray variability pointed towards a highly compact emission zone \citep{Oda:1971cyg}. The \ac{TOV} limit forbids neutron stars more massive than $3\Msun$ \citep{rhoades_maximum_1974, kalogera_maximum_1996} and so the only remaining candidate was a \ac{BH} \citep{webster_cygnus_1972, bolton_identification_1972}. The X-ray flux is well explained by the mass transfer from the luminous companion onto the \ac{BH}. This accretion assembles into a disk that reaches extreme temperatures $\gtrsim 10^6\,\mathrm{K}$ \citep{shakura_black_1973, remillard_x-ray_2006}.
+
+X-ray binaries provided the first definitive evidence for the existence of stellar-mass \acp{BH}, however we cannot observe them to cosmological distances and are complex systems to interpret. Because these systems are only detectable during active mass transfer, the resulting sample is shaped by uncertain selection effects involving binary separation, companion mass, and accretion physics \citep{remillard_x-ray_2006}. Furthermore, for nearly half a century, the census of confirmed \acp{BH} remained limited to a few dozen sources \citep[e.g.][]{Draghis:2023vzj}. This era of low-number statistics made it difficult to distinguish between fundamental physical boundaries, such as the lower-mass gap between \acp{NS} and \acp{BH} \citep{ozel_black_2010, farr_mass_2011}, and the observational biases inherent to electromagnetic surveys.
+
+The maturation of \ac{GW} astronomy offers us a new perspective on \ac{BH} formation and environments \citep{2016PhRvL.116f1102A, LIGOScientific:2016vpg}. By detecting the spacetime ripples emitted during the final stages of a compact binary coalescence, we can now observe \acp{BH} entirely decoupled from the baryonic matter and complex accretion physics that complicate the interpretation of electromagnetic observables.  
+
+Today, the vast majority of known \acp{BH} are observed with \acp{GW} \citep{2019PhRvX...9c1040A, abbott_gwtc-21_2024, KAGRA:2021vkt, abac_gwtc-40_2025}. The catalog of \acp{BBH} now numbers in the hundreds, and the field has reached a critical phase where individual measurement uncertainties are superseded by the collective power of the population. We now possess the statistical leverage required to move beyond case studies and instead perform inference about the population of merging \acp{BBH} itself \citep[e.g.,][]{KAGRA:2021duu, abac_gwtc-40_2025}. This is the central aim of this thesis. We analyze the structure of the mass, spin, and redshift distributions using the ensemble of observations, and we push forward new methods for robust characterization of the population with the ultimate goal to disentangle the competing formation pathways. 
+
+\section{Astrophysical black holes and black hole binaries}
+
+We now believe that \acp{BH} exist in nature across a vast range of scales. At the largest extreme, supermassive \acp{BH} ($10^6$--$10^{10}\,M_{\odot}$) reside at the centers of most galaxies \citep{schodel_star_2002, ferrarese_fundamental_2000, gebhardt_relationship_2000, magorrian_demography_1998}, acting as the engines for active galactic nuclei and shaping galactic evolution \citep{antonucci_unified_1993, harrison_impact_2017}. At the smaller end, stellar-mass \acp{BH} ($\sim3$--$100\,M_{\odot}$) are the remnants of the most massive stars. While we lack a complete first-principles understanding of their formation, the consensus model for stellar-mass \ac{BH} formation is the core-collapse of stars with initial masses $\gtrsim 20\,M_{\odot}$ \citep[e.g.,][]{heger_how_2003, Woosley:2014lua}. However, the field remains open to alternative possibilities: some \acp{BH} could be primordial (formed from density fluctuations in the early universe) \citep{hawking_gravitationally_1971, carr_black_1974} or the objects we observe may be black hole mimickers such as boson stars, Proca stars, gravastars, or other compact objects that deviate from the predictions of the standard model or classical general relativity \citep{cardoso_testing_2019}.
+
+The mapping from a massive star to a \ac{BH} is mediated by the complex and nonlinear, turbulent physics of supernovae \citep{heger_how_2003}. When a massive star exhausts its nuclear fuel, its iron core collapses. Whether this results in a successful supernova explosion (leaving behind a neutron star or a lower-mass \ac{BH} via fallback) or a failed supernova (where the shock is not powerful enough to launch the envelope and the star collapses directly into a \ac{BH}) depends sensitively on the core compactness and the strength of the neutrino-driven shock \citep[e.g.,][]{sukhbold_core-collapse_2016, burrows_overarching_2020}. This uncertainty in the core-collapse mechanism directly translates to uncertainty in the \ac{BH} mass spectrum, for instance regarding the existence and location of a lower-mass gap between the heaviest neutron stars and lightest \acp{BH} \citep{fryer_compact_2012, abac_observation_2024}. For even more massive stars, core temperatures become high enough post-carbon burning to spontaneously produce electron-positron pairs \citep{fowler_neutrino_1964, Barkat:1967zz}. This pair production softens the equation of state, causing the star to rapidly contract and ignite explosive oxygen and silicon burning \citep{farmer_mind_2019}. For stars with helium core masses between roughly $32\,M_{\odot}$ and $64\,M_{\odot}$, this triggers pulsational pair-instability, where energetic pulses eject significant fractions of the stellar envelope before the star eventually undergoes core collapse \citep{belczynski_effect_2016, stevenson_impact_2019}. This severe mass loss caps the maximum mass of the resulting \ac{BH} \citep{woosley_pair-instability_2021}. For helium cores between $64\,M_{\odot}$ and $135\,M_{\odot}$, the pair-instability completely disrupts the star in a massive explosion, leaving no remnant and is responsible for the theoretical upper mass gap in the \ac{BH} population \citep{woosley_pulsational_2007, Woosley:2016hmi}.
+
+This evolutionary picture is further complicated by the fact that the vast majority of massive stars do not live in isolation but are born in binary or multiple systems \citep[e.g.][]{sana_binary_2012}. For a \ac{BH} to be observed via \acp{GW}, it must not only form but also acquire a companion close enough to merge within a Hubble time (e.g., within timescales comparable to the age of the Universe). This presents a significant physical challenge: stars massive enough to form \acp{BH} have radii hundreds of times larger than the final orbital separation required for efficient \ac{GW} emission. Consequently, the two objects must be brought closer together without merging prematurely or being completely disrupted by natal supernova kicks \citep{Mandel:2018hfr}.
+
+In the isolated binary evolution channel, this orbital tightening can occur through several possible astrophysical pathways. One mechanism is a common envelope phase, where one star expands and engulfs its companion, utilizing gas drag to shrink the orbit at the cost of the envelope's binding energy \citep{Ivanova:2012vx}. A common envelope event is a natural possibility: we often observe compact binaries (e.g., double white dwarfs, neutron star binaries) whose orbital separation is much smaller than the radii of their progenitor stellar envelopes \citep{Paczynski_1976}. Alternatively, the system may undergo \textit{stable} mass transfer \citep{vandenHeuvel:2017pwp, Gallegos-Garcia:2021hti, van_son_no_2022}, or it may evolve via chemically homogeneous evolution, where rapid stellar rotation fully mixes the interior elements and prevents the stars from expanding into giants entirely \citep{Marchant:2016, Mandel:2015qlu}. Isolated binary evolution predicts that the \ac{BH} spins will be preferentially aligned with the orbital angular momentum due to tidal torquing and that the binary will possess a nearly circular orbit. However, underlying uncertainties in the processes in each of these sub-channels, e.g., mass-transfer efficiency, the distribution of natal kicks make the exact bounds of these predictions difficult to constrain \citep[e.g.,][]{Mandel:2021smh}. 
+
+In contrast, dynamical assembly of binaries occurs in dense environments such as globular clusters or galactic nuclei \citep{Hut:1992wz, 1993Natur.364..421K, rodriguez_dynamical_2016}. Here, \acp{BH} can acquire companions through chance encounters and exchange reactions, where a single \ac{BH} replaces a lighter member of an existing binary \citep[e.g.,][]{Mapelli:2021taw}. Once a binary is formed, frequent three-body interactions harden the system, progressively shrinking the orbit until \ac{GW} emission dictates the final inspiral. Because these gravitational encounters are stochastic, dynamical formation is typically characterized by isotropic spin orientations, meaning the component spins can be significantly misaligned or even retrograde relative to the orbit (though assembly in AGN disks can preferentially align with the angular momentum \citep{Bartos_2017,  Tagawa:2019osr, Santini:2023ukl}). Furthermore, mass segregation in clusters tends to pair the most massive \acp{BH} together, leading to a strong preference for nearly equal mass ratios \citep{spitzer_equipartition_1969, atakan_gurkan_formation_2004}.
+
+In these same dense environments, \acp{BH} can also undergo hierarchical mergers, where the product of a previous \ac{BBH} merger remains gravitationally bound in the cluster and merges again with a new companion. These second-generation \acp{BH} carry a distinct signature: because the merger remnant of two \acp{BH} has a dimensionless spin of $\sim 0.7$ dictated by the orbital angular momentum of the progenitors,\footnote{This $\chi\sim 0.7$ is remarkably stable to the initial \ac{BH} spins, so long as they are roughly equal mass \citep{pretorius_evolution_2005, buonanno_inspiral_2007, borchers_gravitational-wave_2025}.} a hierarchical population would exhibit a sub-population of primary spins clustered around this value, accompanied by unusually high masses that intrude into the upper mass gap. By analyzing the ensemble of \ac{GW} events, we aim to measure these statistical features and quantify the relative contribution of each channel to the cosmic \ac{BH} census.
+
+Though these processes are uncertain and important for understanding the features that emerge in the \ac{BBH} population, this dependence is why we stand to learn so much from characterizing the \ac{BBH} population. Population inference of merging \acp{BBH} offers a unique observational probe into fundamental physics and astrophysics that are otherwise inaccessible. Observing the signatures of dynamical formation provides direct empirical constraints on the dense environments of star clusters, illuminating processes like mass segregation and the binary formation mechanisms that are critical to the thermodynamic stability and evolution of the cluster cores over cosmic time \citep{spitzer_equipartition_1969, 1993Natur.364..421K}. Similarly, measuring the boundaries of the \ac{BH} mass gaps allows us to test the extreme physics of dying massive stars \citep{woosley_pair-instability_2021}. The precise location of the upper mass gap dictated by pulsational pair-instability is highly sensitive to nuclear reaction rates, particularly the ${}^{12}\mathrm{C}(\alpha, \gamma){}^{16}\mathrm{O}$ nuclear reaction rate \citep{farmer_mind_2019}, while the lower mass gap is intimately tied to neutrino transport physics and the nuclear matter equation of state during core collapse \citep{sukhbold_core-collapse_2016}. Finally, confirming the presence of hierarchical mergers may solve a long-standing astrophysical puzzle by providing a validated formation pathway for intermediate-mass \acp{BH}, uncovering the unseen evolutionary bridge linking stellar-mass remnants to the supermassive \acp{BH} residing in galactic centers \citep{PortegiesZwart:2002iks, greene_intermediate-mass_2020}.
+
+\section{Gravitational wave astronomy}
+
+The birth of \ac{GW} astronomy was the culmination of a century of experimental and theoretical work. While the existence of \acp{GW} was a direct consequence of general relativity \citep{Einstein:1916vd, einstein_naherungsweise_1916},  Einstein himself initially vacillated on their physical reality, and later skeptics doubted they could ever be measured due to the extraordinarily small strains they exert on matter. The first indirect evidence for their existence arrived via the PSR B1913+16 binary pulsar \citep{hulse_discovery_1975}, where the observed orbital decay matched general relativity's predictions for energy loss through gravitational radiation \citep{taylor_new_1982}. However, it was not until the construction and successful operation of kilometer-scale laser interferometers that a direct detection became possible \citep{TheLIGOScientific:2014jea, VIRGO:2014yos}. On September 14, 2015, the \ac{LIGO} observatories recorded the first signal from a binary \ac{BH} merger \citep{2016PhRvL.116f1102A}. Not only was this detection a confirmation of general relativity in the strong field, dynamical regime, but it also the existence of heavy stellar-mass \acp{BH} ($\sim 30\,M_{\odot}$) that had largely eluded X-ray surveys, fundamentally altering our understanding of \ac{BH} demographics \citep[e.g.,][]{Belczynski:2016obo}. 
+
+The success of \ac{GW} astronomy relies on an accurate models for the \ac{GW} waveform, $h(t; \theta)$. In the weak-field limit, the \ac{GW} can be treated as a small perturbation $h_{\mu\nu}$ on a flat Minkowski background $\eta_{\mu\nu}$, such that the metric is expressed as:
+\begin{equation}
+g_{\mu\nu} = \eta_{\mu\nu} + h_{\mu\nu}.
+\end{equation}
+While a general symmetric tensor $g_{\mu\nu}$ possesses ten independent components, the vacuum Einstein field equations reveal only two physical, propagating degrees of freedom. In the transverse-traceless gauge, these are typically identified as the $+$ (plus) and $\times$ (cross) polarization states (see Fig.~\ref{fig: bbh diagram} for how these affect a ring of free-falling particles). 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{}
+    \caption{Caption}
+    \label{fig: bbh diagram}
+\end{figure}
+
+When a \ac{GW} is incident on an interferometer, the perturbation stretches and squeezes the spacetime proportional to $h\lesssim 10^{-20}$. This leads to a time-varying modification of the observed intensity at the output of the interferometer. By precisely recording the amplitude and phase evolution of the observed intensity modulation, we can reconstruct $h(t)$, and then reconstruct the underlying gravitational wave progenitor parameters $\theta$ (e.g., masses, spins). We show a diagram of the 15 gravitational wave parameters relevant for quasi-circular \ac{BBH} inspirals in Fig.~\ref{fig: bbh diagram}. However, accurate reconstruction of the source parameters requires decomposing the data into signal plus noise: and because we only have probabilistic knowledge about the noise, we can only recover probabilistic knowledge about the signal.
 
 
-There is a long tradition of theoretical work on \acp{BH}. The first recognizable ideas can be traced back to \citet{Michell:1784xqa} who speculated about ``dark stars,'' stars so compact that the escape velocity from the surface exceed the speed of light. Newtonian corpuscles of light could therefore not escape the gravitational potential of the compact object: Michell's dark star was impossible to observe with traditional telescopes. 
 
-Several scientific revolutions later, Michell's speculation was modernized by \citet{Schwarzschild:1916sss} as a spherically symmetric solution to Einstein's new gravitational general theory of relativity (GR) \citep{Einstein:1916vd}. Schwarzschild's solution included a causal horizon beyond which signals---light, in particular---cannot escape. Schwarzschild \acp{BH} cannot be directly observed with light. 
+\subsection{Bayesian inference}
 
-Early theoretical work on \acp{BH} rarely entertained that \ac{BH} might be physical objects that exist in nature. Over the next sixty years, however, the theoretical case for astrophysical \acp{BH} strengthened with the emergence of singularity theorems, most notably due to Penrose \citep{}, showing that collapse is not a byproduct of idealized symmetry, but a robust prediction of general relativity. When coupled with the existence of a maximum mass for degenerate matter---the Tolman-Oppenheimer-Volkoff limit \citep{}---a \ac{BH} became the only theoretical refuge for sufficiently massive stellar remnants.
+\Ac{GW} astronomy is blessed with a well-known signal model and a reasonably simple probabilistic noise model, making it a prime candidate for Bayesian methods. In the Bayesian approach to inference, we use the language of probability theory to represent our uncertainty about the unknown parameters of interest.\footnote{Bayesian methods are the rational approach to reasoning under uncertainty, see \citet{Jaynes:2003jaq} for the objective Bayes school or \citet{Hajek:2008dba} for a review of the subjective, ``Dutch book'' perspective.} We proceed by constructing a \textit{forward} or \textit{generative model} for the observed data, which links latent, unobserved variables---in this case, the gravitational wave source parameters $\theta$---to the observed data, e.g., the data timeseries $d$. 
+
+We typically represent the generative model using a probabilistic diagram, the generative probabilistic diagram for a single gravitational wave shown in Fig~\ref{fig: dag single gw}. The unshaded nodes are called \textit{latent} parameters, and the shaded nodes are observed parameters. The arrows denote conditional dependence, so in the single gravitational wave case, the data $d$ depends on the value of the latent source parameters $\theta$. In particular, we denote the probability of obtaining the observed data timeseries given the \ac{BBH} parameters $\theta$ is $p(d|\theta)$. 
+
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+        % Define nodes
+        % \node[latent] (name) {label};
+        \node[latent] (theta) {$\theta$};
+        \node[obs, below=1.5cm of theta] (d) {$d$};
+    
+        % Optional: PSD node if you want to show the noise model dependency
+        % \node[latent, right=1.5cm of d] (psd) {$S_n(f)$};
+    
+        % Connect the nodes
+        \edge {theta} {d};
+        
+        \path (theta) -- (d) node[midway, right, font=\fontsize{10}{10}\selectfont] {$p(d|\theta)$};
+    
+    \end{tikzpicture}
+    \caption{The probabilistic graph representation for a single \ac{GW} event. The unshaded node represents the unobserved, latent parameters for the \ac{GW} progenitor $\theta$, e.g., the masses and spins of the \acp{BH}. The shaded node $d$ represents the observed data timeseries.}
+    \label{fig: dag single gw}
+\end{figure}
+
+Probabilistic models are helpful for writing down the \textit{likelihood function}, one of two ingredients for Bayesian inference. The likelihood function represents the probability of obtaining the observed data given the latent parameters. Here, there is just one step in the generative model and so the likelihood function\footnote{In most statistical literature, the likelihood function is denoted $\mathcal{L}(\theta)$. In gravitational wave literature, we often notate the likelihood function as $\mathcal{L}(d|\theta)$.} is trivially 
+\begin{equation}
+    \mathcal{L}(\theta) = p(d | \theta).
+\end{equation}
+Typically we use the Whittle approximation for the \ac{GW} likelihood, assuming the noise to be Gaussian and stationary. This makes analyses more computationally tractable, however it also breaks down due to transient, non-Gaussian noise. We discuss the impact of non-Gaussian noise extensively in chapter~\ref{chapter: glitches}.
+
+The second ingredient in Bayesian inference is the \textit{prior} $\pi(\theta)$, which represents our prior information about the top level of the probabilistic model. In gravitational wave inference, an appropriate choice may be the population of gravitational wave sources (thinking of our compact binary merger as a random draw from the population), however a more common choice is an unphysical uniform in mass, spins, etc. prior (see \citet{prior} for a full list).
+
+We combine the prior and likelihood function to obtain the \textit{posterior distribution} on the unknown parameters using Bayes' theorem
+\begin{equation}
+    p(\theta | d) = \frac{p(d|\theta)\pi(\theta)}{p(d)} \equiv \frac{\mathcal{L}(\theta)\pi(\theta)}{\mathcal{Z}(d)}
+\end{equation}
+where the Bayesian evidence $\mathcal{Z} = p(d) = \int d\theta p(d|\theta)\pi(\theta)$ normalizes the posterior.
+
+
+\subsection{Hierarchical Bayesian inference}
+
+In a hierarchical Bayesian inference, our aim is to use an ensemble of observations to learn about their source population. The hierarchical Bayesian inference generative model is more sophisticated than a single gravitational wave event, and is shown in the diagram in Fig.~\ref{fig: hierarchical Bayesian inference dag}. We begin with some \textit{hyperparameters} $\Lambda$, which are the model parameters for the source population. These hyperparameters describe how to generate sources from the population, and can either be phenomenological, e.g., assuming the population of \ac{BBH} masses is distributed according to a power law, $\Lambda$ will include the power law slope, and the upper and lower edges.
+
+The model we use for the gravitational-wave population is called an \textit{inhomogeneous Poisson process}. Over the continuous space of \ac{GW} parameters $\theta$, each point has an intrinsic rate density $N(\theta|\Lambda)$. Specifically, within an infinitesimal region $d\theta$, the number of mergers is a Poisson random variable $dN \sim \mathrm{Pois}(N(\theta|\Lambda)d\theta)$.\footnote{The rate $N(\theta|\Lambda)$ varies over $\theta$, making the process inhomogeneous; if it were constant, it would be a homogeneous Poisson process.} This is equivalent to first drawing the total number of events $N_{\rm tot} \sim \mathrm{Pois}(N)$, where $N = \int N(\theta|\Lambda) \, d\theta$, and then drawing $N_{\rm tot}$ independent samples from the normalized population distribution $p(\theta|\Lambda) = N(\theta|\Lambda)/N$.
+
+There are then $N_{\rm tot}$ \acp{GW} incident on the detectors which combine with the noise to produce observed data. Most of these events are far too quiet to detect, however, and so we then further downselect to a subset of the data by running sophisticated search algorithms \citep{} to determine which stretches of data confidently contain a \ac{GW} signal. 
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+
+        % Define nodes
+        \node[obs]                                (d)      {$d_i$};
+        \node[obs, below=1cm of d, xshift=-2cm]     (det)    {det${}_{i}$};
+        \node[latent, above=1cm of d, xshift=-2cm]  (theta)  {$\theta_i$};
+        \node[latent, above=1.25cm of theta, xshift=0cm] (Lambda)      {$\Lambda$};
+        % \node[latent, right=2cm of y]             (PSD)    {PSD};
+
+        % Lambda to theta
+        \edge {Lambda} {theta};
+        \path (Lambda) -- (theta) node[midway, right, font=\fontsize{10}{10}\selectfont] {$p(\theta_i|\Lambda)$};
+        
+        % theta to d
+        \edge {theta} {d};
+        \path (theta) -- (d) node[midway, above right, font=\fontsize{10}{10}\selectfont] {$p(d_i|\theta_i)$};
+        
+        % d to det
+        \edge {d} {det};
+        \path (d) -- (det) node[midway, above left, font=\fontsize{10}{10}\selectfont] {$p({\rm det}_i|d_i)$};
+        
+        % Plates
+        \plate[inner sep=0.55cm, yshift=0.45cm] {dx} {(d)(det)(theta)} {$i=1 \dots N_{\rm tot}$} ;
+        \node[latent, above=0cm of Lambda, xshift=2cm] (N) {$N$};
+        \edge {N} {N |- dx.north} ; 
+        
+        % To add the label next to it:
+        \path (N) -- (dx.north -| N) node[midway, right, font=\fontsize{10}{10}\selectfont] {$N_{\rm tot} \sim \text{Pois}(N)$};
+                        
+    \end{tikzpicture}
+    \caption{The probabilistic graph representation for the \ac{GW} hierarchical generative model. The unshaded nodes represent unobserved, latent variables. The shaded nodes ($d$, ${\rm det}$) are observed variables. We use this probabilistic graph to derive the hierarchical likelihood in Eq.~\ref{eq: intro HBI likelihood}.}
+    \label{fig: hierarchical Bayesian inference dag}
+\end{figure}
+
+The full likelihood for the hierarchical generative model is then
+\begin{equation}
+    p(\{\theta_i,d_i,{\rm det}_i\}_{i=1}^{N_{\rm tot}},N_{\rm tot}|\Lambda, N) = \frac{N^{N_{\rm tot}}e^{-N}}{N_{\rm tot}!}\prod_{i=1}^{N_{\rm tot}}p({\rm det}_i|d_i)p(d_i|\theta_i)p(\theta_i|\Lambda),
+\end{equation}
+where the first term comes from the Poisson rate, and the second product term comes from considering the joint probability of obtaining all the observed data, event parameters, and detections.
+
+In practice, we only have access to the $N_{\rm obs}$ events where $\text{det}_i = 1$. The remaining $N_{\rm tot} - N_{\rm obs}$ events are non-detections ($\text{det}_i = 0$), for which the data $d$ and parameters $\theta$ are unobserved. To obtain a likelihood for the parameters $(\Lambda, N)$ based only on our observables, we must marginalize (e.g., integrate over the uncertainty) over these unobserved variables.
+
+We define the \textit{selection function}, $\alpha(\Lambda)$, as the probability that a random event drawn from the population will be detected:
+\begin{equation}
+    \alpha(\Lambda) \equiv p(\text{det}=1 | \Lambda) = \int p(\text{det}=1 | d) p(d | \theta) p(\theta | \Lambda) \, dd \, d\theta.
+\end{equation}
+Conversely, the probability of an event remaining undetected is $1 - \alpha(\Lambda)$. For the $N_{\rm tot} - N_{\rm obs}$ undetected events, the integral over their possible data and parameters simply yields this factor of $(1 - \alpha(\Lambda))$.
+
+Summing over the unknown total number of events $N_{\rm tot}$ and accounting for the $\binom{N_{\rm tot}}{N_{\rm obs}}$ ways to distribute the detections within the total sequence, the marginalized likelihood becomes:
+\begin{equation}
+    \mathcal{L}(\Lambda, N) = \sum_{N_{\rm tot}=N_{\rm obs}}^{\infty} \binom{N_{\rm tot}}{N_{\rm obs}} \frac{N^{N_{\rm tot}} e^{-N}}{N_{\rm tot}!} [1 - \alpha(\Lambda)]^{N_{\rm tot} - N_{\rm obs}} \prod_{i=1}^{N_{\rm obs}} \int p(d_i | \theta_i) p(\theta_i | \Lambda) \, d\theta_i.
+\end{equation}
+By substituting $k = N_{\rm tot} - N_{\rm obs}$ and using the Taylor series for the exponential, $\sum \frac{x^k}{k!} = e^x$, the summation simplifies to
+\begin{equation}
+    \mathcal{L}(\Lambda, N) = \frac{e^{-N\alpha(\Lambda)}}{N_{\rm obs}!} N^{N_{\rm obs}} \prod_{i=1}^{N_{\rm obs}} \int p(d_i | \theta_i) p(\theta_i | \Lambda) \, d\theta_i.
+    \label{eq: intro HBI likelihood}
+\end{equation}
+This is the hierarchical likelihood which forms the foundation of gravitational wave population studies. The $N_{\rm obs}$ detected events follow a Poisson distribution with an expected rate of $N\alpha(\Lambda)$, while the shape of the distribution is governed by the population-weighted individual event likelihoods.
 
 
 

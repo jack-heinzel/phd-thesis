@@ -44,6 +44,7 @@
 %%% ============================================================
 \chapter{Probing Correlations in the Binary Black Hole Population with Flexible Models}
 \begin{refsection}
+\label{chapter: glitches}
 %\title{...}\author{...}\maketitle  % journal header — commented out
 
 \begin{chapterabstract}
@@ -74,12 +75,12 @@ Evidence for a correlation between \ac{BBH} mass and spin was obtained using a p
 
 In this work, we build upon previous methods looking for correlations between individual pairs of parameters describing the \ac{BBH} mass, spin, and redshift distributions but adopt a more flexible model for the shape of the correlation. Specifically, we assume the \ac{BBH} effective spin distribution is described by a Gaussian with an unknown mean and width, both of which may correlate with either the mass or redshift such that the shape of the correlation is given by a cubic spline. Our model recovers evidence for the previously-identified correlations between effective spin and mass ratio and redshift but prefers a nonlinear shape for the spin-redshift correlation. This result highlights the important role that flexible population models will play in identifying model misspecification as the catalog of \ac{BBH} merger observations grows. The rest of this work is structured as follows. 
 
-In \S \ref{sec:probe_correlations} we briefly describe our statistical assumptions, which are standard in \acf{GW} population inference, then describe our model for probing correlations in more detail. In \S \ref{sec:GWTC3_results} we present the constraints on the BBH data collected thus far \cite{LIGOScientific:2021djp}, which tend to be broadly consistent with previous studies apart from some evidence for nonlinearity in the $\chieff-z$ correlation. % We also use a joint mixture-model framework to infer which parameter(s) correlate in the $\chieff$ population, which prefers the correlation to be with redshift, mass ratio, or some combination of the two. % comment out if we cut mixture model 
-In \S \ref{sec:o4_projections} we make projections for the future: how well can nonlinearity be measured with future observations? In a pair of simulated Universes with nonlinear correlations in $\chieff-q$ and $\chieff-z$, nonlinearity does not reveal itself in the $\chieff-q$ distribution with 400 detections, but there is strong evidence for nonlinearity in the $\chieff-z$ distribution with 400 detections. While the detectability of nonlinearity ultimately is subject to how nonlinear the true correlated distribution is, we show it is possible to detect nonlinearity in the near future. 
-Finally, we conclude in \S \ref{sec:conclusion}.
+In \S \ref{sec: spline probe_correlations} we briefly describe our statistical assumptions, which are standard in \acf{GW} population inference, then describe our model for probing correlations in more detail. In \S \ref{sec: spline GWTC3_results} we present the constraints on the BBH data collected thus far \cite{LIGOScientific:2021djp}, which tend to be broadly consistent with previous studies apart from some evidence for nonlinearity in the $\chieff-z$ correlation. % We also use a joint mixture-model framework to infer which parameter(s) correlate in the $\chieff$ population, which prefers the correlation to be with redshift, mass ratio, or some combination of the two. % comment out if we cut mixture model 
+In \S \ref{sec: spline o4_projections} we make projections for the future: how well can nonlinearity be measured with future observations? In a pair of simulated Universes with nonlinear correlations in $\chieff-q$ and $\chieff-z$, nonlinearity does not reveal itself in the $\chieff-q$ distribution with 400 detections, but there is strong evidence for nonlinearity in the $\chieff-z$ distribution with 400 detections. While the detectability of nonlinearity ultimately is subject to how nonlinear the true correlated distribution is, we show it is possible to detect nonlinearity in the near future. 
+Finally, we conclude in \S \ref{sec: spline conclusion}.
 
 \section{Probing Correlations: Priors and Parameterization}
-\label{sec:probe_correlations}
+\label{sec: spline probe_correlations}
 
 % \subsection{Hierarchical Inference}
 
@@ -168,7 +169,7 @@ For all the inferences we present below, we use priors shown in Table \ref{tab:p
 
  
 \section{Correlations in \ac{GWTC-3}}
-\label{sec:GWTC3_results}
+\label{sec: spline GWTC3_results}
 
 % The population of BBHs in the Universe is likely to exhibit correlations between source parameters. Previous studies have searched for linear correlations, constraining the first order correlation. 
 Using the catalog of 69 BBHs described in Ref.~\cite{KAGRA:2021duu}  passing a detection-pipeline-computed false alarm rate threshold of 1 yr${}^{-1}$, we search for evidence of nonlinear correlations between the spin distribution and the mass ratio, redshift, and the source frame primary mass (the latter is described in appendix \S~\ref{app:chieff_m}). %(because a correlation with primary mass is disfavored by the evidence, we move a discussion of primary mass correlation to the appendix). 
@@ -254,7 +255,7 @@ It also appears that there is some nonlinearity in the evolution of the width as
 % Dirichlet model... way too expensive never finishes... maybe run with a bunch of cores...
 
 \section{Future Prospects: Can We Detect Nonlinearity in O4?}
-\label{sec:o4_projections}
+\label{sec: spline o4_projections}
 Flexible spline models stand in contrast to linear models, where the correlation around each spline node is independently inferred, rather than enforcing a consistent slope across the whole parameter space. 
 %bona-fide constraints in one region of parameter space may lead to erroneous constraints elsewhere. 
 At the conclusion of O3, these flexible models highlight our lack of knowledge about poorly constrained regions. While we have some hints of a nonlinear correlation in $\chieff-z$, there is not yet a definitive preference in the Bayesian evidence for a nonlinear correlation. This may change by the end of the fourth observing run, O4. 
@@ -324,7 +325,7 @@ We also checked that a spline model with nodes placed in the correct locations p
 We reiterate that the results of this projection study depend on the assumed true correlation. However, since the correlation we chose is consistent with the data collected thus far, this demonstrates that we \textit{can} detect nonlinearity in the spin correlation with a catalog of $\sim400$ detections. 
 
 \section{Conclusions}
-\label{sec:conclusion}
+\label{sec: spline conclusion}
 In this paper we presented a flexible model for understanding the correlation between the spin population in $\chieff$ and primary mass $m_1$, mass ratio $q$ or redshift $z$. On the \ac{LVK} data published thus far, we obtain results broadly consistent with previous analyses \cite{Safarzadeh:2020mlb,Callister:2021fpo,KAGRA:2021duu,Biscoveanu:2022qac,Franciolini:2022iaa}. Furthermore, because of their flexibility, these spline models highlight the regions of parameter space that drive a measured correlation, and the regions of parameter space which are more uncertain. %, with some potential improved constraints on the correlation with redshift and the correlation with primary mass. 
 
 In particular, we find that the mean of the $\chieff$ distribution likely increases with mass ratio, the width likely broadens with redshift, and may also broaden for more massive binaries. Importantly, it is also possible that not all of these claims are true at the same time. Perhaps a correlation with one parameter may masquerade as a correlation with another parameter when analyzed under the false hypothesis. Ref. \cite{Biscoveanu:2022qac} studied this possibility using linear models which simultaneously fit the correlation with $m$, $q$ and $z$, and found that the data is not yet informative enough to answer this question, though it appears possible that all correlations are real. While we do not consider simultaneous models in this work, we do observe the Bayes factors all appear consistent, suggesting the data is not yet informative enough to pick out any mismodeled correlations.
@@ -438,7 +439,7 @@ We do not observe any strong preference for a including more nodes in the spline
 \end{figure}
 
 
-To study the potential risk of inferring a nonlinear correlation a \ac{GWTC-3}-like catalog from a linearly correlated Universe, we used 12 sets of 69 detections drawn from a uncorrelated Universe observed with Hanford and Livingston in O4-like PSDs \cite{O3_psds}, in a similar process to the method presented in \S \ref{sec:o4_projections}. These synthetic events were injected from a linearly correlated Universe (namely, uncorrelated with slope zero), with a mean $\mu_{\chieff} = 0.06$ and width $\sigma_{\chieff} = 0.11$, and the same thresholds, waveforms, and PE techniques described in \S \ref{sec:o4_projections}. Then, we infer the $\chieff$ correlation with respect to the redshift $z$ for each synthetic catalog, using the method we introduced in \S \ref{sec:GWTC3_results}. We compute the instantaneous slope at the first three nodes for each hyperposterior sample, and can then estimate the \ac{JS} divergence between the posteriors of the slopes at neighboring nodes. 
+To study the potential risk of inferring a nonlinear correlation a \ac{GWTC-3}-like catalog from a linearly correlated Universe, we used 12 sets of 69 detections drawn from a uncorrelated Universe observed with Hanford and Livingston in O4-like PSDs \cite{O3_psds}, in a similar process to the method presented in \S \ref{sec: spline o4_projections}. These synthetic events were injected from a linearly correlated Universe (namely, uncorrelated with slope zero), with a mean $\mu_{\chieff} = 0.06$ and width $\sigma_{\chieff} = 0.11$, and the same thresholds, waveforms, and PE techniques described in \S \ref{sec: spline o4_projections}. Then, we infer the $\chieff$ correlation with respect to the redshift $z$ for each synthetic catalog, using the method we introduced in \S \ref{sec: spline GWTC3_results}. We compute the instantaneous slope at the first three nodes for each hyperposterior sample, and can then estimate the \ac{JS} divergence between the posteriors of the slopes at neighboring nodes. 
 
 We also show the slope posteriors at a fiducial value $z^*=0.2$ in Fig. \ref{fig:chieff_z_slope}. We avoid choosing $z^*=0$, as the data is uninformative in the limit of $z\to 0$ for the same reason it is uninformative for $q\to 0$. While some of the 69 BBH events are closer than others, none of them are consistent with being at $z\to 0$, and indeed it is baked into the population model where the probability density at a given redshift is proportional to the differential comoving volume $p(z) \propto \frac{dV_c}{dz}$ to have zero support at $z\to 0$ \cite{Hogg:1999ad, Fishbach:2018edt}. In other words, a flexible $z-\chieff$ correlation model, in particular spline models with appropriate node density and placement, will increase in uncertainty as $z\to 0$. Indeed, we observe this to some degree in each spline model in Fig. \ref{fig:chieff_correlations}, but it is especially clear in the spline model with 5 nodes. 
 
@@ -446,7 +447,7 @@ We also should note the significance of broadening with redshift using the linea
 
 \subsection{Node Placement and Bias in Mock Catalogs}
 \label{app:node_placement_bias}
-In \S \ref{sec:o4_projections} we study a Universe with a nonlinear correlation in the $\chieff-q$ plane. We find that, when we fix the x-axis positions of the nodes to be different than the true node positions, we may recover some bias in the inference.
+In \S \ref{sec: spline o4_projections} we study a Universe with a nonlinear correlation in the $\chieff-q$ plane. We find that, when we fix the x-axis positions of the nodes to be different than the true node positions, we may recover some bias in the inference.
 
 Specifically, the results in Fig. \ref{fig:chieff_q_mock_catalog_s4_v_linear} highlight one of the drawbacks for using spline models. Fitting a spline model to a smooth function often results in extraneous structure, bumps that the spline function cannot remove entirely due to its functional form \cite{Farah:2023vsc}. In the case of the mock catalog we simulated, the correlation is created using a spline node placement (Table \ref{tab:true_hyper}) different from the spline node placement scheme we recover with. Because of this, the spline cannot simultaneously fit the correlation in the region of near equal mass ratio while also effectively fitting the region of more extreme mass ratios, and so it must compromise with a suboptimal fit across the parameter space. Hence the spline model ``wiggles'' when it ideally should be smooth.  %, see the appendix. Fig. \ref{fig:true_vs_false_node_q}.
 

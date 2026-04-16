@@ -1,12 +1,12 @@
 \section{Error statistics in rate-explicit likelihood}
 \label{app: rate-explicit equations}
-In Sec.~\ref{sec: robustness measures} we discuss measures of the accuracy and the precision of the posterior estimator, which requires an estimator of the covariance in the log-likelihood estimator. In Appendix~\ref{app: bias in general} and~\ref{app: correction in general} we derive some general expressions for the bias and correction in the likelihood and the posterior. In this appendix, we show expressions for these quantities (which we compute directly from the general expressions derived above) when using the \textit{rate-explicit} likelihood as opposed to the rate-marginalized likelihood in Eq.~\ref{eq: rate marginalized likelihood}. The rate-explicit likelihood is
+In Sec.~\ref{sec: mc robustness measures} we discuss measures of the accuracy and the precision of the posterior estimator, which requires an estimator of the covariance in the log-likelihood estimator. In Appendix~\ref{app: bias in general} and~\ref{app: correction in general} we derive some general expressions for the bias and correction in the likelihood and the posterior. In this appendix, we show expressions for these quantities (which we compute directly from the general expressions derived above) when using the \textit{rate-explicit} likelihood as opposed to the rate-marginalized likelihood in Eq.~\ref{eq: rate marginalized likelihood}. The rate-explicit likelihood is
 \beq
 \mathcal{L}(\{d_i\}|\Lambda,N) \propto N^{\Nobs} e^{-N\xi(\Lambda)}\prod_{i=1}^{\Nobs}p(d_i|\Lambda),
 \label{eq: rate explicit likelihood}
 \eeq
 where $N$ represents the Poisson expectation for the number of events to occur over the observing time. 
-The likelihood may be estimated using Eqs.~\ref{eq: single event estimator} and \ref{eq: selection effects estimator}, but as pointed out in Sec.~\ref{subsec: monte carlo bias}, this represents a biased estimator. 
+The likelihood may be estimated using Eqs.~\ref{eq: single event estimator} and \ref{eq: selection effects estimator}, but as pointed out in Sec.~\ref{subsec: mc monte carlo bias}, this represents a biased estimator. 
 
 Applying Eq.~\ref{eq: general covariance term}, the variance in the log-likelihood estimator is therefore
 \beq

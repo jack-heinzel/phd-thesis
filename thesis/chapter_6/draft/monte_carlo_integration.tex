@@ -1,6 +1,6 @@
 
 \section{Monte Carlo Integration}
-\label{sec: monte carlo integrals}
+\label{sec: mc monte carlo integrals}
 
 Equations~\ref{eq: single event estimator} and~\ref{eq: selection effects estimator} are examples of Monte Carlo integrals. In this section, we discuss the basic theory of Monte Carlo integration, the uncertainty in estimators, and biased and unbiased estimation.
 
@@ -55,10 +55,10 @@ However, while the variance in each Monte Carlo integral is important, a more ap
 \label{eq: likelihood variance estimator}
 \eeq
 where $\hat{\sigma}^2_{p_i}$ is the variance calculated from Eq.~\ref{eq: variance estimator} for $\hat{p}(d_i|\Lambda)$ and $\hat{\sigma}^2_{\xi}$ is the variance for $\hat{\xi}(\Lambda)$.
-\citet{Talbot:2023pex} conjecture that thresholding on this variance estimator ensures a safe hyperposterior. By using a generalization of Eq.~\ref{eq: likelihood variance estimator}---the covariance in the log-likelihood at two hyperparameters $\Lambda$ and $\Lambda'$, first introduced by \citet{Essick:2022ojx}---we show in Sec.~\ref{sec: robustness measures} that the log-likelihood variance threshold indeed ensures a safe hyperposterior.
+\citet{Talbot:2023pex} conjecture that thresholding on this variance estimator ensures a safe hyperposterior. By using a generalization of Eq.~\ref{eq: likelihood variance estimator}---the covariance in the log-likelihood at two hyperparameters $\Lambda$ and $\Lambda'$, first introduced by \citet{Essick:2022ojx}---we show in Sec.~\ref{sec: mc robustness measures} that the log-likelihood variance threshold indeed ensures a safe hyperposterior.
 
 \subsection{Nonlinear functions of a Monte Carlo integral}
-\label{subsec: monte carlo bias}
+\label{subsec: mc monte carlo bias}
 
 In the hierarchical likelihood for a population inference (Eq.~\ref{eq: rate marginalized likelihood}), we must multiply by a selection efficiency integral, raised to the negative power of the number of events in the catalog $\Nobs$. That is, we run the estimator $\hat{\xi}(\Lambda)$ through the function $g(x) = x^{-\Nobs}$. We may write the expectation of this nonlinear function of the Monte Carlo integral
 \beq
@@ -129,13 +129,13 @@ Having removed the leading order bias at $\mathcal{O}(M^{-1})$, the remaining bi
 \end{figure}
 
 \section{Bias in population inference}
-\label{sec: bias in population inference}
+\label{sec: mc bias in population inference}
 
 %Having gone through the essentials of Monte Carlo integration and estimator theory, we are now ready to understand the source of bias in the likelihood and posterior estimators in \ac{GW} hierarchical inference.
 
 \subsection{Likelihood bias and correction}
 
-We saw in Section~\ref{subsec: monte carlo bias} that running an \textit{unbiased} Monte Carlo estimator through a nonlinear function produces a biased estimator. In \ac{GW} population analyses, the likelihood is estimated by raising the selection effects estimator to the $-\Nobs$ power: $\hat{\xi}(\Lambda)^{-\Nobs}$.
+We saw in Section~\ref{subsec: mc monte carlo bias} that running an \textit{unbiased} Monte Carlo estimator through a nonlinear function produces a biased estimator. In \ac{GW} population analyses, the likelihood is estimated by raising the selection effects estimator to the $-\Nobs$ power: $\hat{\xi}(\Lambda)^{-\Nobs}$.
 Without any correction, this means the likelihood estimator is biased as in Eqs.~\ref{eq: bias for mean raised to power} and \ref{eq: bias for mean raised to power assuming lognormal}. 
 
 For an unbiased likelihood estimator, we need to include the following modifying term.\footnote{Note the similarity but opposite sign to the modifying term proposed \citet{Farr:2019rap}. Both approaches compute a bias term $\sim \exp(\Nobs^2/2\Neff)$, though \citet{Farr:2019rap} suggests including this term explicitly as a marginalization over the uncertainty. That is, the correction in \citet{Farr:2019rap} is analogous to the bias term in Eq.~\ref{eq: bias for mean raised to power assuming lognormal}. We suggest that the expectation of the likelihood should be unbiased, and so we \textit{undo} this term, hence it obtains a minus sign in Eq.~\ref{eq: unbiased likelihood estimator}.}
@@ -214,7 +214,7 @@ We illustrate the intuition behind the posterior bias in Fig.~\ref{fig: schemati
 However, the resulting posterior estimator is biased. As shown mathematically in Eq.~\ref{eq: bias in posterior heuristic}, this is because of the nonlinearity of the normalization, and we can understand this intuitively from the schematic in Fig.~\ref{fig: schematic of posterior bias}. Consider two cases: one where the likelihood estimator for $x>0$ is scattered upwards, and one where the likelihood estimator is scattered downwards. The likelihood estimator is unbiased, so these cases should average out over an ensemble of estimators to the correct likelihood. That is, the amount of upwards scatter balances the amount of downwards scatter in the likelihood estimator. However, when we consider the corresponding \textit{normalized} posterior estimators, this balance is broken. The normalization is larger for the estimator which scattered upwards and smaller for the estimator which scattered downwards. The normalization then down-weights the upwardly scattered estimator and up-weights the downwardly scattered estimators. In general, this means that regions with larger uncertainty in the likelihood will be negatively biased, and regions with smaller uncertainty will be positively biased. 
 Fig.~\ref{fig: schematic of posterior bias} confirms our intuition: where the likelihood estimator uncertainty is small ($x<0$), the posterior is positively biased. We quantify this bias using the \textit{average} of the posterior estimators, denoted $\langle\hat{p}(x)\rangle$ (and dropping the implicit conditioning on data). 
 
-For completeness, we include the discussion of general posterior correction in the Appendix~\ref{app: correction in general} and as it applies to some examples in Appendix~\ref{app: examples of posterior correction}. That said, in practice it is expensive to include the full posterior correction factor because it requires an integral over the uncorrected posterior. That typically means performing an initial biased inference followed by a second corrected inference. Another drawback is that in the corrected posterior, we lose the ability to estimate the remaining posterior bias and there is often still significant \textit{uncertainty} which actually dominates the total error. For this reason, it is usually enough to use the corrected likelihood but neglect the posterior correction term. In Section~\ref{sec: robustness measures}, we introduce an estimator to quantify the total error (bias plus uncertainty) in the uncorrected posterior, and the analyst should compute this error statistic to assess the validity of their approximate inference.
+For completeness, we include the discussion of general posterior correction in the Appendix~\ref{app: correction in general} and as it applies to some examples in Appendix~\ref{app: examples of posterior correction}. That said, in practice it is expensive to include the full posterior correction factor because it requires an integral over the uncorrected posterior. That typically means performing an initial biased inference followed by a second corrected inference. Another drawback is that in the corrected posterior, we lose the ability to estimate the remaining posterior bias and there is often still significant \textit{uncertainty} which actually dominates the total error. For this reason, it is usually enough to use the corrected likelihood but neglect the posterior correction term. In Section~\ref{sec: mc robustness measures}, we introduce an estimator to quantify the total error (bias plus uncertainty) in the uncorrected posterior, and the analyst should compute this error statistic to assess the validity of their approximate inference.
 
 
 % Given a set of $N_{\rm samp}$ samples from $\{\Lambda_n\} \sim\hat{p}$, then we can estimate the bias in the $n^{\rm th}$ sample as

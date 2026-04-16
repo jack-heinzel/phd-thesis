@@ -4,7 +4,7 @@
 \subsection{Parameter Estimation uncertainty only}
 \label{app: gaussian pe uncertainty only}
 
-Here we show additional examples from Sec.~\ref{subsec: example without selection effects} of the Gaussian hierarchical inference with $\Nobs = 1000$ and $\Nobs = 5000$. Notice the error statistic scalings are roughly matched by the analytic predictions in Table~\ref{tab: scaling}. Restricting our attention to $\NPE = 1000$, in Figs.~\ref{fig: nobs 100 gaussian example},~\ref{fig: nobs 1000 gaussian example} and~\ref{fig: nobs 5000 gaussian example} we have $\Nobs=100$, $1000$, and $5000$ and $\hat{\Pi}[\hat{p}]\sim 10^{-2}$: roughly constant in $\Nobs$. 
+Here we show additional examples from Sec.~\ref{subsec: mc example without selection effects} of the Gaussian hierarchical inference with $\Nobs = 1000$ and $\Nobs = 5000$. Notice the error statistic scalings are roughly matched by the analytic predictions in Table~\ref{tab: scaling}. Restricting our attention to $\NPE = 1000$, in Figs.~\ref{fig: nobs 100 gaussian example},~\ref{fig: nobs 1000 gaussian example} and~\ref{fig: nobs 5000 gaussian example} we have $\Nobs=100$, $1000$, and $5000$ and $\hat{\Pi}[\hat{p}]\sim 10^{-2}$: roughly constant in $\Nobs$. 
 The accuracy statistics scale roughly linearly: $\hat{A}[\hat{p}]\sim 5\times10^{-4}, 5\times10^{-3}, 0.02$ bits. For a more quantitative scaling analogous to our precision statistic scaling, see Fig. 2 in \citet{Essick:2022ojx}.
 
 \begin{figure}[h!]
@@ -50,7 +50,7 @@ We also show examples where the noise is larger than the scale of the population
 \subsection{Selection effects estimation uncertainty only}
 \label{app: gaussian vt uncertainty only}
 
-We include some additional examples to Sec.~\ref{subsec: example with selection effects} where we vary the number of injections $\Ninj$ and the strength of the selection criterion. Some of the posterior estimators shown here are limited by the resolution on the underlying grid of $\sigma$ and $\mu$. 
+We include some additional examples to Sec.~\ref{subsec: mc example with selection effects} where we vary the number of injections $\Ninj$ and the strength of the selection criterion. Some of the posterior estimators shown here are limited by the resolution on the underlying grid of $\sigma$ and $\mu$. 
 
 Note that the scaling is roughly similar to the scaling arguments shown in Table~\ref{tab: scaling}. Restricting our attention to the case with selection $d=\theta+n>1$ and $\Ninj = 10^6$, in Figs.~\ref{fig: nobs 100 corrected vt 1 gaussian example},~\ref{fig: nobs 1000 corrected vt 1 gaussian example}, and~\ref{fig: nobs 5000 corrected vt 1 gaussian example} we have $\Nobs=100$, $1000$, and $5000$ and $\hat{\Pi}[\hat{p}]\sim 0.005, 0.03, 0.1$ bits: scaling roughly linearly in $\Nobs$. Note the posteriors are far from Gaussian, for $\Nobs = 100$, and so the scaling does not yet kick in.
 For a more quantitative scaling analogous to our precision statistic scaling, see Fig. 3 in \citet{Essick:2022ojx}.
@@ -92,7 +92,7 @@ When the selection criterion is changed, the shapes and uncertainties in the hie
 \section{Examples with posterior correction}
 \label{app: examples of posterior correction}
 
-We show some examples of \textit{explicitly} correcting the posterior estimators using the general expression (Eq.~\ref{eq: modifying term}) derived in Appendix~\ref{app: correction in general}. We use the same Gaussian hierarchical inference framework described in Sec.~\ref{sec: gaussian example}. 
+We show some examples of \textit{explicitly} correcting the posterior estimators using the general expression (Eq.~\ref{eq: modifying term}) derived in Appendix~\ref{app: correction in general}. We use the same Gaussian hierarchical inference framework described in Sec.~\ref{sec: mc gaussian example}. 
 Instead of estimating the accuracy statistic $\hat{A}$ with Eq.~\ref{eq: accuracy statistic}, however, we calculate the bias correction with the modifying term
 \beq
 m(\Lambda) = 
@@ -109,7 +109,7 @@ where $\hat{C}_{\ln \mathcal{L}}$ is defined in Eq.~\ref{eq: population covarian
 \eeq
 is the corrected posterior estimator.
 
-We show an example comparing the uncorrected posterior estimators with the corrected posterior estimator when only parameter estimation uncertainty is considered, as Sec.~\ref{subsec: example without selection effects}. We show the example in Fig.~\ref{fig: posterior comparisons nobs 5000} where $\Nobs = 5000$ (where we know from Table~\ref{tab: scaling} that the bias will contribute strongly for small $\NPE$).
+We show an example comparing the uncorrected posterior estimators with the corrected posterior estimator when only parameter estimation uncertainty is considered, as Sec.~\ref{subsec: mc example without selection effects}. We show the example in Fig.~\ref{fig: posterior comparisons nobs 5000} where $\Nobs = 5000$ (where we know from Table~\ref{tab: scaling} that the bias will contribute strongly for small $\NPE$).
 
 \begin{figure}
     \centering

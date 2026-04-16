@@ -1,5 +1,5 @@
 \section{Robustness measures and uncertainty thresholding}
-\label{sec: robustness measures}
+\label{sec: mc robustness measures}
 
 %\rednote{ACTUALLY I THINK THIS SHOULD GO IN FRONT OF THE BIAS CORRECTION SECTION?} maybe. Might be worth rethinking about how to structure the paper honestly. 
 In this section, we introduce a unified statistic $\hat{E}$ for evaluating the total error in an approximated posterior. From this discussion, the concepts of accuracy and precision for posterior estimators naturally appear. We also define the accuracy statistic $\hat{A}$ and precision statistic $\hat{\Pi}$ for estimating these quantities, where the error statistic is the sum $\hat{E} = \hat{A} + \hat{\Pi}$. We note that the precision statistic is proportional to the doubly-integrated Eq. A10 from \citet{Essick:2022ojx}.
@@ -46,7 +46,7 @@ where the sum estimates the average covariance between the fixed point $\Lambda_
 The accuracy statistic $\hat{A}[\hat{p}]$ approximates the amount of bias in the posterior estimate $\hat{p}$ from the true posterior $p$. Given that we do not have access to an ensemble of posterior estimators nor the true posterior, we can only estimate the bias to leading order. We neglect the higher order terms that should also contribute to the accuracy. A large accuracy statistic indicates that higher order terms would also contribute significantly to the bias, and the posterior estimator is not trustworthy. 
 
 Similarly, the precision statistic $\hat{\Pi}[\hat{p}]$ measures the average amount of scatter in a theoretical ensemble of posterior estimators. The scatter is the distance between the average posterior estimator (which in general is biased from the true posterior) and the particular realization of the posterior estimator. Again, we do not have access to this theoretical ensemble, and so we can only estimate the precision to leading order based on the estimator we have. 
-We verify the efficacy of the accuracy and precision statistics for a variety of hierarchical inference problems in Sections~\ref{sec: gaussian example} and \ref{sec: gw example}. 
+We verify the efficacy of the accuracy and precision statistics for a variety of hierarchical inference problems in Sections~\ref{sec: mc gaussian example} and \ref{sec: mc gw example}. 
 Additionally, note that the precision statistic is also proportional to the average variance in the difference of the log-likelihoods for two draws from the hyperposterior, discussed in \citet{Essick:2022ojx} and shown in Eq. A11 therein for the single-event terms.
 
 For a variety of problems we consider, we find that when $\hat{E}[\hat{p}] \lesssim 0.2$ bits, the posterior estimator is reliable, and the smaller the error statistic, the more reliable the posterior estimator is. See Fig.~\ref{fig: accuracy vs precision} for a schematic to illustrate the concepts of accuracy and precision in a posterior estimator.
@@ -105,7 +105,7 @@ Notice that the accuracy statistic is on the order of the \textit{square} of the
 
 % \rednote{These should all have integration measure $\Lambda$}
 
-% In addition to the bias discussed in Section~\ref{sec: monte carlo bias}, there is the uncertainty associated with using a single point estimate of the posterior. We can quantify this with Eq.~\ref{eq: kl divergence at leading order}, by taking the expectation over all $\delta$. This obtains us the \textit{precision} of the posterior estimator 
+% In addition to the bias discussed in Section~\ref{sec: mc monte carlo bias}, there is the uncertainty associated with using a single point estimate of the posterior. We can quantify this with Eq.~\ref{eq: kl divergence at leading order}, by taking the expectation over all $\delta$. This obtains us the \textit{precision} of the posterior estimator 
 % \beq
 % \langle\KLD(\langle \hat{p}\rangle|\hat{p})\rangle \approx \frac{1}{2\ln(2)} \left[\int p(x)\sigma^2(x)dx - \int p(x)p(x')C_{\ln\mathcal{L}}(x, x')dxdx'\right],
 % \label{eq: random kl divergence expectation}
@@ -147,7 +147,7 @@ Using the above inequalities of Eqs.~\ref{eq: covariance Schwarz inequality} and
 \eeq
 but in practice tend to be much smaller than these bounds (typically by an order of magnitude or so).
 
-While we show the log-likelihood variance threshold suggested in \citet{Talbot:2023pex} guarantees a trustworthy posterior estimator, it only does so within the domain of $\Lambda$ which is not below the variance threshold. Furthermore, \citet{Essick:2022ojx} point out that a threshold on the log-likelihood variance might be sufficient for accurate inference, but also that there are cases where thresholding on the log-likelihood variance is much stronger than necessary; these are the cases where we believe the error statistic is useful (\citet{Essick:2022ojx} and \citet{Talbot:2023pex} come to similar conclusions and define a statistic similar to our precision statistic). We discuss examples of the variance threshold being stronger than necessary in Section~\ref{sec: gw example}.
+While we show the log-likelihood variance threshold suggested in \citet{Talbot:2023pex} guarantees a trustworthy posterior estimator, it only does so within the domain of $\Lambda$ which is not below the variance threshold. Furthermore, \citet{Essick:2022ojx} point out that a threshold on the log-likelihood variance might be sufficient for accurate inference, but also that there are cases where thresholding on the log-likelihood variance is much stronger than necessary; these are the cases where we believe the error statistic is useful (\citet{Essick:2022ojx} and \citet{Talbot:2023pex} come to similar conclusions and define a statistic similar to our precision statistic). We discuss examples of the variance threshold being stronger than necessary in Section~\ref{sec: mc gw example}.
 
 Another common threshold previously used in the literature is based on the effective sample size of a Monte Carlo integral. Somewhat confusingly, there are two related but subtly different definitions of the effective sample size, both of which are used. One definition, defined in \citet{Farr:2019rap}, is commonly applied to the selection efficiency Monte Carlo integral
 \beq
@@ -166,4 +166,4 @@ In particular, the thresholds we refer to as ``effective sample size'' or ``$\Ne
     \item $N_{{\rm eff},\xi} > 4\Nobs$
     \item $N_{{\rm eff},p} > 10, 30, \Nobs$ depending on the analysis threshold.
 \end{enumerate}
-Our claim is that these thresholds are not enough to ensure a reliable posterior estimator. Though these may produce reasonable results in some applications, we do not have any theoretical guarantee of reliable results, and we show examples in Section~\ref{sec: gw example} where these thresholds can be insufficient.
+Our claim is that these thresholds are not enough to ensure a reliable posterior estimator. Though these may produce reasonable results in some applications, we do not have any theoretical guarantee of reliable results, and we show examples in Section~\ref{sec: mc gw example} where these thresholds can be insufficient.
