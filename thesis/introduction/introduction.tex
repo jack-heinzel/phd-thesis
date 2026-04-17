@@ -47,14 +47,14 @@ g_{\mu\nu} = \eta_{\mu\nu} + h_{\mu\nu}.
 \end{equation}
 While a general symmetric tensor $g_{\mu\nu}$ possesses ten independent components, the vacuum Einstein field equations reveal only two physical, propagating degrees of freedom. In the transverse-traceless gauge, these are typically identified as the $+$ (plus) and $\times$ (cross) polarization states (see Fig.~\ref{fig: bbh diagram} for how these affect a ring of free-falling particles). 
 
-\begin{figure}
+\begin{figure}[t]
     \centering
-    \includegraphics[width=0.5\linewidth]{}
-    \caption{Caption}
+    \includegraphics[width=\linewidth]{thesis/introduction/bbh_merger_diagram.pdf}
+    \caption{Diagram of a \ac{BBH} merger. In the left panel, we show the intrinsic diagram of the anatomy of a \ac{BBH}, with masses and spin vectors (eight intrinsic parameters). In the central panel, we show how the \ac{BBH} is oriented relative to the observatories on Earth (each \ac{LIGO} observatory is denoted with a small L). We list the set of seven extrinsic variables required to describe the \ac{BBH} relative to the Earth. In the right panel, we show a diagram of the $+$ and $\times$ polarization states of a \ac{GW} in general relativity.}
     \label{fig: bbh diagram}
 \end{figure}
 
-When a \ac{GW} is incident on an interferometer, the perturbation stretches and squeezes the spacetime proportional to $h\lesssim 10^{-20}$. This leads to a time-varying modification of the observed intensity at the output of the interferometer. By precisely recording the amplitude and phase evolution of the observed intensity modulation, we can reconstruct $h(t)$, and then reconstruct the underlying gravitational wave progenitor parameters $\theta$ (e.g., masses, spins). We show a diagram of the 15 gravitational wave parameters relevant for quasi-circular \ac{BBH} inspirals in Fig.~\ref{fig: bbh diagram}. However, accurate reconstruction of the source parameters requires decomposing the data into signal plus noise: and because we only have probabilistic knowledge about the noise, we can only recover probabilistic knowledge about the signal.
+When a \ac{GW} is incident on an interferometer, the perturbation stretches and squeezes the spacetime proportional to $h\lesssim 10^{-20}$. This leads to a time-varying modification of the observed intensity at the output of the interferometer. By precisely recording the amplitude and phase evolution of the observed intensity modulation, we can reconstruct $h(t)$, and then reconstruct the underlying gravitational wave progenitor parameters $\theta$ (e.g., masses, spins). We show a diagram of the 15 gravitational wave parameters relevant for quasi-circular \ac{BBH} inspirals in Fig.~\ref{fig: bbh diagram}. However, accurate reconstruction of the source parameters requires decomposing the data into signal plus noise: and because we only have probabilistic knowledge about the noise, we can only recover probabilistic knowledge about the signal. 
 
 
 
@@ -90,22 +90,21 @@ Probabilistic models are helpful for writing down the \textit{likelihood functio
 \begin{equation}
     \mathcal{L}(\theta) = p(d | \theta).
 \end{equation}
-Typically we use the Whittle approximation for the \ac{GW} likelihood, assuming the noise to be Gaussian and stationary. This makes analyses more computationally tractable, however it also breaks down due to transient, non-Gaussian noise. We discuss the impact of non-Gaussian noise extensively in chapter~\ref{chapter: glitches}.
+Typically we use the Whittle approximation for the \ac{GW} likelihood \citep{whittle1951hypothesis, Cutler:1994ys}, assuming the noise to be Gaussian and stationary. This makes analyses more computationally tractable, however it also breaks down due to transient, non-Gaussian noise. We discuss the impact of non-Gaussian noise extensively in chapter~\ref{chapter: glitches}.
 
-The second ingredient in Bayesian inference is the \textit{prior} $\pi(\theta)$, which represents our prior information about the top level of the probabilistic model. In gravitational wave inference, an appropriate choice may be the population of gravitational wave sources (thinking of our compact binary merger as a random draw from the population), however a more common choice is an unphysical uniform in mass, spins, etc. prior (see \citet{prior} for a full list).
+The second ingredient in Bayesian inference is the \textit{prior} $\pi(\theta)$, which represents our prior information about the top level of the probabilistic model. In gravitational wave inference, an appropriate choice may be the population of gravitational wave sources (thinking of our compact binary merger as a random draw from the population), however a more common choice is an unphysical uniform in mass, spins, etc. prior.
 
-We combine the prior and likelihood function to obtain the \textit{posterior distribution} on the unknown parameters using Bayes' theorem
+We combine the prior and likelihood function to obtain the \textit{posterior distribution} on the unknown parameters using Bayes' theorem 
 \begin{equation}
     p(\theta | d) = \frac{p(d|\theta)\pi(\theta)}{p(d)} \equiv \frac{\mathcal{L}(\theta)\pi(\theta)}{\mathcal{Z}(d)}
 \end{equation}
-where the Bayesian evidence $\mathcal{Z} = p(d) = \int d\theta p(d|\theta)\pi(\theta)$ normalizes the posterior.
-
+where the Bayesian evidence $\mathcal{Z} = p(d) = \int d\theta p(d|\theta)\pi(\theta)$ normalizes the posterior. For a more thorough introduction to Bayesian inference in \ac{GW} astronomy, see \citet{Thrane:2018qnx} and for Bayesian methods in astronomy more generally, see \citet{Loredo:2004nn}.
 
 \subsection{Hierarchical Bayesian inference}
 
 In a hierarchical Bayesian inference, our aim is to use an ensemble of observations to learn about their source population. The hierarchical Bayesian inference generative model is more sophisticated than a single gravitational wave event, and is shown in the diagram in Fig.~\ref{fig: hierarchical Bayesian inference dag}. We begin with some \textit{hyperparameters} $\Lambda$, which are the model parameters for the source population. These hyperparameters describe how to generate sources from the population, and can either be phenomenological, e.g., assuming the population of \ac{BBH} masses is distributed according to a power law, $\Lambda$ will include the power law slope, and the upper and lower edges.
 
-The model we use for the gravitational-wave population is called an \textit{inhomogeneous Poisson process}. Over the continuous space of \ac{GW} parameters $\theta$, each point has an intrinsic rate density $N(\theta|\Lambda)$. Specifically, within an infinitesimal region $d\theta$, the number of mergers is a Poisson random variable $dN \sim \mathrm{Pois}(N(\theta|\Lambda)d\theta)$.\footnote{The rate $N(\theta|\Lambda)$ varies over $\theta$, making the process inhomogeneous; if it were constant, it would be a homogeneous Poisson process.} This is equivalent to first drawing the total number of events $N_{\rm tot} \sim \mathrm{Pois}(N)$, where $N = \int N(\theta|\Lambda) \, d\theta$, and then drawing $N_{\rm tot}$ independent samples from the normalized population distribution $p(\theta|\Lambda) = N(\theta|\Lambda)/N$.
+The model we use for the gravitational-wave population is called an \textit{inhomogeneous Poisson process}. Over the continuous space of \ac{GW} parameters $\theta$, each point has an intrinsic rate density $N(\theta|\Lambda)$. Specifically, within an infinitesimal region $d\theta$, the number of mergers is a Poisson random variable $dN \sim \mathrm{Pois}(N(\theta|\Lambda)d\theta)$.\footnote{The rate $N(\theta|\Lambda)$ varies over $\theta$, making the process inhomogeneous; if it were constant, it would be a homogeneous Poisson process.} This is equivalent to first drawing the total number of events $N_{\rm tot} \sim \mathrm{Pois}(N)$, where $N = \int N(\theta|\Lambda) \, d\theta$, and then drawing $N_{\rm tot}$ independent samples from the normalized population distribution $p(\theta|\Lambda) = N(\theta|\Lambda)/N$. 
 
 There are then $N_{\rm tot}$ \acp{GW} incident on the detectors which combine with the noise to produce observed data. Most of these events are far too quiet to detect, however, and so we then further downselect to a subset of the data by running sophisticated search algorithms \citep{} to determine which stretches of data confidently contain a \ac{GW} signal. 
 
@@ -163,14 +162,18 @@ Summing over the unknown total number of events $N_{\rm tot}$ and accounting for
 \begin{equation}
     \mathcal{L}(\Lambda, N) = \sum_{N_{\rm tot}=N_{\rm obs}}^{\infty} \binom{N_{\rm tot}}{N_{\rm obs}} \frac{N^{N_{\rm tot}} e^{-N}}{N_{\rm tot}!} [1 - \alpha(\Lambda)]^{N_{\rm tot} - N_{\rm obs}} \prod_{i=1}^{N_{\rm obs}} \int p(d_i | \theta_i) p(\theta_i | \Lambda) \, d\theta_i.
 \end{equation}
-By substituting $k = N_{\rm tot} - N_{\rm obs}$ and using the Taylor series for the exponential, $\sum \frac{x^k}{k!} = e^x$, the summation simplifies to
+By substituting $k = N_{\rm tot} - N_{\rm obs}$ and using the Taylor series for the exponential, $\sum \frac{x^k}{k!} = e^x$, the summation simplifies to \citep{Mandel:2018mve, Vitale:2020aaz, Essick:2023upv}
 \begin{equation}
     \mathcal{L}(\Lambda, N) = \frac{e^{-N\alpha(\Lambda)}}{N_{\rm obs}!} N^{N_{\rm obs}} \prod_{i=1}^{N_{\rm obs}} \int p(d_i | \theta_i) p(\theta_i | \Lambda) \, d\theta_i.
     \label{eq: intro HBI likelihood}
 \end{equation}
 This is the hierarchical likelihood which forms the foundation of gravitational wave population studies. The $N_{\rm obs}$ detected events follow a Poisson distribution with an expected rate of $N\alpha(\Lambda)$, while the shape of the distribution is governed by the population-weighted individual event likelihoods.
 
+\subsection{Contaminated gravitational wave catalogs}
 
+For unbiased inference on the \ac{BBH} population, we must ensure the catalog of events included in the inference are all genuine astrophysical \acp{GW}. However, the \ac{LIGO} and Virgo interferometers are plagued by transient, non-Gaussian noise artifacts known as \textit{glitches}. These glitches rarely imitate astrophysical \acp{GW} as the \ac{LVK} collaboration correlates terrestrial noise sources with the observed strain \citep{}, and \ac{GW} search algorithms are tuned to penalize any excess, non-Gaussian power \citep{}. Furthermore, we require a strict threshold for inclusion into the \ac{GW} catalog, but even so it is possible that some non-astrophysical noise triggers contaminate the catalog. 
+
+In the next chapter, we discuss the biases that arise when non-astrophysical \ac{GW} noise contaminants are incorrectly included in the catalog. We show how to include these non-Gaussian contaminants into the hierarchical \ac{GW} generative model and in doing so, we can correctly account for the bias due to the inclusion of non-astrophysical \ac{GW} events. 
 
 \printbibliography[heading=subbibliography]
 \end{refsection}
