@@ -293,10 +293,15 @@
   {\begin{quote}\small\noindent\textit{Abstract:}~}%
   {\end{quote}}
 
-%% Author list for journal-paper chapters.
-%% Usage: \chapterauthors{Author One, Author Two, Author Three}
+%% Author list and affiliations for journal-paper chapters.
+%% Usage:
+%%   \chapterauthors{Author One$^1$, Author Two$^{1,2}$, Author Three$^2$}
+%%   \chapteraffiliations{$^1$MIT, $^2$Some Other Institution}
 \newcommand{\chapterauthors}[1]{%
-  {\medskip\noindent\small\textit{#1}\par\medskip}%
+  \medskip\noindent{\small\itshape #1}\par%
+}
+\newcommand{\chapteraffiliations}[1]{%
+  \smallskip\noindent{\footnotesize #1}\par\medskip%
 }
 
 %% PRL-style inline heading (chapter 4 letter format).
