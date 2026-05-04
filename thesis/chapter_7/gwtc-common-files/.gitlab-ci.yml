@@ -1,0 +1,116 @@
+include:
+  - project: computing/gitlab-ci-templates
+    file: conda.yml
+
+# Define common configurations
+.conda_base: &conda_base
+  #extends:
+  # - .conda:base
+  # Temporary hard code to fix MAMBA issue in conda
+  image: igwn/base@sha256:48f5df89e45d2004c14a8335b50f8b3e95747896f04855da56a6fcab54dc399e
+  variables:
+      GIT_SUBMODULE_STRATEGY: recursive
+
+.igwn_publisher: &igwn_publisher
+  #image: igwn/publisher:latest
+  # Temporary hard code to fix MAMBA issue in conda
+  image: igwn/publisher@sha256:fb965547c33d9c8b412c50925be979bf96c8f5a0b7e3d3b2ccc17bb9c46788b1
+  variables:
+      GIT_SUBMODULE_STRATEGY: recursive
+
+stages:
+  - test
+  - publish
+
+spellcheck:
+  <<: *conda_base
+  stage: test
+  script:
+   - pip install codespell
+   - codespell .
+
+stylefile:
+  <<: *conda_base
+  stage: test
+  script:
+    - pip install matplotlib
+    - python test/test_paper_style.py
+  artifacts:
+    when: always
+    paths:
+      - test/test_paper_style.png
+    expire_in: 1 week
+
+test_macros_create:
+  <<: *conda_base
+  stage: test
+  script:
+   - python test/write_tex_macros_file.py
+  artifacts:
+    when: always
+    paths:
+      - test_macros.tex
+    expire_in: 1 day
+
+test_macros_compile:
+  <<: *igwn_publisher
+  stage: publish
+  script:
+   - pdflatex test_macros.tex
+  dependencies:
+    - test_macros_create
+  artifacts:
+    when: always
+    paths:
+      - test_macros.pdf
+    expire_in: 1 year
+
+test_acros_create:
+  <<: *conda_base
+  stage: test
+  script:
+   - python test/write_tex_acronyms_file.py
+  artifacts:
+    when: always
+    paths:
+      - test_acros.tex
+    expire_in: 1 day
+
+test_acros_compile:
+  <<: *igwn_publisher
+  stage: publish
+  script:
+   - pdflatex test_acros.tex
+   - pdflatex test_acros.tex
+  dependencies:
+    - test_acros_create
+  artifacts:
+    when: always
+    paths:
+      - test_acros.pdf
+    expire_in: 1 year
+
+test_bib_compile:
+  <<: *igwn_publisher
+  stage: publish
+  script:
+   - cd references/
+   - pdflatex TEST_BIBLIOGRAPHY.tex
+   - pdflatex TEST_BIBLIOGRAPHY.tex
+   - bibtex TEST_BIBLIOGRAPHY.aux
+   - pdflatex TEST_BIBLIOGRAPHY.tex
+  artifacts:
+    when: always
+    paths:
+      - references/TEST_BIBLIOGRAPHY.pdf
+      - references/TEST_BIBLIOGRAPHY.blg
+    expire_in: 1 year
+
+uptodate:
+  <<: *conda_base
+  stage: test
+  script:
+   - pip install pandas
+   - python create_macros.py
+   # If this line fails, you have edited a file in data/, but not run create_macros.py
+   - git diff --exit-code

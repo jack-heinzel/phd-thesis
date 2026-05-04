@@ -1,0 +1,40 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Merger Rate and Redshift Evolution}
+\label{subsec:bbh_redshift}
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+Improvements in the sensitivity of current \ac{GW} observatories \citep{LIGOO4Detector:2023wmz, Capote:2024rmo, GWTC:Introduction} not only provide more \ac{BBH} detections, but also observations of increasingly faint sources at higher redshifts.
+These observations allow us to improve our population-level constraints on the evolution of the merger rate across redshift.
+
+Following \citet{KAGRA:2021duu}, we repeat the \powerlawRedshift \parametric. We assume that the merger rate evolves as $\mathcal{R}(z) \propto (1+z)^\kappa$, and we infer the proportionality constant and the power-law index $\kappa$.
+{\textbf{\boldmath We find that the \ac{BBH} merger rate at $\bm{z=0.2}$ is $\defaultbbh[redshift][rate_at_z_0-2][median]^{+\defaultbbh[redshift][rate_at_z_0-2][error plus]}_{-\defaultbbh[redshift][rate_at_z_0-2][error minus]}\,\bm{\perGpcyr}$, and the power-law exponent is constrained to $\bm{\kappa = }\defaultbbh[lamb][median]^{+\defaultbbh[lamb][error plus]}_{-\defaultbbh[lamb][error minus]}$,}}
+which represent consistent and improved constraints over our \gwtcthree analysis.
+We also probe to deeper redshifts, and infer that 99\% of detectable \acp{BBH} fall below $z=\DefaultMaximumRedshift[detectable][50th_percentile]_{-\DefaultMaximumRedshift[detectable][error_minus]}^{+\DefaultMaximumRedshift[detectable][error_plus]}$ 
+(cf. the maximum observable redshift inferred as $z=1.1_{-0.2}^{+0.2}$ in \citealt{Fishbach:2023pqs}, from \gwtcthree).
+We also use the \nonparametricAdj \BSpline approach to explore if the data support behavior beyond a power-law evolution, and compare our results in Figure~\ref{fig:powerlaw_redshift_gwtc3_vs_gwtc4}.
+While the results are consistent---indicating that the \powerlawRedshift model is sufficient---the \BSpline approach infers a larger merger rate of $\BsplineIID[rate_at_z_0-2][median]^{+\BsplineIID[rate_at_z_0-2][error plus]}_{-\BsplineIID[rate_at_z_0-2][error minus]}\,\perGpcyr$ at $z=0.2$. 
+Our results are nominally consistent with the cosmic star formation rate density, with $\kappa_{\rm SFR} = 2.7$ \citep{Madau:2014bja}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.98\columnwidth]{figures/redshift_bs_vs_powerlaw.pdf}
+  \caption{
+  Comparison of redshift models between \gwtcthree and \gwtcfour. 
+  \textit{Top:} Posterior on the $\kappa$ parameter for the \powerlawRedshift model. \gwtcfour shows increased support for positive values.
+  \textit{Bottom:} Median and 90\% credible regions for the comoving source frame rate in the \powerlawRedshift model. 
+  We also show a comparison of the \powerlawRedshift model and the \nonparametricAdj \BSpline model and a scaled cosmic star formation rate density \citep{Madau:2014bja}, which are consistent within uncertainties ($\kappa_{\rm SFR} = 2.7$).
+  }
+  \label{fig:powerlaw_redshift_gwtc3_vs_gwtc4}
+\end{figure}
+
+Our constraints on the merger rate evolution informs our understanding of the \ac{BBH} progenitor formation rate and the delay time distribution between formation and merger \citep{Vitale:2018yhm,Rodriguez:2018rmd, Fragione:2018vty,Fishbach:2018edt, Baibhav:2019gxm, Romero-Shaw:2020siz,Broekgaarden:2021efa,Mapelli:2021gyv,Fishbach:2021mhp,Chruslinska:2022ovf,Fishbach:2023xws,Boesky:2024msm}. 
+For \acp{BBH} formed from isolated binary evolution, the merger rate evolution is typically well approximated as a power law at small redshift, though the value of the power-law index $\kappa$ is sensitive to the assumed population synthesis parameters \citep{Neijssel:2019irh, Broekgaarden:2021efa, Gallegos-Garcia:2021hti, deSa:2024otm}.
+Nevertheless, models typically prefer values around $\kappa\sim 1$ \citep{Dominik:2013tma, Baibhav:2019gxm}. 
+\acp{BBH} originating from dense star clusters predict local merger rates of $\mathcal{R}\sim 10\,\perGpcyr$ \citep{Sedda:2023qlx} and steeper values of $\kappa \sim 2$ \citep{Antonini:2020xnd}, albeit with large theoretical uncertainties that can account for a similar evolution to the isolated binary evolution predictions.
+{\textbf{\boldmath Our observations suggest a steeper evolution, with $\bm{\kappa\sim 2}$--$\bm{4}$.}}
+While this does not rule out either class of \ac{BBH} formation, it may be suggestive of (i) progenitor formation rates that peak at an earlier redshift as compared to the cosmic star formation rate density, e.g., due to a preference for low-metallicity progenitors, and/or (ii) shorter delay times, perhaps with a tail toward long delay times~\citep{Fishbach:2021mhp, Karathanasis:2022rtr,Fishbach:2023pqs, Turbang:2023tjk,Vijaykumar:2023bgs,Schiebelbein-Zwack:2024roj}.
+
+Models of isolated binary evolution and dense star clusters often predict that the merger rate evolves differently across the mass spectrum \citep{vanSon:2021zpk, Mapelli:2021gyv, Ye:2024ypm};
+however, analyses of the previous catalog have not found evidence for or against differential rate evolution \citep{Fishbach:2021yvy,Sadiq:2021fin, vanSon:2021zpk, Ray:2023upk, Heinzel:2024hva, Sadiq:2025aog}.
+We discuss potential mass-redshift correlations in Section~\ref{subsubsec:redshift_mass_correlations}.

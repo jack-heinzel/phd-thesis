@@ -1,0 +1,210 @@
+%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Spin}
+%%%%%%%%%%%%%%%%%%%%%%%%
+\label{subsec:bbh_spins}
+
+We next present the spin distribution of the \ac{BBH} population through O4a.
+We model spins using two different parameterizations: the magnitudes $\chi_i$ and tilt angles $\theta_i$ (Section~\ref{subsubsec:bbh_spin_mag_and_tilts}), and the effective inspiral spin $\chieff$ and effective precessing spin $\chip$ (Section~\ref{subsubsec:bbh_effective_spins}).
+The effective inspiral spin $\chieff$ is the mass-weighted average of the component spins \textit{aligned} with the binary's orbital angular momentum~\citep{Racine:2008qv,Ajith:2009bn}.
+The effective precessing spin $\chip$ characterizes the degree of relativistic precession caused by spin--orbit misalignment, capturing the effect of the \textit{in-plane} spin components~\citep{Schmidt:2010it,Schmidt:2012rh,Schmidt:2014iyl,Gerosa:2020aiw}; these are defined in Equations 15 and 16 of \cite{GWTC:Introduction}.
+More details about spin parameterization are given in Appendix~\ref{appendix:spinModels}.
+
+Previous analyses of the \acp{BBH} observed through O3 found that \ac{BH} spin vectors tend to be small in magnitude ($\chi\lesssim 0.3$) and preferentially---but not exclusively---lie above the orbital plane \citep[$\cos\theta>0$;][]{LIGOScientific:2018jsj,LIGOScientific:2020kqk,KAGRA:2021duu}. 
+The new observations in \gwtcfour further support these conclusions and additionally suggest more structure in the component and effective spin distributions, enabled by changes to the models used in previous population analyses:
+(i) \textbf{the spin magnitude distribution has support at $\bm{\chi\approx 0}$}, (ii) \textbf{the spin tilt distribution may peak away from perfect alignment with the orbital angular momentum}, and (iii) \textbf{the $\bm{\chieff}$ distribution is asymmetric about its peak}.
+We elaborate upon these new features in the following subsections.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Spin Magnitudes and Tilts}
+\label{subsubsec:bbh_spin_mag_and_tilts}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{figure*}
+  \centering
+  \includegraphics[width=\linewidth]{figures/spins/spin_magnitudes_and_tilts.pdf}
+  \caption{Marginal spin magnitude $\chi$ (left) and cosine tilt angle $\cos\theta$ (right) distributions under the \default (blue) and \BSpline (green) models.
+  The results from the \gwtcthree~{\sc Default} are shown for comparison (black dashed); note that this model is different from what is used for \gwtcfour.
+  The \gwtcthree analysis employed a Beta distribution for spin magnitudes rather than a truncated normal, and fixed the location of the Gaussian component of the spin tilt angle distribution to $\cos\theta=1$ rather than letting it vary freely in inference. 
+  The solid lines show the median of the inferred distributions from \gwtcfour, and the shaded regions show their 90\% credible regions.
+  The thick dashed lines show the median from \gwtcthree, while the thin dashed lines show its 90\% credible region.}
+  \label{fig:spin_mag_tilt_pdf}
+\end{figure*}
+%
+
+Spin magnitudes and tilt angles provide insight about \ac{BBH} formation and evolution~\citep[e.g.,][]{Mandel:2018hfr,Mapelli:2018uds}; we begin with spin magnitudes.
+If angular momentum transport in stars is efficient, stellar cores rotate slowly, resulting in small spin magnitudes for isolated \acp{BH}~\citep{Fuller:2019sxi,Ma:2019cpr,Fuller:2019ckz}.
+However, binary interactions can significantly influence \ac{BH} spins through mechanisms such as tides~\citep{Hut:1981,Packet:1981,Zaldarriaga:2017qkw,Qin:2018vaa,Bavera:2020inc,Mandel:2020lhv} and accretion~\citep{Hut:1981,Packet:1981,vandenHeuvel:2017pwp,Neijssel:2019irh,Steinle:2020xej,Stegmann:2020kgb}. 
+If a \ac{BBH} forms from a pre-existing isolated stellar binary, tidal interactions can spin up the progenitor of the second-born \ac{BH}~\citep{Bavera:2020inc,Qin:2018sxk}, yielding spin magnitudes of $\chi\approx 0.2{-}0.4$~\citep{Ma:2023nrf}, although these can be reduced by stellar winds~\citep{Tout:1992}.
+Chemically homogeneous evolution---involving tidally locked, high-mass, low-metallicity, close binaries---may produce even larger spins~\citep{Mandel:2015qlu,deMink:2016vkw}. 
+Alternatively, large spin magnitudes may point toward a hierarchical merger origin, where one or both \acp{BH} are remnants of previous \ac{BBH} mergers~\citep{Rodriguez:2019huv,Zhang:2023fpp,Doctor:2019ruh,Kimball:2020opk,Payne:2024ywe,Gerosa:2021mno,Fishbach:2017dwv,Gerosa:2017kvu,Mould:2022ccw,Mahapatra:2021hme,Mahapatra:2022ngs,Mahapatra:2024qsy}, which are predicted to have $\chi \sim 0.7$~\citep{Lousto:2009mf}.
+
+With this astrophysical context, we present our measurement of the spin magnitude distribution through O4a. 
+The left column of Figure~\ref{fig:spin_mag_tilt_pdf} shows the marginal distributions of $\chi$ using the \parametric~(\default; blue) and \nonparametric~(\BSpline; green).
+The \default~model (Equation \ref{eqn:spin_mag_model}) describes the $\chi$ population as a truncated Gaussian distribution.
+This is a departure from the {\sc Default} spin model of \gwtcthree.
+There, a non-singular Beta distribution was used~\citep{KAGRA:2021duu}, which forces $p(\chi)=0$ at $\chi=0,1$ and thus cannot measure contributions to the population at near-minimal or near-maximal spins.
+Allowing for more model flexibility at the $\chi$ distribution's boundaries is crucial, as there exists an ongoing discussion in the literature about whether or not there is an over-density of \acp{BBH} with $\chi \lesssim 0.01$~\citep{Kimball:2020opk,Galaudage:2021rkt,Callister:2022qwb,Tong:2022iws,Mould:2022xeu,Hussain:2024qzl}.
+We find that the \default~model is preferred over the {\sc Default} spin model of \gwtcthree by $\log_{10} {\cal B} = \spinModelComparisonLogTenBayesFactors[MagTruncnormIidTiltIsotropicTruncnormNid][log10_bayes_factor_over_old_default]$; additional parametric spin magnitude (and tilt) models are discussed in Appendix~\ref{appendix:model_comparison_spins}.
+The widening of the 90\% credible regions for the $\chi$ and $\cos\theta$ distributions at their boundaries under the \BSpline~model seen in Figure \ref{fig:spin_mag_tilt_pdf} is a prior-driven effect common in spline modeling \citep[e.g.,][]{Golomb:2022bon,Edelman:2022ydv}.
+
+\textbf{In \gwtcfour, we constrain $\bm{p(\chi\approx 0) > 0}$ under both the strongly and weakly modeled approaches.}
+At 90\% credibility, our recovered spin magnitude distribution peaks between $\chi=\CIBoundsDash{\MagTruncnormIidTiltIsotropicTruncnormNid[param][mu_chi]}$, as measured by the $\mu_{\chi}$ location parameter.
+Broadly, \ac{BH} spins are inferred to be predominantly non-extremal, with the \default~model finding that $90\%$ of \acp{BH} having $\chi<\MagTruncnormIidTiltIsotropicTruncnormNid[ppd][a][90th percentile]$.
+The comparative dearth of observed \acp{BBH} with large spins disfavors a population dominated by second-generation \acp{BH}. 
+However, the precise fraction of systems with large spin magnitudes is model dependent: the \default and \BSpline models only disagree at 90\% credibility for $\chi > \defaultVersusBSplineSpinMagnitudes[chi at discrepancy=90]$.
+At $\chi = 0.8$, $0.9$, and $1.0$, their $p(\chi)$ distributions differ at the $\defaultVersusBSplineSpinMagnitudes[discrepancy percentile for chi=0.8]$\%, $\defaultVersusBSplineSpinMagnitudes[discrepancy percentile for chi=0.9]$\%, and $\defaultVersusBSplineSpinMagnitudes[discrepancy percentile for chi=1.0]$\% levels, respectively.
+While the \default model approaches $p(\chi)\sim 0$ at $\chi=1$,
+the \BSpline~model infers a larger, nearly flat distribution from $\chi=0.6$ to $1$. 
+Similar behavior was found in \gwtcthree~\citep{Godfrey:2023oxb}, and attributed to a subpopulation with near-uniform spin magnitudes.
+The discrepancy between our two models may arise from limited flexibility in the \parametric; a single truncated Gaussian cannot increase the probability at $\chi \gtrsim 0.8$ without also increasing it at $\chi\sim 0.2{-}0.5$. 
+In \gwtcfour, a handful of events do have preferentially large spin magnitudes, including GW231123 which has primary spin $\chi_1 > 0.5$ with high confidence~\citep{GW231123}.
+
+Under both the \default and \BSpline models, the results presented in Figure~\ref{fig:spin_mag_tilt_pdf} assume that the spin magnitudes are \ac{IID}, meaning that the function describing the population distribution is factorizable in terms of $\chi_1$ and $\chi_2$, and the two are described by the same set of hyperparameters.
+The data prefer identically distributed spin magnitudes over those which are non-identically distributed, cf.~Table~\ref{tab:modelComparisonSpins}.
+However, mathematically, the primary and secondary spins cannot be \ac{IID} if the purported correlation between $q$ and $\chieff$ is true~\citep{Farr:2025}. 
+We probe this correlation in Section~\ref{subsubsec:mass_spin_correlations}, and find support for its existence, albeit with evidence that has diminished since \gwtcthree. 
+Thus, we interpret the Bayes factor in favor of \ac{IID} spins as a statement that, under the \default~model, we cannot yet say with statistical certainty that the spins are not identically distributed. 
+This statement is likely driven by the fact that individual-event spin magnitude posterior distributions are typically wide, making $\chi_1$ and $\chi_2$ hard to distinguish. 
+In general, $\chi_1$ and $\chi_2$ are not expected to be identically distributed in nature; if $q$ and $\chieff$ are indeed correlated, more informative $\chi_i$ measurements may eventually reveal their non-identical nature.
+Figure~\ref{fig:spin_mags_tilts_comparison_cornerplot} in Appendix~\ref{appendix:model_comparison_spins} presents posteriors on the \default hyperparameters under the assumption that spin magnitudes (and tilts) are identically versus non-identically distributed.
+
+%
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{figures/spins/spin_sorting_traces.pdf}
+  \caption{Larger ($\chi_A$, darker blue) and smaller ($\chi_B$, lighter blue) spin magnitude distributions, derived from imposing order statistics on the \default $\chi$ distribution shown in Figure~\ref{fig:spin_mag_tilt_pdf}.
+  The solid lines show the median of each inferred distribution, and the shaded regions show the 90\% credible intervals.}
+  \label{fig:spin_sorting_pdf}
+\end{figure}
+%
+
+Next, Figure~\ref{fig:spin_sorting_pdf} shows the inferred spin magnitude distributions if, rather than sorting by the more versus less massive \ac{BH}, we instead sort by the \ac{BH} with the larger (subscript A) and smaller (subscript B) spin magnitude~\citep{Biscoveanu:2020are}. 
+The magnitudes $\chi_A$ and $\chi_B$ are derived quantities and are not fit independently:
+to generate their distributions, we take results from the \default~model and impose order statistics, assuming that $\chi_A$ is the larger of two draws from the $p(\chi)$ distribution in the left panel of Figure~\ref{fig:spin_mag_tilt_pdf} and $\chi_B$ is the smaller~\citep{KAGRA:2021duu, Biscoveanu:2020are}.
+This analysis does not assume any sort of pairing function between spins.
+Spin sorting offers an alternative way to visualize and interpret the spin information from the \ac{IID} model.
+The more rapidly spinning component has a wide spin magnitude distribution, with a \ac{PPD} peaking at $\chi_A = \MagTruncnormIidTiltIsotropicTruncnormSpinSorting[ppd][chi_A][spin at peak]$, and support up to $\chi_{A,99\%}= \CIPlusMinus{\MagTruncnormIidTiltIsotropicTruncnormSpinSorting[param][chi_A_99th]}$ (value of $\chi_A$ at which each $p(\chi_A)$ trace reaches its 99th percentile, serving as a proxy for the distribution's maximum).
+The vanishing probability at $\chi_A=0$ is a Jacobian effect of the order statistics.
+However, if both \acp{BH} had $\chi\approx 0$, the $\chi_A$ distribution would be much more strongly peaked at small values~\citep{Szemraj:2025fmm}, meaning that spin-sorting results on \gwtcfour indicate that \textbf{at least one BH per binary has $\bm{\chi\gtrsim 0}$}.
+The more slowly spinning component, on the other hand, is consistent with a narrower distribution peaking at $\chi_B = 0$, and only has support up to $\chi_{B,99\%} = \CIPlusMinus{\MagTruncnormIidTiltIsotropicTruncnormSpinSorting[param][chi_B_99th]}$.
+The observation that spin $\chi_B$ magnitudes are preferentially small could indicate small natal spins for at least one of the two \acp{BH}, while the fact that the population is consistent with only one \ac{BH} per binary having large spin supports the existence of some variety of spin-up mechanism in \ac{BBH} evolution.
+
+We next turn to the spin tilt distribution. 
+Many authors argue that if \acp{BBH} are formed primarily in the isolated binary scenario, large tilt angles are hard to explain without invoking large supernovae kicks and inefficient tides~\citep{Kalogera:1999tq,Gerosa:2018wbw, Steinle:2020xej,Wysocki:2017isg,Stevenson:2022hmi,Callister:2020vyz}, although others claim that, depending on the specifics of poorly understood supernovae physics, even small kicks can misalign a binary~\citep{Baibhav:2024rkn,Tauris:2022ggv}.
+Complete anti-alignment ($\cos\theta = -1$) is a possible result of mass transfer in the isolated channel~\citep{Stegmann:2020kgb}. 
+On the other hand, \acp{BBH} formed dynamically in stellar clusters are predicted to have istropically distributed spin orientations, as there is no \textit{a priori} preferential spin direction in these environments~\citep{Rodriguez:2015oxa,Rodriguez:2016kxx,Rodriguez:2017pec,Farr:2017uvj}.
+However, recent studies indicate that mechanisms could possibly exist for dynamically formed \acp{BBH} to have slight preference for $\cos\theta>0$~\citep{Trani:2021lcv,Banerjee:2023ycw,Kiroglu:2025bbp}, especially for \acp{BBH} formed dynamically in the disks of active galactic nuclei~\citep{Wang:2021yjf,McKernan:2021nwk}.
+
+The right-hand column of Figure~\ref{fig:spin_mag_tilt_pdf} shows the marginal distribution of the cosine of the tilt angle, $\cos\theta$.
+The $\cos\theta$ population under the \default~model is a mixture between isotropic and truncated Gaussian sub-populations (Equation~\ref{eqn:spin_tilt_model}).
+Following \gwtcthree and earlier population analyses, we assume that spin tilt angles are \ac{NID} under the \default~model, meaning that while $\cos\theta_1$ and $\cos\theta_2$ are described by the same hyperparameters, the population distribution is \textit{not} separable in terms of the two: we require that both \acp{BH} in a binary are drawn from the same sub-population (either the isotropic or the truncated Gaussian).
+\ac{NID} tilts are favored by the data over non-identical distribution, cf.~Table~\ref{tab:modelComparisonSpins}.
+The \BSpline model naturally assumes spin tilt angles are \ac{IID}, as it does not probe separate tilt sub-populations.
+
+The Default model of \gwtcthree fixed the location of the Gaussian sub-population at exact spin--orbit alignment~\citep{Vitale:2015tea,Talbot:2017yur,KAGRA:2021duu}, making it a half-Gaussian peaking at $\cos\theta=1$.
+In \gwtcfour, the strongly and weakly modeled approaches both find that \textbf{the spin tilt distribution may peak away from exact spin--orbit alignment}. 
+The \default~model finds that the $\cos\theta$ distribution reaches its maximum between $\defaultbbh[mu_spin][5th percentile]$ and $\defaultbbh[mu_spin][95th percentile]$ at 90\% credibility; consistently, the \BSpline~model finds the peak to lie between $\BsplineIID[cos_tilt][peak][5th percentile]$ and $\BsplineIID[cos_tilt][peak][95th percentile]$.
+The possibility that the tilt angle distribution peaks away from alignment is also found in \gwtcthree under various models which permit such a feature~\citep{Vitale:2022dpa,Edelman:2022ydv,Golomb:2022bon}.
+It is not impossible, however, for the peak of a $\cos\theta$ distribution to be inferred away from alignment even when the true underlying population does peak at $\cos\theta=1$~\citep{Vitale:2025lms}.
+The inferred peak of the \gwtcfour $\cos\theta$ distribution is more strongly constrained away from unity than nearly all of those spuriously found with simulated catalogs of the same size~\citep[cf.~Figure~\ref{fig:spin_mags_tilts_comparison_cornerplot} with Figure 4 of][]{Vitale:2025lms}.
+
+Under both the strongly and weakly modeled approaches, the $\cos\theta$ distribution shown in Figure~\ref{fig:spin_mag_tilt_pdf} has support across a wide range of spin tilts, with a slightly larger fraction of positive $\cos\theta$ compared to negative.
+Given this broad support, we next ask the question: what is the lowest spin tilt angle that is absolutely required to fit \gwtcfour reasonably?
+To probe this, we use a model which is similar to the \default~model but with $p(\cos\theta < t_{\rm min}) = 0$ for an inferred value $t_{\rm min}$, where $t\equiv \cos\theta$~\citep{Tong:2022iws,Callister:2022qwb}; see Equation~\eqref{eqn:spin_tilt_model_with_min}.
+We find $t_{\rm min} = \CIPlusMinus{\MinimumTiltModel[param][tmin]}$ at \confidenceLevel~credibility.
+That the posterior for the minimum required $\cos\theta$ is inconsistent with $-1$ but remains confidently negative is a somewhat unexpected astrophysical result.
+If most \acp{BBH} form in isolation, a minimum tilt cutoff is plausible but would be expected to be closer to zero, potentially even positive. 
+Conversely, dynamically formed \acp{BBH} should exhibit isotropic tilts extending down to $\cos\theta = -1$. 
+Our observed tilt distribution therefore does not preclude either broad scenario of isolated or dynamical formation---or a mixture of both.
+However, the fact that the inferred minimum required tilt is significantly negative suggests the contribution of a dynamical formation channel to the \ac{BBH} population.
+We further discuss the astrophysical interpretation of negative spin tilts and potential sub-populations in Section~\ref{subsubsec:bbh_effective_spins} in the context of effective spins.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Effective Spins}
+\label{subsubsec:bbh_effective_spins}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%
+\begin{figure*}
+  \centering
+  \includegraphics[width=\linewidth]{figures/spins/chi_eff_chi_p_traces.pdf}
+  \caption{Marginal $\chieff$ (left panel) and $\chip$ (right panel) distributions.
+  The solid lines show the median of each inferred distribution, and the shaded regions show the 90\% credible intervals.
+  The \gwtcfour results under the \skewnormalChiEff model are shown in red; the \gwtcthree results under the \effectiveSpinModel~model are shown in purple dashed.
+  The histogram inset in the left panel shows the skew parameter $\epsilon$ for the \skewnormalChiEff~model. 
+  There is significant preference for a skewed $\chieff$ distribution, indicated by $\epsilon < 0$ with $\EpsSkewNormalChiEff[param][percent of epsilon less than zero]$\% credibility.
+  }
+  \label{fig:chi_eff_chi_p_pdf}
+\end{figure*}
+
+We next turn to the inferred distributions of the effective spins $\chieff$ and $\chip$. 
+Figure~\ref{fig:chi_eff_chi_p_pdf} shows the marginal distributions of $\chieff$ (left) and $\chip$ (right) under the \skewnormalChiEff model (red solid; Equation~\ref{eqn:chi_eff_skewnormal_model}), compared to the \effectiveSpinModel model result from \gwtcthree (purple dashed; Equation~\ref{eqn:chi_eff_chi_p_gaussian_model}).
+The \skewnormalChiEff model~\citep{Banagiri:2025dxo} differs from the previously-used \effectiveSpinModel in two ways. 
+First, it allows for asymmetry in the $\chieff$ marginal distribution.
+Second, the marginal $\chip$ distribution is a truncated Gaussian which is not correlated with $\chieff$.
+On \gwtcfour data, the \effectiveSpinModel model finds that $\chieff$ and $\chip$ are preferentially uncorrelated, although this conclusion depends on analysis settings; see Figure~\ref{fig:effective_spins_comparison_dists} in Appendix \ref{appendix:model_comparison_effective_spins} and the discussion therein.
+
+\textbf{We find that the $\bm{\chieff}$ distribution is skewed and asymmetric about zero with more support for positive values.}
+Asymmetry can be directly probed with the $\epsilon$ skewness parameter of the \skewnormalChiEff~model, defined in Equation~\eqref{eqn:chi_eff_skewnormal_model}.
+We find that the skewness $\epsilon$ is less than 0 (symmetry) with $\EpsSkewNormalChiEff[param][percent of epsilon less than zero]$\% credibility, as can be seen in the inset of the left panel of Figure~\ref{fig:chi_eff_chi_p_pdf}.
+This corresponds to a wider $\chieff$ distribution to the right of the peak, and a narrower distribution to the left, and is known as \textit{positive skew}.
+As discussed in Section~\ref{subsubsec:mass_spin_correlations}, asymmetry is also found when allowing for a linear or spline correlation between $\chieff$ and mass ratio.
+Results for the \gwtcfour $\chieff$ distribution measured with more models, including the \effectiveSpinModel model and with the \nonparametric~are presented in Figures~\ref{fig:effective_spins_comparison_dists} and~\ref{fig:effective_spins_nonparametric} in  Appendix~\ref{appendix:model_comparison}.
+
+
+\begin{deluxetable*}{c | c | c | c}
+\tablecaption{
+    Summary of probes of spin misalignment, as measured by $\chieff$.
+}
+\tablehead{
+    \colhead{Model} & \colhead{$\chi_{\mathrm{eff}, 1\%}$} & \colhead{Fraction $\chieff<0$} & \colhead{HM Fraction}
+}
+\label{tab:min_chieff}
+\startdata
+\effectiveSpinModel~(\gwtcthree) & $\chiEffMinGaussianGTWCThree$ & $\fNegChieffGaussianGTWCThree$ & $\HMfractionGaussianGTWCThree$ \\
+\effectiveSpinModel~(\gwtcfour) & $\CIPlusMinus{\gaussianChiEffChiP[param][min_eff]}$ & $\CIPlusMinus{\gaussianChiEffChiP[param][f_neg_eff]}$ &  $\HMfractionGaussianGTWCFour$ \\
+\skewnormalChiEff~(\gwtcfour) & $\CIPlusMinus{\EpsSkewNormalChiEff[param][min_chi_eff]}$ & $\CIPlusMinus{\EpsSkewNormalChiEff[param][f_neg_chi_eff]}$ & $\HMfractionSkewnormalGTWCFour$ \\
+\enddata
+\tablecomments{
+    Summary of probes of spin misalignment, as measured by $\chieff$.
+    We give 90\% credible intervals for the $\chieff$ value of the first percentile of the distribution ($\chi_{\mathrm{eff}, 1\%}$), serving as a proxy for the minimum $\chieff$, and the fraction of $\chieff<0$.
+    The HM fraction provides an upper limit to the fraction of \acp{BBH} of hierarchical merger origin, equal to $1/0.16$ times fraction of systems with $\chieff < -0.3$~\citep{Fishbach:2022lzq,Baibhav:2020xdf}; we provide its 90\% upper limit.
+    Posteriors for these quantities for these and other models are plotted in Figure~\ref{fig:effective_spins_nonparametric}.
+}
+\end{deluxetable*}
+
+We now discuss \acp{BBH} with spin tilts lying below the orbital plane. 
+These interesting probes of dynamical~\ac{BBH} formation have $\cos\theta<0$ and thus negative $\chieff$.
+In Table \ref{tab:min_chieff}, we present \confidenceLevel~bounds for three quantities which probe negative $\chieff$ in the population, using both the \skewnormalChiEff and \effectiveSpinModel models for a straightforward comparison to \gwtcthree.
+First, we report the first percentile of $\chieff$ distribution, which serves as a proxy for the distribution's minimum without necessitating the inclusion of sharp features in the distribution itself~\citep{Callister:2022qwb}, constraining it to fall between $\gaussianChiEffChiP[param][min_eff][5th percentile]$ and $\EpsSkewNormalChiEff[param][min_chi_eff][95th percentile]$.
+The \effectiveSpinModel~model finds more extremal minimum spins than the \skewnormalChiEff~model, likely due to its required symmetry about its peak; fitting the positive side of the distribution forces a longer tail into the negative region.
+Second, we report the fraction of the population with negative $\chieff$ to be $\gaussianChiEffChiP[param][f_neg_eff][5th percentile]$--$\EpsSkewNormalChiEff[param][f_neg_chi_eff][95th percentile]$, with the two models finding nearly identical results. 
+Assuming isotropy, an upper bound on the fraction of \acp{BBH} formed dynamically in gas-free environments can be placed by doubling the fraction of negative $\chieff$~\citep[Equation 7 of][]{LIGOScientific:2020kqk}; we thus find that at most $84\%$ of \acp{BBH} form dynamically. 
+Third, we give the 90\% upper limit on the fraction of \acp{BBH} coming from the hierarchical merger (HM) scenario. 
+The HM fraction is bounded by the consideration that $\sim 16\%$ of \acp{BBH} coming from the HM formation channel will have $\chieff < -0.3$~\citep{Baibhav:2020xdf,Fishbach:2022lzq}. With the \skewnormalChiEff and \effectiveSpinModel models, we limit this fraction to $\lesssim 3\%$.
+Figure~\ref{fig:effective_spins_nonparametric} in Appendix~\ref{appendix:non_parameteric_comparison} shows posterior distributions on the quantities in Table \ref{tab:min_chieff} for the models presented here and those using the \nonparametric; with more flexible models, we more generously limit the HM fraction to $\lesssim 74\%$.
+
+It is possible that the support for $\chieff < 0$ may be a byproduct of the models fitting for a peak at $\chieff\sim 0$ without having the flexibility for a sharp decline beyond $\chieff < 0$.
+This type of sharp feature could occur if component spin magnitudes cluster around $\chi\sim 0$ but their tilts seldom reach below $\cos\theta=0$. 
+In Section~\ref{subsubsec:bbh_spin_mag_and_tilts}, we address this by directly fitting for the minimum required $\cos\theta$ which is found to be confidently negative, and corresponds to a fraction $\CIPlusMinus{\MinimumTiltModel[fraction negative cos theta]}$ of systems with spins laying below the orbital plane.
+These probes of negative spin indicate that \textbf{between $\sim$20--40\% the BBH population has spins which are more than 90 degrees misaligned with the orbital angular momentum}.
+
+It is unlikely that the entire observed \ac{BBH} population originates from a single formation channel~\citep{Zevin:2020gbd,Mandel:2021smh,Cheng:2023ddt,Afroz:2024fzp,Colloms:2025hib}.
+Features in our spin distributions indeed suggest the presence of multiple sub-populations.
+A purely random spin channel would produce a symmetric distribution around $\chieff=0$~\citep{Rodriguez:2016kxx,Rodriguez:2016vmx,Farr:2017uvj}.
+However, for all models, the observed $\chieff$ distribution is asymmetric about zero, c.f., Figure \ref{fig:effective_spins_nonparametric}.
+This asymmetry suggests contribution from a preferentially aligned subpopulation~\citep{Gerosa:2018wbw,Sedda:2023mlv,Banagiri:2025dxo}.
+The skew observed in the \skewnormalChiEff, as well as the \qchiefflinearcorrelation and \qchieffsplinecorrelation models~(see Section~\ref{subsubsec:mass_spin_correlations} and Figure~\ref{fig:effective_spins_nonparametric}) further supports the presence of an aligned component, either as a sub-dominant sub-population or a dominant sub-population with small spin magnitudes. 
+We find a preference for small spin magnitude (Figure~\ref{fig:spin_mag_tilt_pdf}), perhaps favoring the latter.
+
+Finally, we discuss the effective precessing spin $\chip$, which can provide additional insight about spin precession in the population.
+The right panel of Figure~\ref{fig:chi_eff_chi_p_pdf} shows the marginal inferred $\chip$ distribution (red).
+We find that precession exists on a population level, as our models do not support $(\mu_p, \sigma_p) = (0,0)$ at high credibility.
+The \gwtcfour results support larger $\chip$ than \gwtcthree, shown for comparison in Figure~\ref{fig:chi_eff_chi_p_pdf} (purple dashed).
+However, different likelihood convergence criteria (Appendix~\ref{sec:likelihood-estimator-variance}) were used between \gwtcfour and \gwtcthree, meaning these results are not directly comparable. 
+Under the less-stringent \gwtcthree convergence criterion, the $\chip$ distribution inferred from \gwtcfour data is more consistent with that found in \gwtcthree, albeit still with less support for low $\mu_{\rm p}$ and low $\sigma_{\rm p}$. 
+The inferred $\chip$ distribution is more dependent on analysis settings, specifically the threshold on the variance of the log-likelihood, than other parameters. This is largely because the individual-event prior has no support at $\chip=0$ making it technically difficult to reweight individual-event posteriors to the population.
+We discuss the sensitivity of the $\chip$ distribution to analysis settings in detail in Appendix~\ref{appendix:model_comparison_effective_spins}; see Figures~\ref{fig:effective_spins_comparison_cornerplot} and \ref{fig:effective_spins_comparison_dists}.

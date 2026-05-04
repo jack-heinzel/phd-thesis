@@ -1,0 +1,18 @@
+{
+    "param": {
+        "positive-to-negative chi_eff ratio for m in 30-40": {
+            "median": 1.9,
+            "5th percentile": 0.7,
+            "95th percentile": 6.7,
+            "error plus": 4.8,
+            "error minus": 1.2
+        },
+        "positive-to-negative chi_eff ratio for m outside 30-40": {
+            "median": 6.6,
+            "5th percentile": 2.4,
+            "95th percentile": 20.7,
+            "error plus": 14.1,
+            "error minus": 4.2
+        }
+    }
+}

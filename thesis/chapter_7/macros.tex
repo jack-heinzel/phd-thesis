@@ -1,0 +1,92 @@
+% ======================
+%  MACROS
+% ======================
+
+% Commands
+\newcommand{\CIPlusMinus}[1]{{#1[median]^{+#1[error plus]}_{-#1[error minus]}}}
+\newcommand{\CIBoundsBracket}[1]{{[#1[5th percentile], #1[95th percentile]]}}
+\newcommand{\CIBoundsDash}[1]{{#1[5th percentile]\textendash#1[95th percentile]}}
+\NewDocumentCommand{\numRound}{O{2} m}{\num[round-mode=figures, round-precision=#1]{#2}}
+\NewDocumentCommand{\numRoundSci}{O{2} m}{\num[scientific-notation=true, round-mode=figures, round-precision=#1]{#2}}
+
+% Variable definitions
+\newcommand{\Ndet}[0]{N_{\rm det}}
+\newcommand{\Nfound}[0]{N_{\rm found}}
+\newcommand{\Nexp}[0]{N_{\rm exp}}
+\newcommand{\Ndraw}[0]{N_{\rm draw}}
+\newcommand{\Npe}[0]{N_{\rm PE}}
+
+% Types of models
+\newcommand{\parametric}[0]{strongly modeled approach\xspace}
+\newcommand{\nonparametric}[0]{weakly modeled approach\xspace}
+\newcommand{\hybrid}[0]{hybrid approach\xspace}
+
+\newcommand{\parametricAdj}[0]{strongly modeled\xspace}
+\newcommand{\nonparametricAdj}[0]{weakly modeled\xspace}
+
+\newcommand{\Parametric}[0]{Strongly modeled approach\xspace}
+\newcommand{\Nonparametric}[0]{Weakly modeled approach\xspace}
+\newcommand{\Hybrid}[0]{Hybrid approach\xspace}
+
+\newcommand{\parametrics}[0]{strongly modeled approaches\xspace}
+\newcommand{\nonparametrics}[0]{weakly modeled approaches\xspace}
+\newcommand{\hybrids}[0]{hybrid approaches\xspace}
+
+\newcommand{\Parametrics}[0]{Strongly modeled approaches\xspace}
+\newcommand{\Nonparametrics}[0]{Weakly modeled approaches\xspace}
+\newcommand{\Hybrids}[0]{Hybrid approaches\xspace}
+
+% Model names 
+\newcommand{\vamana}[0]{\ac{FM}\xspace}
+\newcommand{\NSpower}[0]{\textsc{NS Power}\xspace}
+\newcommand{\NSpeak}[0]{\textsc{NS Peak}\xspace}
+\newcommand{\PLPeak}{\textsc{Power Law + Peak}\xspace}
+\newcommand{\PP}{\textsc{PP}\xspace}
+\newcommand{\PDB}[0]{\textsc{FullPop}-4.0\xspace}
+\newcommand{\BrokenPLTwoPeaks}[0]{\textsc{Broken Power Law + 2 Peaks}\xspace}
+\newcommand{\BPTP}[0]{\textsc{BP2P}\xspace}
+\newcommand{\BPOP}[0]{\textsc{BP1P}\xspace}
+\newcommand{\BPHP}[0]{\textsc{BP3P}\xspace}
+\newcommand{\alphaOT}[0]{$3.5^{+0.6}_{-0.6} \,\Msun$\xspace}
+\newcommand{\muOOT}[0]{$10.2^{+0.3}_{-0.6}\,\Msun$\xspace}
+\newcommand{\muTOT}[0]{$35^{+1.7}_{-2.9}\,\Msun$\xspace}
+\newcommand{\ExtendedBrokenPLTwoPeaks}[0]{\textsc{Extended Broken Power Law + 2 Peaks}\xspace}
+\newcommand{\BSpline}[0]{\textsc{B-Spline}\xspace}
+
+\newcommand{\default}[0]{\textsc{Gaussian Component Spins}\xspace}
+\newcommand{\effectiveSpinModel}[0]{\textsc{Gaussian Effective Spins}\xspace}
+\newcommand{\skewnormalChiEff}[0]{\textsc{Skew-normal Effective Spin}\xspace}
+
+\newcommand{\cosmiccousins}[0]{\textsc{B-Spline Subpopulations}\xspace}
+
+\newcommand{\powerlawRedshift}[0]{\textsc{Power Law Redshift}\xspace}
+\newcommand{\qchiefflinearcorrelation}[0]{\textsc{$(q, \chieff)$ Linear}\xspace}
+\newcommand{\qchieffsplinecorrelation}[0]{\textsc{$(q, \chieff)$ Spline}\xspace}
+\newcommand{\qchieffcopulacorrelation}[0]{\textsc{$(q, \chieff)$ Copula}\xspace}
+\newcommand{\zchiefflinearcorrelation}[0]{\textsc{$(z, \chieff)$ Linear}\xspace}
+\newcommand{\zchieffsplinecorrelation}[0]{\textsc{$(z, \chieff)$ Spline}\xspace}
+\newcommand{\zchieffcopulacorrelation}[0]{\textsc{$(z, \chieff)$ Copula}\xspace}
+\newcommand{\mchieffcopulacorrelation}[0]{\textsc{$(m_1, \chieff)$ Copula}\xspace}
+\newcommand{\mzcopulacorrelation}[0]{\textsc{$(m_1, z)$ Copula}\xspace}
+\newcommand{\linearcorrelation}[0]{\textsc{Linear}\xspace}
+\newcommand{\splinecorrelation}[0]{\textsc{Spline}\xspace}
+\newcommand{\copulacorrelation}[0]{\textsc{Copula}\xspace}
+
+\newcommand{\confidenceLevel}{90\%}
+
+% effective spin hyperparameters
+\newcommand{\chiEffMinGaussianGTWCThree}{-0.18^{+0.09}_{-0.12}}
+\newcommand{\fNegChieffGaussianGTWCThree}{0.28^{+0.12}_{-0.13}}
+\newcommand{\HMfractionGaussianGTWCThree}{< 0.0031}
+\newcommand{\HMfractionGaussianGTWCFour}{< 0.0022}
+\newcommand{\HMfractionSkewnormalGTWCFour}{< 1.3 \times 10^{-4}}
+
+
+\newcommand{\PEhyperparam}{\ensuremath{\boldsymbol{\Lambda}}}%
+
+\newcommand{\gwtcthree}{\gwtc[3.0]\xspace}
+\newcommand{\gwtctwo}{\gwtc[2.0]\xspace}
+\newcommand{\gwtctwopone}{\gwtc[2.1]\xspace}
+\newcommand{\gwtcfour}{\thisgwtc\xspace}
+
+

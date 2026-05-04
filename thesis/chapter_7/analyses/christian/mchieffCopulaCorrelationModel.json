@@ -1,0 +1,139 @@
+{
+    "param": {
+        "alpha_1": {
+            "median": 1.91,
+            "5th percentile": -0.11,
+            "95th percentile": 3.36,
+            "error plus": 1.45,
+            "error minus": 2.02
+        },
+        "alpha_2": {
+            "median": 4.59,
+            "5th percentile": 3.16,
+            "95th percentile": 6.24,
+            "error plus": 1.65,
+            "error minus": 1.44
+        },
+        "beta": {
+            "median": 1.22,
+            "5th percentile": 0.18,
+            "95th percentile": 2.53,
+            "error plus": 1.31,
+            "error minus": 1.04
+        },
+        "break_mass": {
+            "median": 35.74,
+            "5th percentile": 22.21,
+            "95th percentile": 47.96,
+            "error plus": 12.22,
+            "error minus": 13.54
+        },
+        "delta_m_1": {
+            "median": 4.58,
+            "5th percentile": 0.32,
+            "95th percentile": 9.3,
+            "error plus": 4.73,
+            "error minus": 4.26
+        },
+        "delta_m_2": {
+            "median": 3.44,
+            "5th percentile": 0.31,
+            "95th percentile": 7.11,
+            "error plus": 3.66,
+            "error minus": 3.13
+        },
+        "lam_0": {
+            "median": 0.35,
+            "5th percentile": 0.12,
+            "95th percentile": 0.66,
+            "error plus": 0.31,
+            "error minus": 0.23
+        },
+        "lam_1": {
+            "median": 0.61,
+            "5th percentile": 0.3,
+            "95th percentile": 0.84,
+            "error plus": 0.23,
+            "error minus": 0.31
+        },
+        "lamb": {
+            "median": 3.32,
+            "5th percentile": 2.39,
+            "95th percentile": 4.22,
+            "error plus": 0.91,
+            "error minus": 0.93
+        },
+        "mlow_1": {
+            "median": 5.19,
+            "5th percentile": 3.28,
+            "95th percentile": 8.34,
+            "error plus": 3.15,
+            "error minus": 1.91
+        },
+        "mlow_2": {
+            "median": 3.61,
+            "5th percentile": 3.04,
+            "95th percentile": 4.95,
+            "error plus": 1.34,
+            "error minus": 0.57
+        },
+        "mmax": {
+            "median": 300.0,
+            "5th percentile": 300.0,
+            "95th percentile": 300.0,
+            "error plus": 0.0,
+            "error minus": 0.0
+        },
+        "mpp_1": {
+            "median": 9.7,
+            "5th percentile": 7.78,
+            "95th percentile": 10.22,
+            "error plus": 0.52,
+            "error minus": 1.92
+        },
+        "mpp_2": {
+            "median": 32.02,
+            "5th percentile": 26.14,
+            "95th percentile": 35.74,
+            "error plus": 3.72,
+            "error minus": 5.89
+        },
+        "mu_chi_eff": {
+            "median": 0.04,
+            "5th percentile": 0.0,
+            "95th percentile": 0.07,
+            "error plus": 0.03,
+            "error minus": 0.04
+        },
+        "mu_chi_p": {
+            "median": 0.34,
+            "5th percentile": 0.29,
+            "95th percentile": 0.41,
+            "error plus": 0.06,
+            "error minus": 0.06
+        },
+        "sigma_chi_eff": {
+            "median": 0.11,
+            "5th percentile": 0.09,
+            "95th percentile": 0.14,
+            "error plus": 0.03,
+            "error minus": 0.02
+        },
+        "sigma_chi_p": {
+            "median": 0.18,
+            "5th percentile": 0.14,
+            "95th percentile": 0.27,
+            "error plus": 0.08,
+            "error minus": 0.05
+        },
+        "kappa": {
+            "median": 0.35,
+            "5th percentile": -1.06,
+            "95th percentile": 1.93,
+            "error plus": 1.58,
+            "error minus": 1.41,
+            "correlated percentile": 65.8
+        }
+    },
+    "ppd": {}
+}

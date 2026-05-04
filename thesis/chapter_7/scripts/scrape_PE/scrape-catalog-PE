@@ -1,0 +1,216 @@
+#!/usr/bin/env python
+
+"""
+Uses code snippets from 
+https://git.ligo.org/publications/o4/cbc/gwtc-4-catalog/-/wikis/Contribution-and-Access-Guide
+to link PE samples from the CIT cluster to the rp.o4 directory.
+"""
+
+from gwpy.table import EventTable
+import os
+import argparse
+import numpy as np
+import sys
+
+ns_containing_events = ["GW230529_181500"]
+
+
+def waveform_sort(table, wf_priority):
+    gw_matched = []
+    out = [False] * len(table)
+    for wf in wf_priority:
+        for i, row in enumerate(table):
+            if row["gw_name"] not in gw_matched and wf in row["result_label"]:
+                out[i] = True
+                gw_matched.append(row["gw_name"])
+    return out
+
+
+def link_files(
+    analysis_type,
+    far_threshold,
+    data_path,
+    tag,
+    output_dir,
+    dryrun=False,
+    make_copies=False,
+):
+    """
+    Links PE files from the CBCFlow directory to the output directory.
+
+    Args:
+        output_dir (str): Path to the directory where files will be linked.
+        dryrun (bool, optional): If True, performs a dry run without actually creating links. Defaults to False.
+        make_copies (bool, optional): If True, copy the files into the output directory rather than using symlinks
+    """
+    wf_priority = [
+        "C00:NRSur7dq4",
+        "C00:Mixed",
+        "SpinTaylor",
+        "C00:SEOBNRv5PHM",
+        "C00:IMRPhenomNSBH:LowSpin",
+        "C00:SEOBNRv4_ROM_NRTidalv2_NSBH:LowSpin",
+        "NRTidalv2:LowSpin",
+        "C00:IMRPhenomNSBH",
+        "C00:IMRPhenomPv2_NRTidalv2",
+        "C00:IMRPhenomTPHM",
+        "C00:IMRPhenomXAS:HighSpin",
+        "C00:IMRPhenomXAS:LowSpinSecondary",
+        "C00:IMRPhenomXHM",
+        "C00:IMRPhenomXO4a",
+        "C00:IMRPhenomXP",
+        "C00:IMRPhenomXPHM:HighSpin",
+        "C00:IMRPhenomXPHM:LowSpin",
+        "C00:IMRPhenomXPHM:LowSpinSecondary",
+        "C00:Mixed+XO4a",
+        "C00:Mixed:HighSpin",
+        "C00:Mixed:LowSpinSecondary",
+        "C00:SEOBNRv4_ROM_NRTidalv2_NSBH",
+        "C00:SEOBNRv5PHM:HighSpin",
+        "C00:SEOBNRv5PHM:LowSpinSecondary",
+    ]
+
+    search_file = (
+        data_path + f"/search_results/IGWN-GWTC4p0-{tag}-SearchSummaryTable.hdf5"
+    )
+    pe_folder = data_path + "/parameter_estimation/"
+    pe_file = (
+        data_path + f"/parameter_estimation/IGWN-GWTC4p0-{tag}-PESummaryTable.hdf5"
+    )
+
+    search_summary = EventTable.read(search_file, path="search_summary")
+    pe_table = EventTable.read(pe_file)
+
+    # Reject vetoed events
+    search_summary = search_summary.filter("dq_status != DQ_veto")
+
+    # Check if there are repeated labels, and if so, exit.
+    # This needs to be edited in the future.
+    # Jacob: if there are multiple results with the same label for an event
+    # we should prioritize the one with result_samples_key of bilby-* rather than online
+    if len(pe_table["result_label"]) != len(np.unique(pe_table["result_label"])):
+        print("THERE ARE REPEATED LABELS. EXITING")
+        sys.exit()
+
+    # Check if the list of all result_labels is a subset of wf_priority
+    pe_labels_list = [item.split("-")[-1] for item in pe_table["result_label"]]
+    pe_labels_list = list(np.unique(pe_labels_list))
+
+    if not set(pe_labels_list) <= set(wf_priority):
+        print("pe_labels_list is not a subset of wf_priority. EXITING.")
+        print("wf_priority:", wf_priority)
+        print("pe_labels_list", pe_labels_list)
+        sys.exit()
+
+    high_sig_events = search_summary.filter(
+        f"far < {far_threshold}", "gps_time > 1368975618"
+    )  # Check
+    high_sig_events.sort("gps_time")
+
+    if analysis_type == "bbh_only":
+        for event in ns_containing_events:
+            high_sig_events.remove_row(
+                np.where(high_sig_events["gw_name"] == event)[0][0]
+            )
+    elif analysis_type == "ns_containing_only":
+        use_rows = []
+        for event in ns_containing_events:
+            use_rows.append(np.where(high_sig_events["gw_name"] == event)[0][0])
+        high_sig_events = high_sig_events[use_rows]
+    elif analysis_type == "full_spectrum":
+        pass
+    else:
+        print("Invalid analysis type. Exiting.")
+        sys.exit()
+
+    filtered_pe_table = pe_table.filter(
+        (("gw_name", "result_label"), waveform_sort, wf_priority)
+    )
+
+    final_list_of_events = []
+    events_without_pe = []
+    if not dryrun:
+        os.makedirs(output_dir + f"/{analysis_type}/", exist_ok=True)
+    for high_sig_event in high_sig_events:
+        if high_sig_event["gw_name"] in filtered_pe_table["gw_name"]:
+            result = filtered_pe_table[
+                np.where(filtered_pe_table["gw_name"] == high_sig_event["gw_name"])[0][
+                    0
+                ]
+            ]
+            source = pe_folder + result["result_file_name"]
+            destination = output_dir + f"/{analysis_type}/" + result["result_file_name"]
+            final_list_of_events.append(result["result_label"].replace("-", ","))
+
+            if not os.path.exists(destination):
+                if not make_copies:
+                    if dryrun:
+                        print(f"Linking: {source} -> {destination}")
+                    else:
+                        os.symlink(source, destination)
+                else:
+                    if dryrun:
+                        print(f"executing command `cp {source} {destination}`")
+                    else:
+                        os.system(f"cp {source} {destination}")
+        else:
+            events_without_pe.append(high_sig_event["gw_name"])
+
+    print(
+        f"Transfer finished for {analysis_type}.\n"
+        f"{len(final_list_of_events)}/{len(high_sig_events)} events linked/copied.\n"
+        f"{len(events_without_pe)} events have missing PE files:",
+        events_without_pe,
+    )
+
+    if final_list_of_events and not dryrun:
+        # Save the list of events that were linked
+        np.savetxt(
+            output_dir + f"/events_list_{analysis_type}.txt",
+            final_list_of_events,
+            fmt="%s",
+            delimiter="\n",
+        )
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(
+        description="Link PE samples from the catalog data release to a local directory"
+    )
+    parser.add_argument(
+        "--analysis-type",
+        type=str,
+        help="Which analysis? Should be one of bbh_only, ns_containing_only, full_spectrum",
+    )
+    parser.add_argument("--far-threshold", type=str, help="FAR threshold to use")
+    parser.add_argument(
+        "--data-path", type=str, help="The directory to store the linked samples"
+    )
+    parser.add_argument(
+        "--tag", type=str, help="The directory to store the linked samples"
+    )
+    parser.add_argument(
+        "--output-dir", type=str, help="The directory to store the linked samples"
+    )
+    parser.add_argument(
+        "--dryrun",
+        action="store_true",
+        help="Don't actually create the links or do copying, used for testing",
+    )
+    parser.add_argument(
+        "--make-copies",
+        action="store_true",
+        help="copy the actual files over, instead of making symlinks",
+    )
+
+    args = parser.parse_args()
+
+    link_files(
+        analysis_type=args.analysis_type,
+        far_threshold=args.far_threshold,
+        data_path=args.data_path,
+        tag=args.tag,
+        output_dir=args.output_dir,
+        dryrun=args.dryrun,
+        make_copies=args.make_copies,
+    )

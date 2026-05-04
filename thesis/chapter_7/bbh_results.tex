@@ -1,0 +1,15 @@
+\begin{figure*}[ht!]
+	\centering
+	\includegraphics[width=\textwidth]{figures/primary_mass_default.pdf}
+	\caption{Differential merger rate as a function of primary mass (evaluated at $z=0.2$) of the \BrokenPLTwoPeaks model (orange) and \BSpline model (blue) compared to the \PLPeak model from \gwtcthree \citep{KAGRA:2021duu}. The solid lines indicate the posterior medians and the shaded regions show the 90\% credible interval of each model. Comparing these results, it is clear that a single power law is a poor description of the the low-mass end of the spectrum.}
+	\label{fig:primary_mass_default}
+  \end{figure*}
+  
+\section{Binary Black Hole Population}\label{sec:bbh_results}
+In this section, we analyze the astrophysical population of \acp{BBH} using data from \ac{GW} events with a \ac{FAR} $< 1 \,\text{yr}^{-1}$. We only include events whose $1\%$ lower limit on both component mass posteriors (under the \ac{PE} priors) is larger than $3 \, \Msun$.
+There are {$\counts[FAROnePerYear][O4aBBH]$} events from \ac{O4a} that meet this criterion in addition to the $69$ \ac{BBH} events from \gwtcthree, which brings the total number of \ac{BBH} events passing our \ac{FAR} threshold to {$\counts[FAROnePerYear][totalBBH]$}. Of the events considered in \ac{O4a}, only GW230529 does not meet this criterion and is not considered in the analyses below (see Section~\ref{sec:data}).
+
+\input{bbh_masses.tex}
+\input{bbh_spins.tex}
+\input{bbh_redshift.tex}
+\input{bbh_correlations.tex}

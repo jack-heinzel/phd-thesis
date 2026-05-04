@@ -1,0 +1,36 @@
+{
+    "percentilemmax300": {
+        "total_mass_source": {
+            "median": 87,
+            "error plus": 6,
+            "error minus": 10
+        },
+        "mass_1_source": {
+            "median": 82,
+            "error plus": 9,
+            "error minus": 11
+        },
+        "mass_2_source": {
+            "median": 87,
+            "error plus": 8,
+            "error minus": 12
+        }
+    },
+    "percentilemmaxlessthan300": {
+        "total_mass_source": {
+            "median": 94,
+            "error plus": 4,
+            "error minus": 5
+        },
+        "mass_1_source": {
+            "median": 92,
+            "error plus": 5,
+            "error minus": 7
+        },
+        "mass_2_source": {
+            "median": 94,
+            "error plus": 4,
+            "error minus": 9
+        }
+    }
+}

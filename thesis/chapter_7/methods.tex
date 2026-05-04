@@ -1,0 +1,87 @@
+\section{Methods}\label{sec:methods}
+
+We determine the population properties of merging compact binaries using hierarchical Bayesian inference as has been done in previous studies~\citep{LIGOScientific:2018jsj,LIGOScientific:2020kqk,KAGRA:2021duu}. Our aim here is to estimate the posterior distribution $p(\PEhyperparam|d)$ on population-level model parameters $\PEhyperparam$ (also referred to as \textit{hyperparameters}) in light of new data $d$ representing the observed \ac{GW} data from individual merger events. These model-dependent hyperparameters describe the population-level properties of \ac{GW} source parameters $\PEparameter$ (masses, spins, redshifts, etc.).
+According to Bayes' theorem,
+\begin{equation}
+    p(\PEhyperparam | d) = \frac{\mathcal{L}(d|\PEhyperparam)\pi(\PEhyperparam)}{p(d)} \ ,
+    \label{eq:bayes_theorem}
+\end{equation}
+where $\pi(\PEhyperparam)$ is the prior probability distribution and $\mathcal{L}(d|\PEhyperparam)$ is the likelihood---the probability of obtaining the data $d$ given some $\PEhyperparam$. 
+The Bayesian \textit{evidence} $p(d)$ ensures that $p(\PEhyperparam | d)$ is properly normalized.
+
+In order to use Bayes' theorem to infer the posterior probability distribution of hyperparameters, we need the likelihood of obtaining the observed catalog of events given a set of hyperparameters and a population model. 
+Because \ac{GW} detectors are not equally sensitive to different astrophysical sources, the likelihood must account for selection biases. Various groups have developed independent frameworks to account for selection effects and infer population properties (e.g., \citet{Roulet:2021hcu,Wysocki:2018mpo}), providing a crucial cross-check to the standard approach used by collaboration analyses, detailed below.
+Assuming (i) a Poisson process generates realizations from the source population of which a subset is detected, and (ii) the observed data associated are statistically independent (e.g., no overlapping signals), the likelihood is given by~\citep{Loredo:2004nn, Hogg:2010ma, Farr:2013yna, Mandel:2018mve, Thrane:2018qnx, Taylor:2018iat, Vitale:2020aaz}
+\begin{multline}
+    \mathcal{L}(\{d_i\},\Ndet|\PEhyperparam) \propto \\ N(\PEhyperparam)^{\Ndet} e^{-\Nexp(\PEhyperparam)} \prod_{i=1}^{\Ndet}\int \mathrm{d}\PEparameter \, \mathcal{L}(d_i|\PEparameter)\pi(\PEparameter|\PEhyperparam) \ ,
+    \label{eq:hierarchical_likelihood}
+\end{multline}
+where $N(\PEhyperparam)$ is the total number of mergers (detected and undetected) incident on the detectors within the observing period, $\Ndet$ is the number of detections, $d_i$ are the strain data corresponding to the $i$th detection, and $\mathcal{L}(d_i|\PEparameter)$ is the likelihood of the data $d_i$ given the \ac{GW} source parameters $\PEparameter$~\citep{GWTC:Methods}. 
+The expected number of detections is $\Nexp(\PEhyperparam) = N\,\xi(\PEhyperparam)$, with $\xi(\PEhyperparam)$ being the expected fraction of the population parameterized by $\PEhyperparam$ that is detectable. Formally, we impose a detection criterion on the data, e.g., a \ac{FAR} threshold, by the selection function $x(d)$ acting on a data segment $d$.
+A \ac{GW} event is detectable in $d$ if $x(d) > x_{\rm thr}$, where $x_{\rm thr}$ is the chosen detectability threshold. Then,
+\begin{equation}
+    \xi(\PEhyperparam) = \int_{x(d) > x_{\rm thr}} \mathrm{d}d\, \mathrm{d}\PEparameter \, p(d|\PEparameter)\pi(\PEparameter|\PEhyperparam) .
+    \label{eq:selection_efficiency}
+\end{equation}
+In Equation~\eqref{eq:selection_efficiency}, the domain of integration is over all data $d$ which surpasses the detection threshold $x_{\rm thr}$ \citep{Essick:2025zed}.
+When a prior $\pi(N)\propto 1/N$ is assumed, Equation~\eqref{eq:hierarchical_likelihood} can be analytically marginalized over $N$ leaving the rate-marginalized hierarchical likelihood
+\begin{equation}
+    \mathcal{L}(\{d\},\Ndet|\PEhyperparam) \propto \prod_{i=1}^{\Ndet}\frac{\int \mathrm{d}\PEparameter \, \mathcal{L}(d_i|\PEparameter)\pi(\PEparameter|\PEhyperparam)}{\xi(\PEhyperparam)}\ .
+    \label{eq:rate_marginalized_hierarchical_likelihood}
+\end{equation}
+This likelihood may also be obtained by marginalizing over a prior on the expected number of detections, $N_{\rm exp} = N\xi(\PEhyperparam)$, rather than on $N$~\citep{Essick:2023upv}.
+
+Having described the hierarchical likelihood in Equation~\eqref{eq:hierarchical_likelihood} and Equation~\eqref{eq:rate_marginalized_hierarchical_likelihood} we have one of the two ingredients necessary for sampling the posterior in Equation~\eqref{eq:bayes_theorem}.
+We also must choose a prior over the space of hyperparameters. This depends on the population model, which we describe in more detail below. We specify the priors for each model in Appendix~\ref{appendix:parametric_models_summary}.
+
+Equation~\eqref{eq:hierarchical_likelihood} is the exact form of the likelihood. However, calculating $\xi({\PEhyperparam})$ and integrating over $\PEparameter$ is analytically intractable.
+Therefore, we approximate the likelihood via Monte Carlo reweighting using importance sampling.
+Our Monte Carlo approximation for the likelihood carries some uncertainty and may not be converged appropriately for some hyperparameter values. Therefore, we discard hyperparameters whose likelihood uncertainty exceeds a chosen threshold \textit{a posteriori} \citep{Talbot:2023pex}.
+For more description of this problem and our approach for mitigating it, see Appendix~\ref{appendix:technical_details}.
+
+The Bayesian inference problem is stated here in terms of the population probability density $\pi(\PEparameter|\PEhyperparam)$ and the overall number of merging binaries $N$. 
+This can be converted to another astrophysical quantity of interest, the comoving source-frame merger rate density
+\begin{equation}
+    \mathcal{R}(z) = \frac{\mathrm{d}N}{\mathrm{d}V_\mathrm{c} \mathrm{d}t_\mathrm{s}}(z) = \frac{\mathrm{d}N}{\mathrm{d}t_\mathrm{d}\mathrm{d}z}\left(\frac{\mathrm{d}V_\mathrm{c}}{\mathrm{d}z}\frac{1}{1+z}\right)^{-1},
+    \label{eq:comoving_merger_rate}
+\end{equation}
+where $t_\mathrm{s}$ is the time measured in the comoving source frame, $t_\mathrm{d}$ is the time at the detector (redshift $z=0$) and ${\mathrm{d}V_\mathrm{c}}/{\mathrm{d}z}$ is the differential comoving volume with respect to redshift $z$~\citep[see e.g.,][]{Essick:2025zed}.
+The comoving source frame merger rate represents the number of mergers in a unit of comoving volume and source-frame time, conventionally measured in units $\perGpcyr$. 
+
+\input{summary_table.tex}
+
+To construct models for the population distribution of astrophysical \ac{GW} sources, we take one of two approaches. 
+The first approach---which we call the \textit{\parametric} (sometimes called the parametric approach)---assumes a specific functional form $\pi(\PEparameter|\PEhyperparam)$ for the astrophysical distribution \textit{a priori}, e.g.,~a Gaussian distribution or a power law. 
+A second approach---which we call the \textit{\nonparametric} (elsewhere data-driven, flexible, or nonparametric)---attempts to make  minimal  \textit{a priori} assumptions  about the underlying astrophysical population, e.g., a spline model. 
+We elaborate on each approach in the following two subsections, and provide details for the models presented in this work falling in each category.
+
+%%%%%%%%%%%%%%%%%
+\subsection{Strongly Modeled Approach}
+%%%%%%%%%%%%%%%%%
+
+The \parametric~assumes that the underlying astrophysical distribution of binary properties can be described by a fixed functional form and associated hyperparameters. Consequently, this approach has far fewer hyperparameters as compared to the \nonparametric.
+The parameterization may be motivated by theoretical expectations about the astrophysical population and/or could be selected because it seems to fit the observed data well.
+This has the benefit of being simple and interpretable, as hyperparameters can be designed to correspond directly to physical features of interest.
+Examples of such features are a distribution's minimum or maximum, the location parameter for an overdensity corresponding to e.g., pulsational pair-instability supernovae, etc.
+On the other hand, these approaches can be overly restrictive: features present in the true astrophysical distribution that are not captured by our parameterization cannot be easily discovered. Additionally, the inferred parameters can be biased due to a mis-specified model~\citep[e.g.,][]{Romero-Shaw:2022ctb}.
+
+The parameterized models selected for this work are generally simple extensions to those employed in the previous \ac{LVK}~astrophysical population studies paper from 
+\gwtcthree~\citep{KAGRA:2021duu}. Updates to these models are motivated by features that have emerged due to new data in \gwtcfour and improved interpretations since \gwtcthree. 
+
+Table~\ref{tab:summary_of_models} lists the \parametrics used in this paper, with details in Appendix~\ref{appendix:parametric_models_summary}. We also describe the parameterizations and priors for these models in Appendix~\ref{appendix:parametric_models_summary}, and our procedure for selecting the default \parametric in Appendix~\ref{appendix:model_comparison}.
+For most models, we assume that masses, spins, and redshifts are all uncorrelated. 
+We also study a selection of pairwise correlations between parameters in Section~\ref{sec:Population-level correlations between parameters}.
+
+%%%%%%%%%%%%%%%%%
+\subsection{Weakly Modeled Approach}
+%%%%%%%%%%%%%%%%%
+
+The \nonparametric adopts models that deliberately make few assumptions about the nature of the underlying compact-binary population.
+Such approaches typically require a larger number of hyperparameters in order to effectively approximate a wide variety of distributions.
+The philosophy of a \nonparametric is to discover unexpected features in the population, which may be unforeseen or difficult to parameterize. However, they could yield results that are more difficult to interpret astrophysically.
+The difference between the \parametricAdj and \nonparametricAdj approaches can be understood in terms of the bias--variance tradeoff; the former has low variance with a risk of bias, whereas the latter has low bias but elevated variance.
+
+\Nonparametrics must make some assumptions, however, and must be designed with different features in mind. 
+For example, different approaches have sensitivity to astrophysical correlations, narrow structures, or gaps in the population. 
+While a unified Bayesian approach to capture generic population features is still an open problem~\citep{Mandel:2016prl,Tiwari:2020vym,Rinaldi:2021bhm,Edelman:2022ydv,Golomb:2022bon,Payne:2022xan,Toubiana:2023egi,Callister:2023tgi,Ray:2023upk,Farah:2024xub,Heinzel:2024jlc}, we use two different \nonparametrics---\BSpline and \ac{BGP}---to verify results from our \parametrics (see Table~\ref{tab:summary_of_models}). 
+We describe two additional \nonparametrics---\ac{AR} and \vamana---in Appendix~\ref{appendix:non_parametric_models_summary}, and compare these approaches in Appendix~\ref{appendix:non_parameteric_comparison}. 

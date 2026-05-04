@@ -1,0 +1,32 @@
+{
+    "param": {
+        "beta_q_high_mass_peak": {
+            "5th percentile": 2.0,
+            "95th percentile": 12.0,
+            "error minus": 4.7,
+            "error plus": 5.3,
+            "median": 6.7
+        },
+        "beta_q_high_mass_peak_minus_beta_q_power_law": {
+            "5th percentile": 0.9,
+            "95th percentile": 11.7,
+            "error minus": 5.5,
+            "error plus": 5.3,
+            "median": 6.4
+        },
+        "beta_q_low_mass_peak": {
+            "5th percentile": -7.2,
+            "95th percentile": 9.0,
+            "error minus": 7.2,
+            "error plus": 9.0,
+            "median": -0.0
+        },
+        "beta_q_power_law": {
+            "5th percentile": -1.0,
+            "95th percentile": 2.3,
+            "error minus": 1.4,
+            "error plus": 1.9,
+            "median": 0.4
+        }
+    }
+}

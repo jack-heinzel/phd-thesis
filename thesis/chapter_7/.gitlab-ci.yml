@@ -1,0 +1,57 @@
+include:
+  - project: computing/gitlab-ci-templates
+    file: conda.yml
+
+stages:
+  - validate
+  - build
+
+spellcheck:
+  image: igwn/base@sha256:48f5df89e45d2004c14a8335b50f8b3e95747896f04855da56a6fcab54dc399e
+  stage: validate
+  variables:
+      GIT_SUBMODULE_STRATEGY: recursive
+  script:
+   - pip install codespell
+   - codespell . --skip LSC-Virgo-KAGRA-Authors-Aug-2024_arXiv.txt
+
+check_local_bibtex:
+  image: igwn/base@sha256:48f5df89e45d2004c14a8335b50f8b3e95747896f04855da56a6fcab54dc399e
+  stage: validate
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
+    GIT_SUBMODULE_FORCE_HTTPS: true
+  script:
+   - python scripts/ci_scripts/check_local_bibtex.py
+
+check_json_files:
+  image: igwn/base@sha256:48f5df89e45d2004c14a8335b50f8b3e95747896f04855da56a6fcab54dc399e
+  stage: validate
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
+    GIT_SUBMODULE_FORCE_HTTPS: true
+  script:
+   - python scripts/ci_scripts/check_json_files.py
+
+publish:
+  image: bfarr/igwn-publisher-o4a-astro:latest
+  stage: build
+  variables:
+      GIT_SUBMODULE_STRATEGY: recursive
+  tags:
+   - cit
+   - highmem
+  before_script:
+          - echo $CI_COMMIT_SHA | cut -b1-8 > gitID.txt
+  script:
+    - make pdf
+  after_script:
+    - rm gitID.txt
+    - make check
+  cache:
+    key: "$CI_PROJECT_NAMESPACE_$CI_PROJECT_NAME_$CI_JOB_NAME"
+    untracked: true
+  artifacts:
+    paths:
+      - paper.pdf
+    expire_in: 2 weeks

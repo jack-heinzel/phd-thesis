@@ -1,0 +1,132 @@
+\section{Dataset}\label{sec:data}
+
+\subsection{Data Collection Duration}
+Analyses presented in this paper use selected data products from 
+\gwtcfour~\citep{GWTC:Introduction, GWTC:Methods, GWTC:Results, OpenData}.
+This section and Section ~\ref{subsec:event_selection} provide details on 
+the selection criteria for events analyzed for this paper.
+\gwtcfour includes \ac{GW} candidates and data from \ac{O1} through the end of 
+\ac{O4a}, as well as a \ac{GW} candidate and data collected during an 
+\ac{ER}~\citep{KAGRA:2013rdx} directly preceding the start of \ac{O4a}. 
+\Acp{ER} are periods dedicated to final commissioning and configuration of the 
+instruments prior to an observing run; the instruments may be in locked and 
+low-noise configurations, but are not generally intended to perform astrophysical 
+observations.
+The \ac{ER} data included in \gwtcfour is deliberately chosen to contain 
+a few days of data around a \ac{GW} event potentially originating from a 
+\ac{NSBH} binary merger, GW230518\_125908 (henceforth, GW230518).
+The analyses and results quoted in this paper exclude data obtained
+during the \ac{ER}; the inclusion of this data would 
+introduce human selection effects that cannot be easily incorporated
+into $\xi(\PEhyperparam)$, and hence may bias our inferences. 
+
+\subsection{Event Selection Criteria}
+\label{subsec:event_selection}
+\subsubsection{Significance Thresholds}
+To ensure that the dataset we use in this paper has reduced contamination 
+from noise events, we adopt a significance threshold of \ac{FAR} 
+$<$ $1$ $\text{yr}^{-1}$ in at least one \ac{GW} search pipeline, 
+which is consistent with the criterion adopted in~\citet{KAGRA:2021duu}. 
+Based on the \ac{FAR} threshold, a total of \samplePurityEstimate[totalNumEvents]
+\ac{CBC} candidates have been detected from \ac{O1} through 
+\ac{O4a}~\citep{LIGOScientific:2018mvr, LIGOScientific:2020ibl, LIGOScientific:2021usb, KAGRA:2021vkt}
+by the \ac{GW} search pipelines~\citep{GWTC:Results}, 
+of which \samplePurityEstimate[totalNumEventsO4aOnly] were from \ac{O4a}.
+This is a noteworthy increase in the number of observations reported in~\citet{KAGRA:2021vkt}, 
+which contained \samplePurityEstimate[totalNumEventsGWTC3] events 
+meeting the \ac{FAR} $<$ $1$ $\text{yr}^{-1}$ threshold. 
+With this \ac{FAR} threshold and assuming noise signals are produced 
+independently, we expect 
+$\sum_k \mathrm{FAR} \times T_k$ ${\simeq}$ \samplePurityEstimate[expectedNumFalseTrialsFactor][rounded]
+contaminant noise events in our results, where $T_k$ is an estimate of the time 
+examined by the $k$th search.
+The list of \ac{GW} events included in the analyses of this paper contains 
+GW231123\_135430 (henceforth, GW231123), which has high probability for being 
+the most massive \ac{BBH} with \ac{FAR} $<$ $1$ $\text{yr}^{-1}$ detected to 
+date by the \acp{GW} with both component masses possibly in the upper mass 
+gap~\citep{GW231123, Woosley:2016hmi, Mapelli:2019ipt, Farmer:2019jed, Farmer:2020xne, Woosley:2021xba, Hendriks:2023yrw}.
+Not all events reported in the \acp{GWTC} 
+papers~\citep{LIGOScientific:2018mvr, LIGOScientific:2020ibl, LIGOScientific:2021usb, KAGRA:2021vkt, GWTC:Results} 
+are included in our analyses, as previous \ac{GWTC} papers thresholded event 
+candidates using $p_{\rm astro}$ $\geq 0.5$ or \ac{FAR} $<$ $2$ $\text{yr}^{-1}$, 
+whereas the analyses presented 
+in our paper select events with a significance of \ac{FAR} $<$ $1$ $\text{yr}^{-1}$. 
+Here, $p_{\rm astro}$ is the estimate of the probability of astrophysical
+origin of the event candidates~\citep{GWTC:Methods, GWTC:Results}.
+In addition, GW230630\_070659 is excluded from the analyses and the number of 
+events reported in this paper, due to concerns of the data quality around the 
+time of this event~\citep{GWTC:Results}.
+
+\subsubsection{Mass and Significance Thresholds for Events with \acp{NS}}
+To distinguish \ac{NS}-containing events from events containing only \acp{BH}, 
+we first threshold events by checking whether the $1\%$ lower limit on the component 
+mass is smaller or larger than $3\,\Msun$.
+As far fewer \ac{GW} candidates with \acp{NS} have been observed compared to 
+\acp{BBH}, this paper adopts a stricter \ac{FAR} threshold of $<0.25$ $\text{yr}^{-1}$ 
+in at least one \ac{GW} search pipeline for \ac{GW} candidates with \acp{NS} 
+to ensure a purer sample, as done in~\citet{KAGRA:2021duu}. 
+This \ac{FAR} threshold excludes GW190917\_114630 and 
+GW190426\_152155~\citep{LIGOScientific:2021usb}, 
+which are consistent with originating from \acp{NSBH} but have \acp{FAR} of 
+$>$ $0.25$ $\text{yr}^{-1}$. 
+In addition, we exclude certain events whose category is ambiguous from 
+dedicated \ac{BBH} and \ac{NSBH} analyses.
+Specifically, we exclude GW190814 as its 
+source's secondary mass is lower than the component masses of events classified 
+as \acp{BBH} but higher than the inferred \ac{NS} mass range, leaving its 
+classification 
+ambiguous~\citep{LIGOScientific:2020zkf, Essick:2021vlx, KAGRA:2021duu}.
+This event is included in Section~\ref{sec:all_masses} which considers binary-merger 
+populations across all masses. 
+Hence, the only \ac{NS}-containing event detected in \ac{O4a} considered in
+this paper is GW230529~\citep{LIGOScientific:2024elc}, in addition to the  
+previously reported \acp{NSBH}, GW200105\_162426 and GW200115\_042309 
+(henceforth, GW200105 and GW200115, respectively).
+The results are presented in Section~\ref{sec:ns}.
+
+\subsubsection{Exclusion of Non-LVK Catalog Events}
+In addition to the catalog of event candidates and its analyses conducted by the 
+\ac{LVK}, independent teams have analyzed the public \ac{GW} data from \ac{O1} 
+through \ac{O3b} using alternative algorithms and have identified additional 
+\ac{GW} binary-merger event 
+candidates~\citep{Venumadhav:2019tad, Venumadhav:2019lyq, Olsen:2022pin, Mehta:2023zlk, Wadekar:2023gea, Zackay:2019tzo, Nitz:2018imz, Nitz:2020oeq, Nitz:2021uxj, Nitz:2021zwj, Kumar:2024bfe, Mishra:2024zzs, Koloniari:2024kww}. 
+We do not include these additional events in our analyses here due to subtleties 
+with consistently combining sensitivity estimates from these independent catalogs.
+
+
+\subsection{Sensitivity of \ac{GW} Searches}
+A key ingredient in the estimation of population level properties 
+is the sensitivity of our \ac{GW} searches $\xi(\PEhyperparam)$. 
+The following four search pipelines analyzed detector data for \textit{real} 
+\ac{GW} signals as well as simulated \ac{GW} signals, called \textit{injections}: 
+\GSTLAL
+~\citep{Messick:2016aqy, Sachdev:2019vvd, Hanna:2019ezx, Cannon:2020qnf, Ewing:2023qqe, Tsukada:2023edh, Sakon:2022ibh, Ray:2023nhx, Joshi:2025nty, Joshi:2025zdu}, 
+\MBTA~\citep{Adams:2015ulm, Aubin:2020goo, Andres:2021vew, Allene:2025saz}, 
+\PYCBC~\citep{Usman:2015kfa, Nitz:2017svb, Nitz:2018rgo, DalCanton:2020vpm}, 
+and the \CWB analysis~\citep{Klimenko:2005xv, Klimenko:2008fu, Klimenko:2015ypf, Tiwari:2015bda, Drago:2020kic, Klimenko:2022nji, Mishra:2021tmu, Mishra:2022ott, Mishra:2024zzs}.
+Injections were added to data at an artificially higher rate than observed \ac{GW} 
+signals, and were used to quantify the pipelines' sensitivities to \ac{GW} 
+signals~\citep{Essick:2025zed, GWTC:Methods}.
+The distribution of injections was chosen to enable efficient and accurate 
+resampling to a wide range of astrophysically plausible populations~\citep{Essick:2025zed}. 
+For all the analyses in this paper, the detection efficiency $\xi(\PEhyperparam)$ 
+is estimated using these injections through a Monte Carlo 
+integral~\citep{GWTC:Methods, Tiwari:2017ndi, Farr:2019rap}.
+
+\subsection{Source Properties}
+\Ac{PE} pipelines use Bayesian inference to estimate the properties of GW events~\citep{GWTC:Methods}.
+The hierarchical Bayesian inference framework described in Section~\ref{sec:methods} 
+requires as input \ac{PE} samples from individual events. 
+For events detected in \ac{O4a}, we use samples drawn from the posterior distribution using
+the \SURSEVENDQFOUR{}~\citep{Varma:2019csw} waveform approximant if available. If these are not available e.g., because the signal duration is too long to be analyzed by \SURSEVENDQFOUR{}, we instead use a mixture of samples from the \IMRPhenomXPHMST{}~\citep{Pratten:2020ceb,Colleoni:2024knd} and \SEOBNRFIVEPHM{}~\citep{Ramos-Buades:2023ehm, Pompili:2023tna} approximants.
+These are referred to as \textsc{Mixed} samples in the \ac{PE} data products. 
+More details about various choices made in the \ac{PE} procedure can be found
+in Section~5 of \citet{GWTC:Methods} and Section~3 of \citet{GWTC:Results}.
+
+For all events detected before \ac{O4a}, we use the \textsc{Mixed} samples reported 
+in the \gwtcthree \citep{KAGRA:2021vkt} and \gwtctwopone \citep{LIGOScientific:2021usb} data releases. 
+One exception is the \ac{BNS} merger GW170817, for which we use samples obtained with the \IMRPhenomPTWONRTidal{} waveform approximant~\citep{Dietrich:2019kaq}  and a prior allowing for  large spin magnitudes~\citep{LIGOScientific:2018hze}.
+We also reweight these samples to a distance prior that is uniform in comoving volume and source-frame time
+following the prescription in Appendix C of \citet{LIGOScientific:2020ibl}.
+
+While this work was in its final stages, a normalization error was discovered in the noise-weighted inner product used in the \ac{PE} likelihood function~\citep{GWTC:Methods, Talbot:2025vth}. While there is a version of the \ac{PE} samples that account for the correct likelihood via a reweighting prescription~\citep{GWTC:Methods, Talbot:2025vth}, we do not use these samples in this work. Further, for candidates detected during the first three observing runs, we discovered that incorrect priors were used when marginalizing over the uncertainty in the calibration of the LIGO detectors~\citep{GWTC:Methods}. Preliminary re-analysis indicates that for each candidate the impact of this error in marginalization is small, and we expect the impact on our population analyses to be negligible compared to other sources of systematic error.

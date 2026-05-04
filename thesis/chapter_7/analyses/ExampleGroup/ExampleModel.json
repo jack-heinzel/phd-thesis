@@ -1,0 +1,33 @@
+{
+    "param" : {
+        "alpha" : {
+            "median" : 2.1,
+            "error plus" : 1.3,
+            "error minus" : 1.2,
+            "5th percentile" : 0.9,
+            "95th percentile" : 3.4
+        },
+        "m_min" : {
+            "median" : 5.1,
+            "5th percentile" : 2.1,
+            "95th percentile" : 7.3
+        },
+        "m_max" : {
+            "median" : 90.1,
+            "5th percentile" : 85.3,
+            "95th percentile" : 103.7
+        }
+    },
+    "ppd" : {
+        "mass_1_source" : {
+            "median" : 28.7,
+            "5th percentile" : 8.1,
+            "95th percentile" : 87.3
+        },
+        "mass_2_source" : {
+            "median" : 22.7,
+            "5th percentile" : 6.3,
+            "95th percentile" : 54.1
+        }
+    }
+}

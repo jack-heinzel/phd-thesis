@@ -1,0 +1,137 @@
+\section{Binary merger population across all masses} \label{sec:all_masses}
+
+We begin our analysis of the astrophysical distribution of merging compact binaries with a joint analysis of all events discussed in Section~\ref{sec:data}\textemdash \acp{BNS}, \acp{NSBH}, and \acp{BBH}\textemdash without distinguishing between these different source classes.
+This allows for a broad look at the complete population, self-consistent measurements of the merger rates in each binary source class, and an analysis of the population at the transition between \acp{NS} and \acp{BH}.
+As mentioned in Section~\ref{sec:data}, we adopt a uniform detection threshold of FAR $<$ $0.25$ $\text{yr}^{-1}$ to ensure a high catalog purity of \ac{NS} systems, where we have fewer detections and so are more sensitive to non-astrophysical false-alarm contaminants.
+
+\subsection{The Mass Spectrum of Compact Binaries}
+
+In Figure~\ref{fig:inferred_m1_m2} we show the joint primary and secondary-mass distributions, inferred using a \parametricAdj and a \nonparametric. 
+Our \PDB \parametric is modified from the \textsc{Power law + Dip + Break} analysis of the previous \gwtcthree catalog \citep[][]{Fishbach:2020ryj, Farah:2021qom, KAGRA:2021duu, Mali:2024wpq}; see Appendix~\ref{appendix:PDB} for a model description. 
+Our \nonparametricAdj analysis approximates the $m_1$--$m_2$ space with a \ac{BGP} \citep{Mandel:2016prl,KAGRA:2021duu,Ray:2023upk,Ray:2024hos}; see Appendix~\ref{appendix:BGPModel} for further discussion. 
+The \PDB model uses the default models in Table~\ref{tab:summary_of_models} for the redshift and component spins, and for \ac{NS} masses ($m < 2.5\,\Msun$) the spin magnitude distribution is truncated over the range $\chi \in [0,0.4]$. 
+The \ac{BGP} analysis fixes the \powerlawRedshift evolution to $\kappa = 3$ (see Appendix~\ref{appendix:redshiftModels}), and the spin distribution to be uniform in magnitude (again truncated over $\chi \in [0,0.4]$ for \ac{NS} masses) and isotropic in orientation.
+
+
+\begin{figure*}
+    \centering
+    \includegraphics[width=0.98\linewidth]{figures/full_mass_spectrum_2d_ppd.pdf}
+    \caption{
+    The complete mass spectrum, inferred using the \parametricAdj \PDB and \nonparametricAdj \ac{BGP} analyses. 
+    In the lower triangle of the $m_1$--$m_2$ plane (where $m_1 > m_2$ by definition), we show median merger rate density across primary and secondary masses. At $m_2 = 5\,\Msun$, the \PDB model transitions to an alternative pairing function to allow for \acp{NSBH}, hence the discontinuity at $m_2 = 5\,\Msun$.
+    In the upper triangle we show the fractional uncertainty in the merger rate reflected across the diagonal. The fractional uncertainty $\Delta\mathcal{R} /\mathcal{R}$ is difference of the 95th and 5th percentile values divided by the median merger rate.
+    Both the \PDB and \ac{BGP} models show similar broad features: a population of \acp{BNS} at primary and secondary masses $\lesssim 2\,\Msun$, a population of \acp{NSBH} at primary mass $\sim 9\,\Msun$ and secondary mass $\lesssim 2\,\Msun$, and finally the population of \acp{BBH} with primary and secondary masses $\gtrsim 9\,\Msun$.
+    The uncertainties are the smallest in the $\sim 9\,\Msun$ and $\sim 30\,\Msun$ \ac{BBH} peaks. 
+    }
+    \label{fig:inferred_m1_m2}
+\end{figure*}
+
+\textbf{\boldmath We observe an enhanced merger rate around ${m_1 \sim m_2 \lesssim 2\,\Msun}$, consistent with \ac{BNS} systems, an additional subpopulation at unequal masses $m_1 \sim 9\,\Msun$ and $m_2 \lesssim 2 \,\Msun$ consistent with \acp{NSBH}, and a third \ac{BBH} subpopulation at $m_1, m_2 \gtrsim 9\,\Msun$.}
+In the upper triangle of Figure~\ref{fig:inferred_m1_m2}, we show the fractional uncertainty as a function of mass, a unitless quantity $\Delta\mathcal{R} /\mathcal{R}$ defined as the 95th - 5th percentile uncertainty divided by the median merger rate. 
+The rate is best constrained at equal masses, where the majority of mergers are observed, and in the \ac{BBH} range $10$--$40\,\Msun$. 
+Due to fewer observations, the uncertainty is larger for \ac{BNS} and \ac{NSBH} systems.
+
+In Figure~\ref{fig:full_mass_spectrum}, we show the marginalized primary and secondary-mass distributions for our strongly and \nonparametricAdj reconstructions of the merger rate, focusing on the transition between \acp{NS} and \acp{BH}. 
+The models are consistent within uncertainties, indicating that systematic error from model assumptions are smaller than the statistical uncertainties. 
+The most notable difference between the \PDB and \ac{BGP} results is the large uncertainty in the \ac{BGP} primary-mass distribution relative to the secondary mass. 
+There are significantly more observed \acp{CBC} with light secondary masses $m_2 \lesssim 15\,\Msun$ than primary masses $m_1 \lesssim 15\,\Msun$ (simply by the definition $m_2 < m_1$), and so the data-driven \ac{BGP} is more uncertain for small primary masses, while the \PDB results are more model driven.
+
+At $m_2 = 5\,\Msun$, the \PDB model adopts an alternative pairing function to more naturally distinguish the pairing behavior of BNS and NSBH systems from that of BBH systems, introducing a discontinuity in the secondary-mass distribution (Figure~\ref{fig:full_mass_spectrum}) at the transition point.
+We discuss the behavior of the population at the transition from \acp{NS} to \acp{BH} and the astrophysical insights below in Section~\ref{sec:lower_mass_gap}.
+\begin{figure*}
+    \centering
+    \includegraphics[width=0.98\linewidth]{figures/full_mass_spectrum_fullrange.pdf}
+    \caption{
+    A comparison of the merger rate at redshift $z=0$, as a function of component mass for the \PDB and \ac{BGP} models. 
+    In the upper panel, we show the merger rate as a function of primary mass, marginalized over secondary mass. In the lower panel, we show the merger rate as a function of the secondary mass, marginalized over the primary mass. At $m_2 = 5\,\Msun$, the \PDB model transitions to an alternative pairing function to allow for \acp{NSBH}, hence the discontinuity in the secondary mass.
+    The median of the inferred merger rate is shown with a solid line, and the 90\% credible interval is shown in the shaded region.
+    The \ac{BGP} \nonparametric has larger uncertainties due to increased flexibility. 
+    Both the \parametricAdj and \nonparametricAdj approaches find local maxima in the merger rate at $m_2 \sim 1-2 \,\Msun$ and $m_2 \sim 6.5-9\,\Msun$ in the secondary-mass distribution. 
+    However, the \ac{BGP} model does not confidently recover the low mass peaks in the primary-mass distribution.
+    In the inset, we show the \PDB inferred gap depth parameter $A$ (see Appendix~\ref{appendix:PDB}), where $A=1$ (a completely empty gap) is disfavored.
+    }
+    \label{fig:full_mass_spectrum}
+\end{figure*}
+
+\begin{deluxetable*}{lcccccc}
+\tablecaption{Merger rates in units $\perGpcyr$ in different mass ranges, according to the \PDB and \ac{BGP} models. }
+\tablewidth{0pt}
+\tablehead{
+    \colhead{} & \colhead{BNS} & \colhead{NSBH} & \colhead{BBH} & \colhead{NS--Gap} & \colhead{BH--Gap} & \colhead{Full} \\
+    \colhead{} & \colhead{$m_1 \in [1, 2.5]\,\Msun$} & \colhead{$m_1 > 2.5 \,\Msun$} & \colhead{$m_1 > 2.5\,\Msun$} & \colhead{$m_1 \in [2.5, 5]\,\Msun$} & \colhead{$m_1 > 2.5\,\Msun$} & \colhead{$m_1 > 1\,\Msun$} \\
+    \colhead{} & \colhead{$m_2 \in [1, 2.5]\,\Msun$} & \colhead{$m_2 \in [1, 2.5]\,\Msun$} & \colhead{$m_2 > 2.5\,\Msun$} & \colhead{$m_2 \in [1, 2.5]\,\Msun$} & \colhead{$m_2 \in [2.5, 5]\,\Msun$} & \colhead{$m_2 > 1\,\Msun$}
+}
+\label{tab:inferred_merger_rate}
+\startdata
+\PDB & $\FullMassSpectrumPDB[rates][BNS][median]^{+\FullMassSpectrumPDB[rates][BNS][error plus]}_{-\FullMassSpectrumPDB[rates][BNS][error minus]}$ & $\FullMassSpectrumPDB[rates][NSBH][median]^{+\FullMassSpectrumPDB[rates][NSBH][error plus]}_{-\FullMassSpectrumPDB[rates][NSBH][error minus]}$ & $\FullMassSpectrumPDB[rates][BBH][median]^{+\FullMassSpectrumPDB[rates][BBH][error plus]}_{-\FullMassSpectrumPDB[rates][BBH][error minus]}$ & $\FullMassSpectrumPDB[rates][NS-Gap][median]^{+\FullMassSpectrumPDB[rates][NS-Gap][error plus]}_{-\FullMassSpectrumPDB[rates][NS-Gap][error minus]}$ & $\FullMassSpectrumPDB[rates][BH-Gap][median]^{+\FullMassSpectrumPDB[rates][BH-Gap][error plus]}_{-\FullMassSpectrumPDB[rates][BH-Gap][error minus]}$ & $\FullMassSpectrumPDB[rates][Full][median]^{+\FullMassSpectrumPDB[rates][Full][error plus]}_{-\FullMassSpectrumPDB[rates][Full][error minus]}$ \\
+\ac{BGP} & $\FullMassSpectrumBGPRate[R_BNS][50th_percentile]^{+\FullMassSpectrumBGPRate[R_BNS][error_plus]}_{-\FullMassSpectrumBGPRate[R_BNS][error_minus]}$ & $\FullMassSpectrumBGPRate[R_NSBH][50th_percentile]^{+\FullMassSpectrumBGPRate[R_NSBH][error_plus]}_{-\FullMassSpectrumBGPRate[R_NSBH][error_minus]}$ & $\FullMassSpectrumBGPRate[R_BBH][50th_percentile]^{+\FullMassSpectrumBGPRate[R_BBH][error_plus]}_{-\FullMassSpectrumBGPRate[R_BBH][error_minus]}$ & $\FullMassSpectrumBGPRate[R_NS-Gap][50th_percentile]^{+\FullMassSpectrumBGPRate[R_NS-Gap][error_plus]}_{-\FullMassSpectrumBGPRate[R_NS-Gap][error_minus]}$ & $\FullMassSpectrumBGPRate[R_BH-Gap][50th_percentile]^{+\FullMassSpectrumBGPRate[R_BH-Gap][error_plus]}_{-\FullMassSpectrumBGPRate[R_BH-Gap][error_minus]}$ & $\FullMassSpectrumBGPRate[R_Full][50th_percentile]^{+\FullMassSpectrumBGPRate[R_Full][error_plus]}_{-\FullMassSpectrumBGPRate[R_Full][error_minus]}$ \\
+Merged & $\FullMassSpectrumMerged[R_BNS][5th_percentile]$--$\FullMassSpectrumMerged[R_BNS][95th_percentile]$ & $\FullMassSpectrumMerged[R_NSBH][5th_percentile]$--$\FullMassSpectrumMerged[R_NSBH][95th_percentile]$ & $\FullMassSpectrumMerged[R_BBH][5th_percentile]$--$\FullMassSpectrumMerged[R_BBH][95th_percentile]$ & $\FullMassSpectrumMerged[R_NS-Gap][5th_percentile]$--$\FullMassSpectrumMerged[R_NS-Gap][95th_percentile]$ & $\FullMassSpectrumMerged[R_BH-Gap][5th_percentile]$--$\FullMassSpectrumMerged[R_BH-Gap][95th_percentile]$ & $\FullMassSpectrumMerged[R_Full][5th_percentile]$--$\FullMassSpectrumMerged[R_Full][95th_percentile]$ \\
+\tableline
+\textsc{Simple Uniform BNS} & $\CIBoundsDash{\simplerates[RBNS]}$ & -- & -- & -- & -- & -- \\
+\enddata
+\tablecomments{For \ac{BNS} systems, we also estimate the rate assuming a \textsc{Simple Uniform BNS} model. We show rates of \ac{BNS}, \ac{NSBH}, and \ac{BBH} assuming objects with mass $m \in [1, 2.5]\,\Msun$ are \acp{NS} and $m>2.5\,\Msun$ are \acp{BH}. We also show rates within the purported lower-mass gap between astrophysical \acp{NS} and \acp{BH}, according to these models. In the third row, we show the merged estimates, taking the union of the 90\% credible intervals for the \PDB and \ac{BGP} models, in order to account for model systematics. We quote merger rates at redshift $z=0$.}
+\end{deluxetable*}
+
+\subsection{Merger Rates}
+\label{sec:merger_rates}
+
+Since we self-consistently include all events in the catalog, our measurements of the binary merger rates are robust to events which straddle different source classes.
+We calculate the rates of \ac{BNS}, \ac{NSBH}, and \ac{BBH} mergers by assuming any object with mass $1\,\Msun < m < 2.5\,\Msun$ is a \ac{NS}, and any object with mass $m > 2.5\,\Msun$ is a \ac{BH}. 
+In all models, we assume the rate evolves with redshift in a manner that is uncorrelated with mass \citep{Fishbach:2018edt, KAGRA:2021duu}.
+We quote merger rates in the local Universe, at redshift $z=0$. 
+
+Our strongly-modeled \PDB and weakly-modeled \ac{BGP} approaches infer different rates over the $m_1$--$m_2$ space, and hence different rates in each binary source class. 
+To marginalize over the systematic modeling uncertainty, we take the union of both 90\% credible intervals.
+\textbf{\boldmath The rates thus obtained are ${\FullMassSpectrumMerged[R_BNS][5th_percentile]}$--${\FullMassSpectrumMerged[R_BNS][95th_percentile]\,{\perGpcyr}}$ for \ac{BNS} mergers, ${\FullMassSpectrumMerged[R_NSBH][5th_percentile]}$--${\FullMassSpectrumMerged[R_NSBH][95th_percentile]\,{\perGpcyr}}$ for \ac{NSBH} mergers, and ${\FullMassSpectrumMerged[R_BBH][5th_percentile]}$--${\FullMassSpectrumMerged[R_BBH][95th_percentile]\,{\perGpcyr}}$ for \ac{BBH} mergers.}
+In Table~\ref{tab:inferred_merger_rate}, we show rates in these classes using different models and within purported mass gaps.
+
+The \ac{BNS} merger rate measurements may be sensitive to assumptions about \ac{NS} pairing, and so we also estimate the \ac{BNS} merger rate assuming a simple, fixed population. 
+We assume a uniform mass distribution between $1\,\Msun$ and $2.5\,\Msun$ for the component masses, isotropically distributed spins with uniform spin magnitudes below $0.4$, and a merger rate uniform in comoving volume up to $z=0.15$. 
+Under this fiducial model (denoted \textsc{Simple Uniform BNS} in Table~\ref{tab:inferred_merger_rate}), we infer a \ac{BNS} merger rate of $\CIBoundsDash{\simplerates[RBNS]}\,\perGpcyr$. 
+
+The estimates in Table~\ref{tab:inferred_merger_rate} are consistent with our previous analysis \citep{KAGRA:2021duu} and the uncertainties on the rate in each source class have generally decreased due to our larger catalog size. 
+Although it is within uncertainties, our inferred merger rate for \ac{BNS} systems has notably decreased by a factor of $\sim 2$ (cf. PDB (pair) and \ac{BGP} in Table 2 of \citealt{KAGRA:2021duu}). 
+This is a result of the improved detector range and observing time together with the lack of new \ac{BNS} detections. 
+
+\subsection{The Neutron Star--Black Hole Transition}
+\label{sec:lower_mass_gap}
+
+\Ac{EM} observations have previously suggested the existence of a mass gap between \acp{NS} and \acp{BH} \citep{Bailyn:1997xt, Ozel:2010su, Farr:2010tu}. 
+On the lower end of the gap, nonrotating \ac{NS} masses are bounded by a physical limit, the \ac{TOV} mass \citep[e.g.,][]{Kalogera:1996ci}. 
+Astrophysical observations, heavy-ion collision experiments, and modeling of the dense matter \ac{EOS} at nuclear densities bound $M_{\rm max, TOV} \sim 2.2$--$2.5\,\Msun$ \citep{Landry:2020vaw, Dietrich:2020efo, Legred:2021hdx, Huth:2021bsp, Ai:2023ykc, Dittmann:2024mbo, Rutherford:2024srk, Koehn:2024set}, and
+studies on the remnant in the \ac{BNS} merger GW170817 \citep{LIGOScientific:2017vwq} place limits in the range $\lesssim 2.3\,\Msun$ \citep{Margalit:2017dij,Rezzolla:2017aly,Ruiz:2017due,LIGOScientific:2019eut,Nathanail:2021tay}. 
+
+On the upper end of the gap, \ac{EM} observations historically identified a dearth of \acp{BH} in the range $\sim 3$--$5\,\Msun$ \citep{Bailyn:1997xt, Ozel:2010su, Farr:2010tu}, hinting at an astrophysical mass gap between \acp{NS} and \acp{BH}, or perhaps a selection effect obscuring such objects. 
+More recently, observations of noninteracting binary systems \citep{Thompson:2018ycv, Jayasinghe:2021uqb} and radio pulsar surveys \citep{Barr:2024wwl} suggest the presence of a population of compact objects within the gap.
+Indeed, the \ac{GW} events GW190814 \citep{LIGOScientific:2020zkf} and GW230529 \citep{LIGOScientific:2024elc} are further evidence that the transition between \acp{NS} and \acp{BH} is populated, albeit sparsely. 
+
+With the additional \gwtcfour data, the \ac{GW} picture of the purported lower-mass gap is becoming clearer and structures around the transition from \acp{NS} to \acp{BH} are emerging.
+In both our \parametricAdj \PDB and \nonparametricAdj \ac{BGP} analyses, we find evidence for \textbf{a prominent pair of peaks at \ac{NS} masses $\bm{{\sim}1.5\Msun}$ and at \ac{BH} masses $\bm{{\sim}9\,\Msun}$ on each side of the lower-mass gap.
+A completely empty gap between \acp{NS} and \acp{BH} is disfavored.}  
+We cannot rule out the existence of extremely narrow gaps in the compact object spectrum, though such a feature requires fine tuning of the supernova explosion mechanism, fallback, binary interactions or other physical processes \citep[e.g.,][]{Fryer:2011cx,Belczynski:2011bn}.
+
+Our \PDB model detects a peak in the \ac{BH} merger rate at $\FullPop[peak_locations][TenMsun][median]^{+\FullPop[peak_locations][TenMsun][error plus]}_{-\FullPop[peak_locations][TenMsun][error minus]}\,\Msun$.
+We find that merging \acp{NS} represent the global maximum of the compact object mass spectrum at $\FullPop[peak_locations][OneMsun][median]^{+\FullPop[peak_locations][OneMsun][error plus]}_{-\FullPop[peak_locations][OneMsun][error minus]}\,\Msun$. 
+At the transition from \acp{NS} to \acp{BH}, \PDB allows for an additional suppression in the merger rate, parameterized by a gap depth parameter $A$ where $A=1$ corresponds to an absolute gap with zero mergers and $A=0$ corresponds to no additional suppression. % compact object mass function. 
+We show the measurement on $A$ in the inset in Figure~\ref{fig:full_mass_spectrum}. $A$ is consistent with zero, and the lower and upper bounds of the gap (e.g., the maximum \ac{NS} mass and the minimum \ac{BH} mass) are not measured away from the prior. 
+
+Earlier precursor analyses to \PDB showed that the merger rate between $\sim 3$--$5\,\Msun$ is likely suppressed relative to a power-law continuum \citep{Fishbach:2020ryj, LIGOScientific:2020kqk, Farah:2021qom}, using older datasets.
+In \cite{KAGRA:2021duu}, we used a \parametricAdj analysis on \gwtcthree (compare the PDB model to \PDB) to argue that the transition from \acp{NS} to \acp{BH} is likely suppressed, but also may be partially filled.
+\PDB measures a similar mass spectrum to these previous analyses, but reintreprets the data as evidence for a rise at $\sim 9\,\Msun$, and no \textit{additional} suppression between the \ac{NS} and \ac{BH} peaks (\citealt{Mali:2024wpq} make similar conclusions on \gwtcthree).
+
+We corroborate our \parametricAdj \PDB conclusions with a \nonparametricAdj \ac{BGP} approach, and our constraints are improved relative to a similar \ac{BGP}-based model in \cite{KAGRA:2021duu}. 
+Unlike the \PDB model, however, the \ac{BGP} analysis does not distinguish between peaks, gaps, or a continuum: as a \nonparametric, the shape of the population is inferred directly without an associated interpretation.
+
+The \ac{BGP} model infers a nonzero merger rate between the \ac{NS} to \ac{BH} peaks consistent with an underlying continuum, and no evidence for a sharp gap. 
+However, the smoothing kernel in the \ac{BGP} model makes it \textit{a priori} less sensitive to deep gaps, so we cannot rule them out either.
+The \ac{BGP} model also observes \ac{NS} and \ac{BH} peaks. We quantify the significance as the fraction of hyperparameter samples where the merger rate density is higher than the merger rate in the neighboring bins. 
+The merger rate maximizes for \acp{NS} in the range $1\,\Msun \leq m_2 \leq 2\,\Msun$ at \FullMassSpectrumBGPPeakSignificance[m2_peaks][(1, 2)]\% credibility and the low-mass \ac{BH} peak occurs in the secondary mass $7.5\,\Msun \leq m_2 \leq 9\,\Msun$ bin at \FullMassSpectrumBGPPeakSignificance[m2_peaks][(7.23021864, 9.2586008)]\% credibility.
+
+As our knowledge improves about the compact object population at the boundary between \acp{NS} and \acp{BH}, we stand to learn about supernova physics \citep[e.g.,][]{Burrows:2020qrp} and the formation mechanisms of the heaviest \acp{NS} and lightest \acp{BH} \citep[][and references therein]{LIGOScientific:2024elc}.
+If future catalogs continue to disfavor a completely empty gap, the standard picture of rapid core-collapse supernovae
+---which features a sharp transition in remnant masses; successful explosions leave \acp{NS} with $m\lesssim 2\,\Msun$ and failed explosions promptly collapse to \acp{BH} with $m\gtrsim 5\,\Msun$ \citep[e.g.,][]{Fryer:1999ht,Fryer:2011cx}---
+may require modifications to include fallback, slower instability growth, or stochasticity \citep[e.g.,][]{Fryer:1999ht,Fryer:2011cx,Belczynski:2011bn,Sukhbold:2015wba,Ertl:2019zks,Mandel:2020qwb}.
+Fallback of stellar material can produce black holes from the maximum neutron star mass to the lightest \ac{BH} mass ($\sim 6\,\Msun$) in the rapid implosion scenario \citep[e.g.,][]{Ertl:2019zks}, or
+a slower instability growth timescale could allow the proto-\ac{NS} to accrete enough mass before the explosion to populate the mass gap \citep[e.g.,][]{Belczynski:2011bn,Olejak:2022zee,Fryer:2022lla}.
+Another possibility is that stochasticity in the stellar evolution and supernovae smooths out the remnant mass distribution and occupy the lower-mass gap \citep[e.g.,][]{Mandel:2020qwb,Mandel:2020cig}.
+Alternatively, the gap between \acp{NS} and \acp{BH} may be populated by a pollution mechanism, such as the remnants of \ac{BNS} or white dwarf collisions which participate in further hierarchical mergers \citep[e.g.,][]{Gupta:2019nwj, Ye:2019xvf, Ye:2024wqj, Barr:2024wwl, Mahapatra:2025agb} or other exotic scenarios like primordial black holes \citep[e.g.,][]{Clesse:2020ghq} or gravitationally lensed events, which could be mistaken for mass gap objects \citep[e.g.,][]{Bianconi:2022etr,Janquart:2024ztv,Farah:2025ews}.

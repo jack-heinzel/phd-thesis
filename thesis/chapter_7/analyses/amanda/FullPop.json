@@ -1,0 +1,70 @@
+{
+    "rates": {
+        "BNS": {
+            "median": 91.9,
+            "error plus": 157,
+            "error minus": 68.7,
+            "5th percentile": 23.2,
+            "95th percentile": 249
+        },
+        "NSBH": {
+            "median": 21.6,
+            "error plus": 20,
+            "error minus": 12.2,
+            "5th percentile": 9.4,
+            "95th percentile": 41.6
+        },
+        "BBH": {
+            "median": 17.7,
+            "error plus": 7.08,
+            "error minus": 4.95,
+            "5th percentile": 12.7,
+            "95th percentile": 24.7
+        },
+        "NS-Gap": {
+            "median": 6.81,
+            "error plus": 10.3,
+            "error minus": 4.71,
+            "5th percentile": 2.1,
+            "95th percentile": 17.1
+        },
+        "BH-Gap": {
+            "median": 2.44,
+            "error plus": 3.34,
+            "error minus": 1.62,
+            "5th percentile": 0.823,
+            "95th percentile": 5.77
+        },
+        "Full": {
+            "median": 132,
+            "error plus": 167,
+            "error minus": 76.3,
+            "5th percentile": 56,
+            "95th percentile": 299
+        }
+    },
+    "pairing_function_difference": 1.0,
+    "peak_locations": {
+        "OneMsun": {
+            "median": 1.22,
+            "error plus": 0.133,
+            "error minus": 0.143,
+            "5th percentile": 1.08,
+            "95th percentile": 1.35
+        },
+        "TenMsun": {
+            "median": 9.09,
+            "error plus": 0.376,
+            "error minus": 0.778,
+            "5th percentile": 8.31,
+            "95th percentile": 9.47
+        },
+        "ThirtyMsun": {
+            "median": 25.1,
+            "error plus": 12.5,
+            "error minus": 6.9,
+            "5th percentile": 18.2,
+            "95th percentile": 37.6
+        }
+    }
+}

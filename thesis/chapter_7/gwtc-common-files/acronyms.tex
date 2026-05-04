@@ -1,0 +1,121 @@
+% ======================
+%  ACRONYMS
+% ======================
+
+\usepackage{amstext}
+
+% Bug fix to address issue between cleverref and acronym, see https://tex.stackexchange.com/questions/735500/problem-with-amsmath-cleveref-acronym/735502#735502
+\makeatletter
+\@ifpackageloaded{cleveref}{
+  \AtBeginDocument{
+    \def\ltx@label#1{\cref@label{#1}}% add braces
+    \def\label@in@display@noarg#1{\cref@old@label@in@display{#1}}% remove braces
+    \def\label@in@mmeasure@noarg#1{%
+      \begingroup%
+        \measuring@false%
+        \cref@old@label@in@display{#1}% remove braces for multline
+      \endgroup}%
+  }
+}{}
+\makeatother
+
+% To allow for acronym equivalencies
+\protected\def\protectedacused{\acused}
+
+% Detectors
+\acrodef{LIGO}[LIGO]{Laser Interferometer Gravitational-Wave Observatory}
+\acrodef{LHO}[LHO]{\ac{LIGO} Hanford Observatory}
+\acrodef{LLO}[LLO]{\ac{LIGO} Livingston Observatory}
+\acrodef{KAGRA}[KAGRA]{KAGRA}\acused{KAGRA}
+\acrodef{iKAGRA}[iKAGRA]{initial \ac{KAGRA}}
+\acrodef{bKAGRA}[bKAGRA]{baseline \ac{KAGRA}}
+\acrodef{GEO}[GEO]{GEO\,600 \ac{GW} detector}
+\acrodef{aLIGO}{Advanced \ac{LIGO}}
+\acrodef{A+}{Advanced+ \ac{LIGO}}
+\acrodef{Asharp}[\ensuremath{\text{A}^\sharp}]{\ac{LIGO} \acs{Asharp}}
+\acrodef{AdV}{Advanced \acl{Virgo}}
+\acrodef{AdV+}{Advanced \acl{Virgo}+}
+\acrodef{Virgo}{Virgo}\acused{Virgo}
+\acrodef{VirgoNEXT}[Virgo\_nEXT]{Virgo\_nEXT}\acused{VirgoNEXT}
+
+% Collaborations
+\acrodef{LSC}[LSC]{\acs{LIGO} Scientific Collaboration}
+\acrodef{LV}[LV]{\acs{LIGO}--\acs{Virgo} Collaboration\protect\protectedacused{LVC}}
+\acrodef{LVC}[LV]{\acs{LIGO}--\acs{Virgo} Collaboration\protect\protectedacused{LV}}
+\acrodef{LVK}[LVK]{\acs{LIGO}--\ac{Virgo}--\ac{KAGRA} Collaboration}
+\acrodef{IGWN}[IGWN]{International \ac{GWH} Observatory Network}
+
+% Observing Runs
+\acrodef{O1}[O1]{first observing run}
+\acrodef{O2}[O2]{second observing run}
+\acrodef{O3}[O3]{third observing run}
+\acrodef{O3a}[O3a]{first half of the third observing run}
+\acrodef{O3b}[O3b]{second half of the third observing run}
+\acrodef{O3GK}[O3GK]{observing run}
+\acrodef{O4}[O4]{fourth observing run}
+\acrodef{O4a}[O4a]{first part of the fourth observing run}
+\acrodef{O4b}[O4b]{second part of the fourth observing run}
+\acrodef{O4c}[O4c]{third part of the fourth observing run}
+\acrodef{IR1}[IR1]{intermediate run 1}
+\acrodef{O5}[O5]{fifth observing run}
+
+% Compact Objects and Compact Binaries
+\acrodef{BH}[BH]{black hole}
+\acrodef{BBH}[BBH]{binary \ac{BH}}
+\acrodef{BNS}[BNS]{binary \ac{NS}}
+\acrodef{IMBH}[IMBH]{intermediate-mass \ac{BH}}
+\acrodef{NS}[NS]{neutron star}
+\acrodef{BHNS}[BHNS]{\ac{BH}--\ac{NS} binary}
+\acrodefplural{BHNS}[BHNSs]{\ac{BH}--\ac{NS} binaries}
+\acrodef{NSBH}[NSBH]{\ac{NS}--\ac{BH} binary}
+\acrodefplural{NSBH}[NSBHs]{\ac{NS}--\ac{BH} binaries}
+\acrodef{PBH}[PBH]{primordial \ac{BH}}
+\acrodef{CBC}[CBC]{compact binary coalescence}
+
+% Other
+\acrodef{GW}[GW]{gravitational wave\protect\protectedacused{GWH}}
+\acrodef{GWH}[GW]{gravitational-wave\protect\protectedacused{GW}}
+\acrodef{IFO}[IFO]{interferometer}
+\acrodef{SNR}[SNR]{signal-to-noise ratio}
+\acrodef{FAR}[FAR]{false-alarm rate}
+\acrodef{IFAR}[IFAR]{inverse false-alarm rate}
+\acrodef{FAP}[FAP]{false alarm probability}
+\acrodef{PSD}[PSD]{power spectral density}
+\acrodef{GR}[GR]{general relativity}
+\acrodef{NR}[NR]{numerical relativity}
+\acrodef{PN}[PN]{post-Newtonian}
+\acrodef{EOB}[EOB]{effective-one-body}
+\acrodef{ROM}[ROM]{reduced-order model}
+\acrodef{IMR}[IMR]{inspiral--merger--ringdown}
+\acrodef{PDF}[pdf]{probability density function}
+\acrodef{PE}[PE]{parameter estimation}
+\acrodef{CI}[CI]{credible interval}
+\acrodef{CL}[CL]{credible level}
+\acrodef{EOS}[EoS]{equation of state}
+\acrodef{KLD}[KLD]{Kullback--Leibler divergence}
+\acrodef{JSD}[JSD]{Jensen--Shannon divergence}
+\acrodef{GCN}[GCN]{General Coordinates Network}
+\acrodef{GWTC}[GWTC]{Gravitational-Wave Transient Catalog}
+\acrodef{GWOSC}[GWOSC]{Gravitational Wave Open Science Center}
+\acrodef{WDM}[WDM]{Wilson--Daubechies--Meyer}
+\acrodef{DQR}[DQR]{data-quality report}
+
+% Software
+\acrodef{CWB}[cWB]{coherent WaveBurst}
+\acrodef{LAL}[LAL]{\ac{LIGO} algorithm library}
+
+% Instrumental
+\acrodef{CHRoCC}{central heating radius of curvature correction}
+\acrodef{NonSENS}{non-stationary estimation and noise subtraction}
+\acrodef{RF}{Radio Frequency}
+\acrodef{PNC}{Phase Noise Cancellation}
+\acrodef{ASC}{Alignment Sensing and Control}
+\acrodef{WFS}{Wave-Front Sensing}
+\acrodef{BPC}{Beam Position Control}
+\acrodef{ADS}{Alignment Dither Systems}
+\acrodef{OMC}{Output Mode Cleaner}
+\acrodef{LVDTs}{Linear Variable Differential Transformers}
+\acrodef{GAS}{Geometrical Anti-Spring}
+
+% Other
+\acrodef{PTA}{Pulsar Timing Array}

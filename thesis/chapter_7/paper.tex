@@ -1,0 +1,131 @@
+%% !TEX TS-program = pdflatexmk
+% \RequirePackage[]{lineno}
+\documentclass[linenumbers,superscriptaddress,twocolumn,nopreprintnumbers,floatfix,nofootinbib,trackchanges,table]{aastex631}
+\pdfoutput=1
+\usepackage[utf8]{inputenc}
+\usepackage{xspace}
+\usepackage{acronym}
+\usepackage{booktabs}
+\usepackage{amsmath,amssymb,graphicx}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{array}
+\let\tablenum\relax
+\usepackage{longtable}
+\usepackage{siunitx}
+\usepackage{xparse}
+\usepackage{hyperref}
+\usepackage{bm}
+\definecolor{medium-blue}{rgb}{0,0,1}
+\hypersetup{colorlinks, urlcolor={medium-blue}}
+%\usepackage{nicematrix}
+\usepackage[hang,flushmargin]{footmisc} % make footnotes not indented
+
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+\newcolumntype{Z}{>{\raggedright\arraybackslash}X}
+\newcolumntype{K}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{U}{>{\hsize=1.01\hsize}Y}
+\newcolumntype{V}{>{\hsize=1.2\hsize}Y}
+\newcolumntype{W}{>{\hsize=0.71\hsize}Y}
+
+
+\def\mystrut{\vrule height 9.3pt depth 3.1pt width 0pt}
+\newenvironment{PE_table}{\renewcommand{\arraystretch}{1.5}\setlength{\tabcolsep}{0pt}}{}
+\newenvironment{event_table}{\renewcommand{\arraystretch}{1.22}\setlength{\tabcolsep}{0pt}\setlength{\aboverulesep}{1pt}\setlength{\belowrulesep}{1pt}}{}
+
+\usepackage{scrextend}
+\usepackage{textgreek}
+\usepackage[caption=false]{subfig}
+
+% Suppress Multiple PDFs in page group warning
+% see https://tex.stackexchange.com/questions/76273/multiple-pdfs-with-page-group-included-in-a-single-page-warning#78020
+\pdfsuppresswarningpagegroup=1
+
+
+\usepackage{makerobust}
+\makeatletter
+\makeatother
+
+\renewcommand{\today}{\number\day\space\ifcase\month\or
+  January\or February\or March\or April\or May\or June\or
+  July\or August\or September\or October\or November\or December\fi
+  \space\number\year}
+
+\newcommand{\commonfiles}{gwtc-common-files}
+\input{macros}
+\input{macros_from_json}
+\input{acronyms}
+
+\input{\commonfiles/acronyms}
+\input{\commonfiles/commands}
+\input{\commonfiles/macros/symbol_macros}
+\input{\commonfiles/macros/misc_macros}
+\input{\commonfiles/macros/datetime_macros}
+\input{\commonfiles/macros/quantities_macros}
+\listfiles
+
+% Editorial macros
+\definecolor{NOTECOLOR}{rgb}{0.4, 0.2, 0.1}
+\definecolor{notecolor}{rgb}{0.4, 0.2, 0.1}
+% To restore editorial notes uncomment these and comment the two lines below
+\newcommand{\note}[1]{\textcolor{notecolor}{#1}}
+\newcommand{\fixme}[1]{\textcolor{red}{FIXME:#1}}
+\newcommand{\prelim}[1]{\textcolor{red}{#1}}
+\newcommand{\jaxen}[1]{\textcolor{blue}{JG: #1}}
+% To disable editorial notes uncomment these lines and comment those above
+%\newcommand{\note}[1]{}
+%\newcommand{\fixme}[1]{\textcolor{black}{#1}}
+
+%\newcommand{\subsubsubsection}[1]{\vspace{10pt}\noindent{\small{\textit{#1}}}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+% Content macros
+\title{GWTC-4.0: Population Properties of Merging Compact Binaries}
+
+% \input{LSC-Virgo-KAGRA-Authors-Aug-2024-aas.tex}
+% \author{The LIGO Scientific Collaboration}
+% \author{The Virgo Collaboration}
+% \author{The KAGRA Collaboration}
+
+\date[\relax]{Compiled: \today}
+
+\begin{abstract}
+
+\input{abstract.tex}
+\end{abstract}
+
+\pacs{%
+04.80.Nn, % gravitational wave detectors and experiments
+04.25.dg, % black-hole binaries
+95.85.Sz, % Gravitational waves: astronomical observations
+97.80.-d   % Stars: binary and multiple
+04.30.Db, % GW Wave generation and sources
+04.30.Tv  % GW Gravitational-wave astrophysics
+}
+
+% \maketitle
+\input{introduction.tex}
+\input{methods.tex}
+\input{data.tex}
+\input{full_cbc_population.tex}
+\input{ns_results.tex} 
+\input{bbh_results.tex}
+\input{conclusion.tex}
+
+\section*{acknowledgments}
+\input{\commonfiles/LVKack}
+% \end{acknowledgments}
+\appendix
+\input{appendix.tex}
+\clearpage
+
+\bibliography{\commonfiles/references/bibliography.bib,\commonfiles/references/compendia.bib,references.bib}
+
+\end{document}
+

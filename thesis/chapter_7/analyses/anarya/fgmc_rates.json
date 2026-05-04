@@ -1,0 +1,26 @@
+{
+  "RatesBBH": {
+    "median": "15.1",
+    "5th percentile": "13.1",
+    "95th percentile": "17.3",
+    "error plus": "2.2",
+    "error minus": "2.01",
+    "mean": "15.2"
+  },
+  "RatesBNS": {
+    "median": "137",
+    "5th percentile": "30.9",
+    "95th percentile": "361",
+    "error plus": "224",
+    "error minus": "106",
+    "mean": "159"
+  },
+  "RatesNSBH": {
+    "median": "67.1",
+    "5th percentile": "22.2",
+    "95th percentile": "143",
+    "error plus": "76.1",
+    "error minus": "44.9",
+    "mean": "72.9"
+  }
+}

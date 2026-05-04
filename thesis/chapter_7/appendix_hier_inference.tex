@@ -1,0 +1,61 @@
+
+\subsection{Likelihood Estimation}
+\label{sec:likelihood-estimator-variance}
+
+The analytic integrals in Equation~\eqref{eq:hierarchical_likelihood} are not tractable, and so we estimate the integrals using Monte Carlo estimation \citep{Tiwari:2017ndi, Farr:2019rap, Essick:2022ojx, Talbot:2023pex}. 
+For example, the estimator for the likelihood $\hat{\mathcal{L}}(d_i|\PEhyperparam)$ is
+\begin{equation}
+    \hat{\mathcal{L}}(d_i|\PEhyperparam) \propto \frac{1}{\Npe} \sum_{j=1}^{\Npe} \frac{\pi(\PEparameter_{ij}|\PEhyperparam)}{p(\PEparameter_{ij})},
+    \label{eq:single_event_estimators}
+\end{equation}
+where $\{\PEparameter_{ij}\}_{j=1}^{\Npe}$ are a collection of $\Npe$ samples from the posterior on the \ac{GW} parameters of the $i{\rm th}$ event $d_i$. 
+We divide out by the parameter estimation prior $p(\PEparameter)$, and so
+the Monte Carlo estimator in Equation~\eqref{eq:single_event_estimators} converges to the $i{\rm th}$ integral inside the product of Equation~\eqref{eq:hierarchical_likelihood} in the limit of $\Npe \to \infty$.
+
+Similarly, the estimator for the selection efficiency $\hat{\xi}$ is \citep{Tiwari:2017ndi, Farr:2019rap, Essick:2022ojx}
+\begin{equation}
+    \hat{\xi}(\PEhyperparam) \propto \frac{1}{\Ndraw} \sum_{j=1}^{\Nfound} \frac{\pi(\PEparameter_{j}|\PEhyperparam)}{\pi(\PEparameter_{j}|\PEhyperparam_{\rm draw})},
+    \label{eq:selection_estimator}
+\end{equation}
+where $\Ndraw$ events with parameters $\PEparameter_i$ are injected into representative noise from the detectors. 
+The search pipelines then search these synthetically generated data and recover some subset $\Nfound$ of the events with the detection statistic exceeding some threshold.
+In the limit of $\Ndraw \to \infty$, this approaches the true integral in Equation~\eqref{eq:selection_efficiency}.
+
+Because we only have a finite number of samples from each event and finite $\Ndraw$, we must be careful to account for the intrinsic variance in the estimation of the likelihood. 
+To be sure our Monte Carlo estimators for the likelihood are trustworthy, we study the impact of Monte Carlo uncertainty in every inference we perform. 
+Specifically, we compute the variance in the log-likelihood estimator, which varies across parameter space due to our resampling techniques in Equation~\eqref{eq:single_event_estimators} and Equation~\eqref{eq:selection_estimator}.
+Propagating the uncertainty in the log-likelihood along independent degrees of freedom, the variance in the log-likelihood estimator $\sigma^2_{\ln \hat{\mathcal{L}}}$ in combining Equation~\eqref{eq:hierarchical_likelihood}, Equation~\eqref{eq:selection_efficiency}, and Equation~\eqref{eq:single_event_estimators} can be estimated as~(e.g., \citealt{Essick:2022ojx})
+\begin{equation}
+	\sigma^2_{\ln \hat{\mathcal{L}}}(\PEhyperparam) = \sum_{i=1}^{N_{\rm det}}\frac{\sigma^2_{\hat{\mathcal{L}}_i}(\PEhyperparam)}{\hat{\mathcal{L}}_i(\PEhyperparam)^2} + N(\Lambda)^2 \sigma^2_{\xi}(\PEhyperparam) ,
+	\label{eq:variance_likelihood}
+\end{equation}
+where
+\begin{equation}
+	\sigma^2_{\hat{\mathcal{L}}_i}(\PEhyperparam) = \frac{1}{N_{\rm PE}}\left[\frac{1}{N_{\rm PE} -1 }\sum_{j=1}^{N_{\rm PE}}\left(\frac{\pi(\PEparameter_{ij}|\PEhyperparam)}{p(\PEparameter_{ij})}\right)^2 - \hat{\mathcal{L}}_i(\PEhyperparam)^2 \right]
+\end{equation}
+is the Monte Carlo variance in the single event Monte Carlo integrals of Equation~\eqref{eq:single_event_estimators} and 
+\begin{equation}
+	\sigma^2_{\xi}(\PEhyperparam) = \frac{1}{N_{\rm draw}}\left[\frac{1}{N_{\rm draw} -1}\sum_{j=1}^{N_{\rm found}}\left(\frac{\pi(\PEparameter_{j}|\PEhyperparam)}{p(\PEparameter_{j}|\PEhyperparam_{\rm draw})}\right)^2 - \hat{\xi}(\PEhyperparam)^2\right] 
+\end{equation}
+is the variance in the detection efficiency Monte Carlo integral of Equation~\eqref{eq:selection_estimator}.
+When the rate-marginalized likelihood of Equation~\eqref{eq:rate_marginalized_hierarchical_likelihood} is used, $\sigma^2_{\ln \hat{\mathcal{L}}}$ takes a slightly different form
+\begin{equation}
+	\sigma^2_{\ln \hat{\mathcal{L}}}(\PEhyperparam) = \sum_{i=1}^{N_{\rm det}}\frac{\sigma^2_{\hat{\mathcal{L}}_i}(\PEhyperparam)}{\hat{\mathcal{L}}_i(\PEhyperparam)^2} + N_{\rm det}^2 \frac{\sigma^2_{\xi}(\PEhyperparam)}{\hat{\xi}(\PEhyperparam)^2}.
+	\label{eq:variance_rate_marginalized_likelihood}
+\end{equation}
+
+It has been shown that \ac{GW} population inference can be biased when the variance in log-likelihood estimator exceeds $1$.
+Consequently, we adopt a threshold on $\sigma^2_{\ln \hat{\mathcal{L}}}$ of $1$ to manage the bias of the posterior. Above this threshold the likelihood estimate may not be converged, and thus we ignore posterior samples with variances above this chosen threshold. Equation~\eqref{eq:variance_likelihood} describes the pointwise variance in the estimation of the log-likelihood. However, for accurate sampling of the posterior we only require that the difference of log-likelihoods to be small. A small pointwise log-likelihood variance is \textit{sufficient} for the variance of the difference of log-likelihoods to be small but not \textit{necessary}, rendering our threshold conservative~\citep{Farr:2019rap, Essick:2022ojx}. Indeed, for some models, a large region of hyperparameter space is removed by this threshold, limiting the range of potential populations that can be explored; for an example, see Appendix~\ref{appendix:model_comparison_effective_spins}.
+Improvements to likelihood estimation are an active area of ongoing research~\citep{Wysocki:2018mpo,Doctor:2019ruh,Delfavero:2021qsc,Golomb:2021tll,Mould:2023eca,Hussain:2024qzl,Mancarella:2025uat}.
+
+\subsection{Sampling Techniques}
+
+In each model, we draw samples from the posterior to study the population distributions consistent with the data and the population model.
+We draw samples using a variety of stochastic sampling algorithms, where the exact approach depends on the model. 
+For most \parametrics, we use the nested sampler \DYNESTY\citep{Speagle:2019ivv} wrapper in \BILBY\citep{Ashton:2018jfp}, and the \GWPOPULATION implementation of the hierarchical likelihood \citep{Talbot:2024yqw}.
+
+However, our \nonparametrics tend to have a large number of hyperparameters and so have a high dimensional posterior.
+Nested sampling struggles with high dimensional distributions, so we use the \ac{HMC} adaptive \ac{NUTS} implementation in \NUMPYRO\citep{Phan:2019elc, Bingham:2019}. 
+The \NUMPYRO adaptive \ac{NUTS} requires an autodifferentiable implementation of the likelihood, which we write in \JAX\citep{Bradbury:2018}.
+This gradient information allows the \ac{NUTS} algorithm to efficiently explore high dimensional posteriors. 
+

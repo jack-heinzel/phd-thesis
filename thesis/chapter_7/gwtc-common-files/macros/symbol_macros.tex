@@ -1,0 +1,154 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% A place to keep maths symbol and unit definitions                           %
+%                                                                             %
+% Symbols should follow https://dcc.ligo.org/LIGO-T2000185                    %
+%                                                                             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%
+%%%%% units %%%%%
+%%%%%%%%%%%%%%%%%
+
+\newcommand{\Msun}{\ensuremath{\mathit{M_\odot}}}
+\newcommand\Mpcyr{\ensuremath{\mathrm{Mpc}^{3}\,\mathrm{yr}}}
+\newcommand\Gpcyr{\ensuremath{\mathrm{Gpc}^{3}\,\mathrm{yr}}}
+\newcommand\perMpcyr{\ensuremath{\mathrm{Mpc}^{-3}\,\mathrm{yr}^{-1}}}
+\newcommand\perGpcyr{\ensuremath{\mathrm{Gpc}^{-3}\,\mathrm{yr}^{-1}}}
+
+
+%%%%%%%%%%%%%%%%%%%
+%%%%% symbols %%%%%
+%%%%%%%%%%%%%%%%%%%
+
+% time parameters
+\newcommand{\tgeo}{\ensuremath{t_{\text{geo}}}}
+
+% mass parameters
+\newcommand{\massone}{\ensuremath{m_1}}
+\newcommand{\masstwo}{\ensuremath{m_2}}
+\newcommand{\Mc}{\ensuremath{\mathcal{M}}}
+\newcommand{\Mtot}{\ensuremath{M}}
+\newcommand{\Mf}{\ensuremath{M_\mathrm{f}}}
+\newcommand{\mratio}{\ensuremath{q}}
+\newcommand{\mratiosym}{\ensuremath{\eta}}
+\newcommand{\massratio}{\ensuremath{q}}
+
+% aliases: masses
+\newcommand{\mpri}{\massone}
+\newcommand{\msec}{\masstwo}
+\newcommand{\mchirp}{\Mc}
+\newcommand{\mtotal}{\Mtot}
+
+% energy parameters
+\newcommand{\Erad}{\ensuremath{E_\mathrm{rad}}}
+\newcommand{\lumpeak}{\ensuremath{\ell_{\text{peak}}}}
+
+% aliases: energy
+\newcommand{\energyrad}{\Erad}
+
+% spin parameters
+\newcommand{\chieff}{\ensuremath{\chi_\mathrm{eff}}}
+\newcommand{\chip}{\ensuremath{\chi_\mathrm{p}}}
+\newcommand{\chif}{\ensuremath{\chi_\mathrm{f}}}
+%\newcommand{\spintilt}[1]{\ensuremath{\theta_{{LS}_{#1}}}}
+\newcommand{\spintilt}[1]{\ensuremath{\theta_{#1}}}
+\newcommand{\spinone}{\ensuremath{\chi_1}}
+\newcommand{\vecspinone}{\ensuremath{\boldsymbol{\chi}_1}}
+\newcommand{\spintwo}{\ensuremath{\chi_2}}
+\newcommand{\vecspintwo}{\ensuremath{\boldsymbol{\chi}_2}}
+\newcommand{\LNewton}{\ensuremath{\hat{\boldsymbol{L}}_\mathrm{N}}}
+\newcommand{\thetaJN}{\ensuremath{\theta_{JN}}}
+
+% aliases: apins
+\newcommand{\spinpri}{\spinone}
+\newcommand{\spinsec}{\spintwo}
+\newcommand{\spineff}{\chieff}
+\newcommand{\spinprec}{\chip}
+
+% distance
+\newcommand{\DA}{\ensuremath{D_\mathrm{A}}}
+\newcommand{\DL}{\ensuremath{D_\mathrm{L}}}
+\newcommand{\DC}{\ensuremath{D_\mathrm{c}}}
+\newcommand{\DM}{\ensuremath{D_{\text{M}}}}
+\newcommand{\redshift}{\ensuremath{z}}
+
+% aliases: distance
+\newcommand{\distlum}{\DL}
+\newcommand{\distm}{\DM}
+
+% noise-weighted inner product (consider \mid rather than |)
+\newcommand{\ip}[2]{\ensuremath{\langle #1 | #2 \rangle}}
+
+% PE quantities
+\newcommand\PEpdfp{\ensuremath{p}}
+\newcommand\PEdata{\ensuremath{d}}
+\newcommand{\PEparameter}{\ensuremath{\boldsymbol{\theta}}}%
+\newcommand{\PEparameterIntrinsic}{\ensuremath{\boldsymbol{\theta}_{\rm int}}}
+\newcommand{\PEdataTimeDomain}{\ensuremath{{d}}}%
+\newcommand{\PEdataFrequencyDomain}{\ensuremath{{\tilde{d}}}}%
+\newcommand{\PEmodelh}{\ensuremath{h_{\mathrm{M}}}}%
+\newcommand\PEhyparameter{\ensuremath{\boldsymbol\Lambda}}
+\newcommand\PEpdf[2][?]{\ensuremath{\PEpdfp({#2}\ifx#1?\else | {#1}\fi)}} %consider \mid not |
+
+\newcommand\PEposterior[1][\PEparameter]{\PEpdf[\PEdata]{#1}}
+\newcommand\PElikelihood[1][\PEparameter]{\PEpdf[#1]{\PEdata}}
+\newcommand\PEevidence[1][?]{\PEpdf[#1]{\PEdata}}
+
+\newcommand\PEpriorpdfpi{\ensuremath{\pi}} %prior pdf will be \pi
+\newcommand\PEpdfprior[1]{\ensuremath{\PEpriorpdfpi({#1})}} %mirrors usage of \PEpdf but for prior only
+\newcommand\PEprior[1][\PEparameter]{\PEpdfprior{#1}} %typeset prior with default as PE param
+\newcommand\PEpriorpe[1][\PEparameter]{{\let\keepPEpriorpdfpi\PEpriorpdfpi\def\PEpriorpdfpi{\keepPEpriorpdfpi_{\text{PE}}}\PEprior[#1]\let\PEpriorpdfpi\keepPEpriorpdfpi}} %add functionality for subscript "PE"
+%\newcommand\PEprior[1][\PEparameter]{\PEpdf{#1}}
+%\newcommand\PEpriorpe[1][\PEparameter]{{\let\keepPEpdfp\PEpdfp\def\PEpdfp{\keepPEpdfp_{\text{PE}}}\PEprior[#1]\let\PEpdfp\keepPEpdfp}}
+
+% PE setting
+\newcommand{\flow}{\ensuremath{f_\mathrm{low}}\xspace}
+\newcommand{\fhi}{\ensuremath{f_\mathrm{high}}\xspace}
+\newcommand{\fsamp}{\ensuremath{f_\mathrm{s}}}
+\newcommand{\fNyq}{\ensuremath{f_\mathrm{Nyquist}}}
+\newcommand{\alphaRoll}{\ensuremath{\alpha^\mathrm{roll\text{-}off}}}
+
+% PE related
+\newcommand{\PE}[0]{\ac{PE}\xspace}
+\newcommand{\PDF}[0]{\ac{PDF}\xspace}
+\newcommand{\MCMC}[0]{\ac{MCMC}\xspace}
+
+% Cosmology
+\newcommand{\HzeroSymbol}{\ensuremath{H_{0}}}
+\newcommand{\WmSymbol}{\ensuremath{\Omega_{\mathrm{m}}}}
+
+% Waveform-related
+\newcommand{\PN}[0]{\ac{PN}\xspace}
+\newcommand{\BBH}[0]{\ac{BBH}\xspace}
+\newcommand{\BNS}[0]{\ac{BNS}\xspace}
+\newcommand{\NSBH}[0]{\ac{NSBH}\xspace}
+\newcommand{\BH}[0]{\ac{BH}\xspace}
+\newcommand{\NR}[0]{\ac{NR}\xspace}
+\newcommand{\SNR}[0]{\ac{SNR}\xspace}
+\newcommand{\IMR}[0]{\ac{IMR}\xspace}
+\newcommand{\GR}[0]{\ac{GR}\xspace}
+\newcommand{\PSD}[0]{\ac{PSD}\xspace}
+\newcommand{\EOS}[0]{\ac{EOS}\xspace}
+
+
+% KL divergences
+\newcommand{\DKLchip}{\ensuremath{D_\mathrm{KL}^{\chi_\mathrm{p}}}}
+\newcommand{\DKLchieff}{\ensuremath{D_\mathrm{KL}^{\chi_\mathrm{eff}}}}
+
+% search pipeline parameters
+\newcommand{\rankstat}{\ensuremath{x}}
+
+% others
+\newcommand{\VT}{\ensuremath{\langle VT \rangle}\xspace}
+\newcommand{\pastro}{\ensuremath{p_{\mathrm{astro}}}\xspace}
+\newcommand{\pterr}{\ensuremath{p_{\mathrm{terr}}}\xspace}
+\newcommand{\pbbh}{\ensuremath{p_{\mathrm{BBH}}}\xspace}
+\newcommand{\pbns}{\ensuremath{p_{\mathrm{BNS}}}\xspace}
+\newcommand{\pnsbh}{\ensuremath{p_{\mathrm{NSBH}}}\xspace}
+\newcommand{\comovingv}{\ensuremath{V_\mathrm{c}}}
+\newcommand{\comovingvt}{\ensuremath{\langle VT_\mathrm{c} \rangle}}
+\newcommand{\injspinmax}{\ensuremath{\chi_\mathrm{max}}}
+
+\newcommand{\printFAR}[2][\day^{-1}]{\ac{FAR} $< \qty{#2}{#1}$}
+\newcommand{\printFARper}[2][\day]{\ac{FAR} $<1$ per $\qty{#2}{#1}$}

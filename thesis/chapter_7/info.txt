@@ -1,0 +1,104 @@
+#================= LVK paper information ===================
+# This info.txt file is processed by the PubPlan software to produce summary
+# web pages and aggregated lists of milestones and people who have contributed,
+# or are lined up to contribute, to collaboration papers. See the PubPlan help
+# page, https://pubplan.ligo.org/help.html, for more details on how it works.
+# For info.txt files in paper project repos, PubPlan parses either of two forms:
+#      key: value
+# or
+#      descriptive comment text [[key]]: value
+# and values may be multi-word, multi-line, or in list form (commas or bullets).
+
+# Working title or actual title of the paper:
+title: GWTC-4.0: Population Properties of Merging Compact Binaries
+# Short title/description to represent this paper in PubPlan summaries:
+short_title: O4a AstroDist
+paperclass: key       # Put 'key' here for key collaboration papers, otherwise blank
+companions: GWTC-4 Results
+link_planning: https://docs.google.com/document/d/1_S3ovlCoFuOTwqwdw18iPvq6FiBtVF88I5ZXYSTTLKs/edit#heading=h.cmjwcklpherr
+DCCID: P2400004
+status: active
+group: CBC
+target_journal: ApJL
+# The "scope" field should contain a fairly detailed description of the paper,
+# at least as detailed as an abstract. Use as many lines as needed.
+scope: 
+Inferences of the astrophysical population made using candidates observed in O4a
+
+
+# If there are any extra authors (individuals or collaborations), list them:
+ext_authors: 
+
+# PubPlan code usually should infer the pdf filename by scanning .gitlab-ci.yml
+#pdf_name: 
+# If the paper has a supplement in a separate pdf, put its path here
+#supplement_pdf_name: 
+
+# For each entry below, add comma-separated names. You can also include a note
+# in parentheses after a name to indicate a more specific role or focus.
+# Remember to also add people to the gitlab project as Developers/Maintainers.
+paper_manager: Ben Farr
+editorial_team_chair: Aditya Vijaykumar
+analysis_review_chair: Eric Thrane
+paper_writing_team: Christian Adamcewicz, Debatri Chattopadhyay, Jaxen Godfrey, Jack Heinzel, Simona Miller, Carole Perigois, Shio Sakon
+analysts: Christian Adamcewicz, Sharan Banagiri, Sylvia Biscoveanu, Thomas Callister, Reed Essick, Amanda Farah, Jaxen Godfrey, Jacob Golomb, Jack Heinzel, Philippe Landry, Utkarsh Mali, Simona Miller, Matthew Mould, Lalit Pathak, Anarya Ray, Jocelyn Read, Filippo Santoliquido, Mukesh Singh,  Colm Talbot, Vaibhav Tiwari, Salvatore Vitale, Tom Wu
+review_team: Sharan Banagiri, Thomas Callister, Storm Colloms, Michael Coughlin, Vera Delfavero, Maya Fishbach, Shanika Galaudage, Jack Heinzel, Isaac Legred, Simone Mastrogiovanni, Simona Miller, Tanmaya Mishra, Matthew Mould, Colm Talbot, Aditya Vijaykumar, Alan Weinstein, Muhammed Zeeshan, Michael Zevin
+
+# You can specify other roles as a bullet list of "name: role" pairs.
+# This can be used for subgroup liaisons, for example
+# (Liaison roles as they appeared prior to 25 June 2024: https://git.ligo.org/publications/o4/cbc/o4a-astrodist/-/blob/afaada8933515e322a1395a23412f05ce7249a09/info.txt#L15-19 )
+other_roles:
+* Aditya Vijaykumar: PE liaison
+* Shio Sakon: Searches liaison
+
+# Internal referees are assigned by the Editorial Board chairs
+referees: 
+* Michela Mapelli: Virgo referee
+* Chun-Yu Lin: KAGRA referee
+* Aaron Zimmerman: LSC referee
+* Laura Cadonati: LSC referee
+
+# List/describe products and data to be released with the paper
+products: strain data, data behind figures, parameter estimation posterior samples, population inference posterior samples, figure notebook
+# Who will assemble the data products release, and who will check the files
+who_products: Aditya Vijaykumar
+who_rev_prod: Ben Farr
+
+# Who will write the science summary for this paper
+who_summary: Debatri Chattopadhyay, Labani Mallick
+# Science summary path and status (none, draft, mature, posted)
+scisummary: TBD
+scisumstatus: none
+
+# Who will assemble and submit the paper to the journal
+who_submit: TBD
+
+# Miscellaneous links relevant for this paper, as list of    url (description)
+link_other: 
+* https://wiki.ligo.org/DAC/Minutes220909 (Plan presentation in DAC telecon on September 9, 2022)
+* https://dcc.ligo.org/G2501576 (LVK telecon presentation on July 31, 2025, including results review)
+* https://dcc.ligo.org/G2501533 (Editorial Board report)
+* https://dcc.ligo.org/G2501581 (Recording of LVK telecon presentation on July 31, 2025)
+
+# Manuscript status link (if any)
+link_mstatus: 
+# Links to referee report and our reply, when available
+link_refreport:
+link_refreply:
+
+# ArXiv identifier (e.g. 2301.23456)
+arxiv: 2508.18083
+# Journal publication info (e.g. PRL 123, 4 (2023))
+pubinfo:
+# Digital object identifier (doi) and link to online published article:
+doi:
+publink:
+# Extra keyword(s) (optional; observing run and working group are automatic)
+keywords: 
+
+
+#-- Reduce to only essential milestones not represented by gitlab milestones
+    CBC circulation ends               [[group_circ]]: group_pres2 +20
+    First LVK circulation ends   [[initial_circ_end]]: initial_circ +16
+    Second LVK circulation ends   [[mature_circ_end]]: 2025-07-16d
+    Final LVK circulation ends    [[final_circ_end]]: final_circ +8

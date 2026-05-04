@@ -1,0 +1,144 @@
+#!/usr/bin/env python
+
+"""
+Based on code snippets from Colm Talbot and Aditya Vijaykumar.
+Originally here by Colm: https://git.ligo.org/-/snippets/197
+Some added functionality by Zoheyr Doctor.
+"""
+
+import argparse
+import glob
+import json
+import os
+
+
+def link_files(cbcflow_dir, output_dir, dryrun=False, exclude_events=[],
+               key_mapping=None, make_copies=False, no_run_names=False):
+    """
+    Links PE files from the CBCFlow directory to the output directory.
+
+    Args:
+        cbcflow_dir (str): Path to the CBCFlow directory containing metadata JSON files.
+        output_dir (str): Path to the directory where files will be linked.
+        dryrun (bool, optional): If True, performs a dry run without actually creating links. Defaults to False.
+        exclude_events (list, optional): List of event names to exclude. Defaults to [].
+        key_mapping (dict, optional): Dictionary containing event-run key mapping. Defaults to None.
+        make_copies (bool, optional): If True, copy the files into the output directory rather than using symlinks
+        no_run_names (bool, optional): If True, name links/files by event name only, not run
+    """
+    for fname in glob.glob(f"{cbcflow_dir}/*-cbc-metadata.json"):
+
+        # get event name
+        event = os.path.basename(fname).split("-cbc-metadata.json")[0]
+
+        # check if we should exclude this event
+        if event in exclude_events:
+            print(f'skipping {event}')
+            continue
+
+        # check the file name exists
+        if not os.path.exists(fname):
+            continue
+
+        # load data
+        data = json.load(open(fname, "rb"))
+
+        # get event FAR and check it is greater than one per year
+        event_data = data["GraceDB"]["Events"]
+        if min([event_data[ii]["FAR"] for ii in range(len(event_data))] + [1]) > 1 / (
+            365.25 * 24 * 60 * 60
+        ):
+            continue
+        
+        # identify the best run for the event or use user specified runs
+        results = data["ParameterEstimation"]["Results"]
+        if event in list(key_mapping.keys()):
+            run = key_mapping[event]
+        elif "IllustrativeResult" not in data["ParameterEstimation"]:
+            print(f'{event} has no Illustrative result and a specific run was not specified in `key_mapping`')
+            continue
+        else:
+            run = data["ParameterEstimation"]["IllustrativeResult"]
+        if not no_run_names:
+            destination = f"{output_dir}/{event}-{run}.h5"
+        else:
+            destination = f"{output_dir}/{event}.h5"
+        if os.path.exists(destination):
+            continue
+        try:
+            cluster, source = [
+                result for result in results if result["UID"].lower() == run.lower()
+            ][0]["ResultFile"]["Path"].split(":")
+        except KeyError:
+            print(f"Can't find result file for {event} {run}")
+            continue
+        if cluster != "CIT":
+            print(f"IllustrativeResult not stored on CIT for {event}")
+            continue
+        # as of 240228 I don't think cbcflow stores the actual pesummary result path
+        # so we have to reconstruct it based on the expected structure
+        source = f"/home/pe.o4/O4a/{event}/{run}/summary/samples/posterior_samples.h5"
+        if os.path.exists(source) and not os.path.exists(destination):
+            print(f"Linking: {source} -> {destination}")
+            print(f"executing command `cp {source} {destination}")
+            if not dryrun:
+                if not make_copies:
+                    os.symlink(source, destination)
+                else:
+                    os.system(f'cp {source} {destination}')
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(
+        description="Link illustrative PE samples from CIT to a local directory"
+    )
+    parser.add_argument(
+        "--cbcflow-dir",
+        type=str,
+        help="The cbcflow directory to search for metadata files",
+    )
+    parser.add_argument(
+        "--output-dir", type=str, help="The directory to store the linked samples"
+    )
+    parser.add_argument(
+        "--dryrun",
+        action="store_true",
+        help="Don't actually create the links or do copying, used for testing",
+    )
+    parser.add_argument(
+        "--key-mapping", 
+        nargs="+", 
+        help="Key mapping for specific events", 
+        default=None
+    )
+    parser.add_argument(
+        "--exclude-events", 
+        nargs="+", 
+        help="List of bad events to exclude"
+    )
+    parser.add_argument(
+        "--make-copies",
+        action="store_true",
+        help="copy the actual files over, instead of making symlinks",
+    )
+    parser.add_argument(
+        "--no-run-names",
+        action="store_true",
+        help="name the soft link or copied file by just the event SID, not the specific run used",
+    )
+
+    args = parser.parse_args()
+
+    key_mapping = {}
+    if args.key_mapping:
+        for pair in args.key_mapping:
+            event, key = pair.split('=')
+            key_mapping[event] = key
+
+    link_files(
+        cbcflow_dir=args.cbcflow_dir, output_dir=args.output_dir, 
+        dryrun=args.dryrun, exclude_events=args.exclude_events,
+        key_mapping=key_mapping, make_copies=args.make_copies, no_run_names=args.no_run_names
+    )
+
+

@@ -1,0 +1,110 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% A place to keep misc. macro definitions                           %
+%                                                                             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Software styling
+\newcommand{\soft}[1]{\textsc{#1}}
+
+% Stylized software names
+\newcommand{\ASTROPY}{\soft{Astropy}\xspace}
+\newcommand{\GSTLAL}{\soft{GstLAL}\xspace}
+\newcommand{\BAYESTAR}{\soft{BAYESTAR}\xspace}
+\newcommand{\CWB}{\soft{cWB}\xspace}
+\newcommand{\CWBTWOG}{\soft{cWB-2G}\xspace}
+\newcommand{\CWBBBH}{\soft{cWB-BBH}\xspace}
+\newcommand{\PYCBC}{\soft{PyCBC}\xspace}
+\newcommand{\MBTA}{\soft{MBTA}\xspace}
+\newcommand{\SPIIR}{\soft{SPIIR}\xspace}
+\newcommand{\LALINFERENCE}{\soft{LALInference}\xspace}
+\newcommand{\BAYESWAVE}{\soft{BayesWave}\xspace}
+\newcommand{\BILBY}{\soft{Bilby}\xspace}
+\newcommand{\BILBYMCMC}{\soft{BilbyMCMC}\xspace}
+\newcommand{\RIFT}{\soft{RIFT}\xspace}
+\newcommand{\DINGO}{\soft{Dingo}\xspace}
+\newcommand{\LALSUITE}{\soft{LALSuite}\xspace}
+\newcommand{\BILBYPIPE}{\soft{BilbyPipe}\xspace}
+\newcommand{\PBILBY}{\soft{ParallelBilby}\xspace}
+\newcommand{\ASIMOV}{\soft{Asimov}\xspace}
+\newcommand{\PESUMMARY}{\soft{PESummary}\xspace}
+\newcommand{\PYTHON}{\soft{Python}\xspace}
+\newcommand{\NUMPY}{\soft{NumPy}\xspace}
+\newcommand{\SCIPY}{\soft{SciPy}\xspace}
+\newcommand{\MATPLOTLIB}{\soft{Matplotlib}\xspace}
+\newcommand{\SEABORN}{\soft{seaborn}\xspace}
+\newcommand{\GWPY}{\soft{GWpy}\xspace}
+\newcommand{\DYNESTY}{\soft{Dynesty}\xspace}
+\newcommand{\CBCFLOW}{\soft{cbcflow}\xspace}
+\newcommand{\GRACEDB}{\soft{GraceDB}\xspace}
+\newcommand{\MANIFOLD}{\soft{manifold}\xspace}
+\newcommand{\DQRBUILD}{\soft{DQRBuild}\xspace}
+\newcommand{\VIRGODQR}{\soft{Virgo DQR}\xspace}
+\newcommand{\EVENTVALIDATION}{\soft{event-validation}\xspace}
+
+
+% Waveform families
+\newcommand{\TAYLOR}{\soft{Taylor}\xspace}
+\newcommand{\SPINTAYLOR}{\soft{SpinTaylor}\xspace}
+\newcommand{\STTFOUR}{\soft{SpinTaylorT4}\xspace}
+\newcommand{\TFTWO}{\soft{TaylorF2}\xspace}
+\newcommand{\Phenom}{\soft{Phenom}\xspace}
+\newcommand{\IMRPhenom}{\soft{IMRPhenom}\xspace}
+\newcommand{\IMRPhenomA}{\soft{IMRPhenomA}\xspace}
+\newcommand{\IMRPhenomB}{\soft{IMRPhenomB}\xspace}
+\newcommand{\IMRPhenomC}{\soft{IMRPhenomC}\xspace}
+\newcommand{\IMRPhenomD}{\soft{IMRPhenomD}\xspace}
+\newcommand{\IMRPhenomDNRTidal}{\soft{IMRPhenomD\_NRTidal}\xspace}
+\newcommand{\IMRPhenomHM}{\soft{IMRPhenomHM}\xspace}
+\newcommand{\IMRPhenomP}{\soft{IMRPhenomP}\xspace}
+\newcommand{\IMRPhenomPVTWO}{\soft{IMRPhenomPv2}\xspace}
+\newcommand{\IMRPhenomPVTHREE}{\soft{IMRPhenomPv3}\xspace}
+\newcommand{\IMRPhenomPVTHREEHM}{\soft{IMRPhenomPv3HM}\xspace}
+\newcommand{\IMRPhenomXAS}{\soft{IMRPhenomXAS}\xspace}
+\newcommand{\IMRPhenomXHM}{\soft{IMRPhenomXHM}\xspace}
+\newcommand{\IMRPhenomXP}{\soft{IMRPhenomXP}\xspace}
+\newcommand{\IMRPhenomXPHM}{\soft{IMRPhenomXPHM}\xspace}
+\newcommand{\IMRPhenomXPHMST}{\soft{IMRPhenomXPHM\_SpinTaylor}\xspace}
+\newcommand{\IMRPhenomXOFOURa}{\soft{IMRPhenomXO4a}\xspace}
+\newcommand{\EOB}{\soft{EOB}\xspace}
+\newcommand{\TEOB}{\soft{TEOB}\xspace}
+\newcommand{\TEOBDALI}{\soft{TEOBResumS\_Dali}\xspace}
+\newcommand{\SEOBNR}{\soft{SEOBNR}\xspace}
+\newcommand{\SEOBNRONE}{\soft{SEOBNRv1}\xspace}
+\newcommand{\SEOBNRTWO}{\soft{SEOBNRv2}\xspace}
+\newcommand{\SEOBNRTHREE}{\soft{SEOBNRv3}\xspace}
+\newcommand{\SEOBNRFOUR}{\soft{SEOBNRv4}\xspace}
+\newcommand{\SEOBNRFOUROPT}{\soft{SEOBNRv4\_opt}\xspace}
+\newcommand{\SEOBNRFOURROM}{\soft{SEOBNRv4\_ROM}\xspace}
+\newcommand{\SEOBNRFOURP}{\soft{SEOBNRv4P}\xspace}
+\newcommand{\SEOBNRFOURHM}{\soft{SEOBNRv4HM}\xspace}
+\newcommand{\SEOBNRFOURHMROM}{\soft{SEOBNRv4HM\_ROM}\xspace}
+\newcommand{\SEOBNRFOUREHM}{\soft{SEOBNRv4EHM}\xspace}
+\newcommand{\SEOBNRFOURPHM}{\soft{SEOBNRv4PHM}\xspace}
+\newcommand{\SEOBNRFOURT}{\soft{SEOBNRv4T}\xspace}
+\newcommand{\SEOBNRFOURTSUR}{\soft{SEOBNRv4T\_surrogate}\xspace}
+\newcommand{\SEOBNRFIVE}{\soft{SEOBNRv5}\xspace}
+\newcommand{\SEOBNRFIVEP}{\soft{SEOBNRv5P}\xspace}
+\newcommand{\SEOBNRFIVEHM}{\soft{SEOBNRv5HM}\xspace}
+\newcommand{\SEOBNRFIVEEHM}{\soft{SEOBNRv5EHM}\xspace}
+\newcommand{\SEOBNRFIVEROM}{\soft{SEOBNRv5\_ROM}\xspace}
+\newcommand{\SEOBNRFIVEPHM}{\soft{SEOBNRv5PHM}\xspace}
+\newcommand{\SEOBNRFIVEHMROM}{\soft{SEOBNRv5HM\_ROM}\xspace}
+\newcommand{\IMRPhenomPTWONRTidal}{\soft{IMRPhenomPv2\_NRTidal}\xspace}
+\newcommand{\IMRPhenomPTWONRTidalTWO}{\soft{IMRPhenomPv2\_NRTidalv2}\xspace}
+\newcommand{\IMRPhenomXPNR}{\soft{IMRPhenomXPNR}\xspace}
+\newcommand{\IMRPhenomXPNRTidalTWO}{\soft{IMRPhenomXP\_NRTidalv2}\xspace}
+\newcommand{\IMRPhenomXPNRTidalTHREE}{\soft{IMRPhenomXP\_NRTidalv3}\xspace}
+\newcommand{\IMRPhenomNSBH}{\soft{IMRPhenomNSBH}\xspace}
+\newcommand{\SEOBNRFOURNRTidal}{\soft{SEOBNRv4\_ROM\_NRTidal}\xspace}
+\newcommand{\SEOBNRFOURNRTidalTWO}{\soft{SEOBNRv4\_ROM\_NRTidalv2}\xspace}
+\newcommand{\SEOBNRFOURNRtidalTWONSBH}{\soft{SEOBNRv4\_ROM\_NRTidalv2\_NSBH}\xspace}
+\newcommand{\SEOBNRFIVEROMNRTidalTHREE}{\soft{SEOBNRv5\_ROM\_NRTidalv3}\xspace}
+\newcommand{\NRSUR}{\soft{NRSurrogate}\xspace}
+\newcommand{\SURSEVENDQFOUR}{\soft{NRSur7dq4}\xspace}
+\newcommand{\SURSEVENDQTWO}{\soft{NRSur7dq2}\xspace}
+\newcommand{\TEOBResumS}{\soft{TEOBResumS}\xspace}
+
+% preliminary macros
+%% add appropriate entries related to IR1 in data/datetime.csv once the information is finalized
+\newcommand{\IRoneStartDate}{{\color{UNREVIEWED}{late October or mid-November of 2026}}}
+\newcommand{\IRoneDuration}{{\color{UNREVIEWED}{six months}}}

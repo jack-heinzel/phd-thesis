@@ -1,0 +1,551 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Mass Model for the Full CBC Population}\label{appendix:PDB}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Our \parametricAdj \PDB mass model is based on \textsc{Power Law+Dip}~\citep{Fishbach:2020ryj}, \textsc{Broken Power Law + Dip}~\citep{Farah:2021qom}, and \textsc{MultiPDB}~\citep{Mali:2024wpq}.
+It is also similar to the \textsc{Power Law+Dip+Break} model~\citep{KAGRA:2021duu}, but in our \PDB model we now include additional structure.
+We allow for the possibility of an upper mass gap, as well as separate pairing functions for \ac{NS}-containing binaries and \acp{BBH}.
+Additionally, we include explicit peaks at low and mid-range \ac{BH} masses to capture the $\sim 9$--$10\,\Msun$ and $\sim 30$--$40\, \Msun$ features found by the \nonparametrics.
+As discussed in Section~\ref{sec:all_masses}, we find that the addition of a low-mass \ac{BH} peak eliminates the need to explicitly model a gap between \acp{NS} and \acp{BH} masses.
+
+Our mass model is parameterized as
+\begin{equation}
+    \pi(m_1, m_2|\PEhyperparam) \propto \pi_m(m_1|\PEhyperparam)\pi_m(m_2|\PEhyperparam)f(m_1, m_2)\Theta(m_2 < m_1)
+\label{eq: pdb joint mass model}
+\end{equation}
+where the one-dimensional mass distribution $\pi_m(m|\PEhyperparam)$ is given by
+\begin{align}
+\pi_m(m|\PEhyperparam) &=& [1 + c_1 \mathcal{N}_{[m_{\text{min}}, m_{\text{max}}]}(m|\mu_1, \sigma_1) + c_2 \mathcal{N}_{[m_{\text{min}}, m_{\text{max}}]}(m|\mu_2, \sigma_2)]
+n_1(m\,|\,m_{\text{NSmax}}, m_{\text{BHmin}}, \eta_{\text{NSmax}}, \eta_{\text{BHmin}}, A) \nonumber \\
+&& \times n_2(m\,|\,m_{\text{UMGmin}}, m_{\text{UMGmax}}, \eta_{\text{UMGmin}}, \eta_{\text{UMGmax}}, A_2) h(m\,|\,m_{\text{NSmin}}, \eta_{\text{NSmin}}) l(m\,|\,m_{\text{BHmax}}, \eta_{\text{BHmax}}) \nonumber \\
+&& \times
+\begin{cases}
+m^{\alpha_1} & \text{if } m < m_{\text{NSmax}} \\
+m^{\alpha_{\text{dip}}} m_{\text{NSmax}}^{\alpha_1 - \alpha_{\text{dip}}} & \text{if } m_{\text{NSmax}} \leq m < m_{\text{BHmin}} \\
+m^{\alpha_2} m_{\text{NSmax}}^{\alpha_1 - \alpha_{\text{dip}}} m_{\text{BHmin}}^{\alpha_{\text{dip}} - \alpha_2} & \text{if } m \geq m_{\text{BHmin}}.
+\end{cases}
+\label{eq: pdb mass model}
+\end{align}
+
+This $\pi_m(m|\PEhyperparam)$ represents a universal mass function to describe the primary and secondary mass distributions. Note that the marginal mass distribution is different from the universal mass distribution due to the pairing formalism.
+$\mathcal{N}_{[a,b]}(\mu, \sigma)$ represents a truncated normal distribution over $[a,b]$ with location and width parameters $\mu$ and $\sigma$. 
+The high-pass, low-pass and notch functions are defined as follows:
+
+\begin{align}
+    l(m|m_{\text{BHmax}}, \eta_{\text{BHmax}}) &= \left[1+\left(\frac{m}{m_{\text{BHmax}}}\right)^{\eta_{\text{BHmax}}}\right]^{-1},\\
+    h(m|m_{\text{NSmin}}, \eta_{\text{NSmin}}) &= 1 - l(m|m_{\text{NSmin}}, \eta_{\text{NSmin}}),\\
+    n_1(m|m_{\text{NSmax}}, m_{\text{BHmin}}, \eta_{\text{NSmax}}, \eta_{\text{BHmin}}, A) &= 1 - A l(m|m_{\text{NSmax}}, \eta_{\text{NSmax}}) h(m|m_{\text{BHmin}}, \eta_{\text{BHmin}}),\\
+	n_2(m|m_{\text{UMGmin}}, m_{\text{UMGmax}}, \eta_{\text{UMGmin}}, \eta_{\text{UMGmax}}, A_2) &= 1 - A_2 l(m|m_{\text{UMGmin}}, \eta_{\text{UMGmin}}) h(m|m_{\text{UMGmax}}, \eta_{\text{UMGmax}}).\\
+\end{align}
+
+The pairing function
+\begin{equation}
+f(m_1,m_2|\beta_{\rm BH}, \beta_{\rm NS}) = \begin{cases}
+    \left(\dfrac{m_2}{m_1}\right)^{\beta_{1}} & {\rm if} \; m_2 < 5\,\Msun \\
+    \left(\dfrac{m_2}{m_1}\right)^{\beta_{2}} & {\rm if} \; m_2 > 5\,\Msun \\
+\end{cases}
+\end{equation}
+controls how much merging binaries favor/disfavor equal masses. We allow for alternative pairing for binaries with very light secondary masses (\acp{NSBH} or \ac{BBH} with the secondary component in the lower-mass gap, e.g., GW190814 \citealt{LIGOScientific:2020zkf}).
+We show the priors and describe the parameters of the \PDB model in Table~\ref{tab:parameters_pdb}.
+
+\begin{deluxetable}{ccccc}
+\tablecaption{Summary of \PDB model parameters and priors.}
+\tablehead{
+\colhead{Category} & \colhead{Parameter} & \colhead{Unit} & \colhead{Description} & \colhead{Prior}
+}
+\label{tab:parameters_pdb}
+\startdata
+Pairing Function & $\beta_1$ & -- & Spectral index below $5 \, \Msun$ & U($-2, 3$) \\
+& $\beta_2$ & -- & Spectral index above $5\, \Msun$ & U($-2, 7$) \\
+\tableline
+Broken Power-Law & $\alpha_1$ & -- & Powerlaw below $m_{\text{NS max}}$ & U($-10, 2$) \\
+& $\alpha_{\text{dip}}$ & -- & Powerlaw between $m_{\text{NS max}}$ and $m_{\text{BH min}}$ & U($-3, 2$) \\
+& $\alpha_2$ & -- & Powerlaw above $m_{\text{BH min}}$ & U($-3, 2$) \\
+& $m_{\text{brk}}$ & $\Msun$ & Break point between $\alpha_1$ and $\alpha_2$ & $5$ \\
+\tableline
+Highpass Filter & $m_{\text{NS min}}$ & $\Msun$ & Low-mass roll-off & U($1, 1.4$) \\
+& $\eta_{\text{min}}$ & -- & Sharpness at $m_{\text{NS min}}$ & $50$ \\
+\tableline
+Lowpass Filter & $m_{\text{BHmax}}$ & $\Msun$ & High-mass roll-off & U($60, 200$) \\
+& $\eta_{\text{max}}$ & -- & Sharpness at $m_{\text{BHmax}}$ & U($-4, 12$) \\
+\tableline
+Low-Mass Notch & $m_{\text{NS max}}$ & $\Msun$ & Lower notch edge & U($1.4, 5$) \\
+& $\eta^{\text{low}}_1$ & -- & Sharpness at $m_{\text{NS max}}$ & $50$ \\
+& $m_{\text{BH min}}$ & $\Msun$ & Upper notch edge & U($5, 9$) \\
+& $\eta^{\text{high}}_1$ & -- & Sharpness at $m_{\text{BH min}}$ & $50$ \\
+& $A_1$ & -- & Notch depth & $0$ \\
+\tableline
+High-Mass Notch & $m_{\text{UMGmin}}$ & $\Msun$ & Lower notch edge & U($30, 90$) \\
+& $\eta^{\text{low}}_2$ & -- & Sharpness at $m_{\text{UMGmin}}$ & $30$ \\
+& $m_{\text{UMGmax}}$ & $\Msun$ & Upper notch edge & U($60, 150$) \\
+& $\eta^{\text{high}}_2$ & -- & Sharpness at $m_{\text{UMGmax}}$ & $30$ \\
+& $A_2$ & -- & Depth of high-mass notch & U($0, 1$) \\
+\tableline
+Low-Mass Peak & $\mu^{\text{peak}}_2$ & $\Msun$ & Peak location & U($6, 12$) \\
+& $\sigma^{\text{peak}}_2$ & $\Msun$ & Peak width & U($0, 5$) \\
+& $c_2$ & -- & Peak height & U($0, 500$) \\
+\tableline
+High-Mass Peak & $\mu^{\text{peak}}_1$ & $\Msun$ & Peak location & U($17, 50$) \\
+& $\sigma^{\text{peak}}_1$ & $\Msun$ & Peak width & U($4, 20$) \\
+& $c_1$ & -- & Peak height & U($0, 1000$) \\
+\enddata
+\tablecomments{U($x$, $y$) denotes a Uniform prior between $x$ and $y$.}
+\end{deluxetable}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Neutron Star Mass Models}\label{appendix:NSmodels}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{deluxetable}{cccc}
+\tablecaption{Summary of \textsc{Power} and \textsc{Peak} \ac{NS} mass model parameters.}
+\tablehead{
+\colhead{Parameter} & \colhead{Unit} & \colhead{Description} & \colhead{Prior}
+}
+\label{tab:parameters_ns}
+\startdata
+$\alpha$ & -- & Spectral index for the power-law in the \textsc{Power} NS mass distribution. & U($-15$, $5$) \\
+$m_{\rm min}$ & $\Msun$ & Minimum mass of the \ac{NS} mass distribution. & U($1.0$, $1.5$) \\
+$m_{\rm max}$ & $\Msun$ & Maximum mass of the \ac{NS} mass distribution. & U($1.5$, $3.0$) \\
+$\mu$ & $\Msun$ & Location of the Gaussian peak in the \textsc{Peak} \ac{NS} mass distribution. & U($1.0$, $3.0$) \\
+$\sigma$ & $\Msun$ & Width of the Gaussian peak in the \textsc{Peak} \ac{NS} mass distribution. & U($0.01$, $2.00$) \\
+\enddata
+\tablecomments{U($x$, $y$) denotes a Uniform prior between $x$ and $y$.}
+\end{deluxetable}
+
+\noindent Following previous work~\citep{Landry:2021hvl,KAGRA:2021duu},
+the mass distribution of \ac{NS}-containing events is modeled as
+\begin{equation}
+\pi(m_1, m_2 | \PEhyperparam) \propto
+\begin{cases}
+\pi(m_1| \PEhyperparam) \, \pi(m_2| \PEhyperparam) & \text{if BNS,} \\
+\mathrm{U}(3\,\Msun, 60\,\Msun) \, \pi(m_2 | \PEhyperparam) & \text{if NSBH},
+\end{cases}
+\end{equation}
+To model $\pi(m|\PEhyperparam)$, we use either of the following models
+\begin{enumerate}
+	\item \textsc{Power} model:
+\begin{equation}
+	\pi(m|\PEhyperparam) \propto
+	\begin{cases}
+		m^{\alpha} & \text{if } m_{\min} \leq m \leq m_{\max}, \\
+		0 & \text{otherwise.}
+	\end{cases}
+\end{equation}
+
+\item \textsc{Peak} model:
+\begin{equation}
+	\pi(m|\PEhyperparam) \propto
+	\begin{cases}
+		\exp\left[ -\dfrac{(m - \mu)^2}{2\sigma^2} \right] & \text{if } m_{\min} \leq m \leq m_{\max}, \\
+		0 & \text{otherwise.}
+	\end{cases}
+\end{equation}
+
+See Table~\ref{tab:parameters_ns} for a description of the parameters used in the model and the corresponding prior ranges.
+
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Binary Black Hole Mass Models}\label{appendix:BrokenPLTwoPeaks}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\BrokenPLTwoPeaks : The fiducial \ac{BBH} mass model is a mixture between a broken power law and two left-truncated Gaussian peaks, with low mass tapering applied to the full distribution. The broken power law is given by
+
+\begin{eqnarray}
+	p_\text{BP}(m_1 | \alpha_1, \alpha_2, m_\text{break}, m_\text{1,low}, m_\text{high}) = \frac{1}{N}
+	\begin{cases}
+		  \left(\dfrac{m_1}{m_\text{break}}\right)^{-\alpha_1} & m_\text{1,low} \leq m_1  < m_\text{break} \\
+		  \left(\dfrac{m_1}{m_\text{break}}\right)^{-\alpha_2} & m_\text{break} \leq m_1  < m_\text{high},
+	\end{cases}
+\end{eqnarray}
+
+\noindent where $\alpha_1$ and $\alpha_2$ are the power law indices, the transition between the low-mass and high-mass power law occurs at $m_\text{break}$, and the normalization constant is
+
+\begin{equation}
+	N = m_{\rm break} \left[
+    \frac{1 - \left(\tfrac{m_{1,\rm low}}{m_{\rm break}}\right)^{1-\alpha_1}}{1-\alpha_1}
+    + \frac{\left(\tfrac{m_{1,\rm high}}{m_{\rm break}}\right)^{1-\alpha_2} - 1}{1-\alpha_2}\right].
+\end{equation}
+
+\noindent The full mixture distribution $\pi(m_1|{\PEhyperparam})$ is
+
+\begin{align}
+ \pi(m_1 | {\PEhyperparam})\propto & \Biggl[ \lambda_0 p_{\rm BP}(m_1|\alpha_1, \alpha_2, m_{\rm break}, m_{1,{\rm low}}, m_{\rm high}) + \lambda_1 \mathcal{N}_{lt}(m_1 | \mu_1, \sigma_1, \text{low} = m_{1,{\rm low}}) \\ \nonumber
+& + (1 - \lambda_0 - \lambda_1) \mathcal{N}_{lt}(m_1|\mu_2, \sigma_2, \text{low} = m_{1,{\rm low}}) \Biggr] S(m_1 | m_{1,{\rm low}}, \delta_{m,1}),
+\end{align}
+
+\noindent where $\mathcal{N}_{lt}$ is a left-truncated normal distribution. The Planck tapering function $S$ ensures a smooth turn-on of the distribution in the range $(m_{\rm 1,low}, m_{\rm 1,low} + \delta_{m,1}]$ and is given by
+
+\begin{eqnarray}
+S(m|m_{\rm low}, \delta_m) =  \begin{cases}
+0 & m < m_{\rm low}, \\\
+[1 + f(m - m_{\rm low}, \delta_m)]^{-1}  & m_{\rm low} \leq m < m_{\rm low} + \delta_m, \\
+1 & m_{\rm low} + \delta_m \leq m,
+\end{cases}
+\end{eqnarray}
+
+\noindent with
+$$
+f(m', \delta_m) = \text{exp} \Biggl( \frac{\delta_m}{m'} + \frac{\delta_m}{m' - \delta_m} \Biggr).
+$$
+
+We model the mass ratio as a power law with index $\beta_q$ and low-mass tapering applied to secondary mass $m_2$, conditioned on primary mass $m_1$,
+
+\begin{equation}
+p_{\rm PL}(q | m_1, \beta_q, m_{2,{\rm low}}, \delta_{m,2}) \propto q^{\beta_q} S(m_1 q | m_{2,{\rm low}}, \delta_{m,2}),
+\end{equation}
+
+\noindent with the same tapering function defined above. We numerically normalize the mass ratio distribution as a function of primary mass, and interpolate the normalization to arbitrary primary masses with a log-uniform grid across primary mass. We define $m_2 \leq m_1$, and therefore must enforce $m_{2, {\rm low}} \le m_{1, {\rm low}}$, which we enforce by the conditional priors described in Table \ref{tab:parameters_default}, alongisde the rest of the mass model priors.
+
+\ExtendedBrokenPLTwoPeaks : This model incorporates correlations between the primary mass and mass ratio, by allowing each primary mass mixture component in the \BrokenPLTwoPeaks to be associated with a separate power law mass ratio model. In terms of the functions defined above, the model is expressed as
+
+\begin{align} \label{eq:exbp2p}
+\pi(m_1, q | {\PEhyperparam})\propto \Biggl[ &\lambda_0 p_{\rm BP}(m_1|\alpha_1, \alpha_2, m_{\rm break}, m_{1,{\rm low}}, m_{\rm high}) p_{\rm PL}(q | m_1, \beta_q^{\rm BP}, m_{2,{\rm low}}^{\rm BP}, \delta_{m,2}^{\rm BP})  \\ \nonumber
+& + \lambda_1 \mathcal{N}_{lt}(m_1 | \mu_1, \sigma_1, \text{low} = m_{1,{\rm low}}) p_{\rm PL}(q | m_1, \beta_q^{\rm peak1}, m_{2,{\rm low}}^{\rm peak1}, \delta_{m,2}^{\rm peak1}) \\ \nonumber
+& + (1 - \lambda_0 - \lambda_1) \mathcal{N}_{lt}(m_1|\mu_2, \sigma_2, \text{low} = m_{1,{\rm low}}) p_{\rm PL}(q | m_1, \beta_q^{\rm peak2}, m_{2,{\rm low}}^{\rm peak2}, \delta_{m,2}^{\rm peak2}) \Biggr] S(m_1 | m_{1,{\rm low}}, \delta_{m,1}),
+\end{align}
+
+\noindent where the superscripts (BP, peak1, and peak2) denote the different mass ratio hyperparameters ($\beta_q$, $m_{2,{\rm low}}$, $\delta_{m,2}$) for the broken power law, first Gaussian, and second Gaussian components. The priors on these hyperparameters are the same as those used in the \BrokenPLTwoPeaks model, listed in Table \ref{tab:parameters_default}, except for the power law index parameters $\beta_q$, which assume U$(-10,13)$.
+
+\begin{deluxetable}{ccc}
+\tablecaption{Summary of \BrokenPLTwoPeaks model parameters and priors.}
+\tablehead{
+\colhead{Parameter} & \colhead{Description} & \colhead{Prior}
+}
+\label{tab:parameters_default}
+\startdata
+$\alpha_1$ & Spectral index of 1st primary mass power law & U$(-4, 12)$ \\
+$\alpha_2$ & Spectral index of 2nd primary mass power law & U$(-4, 12)$ \\
+$m_{\rm break}$ & Power law break location & U$(20, 50)$ \\
+$\mu_1$ & Location of the first peak & U$(5, 20)$ \\
+$\sigma_1$ & Width of the first peak & U$(0,10)$ \\
+$\mu_2$ & Location of the second peak & U$(25, 60)$ \\
+$\sigma_2$ & Width of the second peak & U$(0,10)$ \\
+$m_{\rm 1, low}$ & Lower edge of taper function & U$(3, 10)$ \\
+$\delta_{\rm m,1}$ & Mass range of low mass tapering & U$(0,10)$ \\
+$\lambda_0, \lambda_1$ & Mixing fractions between power law and peaks & ${\rm Dir}(\mathbf{\alpha}=(1,1,1))$ \\
+$m_{\rm high}$ & Maximum mass for distribution, which is pinned to $m_{\rm high} = 300\,\Msun$ by default & $\delta(m_{\rm high} - 300)$ \\
+\tableline
+$\beta_q$ & Spectral index of mass ratio power law & U$(-2,7)$ \\
+$m_{\rm 2, low}$ & Lower edge of taper function in $m_2$ & U$(3, m_{\rm 1, low})$ \\
+$\delta_{\rm m,2}$ & Mass range of low mass tapering in $m_2$ & U$(0,10)$ \\
+\enddata
+\tablecomments{The priors for the \ExtendedBrokenPLTwoPeaks model are the same except for the $\beta_q$ parameters, which assume a prior of U$(-10,13)$.}
+\end{deluxetable}
+
+\subsection{\powerlawRedshift Model}\label{appendix:redshiftModels}
+
+We model redshift evolution by the comoving merger rate density (Equation~\ref{eq:comoving_merger_rate}). In particular, we use the model
+\begin{equation}
+\pi(z|\kappa) \propto \frac{1}{1+z}\frac{\mathrm{d} V_c}{\mathrm{d} z}(1+z)^\kappa
+\label{eq:powerlawredshift}
+\end{equation}
+where the prefactor converts from a rate density in comoving volume and source frame time to detector frame time and redshift. 
+In other words, the comoving rate density scales as $\mathcal{R} \propto (1+z)^\kappa$.
+We use a prior on $\kappa$ as specified in Table~\ref{tab:powerlawredshift}.
+
+\begin{deluxetable}{ccc}
+\tablecaption{Summary of \powerlawRedshift model parameter and prior.}
+\tablehead{
+\colhead{Parameter} & \colhead{Description} & \colhead{Prior}
+}
+\label{tab:powerlawredshift}
+\startdata
+$\kappa$ & Power-law index on comoving merger rate evolution & U($-10, 10$) \\
+\enddata
+\end{deluxetable}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Spin Models}\label{appendix:spinModels}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+BBH spins can be parameterized in several ways which are useful for GW data analysis. 
+Here, we use dimensionless spin magnitudes for the \acp{BH} $\chi_1$ and $\chi_2$, and cosine tilt angles $\cos\theta_1$ and $\cos\theta_2$, as well as the effective spin parameters $\chieff$~\citep{Racine:2008qv,Ajith:2009bn,Damour:2001tu} and $\chip$~\citep{Schmidt:2010it,Schmidt:2012rh,Schmidt:2014iyl}. 
+The effective inspiral spin $\chieff$ used because it is typically the most precisely measured \ac{BBH} spin parameter, due to its lower-order appearance post-Newtonian expansions~\citep{Arun:2008kb}. 
+Other parametrizations of spin precession exist~\citep[e.g.,][]{Fairhurst:2019vut,Gerosa:2020aiw,Thomas:2020uqj} but for reasons of convention, we only work with the typical parameterization given in Equation 16 of \cite{GWTC:Introduction}.  
+When modeling the effective spins, we use the analytic per-event parameter-estimation prior on $\chieff$, $\chip$, and $q$~\citep{Iwaya:2024zzq} in the calculation of the hierarchical likelihood (Equation~\ref{eq:hierarchical_likelihood}).
+For all models presented in this work, we assume that azimuthal angles $\phi_i$ are distributed uniformly between $0$ and $2\pi$---the same as their parameter estimation prior---due to their typically uninformative individual-event posteriors.
+See Table 3 of \cite{GWTC:Introduction} for more information about spin parameters.
+
+We report results with spin vectors defined at the reference frequencies used for inference on each signal~\citep{GWTC:Methods}.
+The effective spin $\chi_\mathrm{eff}$ is approximately conserved throughout the inspiral~\citep{Racine:2008qv,Gerosa:2015tea}, so its population distribution should be unaffected by the choice of reference frequency.
+While the effective precessing spin $\chi_\mathrm{p}$ and the spin angles are dependent on reference frequency, they are comparatively weakly constrained by the data.
+Additionally, their parameter estimation priors are invariant under time evolution, meaning measurements are robust against different reference frequencies.
+At the current number of events and because of model dependence while measuring tilt distributions, we do not expect significant differences between the inferred tilt or $\chip$ distributions at different reference frequencies~\citep{Mould:2021xst}.
+Our approach is consistent with past \ac{LVK} analyses, where evolved spins have not been used~\citep{LIGOScientific:2018jsj,LIGOScientific:2020kqk,KAGRA:2021duu}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Component Spin Models}\label{appendix:componentSpinModels}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{deluxetable}{ccc}
+\tablecaption{Summary of \default model parameters for spin magnitudes (Equation~\ref{eqn:spin_mag_model}) and tilt angles (Equation~\ref{eqn:spin_tilt_model},~\ref{eqn:spin_tilt_model_with_min}).}
+\tablehead{
+\colhead{Parameter} & \colhead{Description} & \colhead{Prior}
+}
+\label{tab:componentSpinPriors}
+\startdata
+$\mu_\chi$ & Location of the $\chi$ distribution & U($0$, $1$) \\
+$\sigma_\chi$ & Width of the $\chi$ distribution & U($0.005$, $1$) \\
+$\mu_t$ & Location of the Gaussian component of the $\cos\theta$ distribution & U($-1$, $1$) \\
+$\sigma_t$ & Width of the Gaussian component of the $\cos\theta$ distribution & U($0.01$, $4$) \\
+$\zeta$ & Fraction in the Gaussian component of the $\cos\theta$ distribution & U($0$, $1$) \\
+\tableline
+$t_{\rm min}$ & Minimum of the $\cos\theta$ distribution & U($-1$, $1$) \\
+\enddata
+\tablecomments{U stands for a uniform prior.}
+\end{deluxetable}
+
+\default:
+We model the spin magnitudes ($\chi_i$) as a truncated Gaussian distribution between $0$ and $1$, assuming they are identically and independently distributed: 
+%
+\begin{equation}
+    \pi(\chi_i|\mu_\chi,\sigma_\chi) = \mathcal{N}_{[0,1]}(\chi_1 | \mu_\chi, \sigma_\chi)\mathcal{N}_{[0,1]}(\chi_2 | \mu_\chi, \sigma_\chi)\,.
+\label{eqn:spin_mag_model}
+\end{equation}
+%
+This choice attempts to rectify shortcomings of the non-singular Beta distribution used to model the spin magnitudes in previous work~\citep{LIGOScientific:2018jsj, LIGOScientific:2020kqk, KAGRA:2021duu}; see Equation~\eqref{eqn:beta_distribution} below.
+The non-singular Beta distribution is forced to go to $\pi(\chi)=0$ at $\chi=0,1$, which crucially does not allow for measurements of contributions to the population at $\chi=0$ or $\chi=1$, even though non-trivial contributions may exist~\citep{Callister:2022qwb,Galaudage:2021rkt,Hussain:2024qzl}.
+Allowing the Beta distribution to be singular would add limited additional model flexibility, only adding the option for $\pi(\chi) = \infty$ at the $\chi=0,1$, but not anywhere in between $0$ and $\infty$. 
+Thus, we opt for the truncated Gaussian model, which can take on a continuous range of values at $\chi$'s boundaries.
+
+We model the distribution of the cosine spin tilt angle ($\cos\theta_i$) as a mixture between a Gaussian distribution truncated on $-1$ to $1$ and an isotropic distribution, assuming they are identically but \textit{not} independently distributed:
+%
+\begin{equation}
+    \pi(\cos\theta_i| \mu_t, \sigma_t, \zeta ) = \zeta \,\mathcal{N}_{[-1,1]}(\cos\theta_1 | \mu_t, \sigma_t)\mathcal{N}_{[-1,1]}(\cos\theta_2 | \mu_t, \sigma_t) + \frac{1-\zeta}{4}\,.
+\label{eqn:spin_tilt_model} 
+\end{equation}
+%
+We here allow for the location of the Gaussian sub-population to vary, following~\cite{Vitale:2022dpa}, rather than fixing it at $\mu_t=1$ as was done in previous work~\citep{LIGOScientific:2018jsj, LIGOScientific:2020kqk, KAGRA:2021duu}.
+Priors on the \default~hyperparameters are given in Table~\ref{tab:componentSpinPriors}.
+
+{\sc Minimum Tilt Model}:
+For the spin tilts, we also use a model in which $t_{\rm min}$ (where $t\equiv\cos\theta$), a hard lower truncation of $\pi(\cos\theta)$, is informed by the data. 
+In this case the population distribution becomes 
+\begin{equation}
+    \pi(\cos\theta_i| \mu_t, \sigma_t, \zeta, t_{\rm min} ) =
+	\begin{cases} 
+        \zeta \,\mathcal{N}_{[t_{\rm min},1]}(\cos\theta_1 | \mu_t, \sigma_t)\mathcal{N}_{[t_{\rm min},1]}(\cos\theta_2 | \mu_t, \sigma_t) + \displaystyle \frac{1-\zeta}{(1-t_{\rm min})^2} \qquad\,\cos\theta_i > t_{\rm min}\,\,, \\
+        0 \qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\quad 
+		\cos\theta_i \leq t_{\rm min}\,\,.
+	\end{cases}
+	\label{eqn:spin_tilt_model_with_min}
+\end{equation}
+Equation \eqref{eqn:spin_tilt_model} is the same as Equation~\eqref{eqn:spin_tilt_model_with_min} with $t_{\rm min} = - 1$.
+The prior on $t_{\rm min}$ and other hyperparameters are given in Table~\ref{tab:componentSpinPriors}.
+
+{\sc Beta Distribution Spin Magnitude}:
+In Appendix~\ref{appendix:model_comparison_spins}, we compare the \default~model to alternatives.
+For the spin magnitudes, these are the Constrained and Unconstrained Beta Distributions, which both follow the form:
+\begin{equation}
+	\pi(\chi_i | \alpha, \beta) \propto {\chi_i}^{\alpha-1}{(1-\chi_i)}^{\beta-1} \,\,.
+	\label{eqn:beta_distribution}
+\end{equation}
+The Constrained Beta was the {\sc Default} model for \gwtcthree~\citep{KAGRA:2021duu} and requires the shape parameters $\alpha, \beta > 1$, which forces $\pi(\chi_i=0,1) = 0$~\citep{Wysocki:2018mpo, LIGOScientific:2020kqk}.
+The Unconstrained Beta relaxes this constraint on the the shape parameters. 
+If $0< \alpha,\beta < 1$, the Beta distribution becomes singular, meaning $\pi(\chi_i=0,1) = \infty$.
+Following \cite{KAGRA:2021duu}, we sample the mean and standard deviation of the Beta distribution, rather than $\alpha$ and $\beta$, and use the same priors for $\mu_\chi$ and $\sigma_\chi$ as given in Table~\ref{tab:componentSpinPriors} for the \default model.
+For the Constrained Beta case, we additionally impose the cut $\alpha, \beta > 1$.
+The relationship between $\{\mu_\chi,~\sigma_\chi\}$ and $\{\alpha,~\beta\}$ is given in Equation 5 of \cite{LIGOScientific:2018jsj}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Identical versus Non-identically Distributed Spin Magnitudes and Tilts}
+\label{appendix:iid}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+In Appendix~\ref{appendix:model_comparison_spins}, we investigate whether or not the primary and secondary spins are identically distributed, assuming the \default model.
+\textit{Identical} distribution means that the two distributions share the same set of hyperparameters, while \textit{non-identical}  means that each is described by different hyperparameters.
+Spin magnitudes are also \textit{independently} distributed, meaning that $\pi(\chi_1, \chi_2)$ is separable in terms of $\chi_1$ and $\chi_2$.
+The acronym IID means they are independently and identically distributed, while IND means independently and non-identically distributed:
+%
+\begin{align}
+	\chi_i~\mathrm{IID} & \implies \pi(\chi_{1,2} | \mu_\chi, \sigma_\chi) = \mathcal{N}_{[0,1]}(\chi_1 | \mu_\chi, \sigma_\chi) \, \mathcal{N}_{[0,1]}( \chi_2 | \mu_\chi, \sigma_\chi) \,\, , \label{eqn:iid_mags} \\
+	\chi_i~\mathrm{IND} & \implies \pi(\chi_{1,2} | \mu_{\chi,1}, \sigma_{\chi,1}, \mu_{\chi,2}, \sigma_{\chi,2}) = \mathcal{N}_{[0,1]}(\chi_1 | \mu_{\chi,1}, \sigma_{\chi,1}) \, \mathcal{N}_{[0,1]}( \chi_2 | \mu_{\chi,2}, \sigma_{\chi,2}) \,\,.
+	\label{eqn:ind_mags}
+\end{align}
+%
+The tilt angles, on the other hand, are \textit{non-independently} distributed, meaning that $\pi(\cos\theta_1, \cos\theta_2)$ is not separable.
+The acronynm NID means they are non-independently but identically distributed, while NND means non-independently and non-identically distributed:
+%
+\begin{align}
+	\cos\theta_i~\mathrm{NID} & \implies \pi(\cos\theta_{1,2}|\zeta, \mu_t, \sigma_t) = \zeta \,\mathcal{N}_{[-1,1]}(\cos\theta_1 | \mu_t, \sigma_t)\,\mathcal{N}_{[-1,1]}(\cos\theta_2 | \mu_t, \sigma_t) + \frac{1-\zeta}{4} \label{eqn:nid_tilts} \,\, ,\\
+	\cos\theta_i~\mathrm{NND} & \implies \pi(\cos\theta_{1,2}|\zeta, \mu_{t,1}, \sigma_{t,1}, \mu_{t,2}, \sigma_{t,2}) = \zeta \,\mathcal{N}_{[-1,1]}(\cos\theta_1 | \mu_{t,1}, \sigma_{t,1})\,\mathcal{N}_{[-1,1]}(\cos\theta_2 | \mu_{t,2}, \sigma_{t,2})  + \frac{1-\zeta}{4} \,\,.
+	\label{eqn:nnd_tilts}
+\end{align}
+%
+For the non-identically distributed cases, each component's hyperparameters have the same priors as those listed in Table~\ref{tab:componentSpinPriors} for the identically distributed case. 
+Table~\ref{tab:modelComparisonSpins} gives Bayes factors between different combinations of IID/IND spin magnitudes and NID/NND spin tilts; see associated dicsussion in Appendix~\ref{appendix:model_comparison_spins}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Effective Spin Models}\label{appendix:effectiveSpinModels}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{deluxetable}{cccc}
+\tablecaption{Summary of \effectiveSpinModel~(Equation~\ref{eqn:chi_eff_chi_p_gaussian_model}) and \skewnormalChiEff~(Equation~\ref{eqn:chi_eff_skewnormal_model}) spin parameters.}
+\tablehead{
+\colhead{Parameter} & \colhead{Description} & \colhead{Prior G} & \colhead{Prior SN}
+}
+\label{tab:effectiveSpinPriors}
+\startdata
+$\mu_\mathrm{eff}$ & Location of the $\chieff$ distribution & U($-1$, $1$) & U($-1$, $1$) \\
+$\sigma_\mathrm{eff}$ & Width of the $\chieff$ distribution & U($0.05$, $1$) & LU($0.01$, $4$) \\
+$\mu_p$ & Location of the $\chi_\mathrm{p}$ distribution & U($0.05$, $1$) & U($0.01$, $1$) \\
+$\sigma_p$ & Width of the $\chi_\mathrm{p}$ distribution & U($0.07$, $1$)& LU($0.01$, $1$)\\
+\tableline
+$\rho$ & Degree of correlation between $\chieff$ and $\chi_\mathrm{p}$ & U($-0.75$, $0.75$) & N/A \\
+\tableline
+$\epsilon $ & Skew of the $\chieff$ distribution & N/A & U($-1$, $1$) \\
+\enddata
+\tablecomments{The first column of priors ({\bf G}) gives those used for the \effectiveSpinModel results, the second column ({\bf SN}) is \skewnormalChiEff. U stands for a uniform prior; LU for log-uniform.}
+\end{deluxetable}
+
+\effectiveSpinModel: We here assume that the distribution of $\chieff$ and $\chip$ across the \ac{BBH} population is a bivariate truncated Gaussian~\citep{Miller:2020zox, Roulet:2018jbe} characterized by the location and width of the $\chieff$ and $\chip$ distributions, and the covariance between them:
+\begin{equation}
+    \pi(\chieff, \chip | \mathbf{\mu}, \mathbf{\Sigma}) \propto \mathcal{N}(\chieff, \chip | \mathbf{\mu}, \mathbf{\Sigma}) \,\, ,
+\end{equation}
+where $\mathbf \mu =(\mu_{\rm eff}, \mu_{\rm p})$ and
+\begin{equation}
+    \mathbf{\Sigma} =
+    \begin{pmatrix}
+        \sigma_{\rm eff}^2 & \rho\,\sigma_{\rm eff}\,\sigma_{\rm p} \\
+        \rho\,\sigma_{\text{eff}}\,\sigma_{\rm p} & \sigma_{\rm p}^2
+    \end{pmatrix}   \,\,.
+\end{equation}
+This expands to: 
+\begin{equation}
+    \pi(\chieff, \chip | \mathbf{\mu}, \mathbf{\Sigma}) \propto 
+    \exp\left[ -\frac{1}{2(1 - \rho^2)}
+    \left( \frac{(\chi_{\rm eff} - \mu_{\rm eff})^2}{\sigma_{\rm eff} ^2} 
+    - \frac{2\rho (\chi_{\rm eff} - \mu_{\rm eff})(\chi_{\rm p} - \mu_{\rm p})}{\sigma_{\rm eff}\sigma_{\rm p}}
+    + \frac{(\chi_{\rm p} - \mu_{\rm p})^2}{\sigma_{\rm p} ^2} \right) \right]\,\,.
+    \label{eqn:chi_eff_chi_p_gaussian_model} 
+\end{equation}
+%
+The bivariate Gaussian is truncated over the range $\chieff \in [-1,1]$, $\chip\in[0,1]$ and is normalized numerically.
+Priors on the hyperparameters are given in Table \ref{tab:effectiveSpinPriors}.
+
+\skewnormalChiEff: To account for observational evidence that the $\chieff$ distribution is not symmetric~\citep{Callister:2021fpo,Adamcewicz:2022hce,Banagiri:2025dxo}, we additionally model $\chieff$ as a skewed, truncated Gaussian distribution:
+
+\begin{equation}
+    \pi(\chieff|\mu_{\rm eff}, \sigma_{\rm eff}, \epsilon) \propto 
+	\begin{cases} 
+        (1 + \epsilon) \, \mathcal{N}_{[-1,1]}(\chieff | \mu_{\rm eff}, \sigma_{\rm eff} (1 + \epsilon)) \qquad \chieff \leq \mu_{\rm eff} \,\, ,\\ 
+        (1 - \epsilon) \, \mathcal{N}_{[-1,1]}(\chieff | \mu_{\rm eff}, \sigma_{\rm eff} (1 - \epsilon)) \qquad \chieff \geq \mu_{\rm eff} \,\,.
+	\end{cases}
+    \label{eqn:chi_eff_skewnormal_model} 
+\end{equation}
+%
+This model includes a parameter $\epsilon$ which describes the skew of the distribution, such that  $\epsilon > 0$ characterizes a distribution with more support for $\chieff<\mu_{\rm eff}$, while $\epsilon < 0$ has more support when $\chieff>\mu_{\rm eff}$. 
+The \skewnormalChiEff~distribution reduces to a standard, symmetric Gaussian in the case that $\epsilon=0$.
+We here model $\chip$ as a truncated normal distribution and infer its location and width. 
+Priors on the hyperparameters are given in Table \ref{tab:effectiveSpinPriors}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Copula Correlation Models}\label{appendix:copulaCorrelationModels}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{deluxetable}{ccc}
+\tablecaption{
+    Summary of parameters exclusive to the \copulacorrelation, \linearcorrelation, and \splinecorrelation correlated models, along with their priors.
+}
+\tablehead{
+    \colhead{Parameter} & \colhead{Description} & \colhead{Prior}
+}
+\label{tab:parameters_correlations}
+\startdata
+$\kappa_{x,y}$ & Level of correlation between parameters $x$ and $y$ inferred with a copula & U$(-20, 20)$ \\
+\tableline
+$\mu_{\mathrm{eff}|q}$ & $q=1$ intercept in linear $\mu_\mathrm{eff}(q)$ & U$(-1, 1)$ \\
+$\delta \mu_{\mathrm{eff}|q}$ & Gradient in linear $\mu_\mathrm{eff}(q)$ & U$(-2, 2)$ \\
+$\ln \sigma_{\mathrm{eff}|q}$ & $q=1$ intercept in linear $\ln \sigma_\mathrm{eff}(z)$ & U$(-5, 0)$ \\
+$\delta \ln \sigma_{\mathrm{eff}|q}$ & Gradient in linear $\ln \sigma_\mathrm{eff}(q)$ & U$(-12, 4)$ \\
+\tableline
+$\mu_{\mathrm{eff}|z}$ & $z=0$ intercept in linear $\mu_\mathrm{eff}(z)$ & U$(-1, 1)$ \\
+$\delta \mu_{\mathrm{eff}|z}$ & Gradient in linear $\mu_\mathrm{eff}(z)$ & U$(-1, 1)$ \\
+$\ln \sigma_{\mathrm{eff}|z}$ & $z=0$ intercept in linear $\ln \sigma_\mathrm{eff}(z)$ & U$(-5, 0)$ \\
+$\delta \ln \sigma_{\mathrm{eff}|z}$ & Gradient in linear $\ln \sigma_\mathrm{eff}(z)$ & U$(-3, 5)$ \\
+\tableline
+$\mu_{\mathrm{eff}|q}^i$ & $i^\mathrm{th}$ node in spline $\mu_\mathrm{eff}(q)$ & U$(-1, 1)$ \\
+$\ln \sigma_{\mathrm{eff}|q}^i$ & $i^\mathrm{th}$ node in spline $\ln \sigma_\mathrm{eff}(q)$ & U$(-5, 0)$ \\
+\tableline
+$\mu_{\mathrm{eff}|z}^i$ & $i^\mathrm{th}$ node in spline $\mu_\mathrm{eff}(z)$ & U$(-1, 1)$ \\
+$\ln \sigma_{\mathrm{eff}|z}^i$ & $i^\mathrm{th}$ node in spline $\ln \sigma_\mathrm{eff}(z)$ & U$(-5, 0)$ \\
+\enddata
+\tablecomments{    There are four variations of the \copulacorrelation~model in which $(x,y) = (q,\chieff)$, $(m_1,\chieff)$, $(z,\chieff)$ and finally, $(m_1,z)$.
+    Within the spline models, we use four nodes $i$.
+}
+\end{deluxetable}
+
+Copulas allow for a variable correlation between two parameters $x$ and $y$ while keeping the marginal distributions for the respective parameters fixed.
+This is done using the fact that the cumulative distribution function (CDF) of any randomly distributed variable is itself a uniformly distributed variable between $0$ and $1$, in order to model the CDFs of $x$ and $y$ with a correlated two-dimensional uniform distribution.
+This correlated two-dimensional uniform distribution, known as a copula density function, is dependent on a (hyper)parameter $\kappa_{x,y}$, which determines the level (or strength) of the correlation.
+A coordinate transformation (which is determined by the chosen marginal distributions for $x$ and $y$) can then be applied to provide a correlated two-dimensional model in the desired coordinates.
+Conveniently, the Jacobian for this transformation turns out to be the product of the chosen marginal distributions, meaning the two-dimensional population model can be written as
+\begin{equation}
+    \pi_{xy}(x,y|\PEhyperparam,\kappa_{x,y}) = \pi_c \left(u(x|\PEhyperparam),v(y|\PEhyperparam)|\kappa_{x,y}\right) \pi_x(x|\PEhyperparam) \pi_y(y|\PEhyperparam).
+\end{equation}
+Here, $\PEhyperparam$ are the set of hyperparameters governing the marginal distributions $\pi_x$ and $\pi_y$, while $\pi_c$ denotes the chosen copula density function.
+Finally,
+\begin{equation}
+    u(x|\PEhyperparam) = \int_{x_{\min}}^x \mathrm{d} x' \ \pi_x(x'|\PEhyperparam),
+\end{equation}
+and
+\begin{equation}
+    v(y|\PEhyperparam) = \int_{y_{\min}}^y \mathrm{d} y' \ \pi_y(y'|\PEhyperparam),
+\end{equation}
+which we refer to as $u$ and $v$ for the sake of brevity, are the CDFs of $x$ and $y$ respectively.
+
+The \copulacorrelation~models all assume the same marginal distributions and copula density functions, but differ in which pairs of parameters they correlate (i.e., which parameters $u$ and $v$ are functions of in the above notation).
+Namely, the mass distribution is assumed to follow the default \BrokenPLTwoPeaks~model, redshift follows the default power-law redshift model, and $\chieff$ and $\chip$ are Gaussian distributed, but uncorrelated (i.e., they follow the \effectiveSpinModel~model with $\rho=0$).
+We assume a Frank copula density function
+\begin{equation}
+    \pi_c\left(u, v | \kappa_{x,y}\right) = 
+    \frac{-\kappa_{x,y} e^{-\kappa_{x,y} (u+v)} (e^{-\kappa_{x,y}} - 1)}{\left( e^{-\kappa_{x,y}} - e^{-\kappa_{x,y} u} - e^{-\kappa_{x,y} v} + e^{-\kappa_{x,y}(u+v)} \right)^2},
+\end{equation}
+where $\kappa_{x,y} \in (-\infty, \infty)$.
+Positive values of $\kappa_{x,y}$ imply a correlation, while negative values of $\kappa_{x,y}$ imply an anti-correlation.
+The Frank copula density function is not defined at $\kappa_{x,y} = 0$, but becomes uncorrelated as $\kappa_{x,y} \rightarrow 0$ from above and below, so we assume $\pi_c\left(u, v | \kappa_{x,y}=0\right) = 1$ (technically, making this a piece-wise function).
+The Frank copula density function is chosen as it allows for positive and negative correlations that are symmetric about $\kappa_{x,y}=0$, and gives rise to correlated distributions that we believe appear physically reasonable \citep[][]{Adamcewicz:2022hce, Adamcewicz:2023mov}.
+The prior on $\kappa_{x,y}$ (which is the same for all copula model variations), is given in Table~\ref{tab:parameters_correlations}.
+
+Copulas are advantageous as they allow for a potential correlation to be quantified by a single variable $\kappa_{x,y}$, that otherwise has no influence on the distribution of the population.
+However, relative to the linear and spline models explored below, they suffer from a lack of flexibility when it comes to covariance.
+There are a limited number of copula density functions available, all of which introduce a correlation in a unique, but rigid way \citep[e.g,][]{Adamcewicz:2022hce, Adamcewicz:2023mov}.
+Furthermore, known two-dimensional copulas depend on a single parameter $\kappa_{x,y}$, and cannot infer, for example, a separable broadening and correlation with the mean of a distribution simultaneously.
+As a result, using copulas to probe for more complex structure in two-dimensions (assuming fixed marginal distributions), requires model comparison between a number of different copula density functions \citep[e.g.,][]{Adamcewicz:2023mov}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Linear Correlation Models}\label{appendix:LinearCorrelationModels}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The $(q,\chieff)$ and $(z,\chieff)$ \linearcorrelation~models begin by assuming that $\chieff$ is Gaussian distributed for any given value of mass ratio $q$ and redshift $z$ respectively.
+As the two models are otherwise identical, for the remainder of this Section, we substitute $x$ for $q$ and $z$.
+This parameter-dependent Gaussian distribution for $\chieff$, $\pi(\chieff|x)$, is truncated at unphysical values of $|\chieff| \geq 1$.
+From here, the mean and (natural log) width of the $\chieff$ distribution are allowed to evolve with the chosen variable $x$ linearly:
+\begin{equation}
+    \mu_\mathrm{eff}(x) = \mu_{\mathrm{eff}|x} + \delta \mu_{\mathrm{eff}|x} x,
+\end{equation}
+and
+\begin{equation}
+    \ln \sigma_\mathrm{eff}(x) = \ln \sigma_{\mathrm{eff}|x} + \delta \ln \sigma_{\mathrm{eff}|x_0} x.
+\end{equation}
+Here, $\mu_{\mathrm{eff}|x}$, $\delta \mu_{\mathrm{eff}|x}$, $\ln \sigma_{\mathrm{eff}|x}$, and $\delta \ln \sigma_{\mathrm{eff}|x_0}$ are all hyperparameters fit to the data, where $\delta \mu_{\mathrm{eff}|x}$ and $\delta \ln \sigma_{\mathrm{eff}|x_0}$ quantify the strength of the correlation between $x$ and the mean and width of the $\chieff$ distribution respectively.
+The priors for these parameters are given in Table~\ref{tab:parameters_correlations}.
+Meanwhile, masses follow the default \BrokenPLTwoPeaks~model and redshift is distributed according to the default power-law redshift model.
+
+These models \citep[in the style of those presented in][]{Safarzadeh:2020mlb, Callister:2021fpo, Biscoveanu:2022qac}, therefore allow us to infer separable trends in the mean and width of the $\chieff$ distribution with another parameter.
+The inferred correlations should be interpreted with care as, unlike the copula models defined in Section~\ref{appendix:copulaCorrelationModels}, the correlation hyperparameters here will also affect the shape of the marginal $\chieff$ distribution.
+As such, it can be difficult to be certain whether an inferred correlation is entirely due to a trend between $\chieff$ and another parameter, or is in part due to a better fit to the marginal $\chieff$ distribution \citep{Adamcewicz:2022hce}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Spline Correlation Models}\label{appendix:SplineCorrelationModels}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The \splinecorrelation~models~\citep{Heinzel:2023hlb} are similar to the \linearcorrelation~models defined in Section~\ref{appendix:LinearCorrelationModels}.
+The key difference is that the \splinecorrelation~models more flexibly model the parameter-dependent mean $\mu_\mathrm{eff}(x)$ and (natural log) width $\ln \sigma_\mathrm{eff}(x)$ of the $\chieff$ distribution as cubic splines dependent on $x$.
+Each spline has four nodes $\mu_\mathrm{eff}^i$ and $\ln \sigma_{\mathrm{eff}|x}^i$ that are placed uniformly in $\log_{10} x$, and are inferred from the data.
+The priors for these nodes are given in Table~\ref{tab:parameters_correlations}.

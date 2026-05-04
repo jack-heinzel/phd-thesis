@@ -1,0 +1,48 @@
+{
+    "ppd": {
+        "rates": {
+            "BNS": {
+                "median": 13.18, 
+                "error plus": 122.51, 
+                "error minus": 11.91, 
+                "5th percentile": 1.27, 
+                "95th percentile": 135.69
+                }, 
+            "NSBH": {
+                "median": 2.92,
+                "error plus": 34.19, 
+                "error minus": 2.68, 
+                "5th percentile": 0.24, 
+                "95th percentile": 37.11
+                }, 
+            "BBH": {
+                "median": 2.27, 
+                "error plus": 24.88,
+                "error minus": 2.04, 
+                "5th percentile": 0.23, 
+                "95th percentile": 27.15
+                }, 
+            "NS-Gap": {
+                "median": 0.07, 
+                "error plus": 1.2, 
+                "error minus": 0.07, 
+                "5th percentile": 0.0, 
+                "95th percentile": 1.27
+                }, 
+            "BH-Gap": {
+                "median": 0.0, 
+                "error plus": 0.0, 
+                "error minus": 0.0, 
+                "5th percentile": 0.0, 
+                "95th percentile": 0.0
+                }, 
+            "Full": {
+                "median": 19.7, 
+                "error plus": 178.42, 
+                "error minus": 17.75, 
+                "5th percentile": 1.96, 
+                "95th percentile": 198.12
+                }
+            }
+        }
+    }

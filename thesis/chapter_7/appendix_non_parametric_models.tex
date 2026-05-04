@@ -1,0 +1,74 @@
+We describe \nonparametrics---\BSpline, \ac{BGP}, \ac{AR}, \vamana---used in this work. Results in the main text make use of \BSpline and \ac{BGP} models. \ac{BGP} was chosen since it was the only model capable of modeling the full mass spectrum, while \BSpline was chosen for most \ac{BBH} analyses for its ease of description and flexibility, as it simultaneously models all parameters with B-Splines. See Appendix~\ref{appendix:non_parameteric_comparison} for comparison of these \nonparametrics.
+\subsection{\BSpline models} \label{appendix:BSpline}
+
+\BSpline: The \BSpline model~\citep{Edelman:2022ydv} simultaneously fits all population parameters with Basis-splines (B-splines). 
+A $k^\mathrm{th}$ order B-spline of variable $x$ consists of a linear combination of $n$ basis functions $\{B_{k,n}(x)\}$, each of which are degree $k-1$ piecewise polynomials joined at a set of $m$ locations called knots $\{x_m\}$. 
+The number of basis functions $n$ defined across any range of $x$ values is determined solely by the order of the spline $k$ and the total number of knots $m$ as $n = k + m$.
+This forms a basis that spans the space of possible interpolants between the knots $\{x_m\}$. Given a vector of coefficients $\pmb{\alpha}$, any function $f$ can then be approximated as 
+\begin{equation}
+\tilde{f}(x) = \sum^n_{i=1} B_{k,i}(x) \alpha_i.
+\label{eqn:basis_splines}
+\end{equation}
+In the case of this work, $f$ is a probability distribution $p(\theta|\pmb{\alpha}_\theta)$ for a population-level parameter $\theta$, where the B-spline coefficients $\pmb{\alpha}_\theta$ are the hyperparameters of the distribution that are inferred during parameter estimation. 
+
+Given an adequate number of knots, a B-spline is highly flexible and therefore capable of identifying sharp features that could be present in the data. 
+This does, however, naturally make the \BSpline model prone to overfitting. 
+To combat this, we include a smoothing prior $\pi_\text{BS}$ that penalizes large differences between neighboring coefficients. 
+The prior is defined as 
+\begin{equation}
+p(\pmb{\alpha}|\tau) = \text{exp}\left( -\frac{1}{2} \tau \pmb{\alpha}^{\rm T} \pmb{D}_r^{\rm T} \pmb{D}_r\pmb{\alpha}\right),
+\end{equation}
+where $D_r$ is the $r$-order difference matrix with shape $(n - r) \times n$ and $\tau$ is a scalar that controls the level of smoothing. 
+Ideally, $\tau$ is also inferred during parameter estimation. We found that $\tau$ consistently railed against prior boundaries, which meant that the limits imposed on the likelihood uncertainty was the main driver of smoothness. We therefore fix $\tau$ to a reasonable value (roughly between $5{-}10$) for each population distribution. 
+With a sufficient number of bases, typically $n \sim 30{-}40$, this penalty prior will prevent the B-spline from overfitting the data while the large number of bases will provide enough flexibility to fit sharp features. 
+
+The mass and spin distributions are modeled as B-splines, and the redshift distribution is modeled as a power law modulated by a B-spline \citep{Edelman:2022ydv}, with all components inferred simultaneously.
+One of the \nonparametrics used in previous analyses~\citep{KAGRA:2021duu} was the \textsc{Powerlaw + Spline} model. This model assumed that the primary BBH mass followed a power-law distribution with moderate deviations controlled by a cubic spline.
+The \BSpline model does not assume an underlying shape for the primary mass distribution, instead allowing for full model flexibility.
+
+The \BSpline model infers the separable components of the mass distributions, $p(m_1)$ and $p(q)$, wherein the primary mass is defined over the range $3{-}300 \, \Msun$ and the mass ratio is defined over the range $0.03{-}1$. Unlike the \BrokenPLTwoPeaks model, a minimum secondary mass is not enforced during parameter estimation. To provide a more direct comparison to the \parametric, the \BSpline mass distributions shown in Section \ref{subsec:bbh_masses} are not the separable components $p(m_1)$ or $p(q)$ but instead the marginal distributions conditioned on $m_2 > 3 \, \Msun$, that is, $p(q|m_2 > 3 \, \Msun) = \int p(q)p(m_1)\Theta(m_1q-3)\mathrm{d}m_1$. We include the separable distributions along with the conditional marginal distributions in the mass ratio plot in Figure \ref{fig:bbh_mass_non_parametrics} to illustrate how this assumption affects the shape of the mass ratio distribution. 
+
+\textsc{Isolated Peak}: This model is defined by two subpopulations~\citep{Godfrey:2023oxb}. One assumes a primary mass distribution described by a log-Gaussian peak while the other infers the mass distribution with a B-spline. Mass ratio, spin magnitude, and spin tilt distributions are inferred separately for each subpopulation, also using B-splines. The redshift distribution is the same for each subpopulation and is inferred with a power law modulated by a B-spline. 
+
+\subsection{\acf{BGP} Model}\label{appendix:BGPModel}
+
+In previous population analyses~\citep{KAGRA:2021duu}, we used the \ac{BGP} model to study the joint distribution of primary and secondary masses. Here, we extend it to model the joint distributions of mass, spin, and redshift.
+The \ac{BGP} approach models the rate of \ac{BBH}, \ac{BNS} and \ac{NSBH} mergers as a piecewise constant function over a set of fixed bins across the one-, two-, or three-dimensional joint space. 
+The comoving merger rate density in each bin is a hyperparameter of the model.
+In addition, the \ac{BGP} model couples the logarithm of the rate density in each bin with a Gaussian process covariance, assuming an exponential quadratic kernel (also known as a radial basis function (RBF) kernel). 
+The exponential quadratic kernel has a hyper-hyperparameter length scale $\lambda$ for each parameter in the joint space.
+
+The covariance between two bins is proportional to the exponential of the negative squared distance between the bin centers, in units of the length scales along each parameter.
+In addition, there is one more hyper-hyperparameter $\sigma$, which acts as an overall multiplicative scaling of the covariance matrix~\citep{Ray:2023upk}.
+The \ac{BGP} approach directly infers the rate density in each bin, as well as the hyper-hyperparameters of the covariance kernel.
+The prior on the parameter $\sigma$ is a half-normal with width $1$, and the length scale priors were tuned to the mean and variation in the set of distances between the bin centers.
+
+We used 22 bins spaced uniformly in log-mass for the mass \ac{BGP} models, and 15 bins spaced uniformly between $\chi_{\rm eff} \in [-0.7,0.7]$ for the effective spin \ac{BGP} models.
+
+The \ac{BGP} approach has the advantage of being able to model nontrivial correlations in the population of compact binaries. 
+However, it assumes an arbitrary binning scheme, which reduces the resolution of the constraints and leads to unphysical discontinuities at the boundary between bins.
+Furthermore, measurements of the rate density in some bins may be driven by the \textit{a priori} assumption of a Gaussian covariance, and not the data. This can also cause smoothing near sharp features e.g., near the $m_1=m_2$ boundary.
+
+\subsection{\acf{AR} Model}
+
+The \ac{AR} model \citep{Callister:2023tgi} is a highly flexible model for one dimensional marginal merger rate densities. 
+The Monte Carlo integrals for estimating the likelihood in Equation~\eqref{eq:hierarchical_likelihood} involve a large set of parameter estimation samples [Equation~\eqref{eq:single_event_estimators}] and found injections for the selection efficiency [Equation~\eqref{eq:selection_estimator}].
+The merger rate density at each sample is its own hyperparameter, which is directly inferred from the data. 
+Without any further assumptions, such a model is severely underconstrained and will converge on the maximum likelihood functional distribution~\citep{Payne:2022xan}.
+In order to \textit{a priori} favor smoother distributions, this finite list of samples is ordered along the dimension of interest like, for example, their primary mass. 
+The marginal merger rate density is then assumed to be an autoregressive Gaussian random walk in log-space.
+There are two hyper-hyperparameters, $\sigma_{\rm AR}$ and $\tau_{\rm AR}$, which control the scale of variability and the autocorrelation length along the Gaussian random walk respectively.
+These hyper-hyperparameters have half-normal and log-normal priors respectively, tuned to the scale of the data: see Appendix B in \cite{Callister:2023tgi} for details. These hyper-hyperparameters are jointly inferred along with the logarithmic merger rate density at each sample.
+
+The \ac{AR} model is particularly well-suited to distributions with sharp features and nontrivial evolution, complementing the \ac{BGP} approach. 
+However, the \ac{AR} model used here cannot model correlations in the population. Furthermore, as in the \ac{BGP} approach, the inferred merger rate may extrapolate based off nearby constraints in regions of little information.
+When evaluating uncertainties in the \ac{AR} model, one should consider the impact of the \ac{AR} smoothing prior. 
+In particular, lower bounds on the merger rate in some regions may not be an accurate lower bound on the true distribution.
+
+Like the \BSpline model, the \ac{AR} model does not enforce a minimum secondary mass through a mass-dependent mass ratio.
+
+\subsection{\acf{FM} Model}
+
+The \vamana model \citep{Tiwari:2020vym} is a flexible mixture model framework for modeling the \ac{BBH} population. 
+\vamana models the population as a Gaussian mixture model in chirp mass and aligned spins, and a power law in mass ratio and redshift \citep{Tiwari:2021yvr}. 
+Furthermore, \vamana is able to model correlations between parameters in the population, and additionally has a variable model dimension, sampling the trans-dimensional posterior using a reversible-jump MCMC method. For the analyses presented here, \vamana uses $11$ mixture components.

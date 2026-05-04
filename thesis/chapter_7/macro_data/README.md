@@ -1,0 +1,5 @@
+# Macro Data
+
+Each analysis must provide one or more JSON files containing values we will want to reference in the text (e.g., quantiles on hyperparameters and PPDs).  A relative link should be made to each JSON file from each analysis, e.g., `../analyses/[Group X]/macro_data/[Model Y].json`, where `[Group X]` is one of the contributing groups, and `[Model Y]` is one of the models they contributed.  No subdirectories are to be created here, as the filename (modulo the `.json` extension) will automatically be set as the name used to reference the value in the LaTeX document.  For example, if the link is called `ExampleModel.json`, there will be a macro named `\ExampleModel` accessible within LaTeX, from which all of the values inside `ExampleModel.json` can be accessed as a lookup table.  LaTeX macro naming limitations dictate that the filename must only contain alphabetic characters, so numbers and symbols are forbidden.
+
+Note that there is actually a file named `ExampleModel.json` in this directory, which serves as a template for how these files should be structured.

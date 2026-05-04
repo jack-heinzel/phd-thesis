@@ -1,0 +1,4 @@
+[submodule "gwtc-common-files"]
+	path = gwtc-common-files
+	#url = git@git.ligo.org:publications/o4/cbc/gwtc-common-files.git
+	url = ../gwtc-common-files.git

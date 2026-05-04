@@ -1,0 +1,17 @@
+{
+    "RBNS": {
+        "5th percentile": 13,
+        "median": 61,
+        "95th percentile": 170
+    },
+    "RNSBH3Msun": {
+        "5th percentile": 11,
+        "median": 30,
+        "95th percentile": 63
+    },
+    "RNSBH5Msun": {
+        "5th percentile": 10,
+        "median": 27,
+        "95th percentile": 58
+    }
+}

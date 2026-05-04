@@ -1,0 +1,12 @@
+\newcommand\gwtc[1][?]{\mbox{GWTC\if#1?\else-#1\fi}}
+\newcommand\thisgwtcversionmajor{5}
+\newcommand\thisgwtcversionminor{0}
+% decision is not to omit .0
+%\newcommand\thisgwtcversion{\if\thisgwtcversionminor0\thisgwtcversionmajor\else\thisgwtcversionmajor.\thisgwtcversionminor\fi}
+\newcommand\thisgwtcversionfull{\thisgwtcversionmajor.\thisgwtcversionminor}
+\newcommand\thisgwtcversion\thisgwtcversionfull
+\newcommand\thisgwtc{\gwtc[\thisgwtcversion]}
+\newcommand\thisgwtcfull{\gwtc[\thisgwtcversionfull]}
+
+% Subscript for the laser wavelength
+\newcommand\laser{\ast}

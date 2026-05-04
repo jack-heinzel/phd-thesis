@@ -1,0 +1,1 @@
+/home/sylvia.biscoveanu/O4_pop/spin_sorting/final_results/mag_beta_unconstrained_iid_tilt_isotropic_truncnorm_nid-ref-1234-var-0-1763555967549621651_result_chiA_chiB.h5
