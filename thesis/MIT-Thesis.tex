@@ -107,7 +107,11 @@
 % Package for multipage table in Appendix B.
 \usepackage{longtable}% typeset multi-page tables (https://ctan.org/pkg/longtable)
 
-%\usepackage{tabularx}% adjustable-width columns in tabular (https://ctan.org/pkg/tabularx)
+\usepackage{tabularx}% adjustable-width columns in tabular (https://ctan.org/pkg/tabularx)
+\usepackage{siunitx}         % \SI{}{} units formatting (chapter 7)
+\usepackage{textgreek}       % text-mode Greek letters (chapter 7)
+\usepackage{scrextend}       % KOMA footnote extensions (chapter 7)
+\usepackage{makerobust}      % \MakeRobust command (chapter 7 macros)
 
 
 %% Package for improved typography
@@ -145,6 +149,7 @@
   {thesis/chapter_6/draft/plots/n_dimensional_posteriors/}
   {thesis/chapter_6/draft/plots/n_dimensional_posteriors/large_noise/}
   {thesis/chapter_6/draft/plots/n_dimensional_posteriors/standard_noise/}
+  {thesis/chapter_7/}
   {thesis/chapter_7/figures/}
   {thesis/chapter_7/figures/mass/}
   {thesis/chapter_7/figures/spins/}
@@ -209,9 +214,9 @@
 \addbibresource{thesis/chapter_5/main.bib}
 \addbibresource{thesis/chapter_6/draft/main.bib}
 \addbibresource{thesis/chapter_7/references.bib}
-\addbibresource{thesis/chapter_7/gwtc-common-files/base_bibliography.bib}
-\addbibresource{thesis/chapter_7/gwtc-common-files/bibliography.bib}
-\addbibresource{thesis/chapter_7/gwtc-common-files/compendia.bib}
+\addbibresource{thesis/chapter_7/gwtc-common-files/references/base_bibliography.bib}
+\addbibresource{thesis/chapter_7/gwtc-common-files/references/bibliography.bib}
+\addbibresource{thesis/chapter_7/gwtc-common-files/references/compendia.bib}
 
 
 %% to avoid split urls and stretched white space, you can make the bibliography ragged-right by uncommenting this:
@@ -379,6 +384,38 @@
 \newcommand{\rednote}[1]{{\color{Red} #1}}
 \newcommand{\red}[1]{{\color{Red} #1}}
 \newcommand{\comment}[1]{}
+
+%% AASTeX deluxetable compatibility shim (Chapter 7 uses AAS journal-style tables)
+%% Provides: deluxetable, deluxetable*, \tablecaption, \tablehead, \colhead,
+%%           \startdata, \enddata, \tablenotetext, \tablewidth, \tablecolumns
+%% Note: supertabular pre-defines \tablecaption and \tablehead — we redefine to
+%%       AASTeX semantics. Storage uses public names (no @) for access outside \makeatletter.
+\def\dxtblhead{}   % stores column header row(s)
+\def\dxtblcols{}   % stores column spec string
+\renewcommand{\tablecaption}[1]{\caption{#1}}
+\renewcommand{\tablehead}[1]{\def\dxtblhead{#1}}
+\providecommand{\colhead}[1]{\textbf{#1}}
+\providecommand{\tablewidth}[1]{}
+\providecommand{\tablecolumns}[1]{}
+\providecommand{\tableheadfrac}[1]{}
+\providecommand{\tablenotetext}[2]{\vspace{4pt}\par{\small\textit{Note.}~#2}}
+\providecommand{\tablecomments}[1]{\vspace{4pt}\par{\small\textit{Note.}~#1}}
+\providecommand{\startdata}{%
+  % Force expansion of \dxtblcols before passing to tabular column spec
+  \edef\gwtcdx@tabbegin{\noexpand\begin{tabular}{\dxtblcols}}%
+  \gwtcdx@tabbegin\toprule
+  \dxtblhead\\
+  \midrule
+}
+\def\enddata{\bottomrule\end{tabular}}
+\newenvironment{deluxetable}[1]{%
+  \def\dxtblhead{}\def\dxtblcols{#1}%
+  \begin{table}[htbp]\centering
+}{\end{table}}
+\newenvironment{deluxetable*}[1]{%
+  \def\dxtblhead{}\def\dxtblcols{#1}%
+  \begin{table}[htbp]\centering
+}{\end{table}}
 
 %%%%%%%%%%%%%%  End preamble %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
