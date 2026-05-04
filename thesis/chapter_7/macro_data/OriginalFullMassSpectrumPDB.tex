@@ -1,0 +1,408 @@
+\makeatletter%
+\newcommand\OriginalFullMassSpectrumPDB[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\OriginalFullMassSpectrumPDB@out{%
+    \{%
+      "ppd": \{%
+        "rates": \{%
+          "BNS": \{%
+            "median": 13.18, %
+            "error plus": 122.51, %
+            "error minus": 11.91, %
+            "5th percentile": 1.27, %
+            "95th percentile": 135.69%
+          \}, %
+          "NSBH": \{%
+            "median": 2.92, %
+            "error plus": 34.19, %
+            "error minus": 2.68, %
+            "5th percentile": 0.24, %
+            "95th percentile": 37.11%
+          \}, %
+          "BBH": \{%
+            "median": 2.27, %
+            "error plus": 24.88, %
+            "error minus": 2.04, %
+            "5th percentile": 0.23, %
+            "95th percentile": 27.15%
+          \}, %
+          "NS{-}Gap": \{%
+            "median": 0.07, %
+            "error plus": 1.2, %
+            "error minus": 0.07, %
+            "5th percentile": 0.0, %
+            "95th percentile": 1.27%
+          \}, %
+          "BH{-}Gap": \{%
+            "median": 0.0, %
+            "error plus": 0.0, %
+            "error minus": 0.0, %
+            "5th percentile": 0.0, %
+            "95th percentile": 0.0%
+          \}, %
+          "Full": \{%
+            "median": 19.7, %
+            "error plus": 178.42, %
+            "error minus": 17.75, %
+            "5th percentile": 1.96, %
+            "95th percentile": 198.12%
+          \}%
+        \}%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{ppd}=0%
+      \let\OriginalFullMassSpectrumPDB@out\OriginalFullMassSpectrumPDB@I%
+    \else%
+      \def\OriginalFullMassSpectrumPDB@out{%
+    ??}%
+    \fi
+  \fi
+  \OriginalFullMassSpectrumPDB@out
+}\newcommand\OriginalFullMassSpectrumPDB@I[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\OriginalFullMassSpectrumPDB@I@out{%
+    \{%
+      "rates": \{%
+        "BNS": \{%
+          "median": 13.18, %
+          "error plus": 122.51, %
+          "error minus": 11.91, %
+          "5th percentile": 1.27, %
+          "95th percentile": 135.69%
+        \}, %
+        "NSBH": \{%
+          "median": 2.92, %
+          "error plus": 34.19, %
+          "error minus": 2.68, %
+          "5th percentile": 0.24, %
+          "95th percentile": 37.11%
+        \}, %
+        "BBH": \{%
+          "median": 2.27, %
+          "error plus": 24.88, %
+          "error minus": 2.04, %
+          "5th percentile": 0.23, %
+          "95th percentile": 27.15%
+        \}, %
+        "NS{-}Gap": \{%
+          "median": 0.07, %
+          "error plus": 1.2, %
+          "error minus": 0.07, %
+          "5th percentile": 0.0, %
+          "95th percentile": 1.27%
+        \}, %
+        "BH{-}Gap": \{%
+          "median": 0.0, %
+          "error plus": 0.0, %
+          "error minus": 0.0, %
+          "5th percentile": 0.0, %
+          "95th percentile": 0.0%
+        \}, %
+        "Full": \{%
+          "median": 19.7, %
+          "error plus": 178.42, %
+          "error minus": 17.75, %
+          "5th percentile": 1.96, %
+          "95th percentile": 198.12%
+        \}%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{rates}=0%
+      \let\OriginalFullMassSpectrumPDB@I@out\OriginalFullMassSpectrumPDB@II%
+    \else%
+      \def\OriginalFullMassSpectrumPDB@I@out{%
+    ??}%
+    \fi
+  \fi
+  \OriginalFullMassSpectrumPDB@I@out
+}\newcommand\OriginalFullMassSpectrumPDB@II[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\OriginalFullMassSpectrumPDB@II@out{%
+    \{%
+      "BNS": \{%
+        "median": 13.18, %
+        "error plus": 122.51, %
+        "error minus": 11.91, %
+        "5th percentile": 1.27, %
+        "95th percentile": 135.69%
+      \}, %
+      "NSBH": \{%
+        "median": 2.92, %
+        "error plus": 34.19, %
+        "error minus": 2.68, %
+        "5th percentile": 0.24, %
+        "95th percentile": 37.11%
+      \}, %
+      "BBH": \{%
+        "median": 2.27, %
+        "error plus": 24.88, %
+        "error minus": 2.04, %
+        "5th percentile": 0.23, %
+        "95th percentile": 27.15%
+      \}, %
+      "NS{-}Gap": \{%
+        "median": 0.07, %
+        "error plus": 1.2, %
+        "error minus": 0.07, %
+        "5th percentile": 0.0, %
+        "95th percentile": 1.27%
+      \}, %
+      "BH{-}Gap": \{%
+        "median": 0.0, %
+        "error plus": 0.0, %
+        "error minus": 0.0, %
+        "5th percentile": 0.0, %
+        "95th percentile": 0.0%
+      \}, %
+      "Full": \{%
+        "median": 19.7, %
+        "error plus": 178.42, %
+        "error minus": 17.75, %
+        "5th percentile": 1.96, %
+        "95th percentile": 198.12%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{BNS}=0%
+      \let\OriginalFullMassSpectrumPDB@II@out\OriginalFullMassSpectrumPDB@III%
+    \else%
+      \ifnum\pdfstrcmp{#1}{NSBH}=0%
+      \let\OriginalFullMassSpectrumPDB@II@out\OriginalFullMassSpectrumPDB@IV%
+    \else%
+      \ifnum\pdfstrcmp{#1}{BBH}=0%
+      \let\OriginalFullMassSpectrumPDB@II@out\OriginalFullMassSpectrumPDB@V%
+    \else%
+      \ifnum\pdfstrcmp{#1}{NS-Gap}=0%
+      \let\OriginalFullMassSpectrumPDB@II@out\OriginalFullMassSpectrumPDB@VI%
+    \else%
+      \ifnum\pdfstrcmp{#1}{BH-Gap}=0%
+      \let\OriginalFullMassSpectrumPDB@II@out\OriginalFullMassSpectrumPDB@VII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{Full}=0%
+      \let\OriginalFullMassSpectrumPDB@II@out\OriginalFullMassSpectrumPDB@VIII%
+    \else%
+      \def\OriginalFullMassSpectrumPDB@II@out{%
+    ??}%
+    \fi\fi\fi\fi\fi\fi
+  \fi
+  \OriginalFullMassSpectrumPDB@II@out
+}\newcommand\OriginalFullMassSpectrumPDB@III[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\OriginalFullMassSpectrumPDB@III@out{%
+    \{%
+      "median": 13.18, %
+      "error plus": 122.51, %
+      "error minus": 11.91, %
+      "5th percentile": 1.27, %
+      "95th percentile": 135.69%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\OriginalFullMassSpectrumPDB@III@out{%
+    13.18}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\OriginalFullMassSpectrumPDB@III@out{%
+    122.51}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\OriginalFullMassSpectrumPDB@III@out{%
+    11.91}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\OriginalFullMassSpectrumPDB@III@out{%
+    1.27}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\OriginalFullMassSpectrumPDB@III@out{%
+    135.69}%
+    \else%
+      \def\OriginalFullMassSpectrumPDB@III@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \OriginalFullMassSpectrumPDB@III@out
+}\newcommand\OriginalFullMassSpectrumPDB@IV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\OriginalFullMassSpectrumPDB@IV@out{%
+    \{%
+      "median": 2.92, %
+      "error plus": 34.19, %
+      "error minus": 2.68, %
+      "5th percentile": 0.24, %
+      "95th percentile": 37.11%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\OriginalFullMassSpectrumPDB@IV@out{%
+    2.92}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\OriginalFullMassSpectrumPDB@IV@out{%
+    34.19}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\OriginalFullMassSpectrumPDB@IV@out{%
+    2.68}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\OriginalFullMassSpectrumPDB@IV@out{%
+    0.24}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\OriginalFullMassSpectrumPDB@IV@out{%
+    37.11}%
+    \else%
+      \def\OriginalFullMassSpectrumPDB@IV@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \OriginalFullMassSpectrumPDB@IV@out
+}\newcommand\OriginalFullMassSpectrumPDB@V[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\OriginalFullMassSpectrumPDB@V@out{%
+    \{%
+      "median": 2.27, %
+      "error plus": 24.88, %
+      "error minus": 2.04, %
+      "5th percentile": 0.23, %
+      "95th percentile": 27.15%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\OriginalFullMassSpectrumPDB@V@out{%
+    2.27}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\OriginalFullMassSpectrumPDB@V@out{%
+    24.88}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\OriginalFullMassSpectrumPDB@V@out{%
+    2.04}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\OriginalFullMassSpectrumPDB@V@out{%
+    0.23}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\OriginalFullMassSpectrumPDB@V@out{%
+    27.15}%
+    \else%
+      \def\OriginalFullMassSpectrumPDB@V@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \OriginalFullMassSpectrumPDB@V@out
+}\newcommand\OriginalFullMassSpectrumPDB@VI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\OriginalFullMassSpectrumPDB@VI@out{%
+    \{%
+      "median": 0.07, %
+      "error plus": 1.2, %
+      "error minus": 0.07, %
+      "5th percentile": 0.0, %
+      "95th percentile": 1.27%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\OriginalFullMassSpectrumPDB@VI@out{%
+    0.07}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\OriginalFullMassSpectrumPDB@VI@out{%
+    1.2}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\OriginalFullMassSpectrumPDB@VI@out{%
+    0.07}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\OriginalFullMassSpectrumPDB@VI@out{%
+    0.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\OriginalFullMassSpectrumPDB@VI@out{%
+    1.27}%
+    \else%
+      \def\OriginalFullMassSpectrumPDB@VI@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \OriginalFullMassSpectrumPDB@VI@out
+}\newcommand\OriginalFullMassSpectrumPDB@VII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\OriginalFullMassSpectrumPDB@VII@out{%
+    \{%
+      "median": 0.0, %
+      "error plus": 0.0, %
+      "error minus": 0.0, %
+      "5th percentile": 0.0, %
+      "95th percentile": 0.0%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\OriginalFullMassSpectrumPDB@VII@out{%
+    0.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\OriginalFullMassSpectrumPDB@VII@out{%
+    0.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\OriginalFullMassSpectrumPDB@VII@out{%
+    0.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\OriginalFullMassSpectrumPDB@VII@out{%
+    0.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\OriginalFullMassSpectrumPDB@VII@out{%
+    0.0}%
+    \else%
+      \def\OriginalFullMassSpectrumPDB@VII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \OriginalFullMassSpectrumPDB@VII@out
+}\newcommand\OriginalFullMassSpectrumPDB@VIII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\OriginalFullMassSpectrumPDB@VIII@out{%
+    \{%
+      "median": 19.7, %
+      "error plus": 178.42, %
+      "error minus": 17.75, %
+      "5th percentile": 1.96, %
+      "95th percentile": 198.12%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\OriginalFullMassSpectrumPDB@VIII@out{%
+    19.7}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\OriginalFullMassSpectrumPDB@VIII@out{%
+    178.42}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\OriginalFullMassSpectrumPDB@VIII@out{%
+    17.75}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\OriginalFullMassSpectrumPDB@VIII@out{%
+    1.96}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\OriginalFullMassSpectrumPDB@VIII@out{%
+    198.12}%
+    \else%
+      \def\OriginalFullMassSpectrumPDB@VIII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \OriginalFullMassSpectrumPDB@VIII@out
+}%
+\makeatother%

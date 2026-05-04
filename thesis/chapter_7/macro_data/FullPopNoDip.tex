@@ -1,0 +1,528 @@
+\makeatletter%
+\newcommand\FullPopNoDip[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\FullPopNoDip@out{%
+    \{%
+      "rates": \{%
+        "BNS": \{%
+          "median": 91.9, %
+          "error plus": 159, %
+          "error minus": 66.8, %
+          "5th percentile": 25.1, %
+          "95th percentile": 251%
+        \}, %
+        "NSBH": \{%
+          "median": 22.4, %
+          "error plus": 20.1, %
+          "error minus": 12.4, %
+          "5th percentile": 9.99, %
+          "95th percentile": 42.6%
+        \}, %
+        "BBH": \{%
+          "median": 18.9, %
+          "error plus": 6.8, %
+          "error minus": 5.49, %
+          "5th percentile": 13.5, %
+          "95th percentile": 25.7%
+        \}, %
+        "NS{-}Gap": \{%
+          "median": 7.4, %
+          "error plus": 9.49, %
+          "error minus": 4.8, %
+          "5th percentile": 2.6, %
+          "95th percentile": 16.9%
+        \}, %
+        "BH{-}Gap": \{%
+          "median": 2.73, %
+          "error plus": 3.32, %
+          "error minus": 1.69, %
+          "5th percentile": 1.04, %
+          "95th percentile": 6.06%
+        \}, %
+        "Full": \{%
+          "median": 135, %
+          "error plus": 169, %
+          "error minus": 75.5, %
+          "5th percentile": 59.6, %
+          "95th percentile": 304%
+        \}%
+      \}, %
+      "pairing\_function\_difference": 0.99, %
+      "peak\_locations": \{%
+        "OneMsun": \{%
+          "median": 1.23, %
+          "error plus": 0.12, %
+          "error minus": 0.155, %
+          "5th percentile": 1.08, %
+          "95th percentile": 1.35%
+        \}, %
+        "TenMsun": \{%
+          "median": 9.18, %
+          "error plus": 0.31, %
+          "error minus": 0.41, %
+          "5th percentile": 8.77, %
+          "95th percentile": 9.49%
+        \}, %
+        "ThirtyMsun": \{%
+          "median": 25.9, %
+          "error plus": 13.9, %
+          "error minus": 7.49, %
+          "5th percentile": 18.4, %
+          "95th percentile": 39.8%
+        \}%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{rates}=0%
+      \let\FullPopNoDip@out\FullPopNoDip@I%
+    \else%
+      \ifnum\pdfstrcmp{#1}{pairing_function_difference}=0%
+      \def\FullPopNoDip@out{%
+    0.99}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{peak_locations}=0%
+      \let\FullPopNoDip@out\FullPopNoDip@II%
+    \else%
+      \def\FullPopNoDip@out{%
+    ??}%
+    \fi\fi\fi
+  \fi
+  \FullPopNoDip@out
+}\newcommand\FullPopNoDip@I[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\FullPopNoDip@I@out{%
+    \{%
+      "BNS": \{%
+        "median": 91.9, %
+        "error plus": 159, %
+        "error minus": 66.8, %
+        "5th percentile": 25.1, %
+        "95th percentile": 251%
+      \}, %
+      "NSBH": \{%
+        "median": 22.4, %
+        "error plus": 20.1, %
+        "error minus": 12.4, %
+        "5th percentile": 9.99, %
+        "95th percentile": 42.6%
+      \}, %
+      "BBH": \{%
+        "median": 18.9, %
+        "error plus": 6.8, %
+        "error minus": 5.49, %
+        "5th percentile": 13.5, %
+        "95th percentile": 25.7%
+      \}, %
+      "NS{-}Gap": \{%
+        "median": 7.4, %
+        "error plus": 9.49, %
+        "error minus": 4.8, %
+        "5th percentile": 2.6, %
+        "95th percentile": 16.9%
+      \}, %
+      "BH{-}Gap": \{%
+        "median": 2.73, %
+        "error plus": 3.32, %
+        "error minus": 1.69, %
+        "5th percentile": 1.04, %
+        "95th percentile": 6.06%
+      \}, %
+      "Full": \{%
+        "median": 135, %
+        "error plus": 169, %
+        "error minus": 75.5, %
+        "5th percentile": 59.6, %
+        "95th percentile": 304%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{BNS}=0%
+      \let\FullPopNoDip@I@out\FullPopNoDip@III%
+    \else%
+      \ifnum\pdfstrcmp{#1}{NSBH}=0%
+      \let\FullPopNoDip@I@out\FullPopNoDip@IV%
+    \else%
+      \ifnum\pdfstrcmp{#1}{BBH}=0%
+      \let\FullPopNoDip@I@out\FullPopNoDip@V%
+    \else%
+      \ifnum\pdfstrcmp{#1}{NS-Gap}=0%
+      \let\FullPopNoDip@I@out\FullPopNoDip@VI%
+    \else%
+      \ifnum\pdfstrcmp{#1}{BH-Gap}=0%
+      \let\FullPopNoDip@I@out\FullPopNoDip@VII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{Full}=0%
+      \let\FullPopNoDip@I@out\FullPopNoDip@VIII%
+    \else%
+      \def\FullPopNoDip@I@out{%
+    ??}%
+    \fi\fi\fi\fi\fi\fi
+  \fi
+  \FullPopNoDip@I@out
+}\newcommand\FullPopNoDip@II[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\FullPopNoDip@II@out{%
+    \{%
+      "OneMsun": \{%
+        "median": 1.23, %
+        "error plus": 0.12, %
+        "error minus": 0.155, %
+        "5th percentile": 1.08, %
+        "95th percentile": 1.35%
+      \}, %
+      "TenMsun": \{%
+        "median": 9.18, %
+        "error plus": 0.31, %
+        "error minus": 0.41, %
+        "5th percentile": 8.77, %
+        "95th percentile": 9.49%
+      \}, %
+      "ThirtyMsun": \{%
+        "median": 25.9, %
+        "error plus": 13.9, %
+        "error minus": 7.49, %
+        "5th percentile": 18.4, %
+        "95th percentile": 39.8%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{OneMsun}=0%
+      \let\FullPopNoDip@II@out\FullPopNoDip@IX%
+    \else%
+      \ifnum\pdfstrcmp{#1}{TenMsun}=0%
+      \let\FullPopNoDip@II@out\FullPopNoDip@X%
+    \else%
+      \ifnum\pdfstrcmp{#1}{ThirtyMsun}=0%
+      \let\FullPopNoDip@II@out\FullPopNoDip@XI%
+    \else%
+      \def\FullPopNoDip@II@out{%
+    ??}%
+    \fi\fi\fi
+  \fi
+  \FullPopNoDip@II@out
+}\newcommand\FullPopNoDip@III[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\FullPopNoDip@III@out{%
+    \{%
+      "median": 91.9, %
+      "error plus": 159, %
+      "error minus": 66.8, %
+      "5th percentile": 25.1, %
+      "95th percentile": 251%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\FullPopNoDip@III@out{%
+    91.9}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\FullPopNoDip@III@out{%
+    159}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\FullPopNoDip@III@out{%
+    66.8}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\FullPopNoDip@III@out{%
+    25.1}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\FullPopNoDip@III@out{%
+    251}%
+    \else%
+      \def\FullPopNoDip@III@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \FullPopNoDip@III@out
+}\newcommand\FullPopNoDip@IV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\FullPopNoDip@IV@out{%
+    \{%
+      "median": 22.4, %
+      "error plus": 20.1, %
+      "error minus": 12.4, %
+      "5th percentile": 9.99, %
+      "95th percentile": 42.6%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\FullPopNoDip@IV@out{%
+    22.4}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\FullPopNoDip@IV@out{%
+    20.1}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\FullPopNoDip@IV@out{%
+    12.4}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\FullPopNoDip@IV@out{%
+    9.99}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\FullPopNoDip@IV@out{%
+    42.6}%
+    \else%
+      \def\FullPopNoDip@IV@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \FullPopNoDip@IV@out
+}\newcommand\FullPopNoDip@V[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\FullPopNoDip@V@out{%
+    \{%
+      "median": 18.9, %
+      "error plus": 6.8, %
+      "error minus": 5.49, %
+      "5th percentile": 13.5, %
+      "95th percentile": 25.7%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\FullPopNoDip@V@out{%
+    18.9}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\FullPopNoDip@V@out{%
+    6.8}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\FullPopNoDip@V@out{%
+    5.49}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\FullPopNoDip@V@out{%
+    13.5}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\FullPopNoDip@V@out{%
+    25.7}%
+    \else%
+      \def\FullPopNoDip@V@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \FullPopNoDip@V@out
+}\newcommand\FullPopNoDip@VI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\FullPopNoDip@VI@out{%
+    \{%
+      "median": 7.4, %
+      "error plus": 9.49, %
+      "error minus": 4.8, %
+      "5th percentile": 2.6, %
+      "95th percentile": 16.9%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\FullPopNoDip@VI@out{%
+    7.4}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\FullPopNoDip@VI@out{%
+    9.49}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\FullPopNoDip@VI@out{%
+    4.8}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\FullPopNoDip@VI@out{%
+    2.6}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\FullPopNoDip@VI@out{%
+    16.9}%
+    \else%
+      \def\FullPopNoDip@VI@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \FullPopNoDip@VI@out
+}\newcommand\FullPopNoDip@VII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\FullPopNoDip@VII@out{%
+    \{%
+      "median": 2.73, %
+      "error plus": 3.32, %
+      "error minus": 1.69, %
+      "5th percentile": 1.04, %
+      "95th percentile": 6.06%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\FullPopNoDip@VII@out{%
+    2.73}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\FullPopNoDip@VII@out{%
+    3.32}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\FullPopNoDip@VII@out{%
+    1.69}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\FullPopNoDip@VII@out{%
+    1.04}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\FullPopNoDip@VII@out{%
+    6.06}%
+    \else%
+      \def\FullPopNoDip@VII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \FullPopNoDip@VII@out
+}\newcommand\FullPopNoDip@VIII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\FullPopNoDip@VIII@out{%
+    \{%
+      "median": 135, %
+      "error plus": 169, %
+      "error minus": 75.5, %
+      "5th percentile": 59.6, %
+      "95th percentile": 304%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\FullPopNoDip@VIII@out{%
+    135}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\FullPopNoDip@VIII@out{%
+    169}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\FullPopNoDip@VIII@out{%
+    75.5}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\FullPopNoDip@VIII@out{%
+    59.6}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\FullPopNoDip@VIII@out{%
+    304}%
+    \else%
+      \def\FullPopNoDip@VIII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \FullPopNoDip@VIII@out
+}\newcommand\FullPopNoDip@IX[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\FullPopNoDip@IX@out{%
+    \{%
+      "median": 1.23, %
+      "error plus": 0.12, %
+      "error minus": 0.155, %
+      "5th percentile": 1.08, %
+      "95th percentile": 1.35%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\FullPopNoDip@IX@out{%
+    1.23}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\FullPopNoDip@IX@out{%
+    0.12}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\FullPopNoDip@IX@out{%
+    0.155}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\FullPopNoDip@IX@out{%
+    1.08}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\FullPopNoDip@IX@out{%
+    1.35}%
+    \else%
+      \def\FullPopNoDip@IX@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \FullPopNoDip@IX@out
+}\newcommand\FullPopNoDip@X[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\FullPopNoDip@X@out{%
+    \{%
+      "median": 9.18, %
+      "error plus": 0.31, %
+      "error minus": 0.41, %
+      "5th percentile": 8.77, %
+      "95th percentile": 9.49%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\FullPopNoDip@X@out{%
+    9.18}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\FullPopNoDip@X@out{%
+    0.31}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\FullPopNoDip@X@out{%
+    0.41}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\FullPopNoDip@X@out{%
+    8.77}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\FullPopNoDip@X@out{%
+    9.49}%
+    \else%
+      \def\FullPopNoDip@X@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \FullPopNoDip@X@out
+}\newcommand\FullPopNoDip@XI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\FullPopNoDip@XI@out{%
+    \{%
+      "median": 25.9, %
+      "error plus": 13.9, %
+      "error minus": 7.49, %
+      "5th percentile": 18.4, %
+      "95th percentile": 39.8%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\FullPopNoDip@XI@out{%
+    25.9}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\FullPopNoDip@XI@out{%
+    13.9}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\FullPopNoDip@XI@out{%
+    7.49}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\FullPopNoDip@XI@out{%
+    18.4}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\FullPopNoDip@XI@out{%
+    39.8}%
+    \else%
+      \def\FullPopNoDip@XI@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \FullPopNoDip@XI@out
+}%
+\makeatother%

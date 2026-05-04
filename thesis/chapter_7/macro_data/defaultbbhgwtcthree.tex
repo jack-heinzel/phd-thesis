@@ -1,0 +1,1725 @@
+\makeatletter%
+\newcommand\defaultbbhgwtcthree[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\defaultbbhgwtcthree@out{%
+    \{%
+      "alpha\_1": \{%
+        "median": "1.5", %
+        "error plus": "3.7", %
+        "error minus": "4.1", %
+        "5th percentile": "{-}2.6", %
+        "95th percentile": "5.3"%
+      \}, %
+      "alpha\_2": \{%
+        "median": "4.2", %
+        "error plus": "3.7", %
+        "error minus": "5.7", %
+        "5th percentile": "{-}1.5", %
+        "95th percentile": "7.9"%
+      \}, %
+      "beta": \{%
+        "median": "1.4", %
+        "error plus": "2.2", %
+        "error minus": "1.4", %
+        "5th percentile": "{-}0.075", %
+        "95th percentile": "3.6"%
+      \}, %
+      "mlow\_1": \{%
+        "median": "5.1", %
+        "error plus": "3.6", %
+        "error minus": "1.9", %
+        "5th percentile": "3.2", %
+        "95th percentile": "8.7"%
+      \}, %
+      "mlow\_2": \{%
+        "median": "3.5", %
+        "error plus": "1.3", %
+        "error minus": "0.46", %
+        "5th percentile": "3.0", %
+        "95th percentile": "4.8"%
+      \}, %
+      "break\_mass": \{%
+        "median": "34", %
+        "error plus": "13", %
+        "error minus": "13", %
+        "5th percentile": "22", %
+        "95th percentile": "48"%
+      \}, %
+      "mpp\_1": \{%
+        "median": "10", %
+        "error plus": "0.63", %
+        "error minus": "2.2", %
+        "5th percentile": "7.9", %
+        "95th percentile": "11"%
+      \}, %
+      "mpp\_2": \{%
+        "median": "31", %
+        "error plus": "5.0", %
+        "error minus": "4.9", %
+        "5th percentile": "26", %
+        "95th percentile": "36"%
+      \}, %
+      "sigpp\_1": \{%
+        "median": "0.67", %
+        "error plus": "1.6", %
+        "error minus": "0.44", %
+        "5th percentile": "0.22", %
+        "95th percentile": "2.2"%
+      \}, %
+      "sigpp\_2": \{%
+        "median": "6.5", %
+        "error plus": "3.1", %
+        "error minus": "4.9", %
+        "5th percentile": "1.6", %
+        "95th percentile": "9.7"%
+      \}, %
+      "delta\_m\_1": \{%
+        "median": "4.1", %
+        "error plus": "5.0", %
+        "error minus": "3.8", %
+        "5th percentile": "0.30", %
+        "95th percentile": "9.2"%
+      \}, %
+      "delta\_m\_2": \{%
+        "median": "3.9", %
+        "error plus": "5.1", %
+        "error minus": "3.6", %
+        "5th percentile": "0.32", %
+        "95th percentile": "9.0"%
+      \}, %
+      "lam\_0": \{%
+        "median": "0.25", %
+        "error plus": "0.39", %
+        "error minus": "0.21", %
+        "5th percentile": "0.041", %
+        "95th percentile": "0.63"%
+      \}, %
+      "lam\_1": \{%
+        "median": "0.65", %
+        "error plus": "0.20", %
+        "error minus": "0.36", %
+        "5th percentile": "0.29", %
+        "95th percentile": "0.85"%
+      \}, %
+      "mu\_chi": \{%
+        "median": "0.12", %
+        "error plus": "0.14", %
+        "error minus": "0.11", %
+        "5th percentile": "0.012", %
+        "95th percentile": "0.26"%
+      \}, %
+      "sigma\_chi": \{%
+        "median": "0.28", %
+        "error plus": "0.11", %
+        "error minus": "0.096", %
+        "5th percentile": "0.19", %
+        "95th percentile": "0.40"%
+      \}, %
+      "xi\_spin": \{%
+        "median": "0.60", %
+        "error plus": "0.36", %
+        "error minus": "0.51", %
+        "5th percentile": "0.092", %
+        "95th percentile": "0.96"%
+      \}, %
+      "mu\_spin": \{%
+        "median": "0.48", %
+        "error plus": "0.46", %
+        "error minus": "1.1", %
+        "5th percentile": "{-}0.58", %
+        "95th percentile": "0.95"%
+      \}, %
+      "sigma\_spin": \{%
+        "median": "1.3", %
+        "error plus": "2.4", %
+        "error minus": "0.93", %
+        "5th percentile": "0.40", %
+        "95th percentile": "3.7"%
+      \}, %
+      "lamb": \{%
+        "median": "2.6", %
+        "error plus": "1.8", %
+        "error minus": "1.8", %
+        "5th percentile": "0.87", %
+        "95th percentile": "4.4"%
+      \}, %
+      "rate": \{%
+        "median": "17", %
+        "error plus": "10", %
+        "error minus": "6.5", %
+        "5th percentile": "11", %
+        "95th percentile": "28"%
+      \}, %
+      "mass\_1": \{%
+        "powerlaw\_slope\_18{-}19": \{%
+          "median": "0.0049", %
+          "error plus": "2.8", %
+          "error minus": "3.0", %
+          "5th percentile": "{-}3.0", %
+          "95th percentile": "2.8"%
+        \}, %
+        "peak\_1\_location": \{%
+          "median": "10", %
+          "error plus": "0.6", %
+          "error minus": "1.0", %
+          "5th percentile": "9", %
+          "95th percentile": "10.7"%
+        \}, %
+        "peak\_2\_location": \{%
+          "median": "30.7", %
+          "error plus": "4.6", %
+          "error minus": "5.3", %
+          "5th percentile": "25", %
+          "95th percentile": "35"%
+        \}, %
+        "peak\_2\_percent": 95.0%
+      \}, %
+      "alpha\_diff": \{%
+        "median": "{-}3.2", %
+        "error plus": "8.8", %
+        "error minus": "5.1", %
+        "5th percentile": "{-}8.2", %
+        "95th percentile": "5.6"%
+      \}, %
+      "alpha\_diff\_perc": 78.0, %
+      "mass\_ratio": \{%
+        "peak": \{%
+          "median": "1.0", %
+          "error plus": 0, %
+          "error minus": 0, %
+          "5th percentile": "1.0", %
+          "95th percentile": "1.0"%
+        \}%
+      \}, %
+      "a\_1": \{%
+        "peak": \{%
+          "median": "0.12", %
+          "error plus": "0.14", %
+          "error minus": "0.11", %
+          "5th percentile": "0.013", %
+          "95th percentile": "0.26"%
+        \}%
+      \}, %
+      "a\_2": \{%
+        "peak": \{%
+          "median": "0.12", %
+          "error plus": "0.14", %
+          "error minus": "0.11", %
+          "5th percentile": "0.013", %
+          "95th percentile": "0.26"%
+        \}%
+      \}, %
+      "cos\_tilt\_1": \{%
+        "peak": \{%
+          "median": "0.48", %
+          "error plus": "0.46", %
+          "error minus": "1.1", %
+          "5th percentile": "{-}0.58", %
+          "95th percentile": "0.95"%
+        \}%
+      \}, %
+      "cos\_tilt\_2": \{%
+        "peak": \{%
+          "median": "0.48", %
+          "error plus": "0.46", %
+          "error minus": "1.1", %
+          "5th percentile": "{-}0.58", %
+          "95th percentile": "0.95"%
+        \}%
+      \}, %
+      "redshift": \{%
+        "rate\_at\_z\_0{-}2": \{%
+          "median": "28", %
+          "error plus": "12", %
+          "error minus": "8.8", %
+          "5th percentile": "19", %
+          "95th percentile": "40"%
+        \}, %
+        "ppd": \{%
+          "median": "1.5", %
+          "error plus": "0.39", %
+          "error minus": "1.0", %
+          "5th percentile": "0.47", %
+          "95th percentile": "1.9"%
+        \}%
+      \}, %
+      "mu\_plus\_sig": \{%
+        "median": "37", %
+        "error plus": "4.6", %
+        "error minus": "3.5", %
+        "5th percentile": "34", %
+        "95th percentile": "42"%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{alpha_1}=0%
+      \let\defaultbbhgwtcthree@out\defaultbbhgwtcthree@I%
+    \else%
+      \ifnum\pdfstrcmp{#1}{alpha_2}=0%
+      \let\defaultbbhgwtcthree@out\defaultbbhgwtcthree@II%
+    \else%
+      \ifnum\pdfstrcmp{#1}{beta}=0%
+      \let\defaultbbhgwtcthree@out\defaultbbhgwtcthree@III%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mlow_1}=0%
+      \let\defaultbbhgwtcthree@out\defaultbbhgwtcthree@IV%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mlow_2}=0%
+      \let\defaultbbhgwtcthree@out\defaultbbhgwtcthree@V%
+    \else%
+      \ifnum\pdfstrcmp{#1}{break_mass}=0%
+      \let\defaultbbhgwtcthree@out\defaultbbhgwtcthree@VI%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mpp_1}=0%
+      \let\defaultbbhgwtcthree@out\defaultbbhgwtcthree@VII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mpp_2}=0%
+      \let\defaultbbhgwtcthree@out\defaultbbhgwtcthree@VIII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{sigpp_1}=0%
+      \let\defaultbbhgwtcthree@out\defaultbbhgwtcthree@IX%
+    \else%
+      \ifnum\pdfstrcmp{#1}{sigpp_2}=0%
+      \let\defaultbbhgwtcthree@out\defaultbbhgwtcthree@X%
+    \else%
+      \ifnum\pdfstrcmp{#1}{delta_m_1}=0%
+      \let\defaultbbhgwtcthree@out\defaultbbhgwtcthree@XI%
+    \else%
+      \ifnum\pdfstrcmp{#1}{delta_m_2}=0%
+      \let\defaultbbhgwtcthree@out\defaultbbhgwtcthree@XII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{lam_0}=0%
+      \let\defaultbbhgwtcthree@out\defaultbbhgwtcthree@XIII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{lam_1}=0%
+      \let\defaultbbhgwtcthree@out\defaultbbhgwtcthree@XIV%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mu_chi}=0%
+      \let\defaultbbhgwtcthree@out\defaultbbhgwtcthree@XV%
+    \else%
+      \ifnum\pdfstrcmp{#1}{sigma_chi}=0%
+      \let\defaultbbhgwtcthree@out\defaultbbhgwtcthree@XVI%
+    \else%
+      \ifnum\pdfstrcmp{#1}{xi_spin}=0%
+      \let\defaultbbhgwtcthree@out\defaultbbhgwtcthree@XVII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mu_spin}=0%
+      \let\defaultbbhgwtcthree@out\defaultbbhgwtcthree@XVIII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{sigma_spin}=0%
+      \let\defaultbbhgwtcthree@out\defaultbbhgwtcthree@XIX%
+    \else%
+      \ifnum\pdfstrcmp{#1}{lamb}=0%
+      \let\defaultbbhgwtcthree@out\defaultbbhgwtcthree@XX%
+    \else%
+      \ifnum\pdfstrcmp{#1}{rate}=0%
+      \let\defaultbbhgwtcthree@out\defaultbbhgwtcthree@XXI%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mass_1}=0%
+      \let\defaultbbhgwtcthree@out\defaultbbhgwtcthree@XXII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{alpha_diff}=0%
+      \let\defaultbbhgwtcthree@out\defaultbbhgwtcthree@XXIII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{alpha_diff_perc}=0%
+      \def\defaultbbhgwtcthree@out{%
+    78.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mass_ratio}=0%
+      \let\defaultbbhgwtcthree@out\defaultbbhgwtcthree@XXIV%
+    \else%
+      \ifnum\pdfstrcmp{#1}{a_1}=0%
+      \let\defaultbbhgwtcthree@out\defaultbbhgwtcthree@XXV%
+    \else%
+      \ifnum\pdfstrcmp{#1}{a_2}=0%
+      \let\defaultbbhgwtcthree@out\defaultbbhgwtcthree@XXVI%
+    \else%
+      \ifnum\pdfstrcmp{#1}{cos_tilt_1}=0%
+      \let\defaultbbhgwtcthree@out\defaultbbhgwtcthree@XXVII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{cos_tilt_2}=0%
+      \let\defaultbbhgwtcthree@out\defaultbbhgwtcthree@XXVIII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{redshift}=0%
+      \let\defaultbbhgwtcthree@out\defaultbbhgwtcthree@XXIX%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mu_plus_sig}=0%
+      \let\defaultbbhgwtcthree@out\defaultbbhgwtcthree@XXX%
+    \else%
+      \def\defaultbbhgwtcthree@out{%
+    ??}%
+    \fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi
+  \fi
+  \defaultbbhgwtcthree@out
+}\newcommand\defaultbbhgwtcthree@I[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\defaultbbhgwtcthree@I@out{%
+    \{%
+      "median": "1.5", %
+      "error plus": "3.7", %
+      "error minus": "4.1", %
+      "5th percentile": "{-}2.6", %
+      "95th percentile": "5.3"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\defaultbbhgwtcthree@I@out{%
+    1.5}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\defaultbbhgwtcthree@I@out{%
+    3.7}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\defaultbbhgwtcthree@I@out{%
+    4.1}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\defaultbbhgwtcthree@I@out{%
+    {-}2.6}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\defaultbbhgwtcthree@I@out{%
+    5.3}%
+    \else%
+      \def\defaultbbhgwtcthree@I@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \defaultbbhgwtcthree@I@out
+}\newcommand\defaultbbhgwtcthree@II[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\defaultbbhgwtcthree@II@out{%
+    \{%
+      "median": "4.2", %
+      "error plus": "3.7", %
+      "error minus": "5.7", %
+      "5th percentile": "{-}1.5", %
+      "95th percentile": "7.9"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\defaultbbhgwtcthree@II@out{%
+    4.2}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\defaultbbhgwtcthree@II@out{%
+    3.7}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\defaultbbhgwtcthree@II@out{%
+    5.7}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\defaultbbhgwtcthree@II@out{%
+    {-}1.5}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\defaultbbhgwtcthree@II@out{%
+    7.9}%
+    \else%
+      \def\defaultbbhgwtcthree@II@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \defaultbbhgwtcthree@II@out
+}\newcommand\defaultbbhgwtcthree@III[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\defaultbbhgwtcthree@III@out{%
+    \{%
+      "median": "1.4", %
+      "error plus": "2.2", %
+      "error minus": "1.4", %
+      "5th percentile": "{-}0.075", %
+      "95th percentile": "3.6"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\defaultbbhgwtcthree@III@out{%
+    1.4}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\defaultbbhgwtcthree@III@out{%
+    2.2}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\defaultbbhgwtcthree@III@out{%
+    1.4}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\defaultbbhgwtcthree@III@out{%
+    {-}0.075}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\defaultbbhgwtcthree@III@out{%
+    3.6}%
+    \else%
+      \def\defaultbbhgwtcthree@III@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \defaultbbhgwtcthree@III@out
+}\newcommand\defaultbbhgwtcthree@IV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\defaultbbhgwtcthree@IV@out{%
+    \{%
+      "median": "5.1", %
+      "error plus": "3.6", %
+      "error minus": "1.9", %
+      "5th percentile": "3.2", %
+      "95th percentile": "8.7"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\defaultbbhgwtcthree@IV@out{%
+    5.1}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\defaultbbhgwtcthree@IV@out{%
+    3.6}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\defaultbbhgwtcthree@IV@out{%
+    1.9}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\defaultbbhgwtcthree@IV@out{%
+    3.2}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\defaultbbhgwtcthree@IV@out{%
+    8.7}%
+    \else%
+      \def\defaultbbhgwtcthree@IV@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \defaultbbhgwtcthree@IV@out
+}\newcommand\defaultbbhgwtcthree@V[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\defaultbbhgwtcthree@V@out{%
+    \{%
+      "median": "3.5", %
+      "error plus": "1.3", %
+      "error minus": "0.46", %
+      "5th percentile": "3.0", %
+      "95th percentile": "4.8"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\defaultbbhgwtcthree@V@out{%
+    3.5}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\defaultbbhgwtcthree@V@out{%
+    1.3}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\defaultbbhgwtcthree@V@out{%
+    0.46}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\defaultbbhgwtcthree@V@out{%
+    3.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\defaultbbhgwtcthree@V@out{%
+    4.8}%
+    \else%
+      \def\defaultbbhgwtcthree@V@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \defaultbbhgwtcthree@V@out
+}\newcommand\defaultbbhgwtcthree@VI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\defaultbbhgwtcthree@VI@out{%
+    \{%
+      "median": "34", %
+      "error plus": "13", %
+      "error minus": "13", %
+      "5th percentile": "22", %
+      "95th percentile": "48"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\defaultbbhgwtcthree@VI@out{%
+    34}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\defaultbbhgwtcthree@VI@out{%
+    13}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\defaultbbhgwtcthree@VI@out{%
+    13}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\defaultbbhgwtcthree@VI@out{%
+    22}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\defaultbbhgwtcthree@VI@out{%
+    48}%
+    \else%
+      \def\defaultbbhgwtcthree@VI@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \defaultbbhgwtcthree@VI@out
+}\newcommand\defaultbbhgwtcthree@VII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\defaultbbhgwtcthree@VII@out{%
+    \{%
+      "median": "10", %
+      "error plus": "0.63", %
+      "error minus": "2.2", %
+      "5th percentile": "7.9", %
+      "95th percentile": "11"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\defaultbbhgwtcthree@VII@out{%
+    10}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\defaultbbhgwtcthree@VII@out{%
+    0.63}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\defaultbbhgwtcthree@VII@out{%
+    2.2}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\defaultbbhgwtcthree@VII@out{%
+    7.9}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\defaultbbhgwtcthree@VII@out{%
+    11}%
+    \else%
+      \def\defaultbbhgwtcthree@VII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \defaultbbhgwtcthree@VII@out
+}\newcommand\defaultbbhgwtcthree@VIII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\defaultbbhgwtcthree@VIII@out{%
+    \{%
+      "median": "31", %
+      "error plus": "5.0", %
+      "error minus": "4.9", %
+      "5th percentile": "26", %
+      "95th percentile": "36"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\defaultbbhgwtcthree@VIII@out{%
+    31}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\defaultbbhgwtcthree@VIII@out{%
+    5.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\defaultbbhgwtcthree@VIII@out{%
+    4.9}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\defaultbbhgwtcthree@VIII@out{%
+    26}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\defaultbbhgwtcthree@VIII@out{%
+    36}%
+    \else%
+      \def\defaultbbhgwtcthree@VIII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \defaultbbhgwtcthree@VIII@out
+}\newcommand\defaultbbhgwtcthree@IX[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\defaultbbhgwtcthree@IX@out{%
+    \{%
+      "median": "0.67", %
+      "error plus": "1.6", %
+      "error minus": "0.44", %
+      "5th percentile": "0.22", %
+      "95th percentile": "2.2"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\defaultbbhgwtcthree@IX@out{%
+    0.67}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\defaultbbhgwtcthree@IX@out{%
+    1.6}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\defaultbbhgwtcthree@IX@out{%
+    0.44}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\defaultbbhgwtcthree@IX@out{%
+    0.22}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\defaultbbhgwtcthree@IX@out{%
+    2.2}%
+    \else%
+      \def\defaultbbhgwtcthree@IX@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \defaultbbhgwtcthree@IX@out
+}\newcommand\defaultbbhgwtcthree@X[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\defaultbbhgwtcthree@X@out{%
+    \{%
+      "median": "6.5", %
+      "error plus": "3.1", %
+      "error minus": "4.9", %
+      "5th percentile": "1.6", %
+      "95th percentile": "9.7"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\defaultbbhgwtcthree@X@out{%
+    6.5}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\defaultbbhgwtcthree@X@out{%
+    3.1}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\defaultbbhgwtcthree@X@out{%
+    4.9}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\defaultbbhgwtcthree@X@out{%
+    1.6}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\defaultbbhgwtcthree@X@out{%
+    9.7}%
+    \else%
+      \def\defaultbbhgwtcthree@X@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \defaultbbhgwtcthree@X@out
+}\newcommand\defaultbbhgwtcthree@XI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\defaultbbhgwtcthree@XI@out{%
+    \{%
+      "median": "4.1", %
+      "error plus": "5.0", %
+      "error minus": "3.8", %
+      "5th percentile": "0.30", %
+      "95th percentile": "9.2"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\defaultbbhgwtcthree@XI@out{%
+    4.1}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\defaultbbhgwtcthree@XI@out{%
+    5.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\defaultbbhgwtcthree@XI@out{%
+    3.8}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\defaultbbhgwtcthree@XI@out{%
+    0.30}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\defaultbbhgwtcthree@XI@out{%
+    9.2}%
+    \else%
+      \def\defaultbbhgwtcthree@XI@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \defaultbbhgwtcthree@XI@out
+}\newcommand\defaultbbhgwtcthree@XII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\defaultbbhgwtcthree@XII@out{%
+    \{%
+      "median": "3.9", %
+      "error plus": "5.1", %
+      "error minus": "3.6", %
+      "5th percentile": "0.32", %
+      "95th percentile": "9.0"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\defaultbbhgwtcthree@XII@out{%
+    3.9}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\defaultbbhgwtcthree@XII@out{%
+    5.1}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\defaultbbhgwtcthree@XII@out{%
+    3.6}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\defaultbbhgwtcthree@XII@out{%
+    0.32}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\defaultbbhgwtcthree@XII@out{%
+    9.0}%
+    \else%
+      \def\defaultbbhgwtcthree@XII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \defaultbbhgwtcthree@XII@out
+}\newcommand\defaultbbhgwtcthree@XIII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\defaultbbhgwtcthree@XIII@out{%
+    \{%
+      "median": "0.25", %
+      "error plus": "0.39", %
+      "error minus": "0.21", %
+      "5th percentile": "0.041", %
+      "95th percentile": "0.63"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\defaultbbhgwtcthree@XIII@out{%
+    0.25}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\defaultbbhgwtcthree@XIII@out{%
+    0.39}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\defaultbbhgwtcthree@XIII@out{%
+    0.21}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\defaultbbhgwtcthree@XIII@out{%
+    0.041}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\defaultbbhgwtcthree@XIII@out{%
+    0.63}%
+    \else%
+      \def\defaultbbhgwtcthree@XIII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \defaultbbhgwtcthree@XIII@out
+}\newcommand\defaultbbhgwtcthree@XIV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\defaultbbhgwtcthree@XIV@out{%
+    \{%
+      "median": "0.65", %
+      "error plus": "0.20", %
+      "error minus": "0.36", %
+      "5th percentile": "0.29", %
+      "95th percentile": "0.85"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\defaultbbhgwtcthree@XIV@out{%
+    0.65}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\defaultbbhgwtcthree@XIV@out{%
+    0.20}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\defaultbbhgwtcthree@XIV@out{%
+    0.36}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\defaultbbhgwtcthree@XIV@out{%
+    0.29}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\defaultbbhgwtcthree@XIV@out{%
+    0.85}%
+    \else%
+      \def\defaultbbhgwtcthree@XIV@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \defaultbbhgwtcthree@XIV@out
+}\newcommand\defaultbbhgwtcthree@XV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\defaultbbhgwtcthree@XV@out{%
+    \{%
+      "median": "0.12", %
+      "error plus": "0.14", %
+      "error minus": "0.11", %
+      "5th percentile": "0.012", %
+      "95th percentile": "0.26"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\defaultbbhgwtcthree@XV@out{%
+    0.12}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\defaultbbhgwtcthree@XV@out{%
+    0.14}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\defaultbbhgwtcthree@XV@out{%
+    0.11}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\defaultbbhgwtcthree@XV@out{%
+    0.012}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\defaultbbhgwtcthree@XV@out{%
+    0.26}%
+    \else%
+      \def\defaultbbhgwtcthree@XV@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \defaultbbhgwtcthree@XV@out
+}\newcommand\defaultbbhgwtcthree@XVI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\defaultbbhgwtcthree@XVI@out{%
+    \{%
+      "median": "0.28", %
+      "error plus": "0.11", %
+      "error minus": "0.096", %
+      "5th percentile": "0.19", %
+      "95th percentile": "0.40"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\defaultbbhgwtcthree@XVI@out{%
+    0.28}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\defaultbbhgwtcthree@XVI@out{%
+    0.11}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\defaultbbhgwtcthree@XVI@out{%
+    0.096}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\defaultbbhgwtcthree@XVI@out{%
+    0.19}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\defaultbbhgwtcthree@XVI@out{%
+    0.40}%
+    \else%
+      \def\defaultbbhgwtcthree@XVI@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \defaultbbhgwtcthree@XVI@out
+}\newcommand\defaultbbhgwtcthree@XVII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\defaultbbhgwtcthree@XVII@out{%
+    \{%
+      "median": "0.60", %
+      "error plus": "0.36", %
+      "error minus": "0.51", %
+      "5th percentile": "0.092", %
+      "95th percentile": "0.96"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\defaultbbhgwtcthree@XVII@out{%
+    0.60}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\defaultbbhgwtcthree@XVII@out{%
+    0.36}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\defaultbbhgwtcthree@XVII@out{%
+    0.51}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\defaultbbhgwtcthree@XVII@out{%
+    0.092}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\defaultbbhgwtcthree@XVII@out{%
+    0.96}%
+    \else%
+      \def\defaultbbhgwtcthree@XVII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \defaultbbhgwtcthree@XVII@out
+}\newcommand\defaultbbhgwtcthree@XVIII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\defaultbbhgwtcthree@XVIII@out{%
+    \{%
+      "median": "0.48", %
+      "error plus": "0.46", %
+      "error minus": "1.1", %
+      "5th percentile": "{-}0.58", %
+      "95th percentile": "0.95"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\defaultbbhgwtcthree@XVIII@out{%
+    0.48}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\defaultbbhgwtcthree@XVIII@out{%
+    0.46}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\defaultbbhgwtcthree@XVIII@out{%
+    1.1}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\defaultbbhgwtcthree@XVIII@out{%
+    {-}0.58}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\defaultbbhgwtcthree@XVIII@out{%
+    0.95}%
+    \else%
+      \def\defaultbbhgwtcthree@XVIII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \defaultbbhgwtcthree@XVIII@out
+}\newcommand\defaultbbhgwtcthree@XIX[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\defaultbbhgwtcthree@XIX@out{%
+    \{%
+      "median": "1.3", %
+      "error plus": "2.4", %
+      "error minus": "0.93", %
+      "5th percentile": "0.40", %
+      "95th percentile": "3.7"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\defaultbbhgwtcthree@XIX@out{%
+    1.3}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\defaultbbhgwtcthree@XIX@out{%
+    2.4}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\defaultbbhgwtcthree@XIX@out{%
+    0.93}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\defaultbbhgwtcthree@XIX@out{%
+    0.40}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\defaultbbhgwtcthree@XIX@out{%
+    3.7}%
+    \else%
+      \def\defaultbbhgwtcthree@XIX@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \defaultbbhgwtcthree@XIX@out
+}\newcommand\defaultbbhgwtcthree@XX[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\defaultbbhgwtcthree@XX@out{%
+    \{%
+      "median": "2.6", %
+      "error plus": "1.8", %
+      "error minus": "1.8", %
+      "5th percentile": "0.87", %
+      "95th percentile": "4.4"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\defaultbbhgwtcthree@XX@out{%
+    2.6}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\defaultbbhgwtcthree@XX@out{%
+    1.8}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\defaultbbhgwtcthree@XX@out{%
+    1.8}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\defaultbbhgwtcthree@XX@out{%
+    0.87}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\defaultbbhgwtcthree@XX@out{%
+    4.4}%
+    \else%
+      \def\defaultbbhgwtcthree@XX@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \defaultbbhgwtcthree@XX@out
+}\newcommand\defaultbbhgwtcthree@XXI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\defaultbbhgwtcthree@XXI@out{%
+    \{%
+      "median": "17", %
+      "error plus": "10", %
+      "error minus": "6.5", %
+      "5th percentile": "11", %
+      "95th percentile": "28"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\defaultbbhgwtcthree@XXI@out{%
+    17}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\defaultbbhgwtcthree@XXI@out{%
+    10}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\defaultbbhgwtcthree@XXI@out{%
+    6.5}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\defaultbbhgwtcthree@XXI@out{%
+    11}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\defaultbbhgwtcthree@XXI@out{%
+    28}%
+    \else%
+      \def\defaultbbhgwtcthree@XXI@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \defaultbbhgwtcthree@XXI@out
+}\newcommand\defaultbbhgwtcthree@XXII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\defaultbbhgwtcthree@XXII@out{%
+    \{%
+      "powerlaw\_slope\_18{-}19": \{%
+        "median": "0.0049", %
+        "error plus": "2.8", %
+        "error minus": "3.0", %
+        "5th percentile": "{-}3.0", %
+        "95th percentile": "2.8"%
+      \}, %
+      "peak\_1\_location": \{%
+        "median": "10", %
+        "error plus": "0.6", %
+        "error minus": "1.0", %
+        "5th percentile": "9", %
+        "95th percentile": "10.7"%
+      \}, %
+      "peak\_2\_location": \{%
+        "median": "30.7", %
+        "error plus": "4.6", %
+        "error minus": "5.3", %
+        "5th percentile": "25", %
+        "95th percentile": "35"%
+      \}, %
+      "peak\_2\_percent": 95.0%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{powerlaw_slope_18-19}=0%
+      \let\defaultbbhgwtcthree@XXII@out\defaultbbhgwtcthree@XXXI%
+    \else%
+      \ifnum\pdfstrcmp{#1}{peak_1_location}=0%
+      \let\defaultbbhgwtcthree@XXII@out\defaultbbhgwtcthree@XXXII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{peak_2_location}=0%
+      \let\defaultbbhgwtcthree@XXII@out\defaultbbhgwtcthree@XXXIII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{peak_2_percent}=0%
+      \def\defaultbbhgwtcthree@XXII@out{%
+    95.0}%
+    \else%
+      \def\defaultbbhgwtcthree@XXII@out{%
+    ??}%
+    \fi\fi\fi\fi
+  \fi
+  \defaultbbhgwtcthree@XXII@out
+}\newcommand\defaultbbhgwtcthree@XXIII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\defaultbbhgwtcthree@XXIII@out{%
+    \{%
+      "median": "{-}3.2", %
+      "error plus": "8.8", %
+      "error minus": "5.1", %
+      "5th percentile": "{-}8.2", %
+      "95th percentile": "5.6"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\defaultbbhgwtcthree@XXIII@out{%
+    {-}3.2}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\defaultbbhgwtcthree@XXIII@out{%
+    8.8}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\defaultbbhgwtcthree@XXIII@out{%
+    5.1}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\defaultbbhgwtcthree@XXIII@out{%
+    {-}8.2}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\defaultbbhgwtcthree@XXIII@out{%
+    5.6}%
+    \else%
+      \def\defaultbbhgwtcthree@XXIII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \defaultbbhgwtcthree@XXIII@out
+}\newcommand\defaultbbhgwtcthree@XXIV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\defaultbbhgwtcthree@XXIV@out{%
+    \{%
+      "peak": \{%
+        "median": "1.0", %
+        "error plus": 0, %
+        "error minus": 0, %
+        "5th percentile": "1.0", %
+        "95th percentile": "1.0"%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{peak}=0%
+      \let\defaultbbhgwtcthree@XXIV@out\defaultbbhgwtcthree@XXXIV%
+    \else%
+      \def\defaultbbhgwtcthree@XXIV@out{%
+    ??}%
+    \fi
+  \fi
+  \defaultbbhgwtcthree@XXIV@out
+}\newcommand\defaultbbhgwtcthree@XXV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\defaultbbhgwtcthree@XXV@out{%
+    \{%
+      "peak": \{%
+        "median": "0.12", %
+        "error plus": "0.14", %
+        "error minus": "0.11", %
+        "5th percentile": "0.013", %
+        "95th percentile": "0.26"%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{peak}=0%
+      \let\defaultbbhgwtcthree@XXV@out\defaultbbhgwtcthree@XXXV%
+    \else%
+      \def\defaultbbhgwtcthree@XXV@out{%
+    ??}%
+    \fi
+  \fi
+  \defaultbbhgwtcthree@XXV@out
+}\newcommand\defaultbbhgwtcthree@XXVI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\defaultbbhgwtcthree@XXVI@out{%
+    \{%
+      "peak": \{%
+        "median": "0.12", %
+        "error plus": "0.14", %
+        "error minus": "0.11", %
+        "5th percentile": "0.013", %
+        "95th percentile": "0.26"%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{peak}=0%
+      \let\defaultbbhgwtcthree@XXVI@out\defaultbbhgwtcthree@XXXVI%
+    \else%
+      \def\defaultbbhgwtcthree@XXVI@out{%
+    ??}%
+    \fi
+  \fi
+  \defaultbbhgwtcthree@XXVI@out
+}\newcommand\defaultbbhgwtcthree@XXVII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\defaultbbhgwtcthree@XXVII@out{%
+    \{%
+      "peak": \{%
+        "median": "0.48", %
+        "error plus": "0.46", %
+        "error minus": "1.1", %
+        "5th percentile": "{-}0.58", %
+        "95th percentile": "0.95"%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{peak}=0%
+      \let\defaultbbhgwtcthree@XXVII@out\defaultbbhgwtcthree@XXXVII%
+    \else%
+      \def\defaultbbhgwtcthree@XXVII@out{%
+    ??}%
+    \fi
+  \fi
+  \defaultbbhgwtcthree@XXVII@out
+}\newcommand\defaultbbhgwtcthree@XXVIII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\defaultbbhgwtcthree@XXVIII@out{%
+    \{%
+      "peak": \{%
+        "median": "0.48", %
+        "error plus": "0.46", %
+        "error minus": "1.1", %
+        "5th percentile": "{-}0.58", %
+        "95th percentile": "0.95"%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{peak}=0%
+      \let\defaultbbhgwtcthree@XXVIII@out\defaultbbhgwtcthree@XXXVIII%
+    \else%
+      \def\defaultbbhgwtcthree@XXVIII@out{%
+    ??}%
+    \fi
+  \fi
+  \defaultbbhgwtcthree@XXVIII@out
+}\newcommand\defaultbbhgwtcthree@XXIX[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\defaultbbhgwtcthree@XXIX@out{%
+    \{%
+      "rate\_at\_z\_0{-}2": \{%
+        "median": "28", %
+        "error plus": "12", %
+        "error minus": "8.8", %
+        "5th percentile": "19", %
+        "95th percentile": "40"%
+      \}, %
+      "ppd": \{%
+        "median": "1.5", %
+        "error plus": "0.39", %
+        "error minus": "1.0", %
+        "5th percentile": "0.47", %
+        "95th percentile": "1.9"%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{rate_at_z_0-2}=0%
+      \let\defaultbbhgwtcthree@XXIX@out\defaultbbhgwtcthree@XXXIX%
+    \else%
+      \ifnum\pdfstrcmp{#1}{ppd}=0%
+      \let\defaultbbhgwtcthree@XXIX@out\defaultbbhgwtcthree@XL%
+    \else%
+      \def\defaultbbhgwtcthree@XXIX@out{%
+    ??}%
+    \fi\fi
+  \fi
+  \defaultbbhgwtcthree@XXIX@out
+}\newcommand\defaultbbhgwtcthree@XXX[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\defaultbbhgwtcthree@XXX@out{%
+    \{%
+      "median": "37", %
+      "error plus": "4.6", %
+      "error minus": "3.5", %
+      "5th percentile": "34", %
+      "95th percentile": "42"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\defaultbbhgwtcthree@XXX@out{%
+    37}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\defaultbbhgwtcthree@XXX@out{%
+    4.6}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\defaultbbhgwtcthree@XXX@out{%
+    3.5}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\defaultbbhgwtcthree@XXX@out{%
+    34}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\defaultbbhgwtcthree@XXX@out{%
+    42}%
+    \else%
+      \def\defaultbbhgwtcthree@XXX@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \defaultbbhgwtcthree@XXX@out
+}\newcommand\defaultbbhgwtcthree@XXXI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\defaultbbhgwtcthree@XXXI@out{%
+    \{%
+      "median": "0.0049", %
+      "error plus": "2.8", %
+      "error minus": "3.0", %
+      "5th percentile": "{-}3.0", %
+      "95th percentile": "2.8"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\defaultbbhgwtcthree@XXXI@out{%
+    0.0049}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\defaultbbhgwtcthree@XXXI@out{%
+    2.8}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\defaultbbhgwtcthree@XXXI@out{%
+    3.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\defaultbbhgwtcthree@XXXI@out{%
+    {-}3.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\defaultbbhgwtcthree@XXXI@out{%
+    2.8}%
+    \else%
+      \def\defaultbbhgwtcthree@XXXI@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \defaultbbhgwtcthree@XXXI@out
+}\newcommand\defaultbbhgwtcthree@XXXII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\defaultbbhgwtcthree@XXXII@out{%
+    \{%
+      "median": "10", %
+      "error plus": "0.6", %
+      "error minus": "1.0", %
+      "5th percentile": "9", %
+      "95th percentile": "10.7"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\defaultbbhgwtcthree@XXXII@out{%
+    10}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\defaultbbhgwtcthree@XXXII@out{%
+    0.6}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\defaultbbhgwtcthree@XXXII@out{%
+    1.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\defaultbbhgwtcthree@XXXII@out{%
+    9}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\defaultbbhgwtcthree@XXXII@out{%
+    10.7}%
+    \else%
+      \def\defaultbbhgwtcthree@XXXII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \defaultbbhgwtcthree@XXXII@out
+}\newcommand\defaultbbhgwtcthree@XXXIII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\defaultbbhgwtcthree@XXXIII@out{%
+    \{%
+      "median": "30.7", %
+      "error plus": "4.6", %
+      "error minus": "5.3", %
+      "5th percentile": "25", %
+      "95th percentile": "35"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\defaultbbhgwtcthree@XXXIII@out{%
+    30.7}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\defaultbbhgwtcthree@XXXIII@out{%
+    4.6}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\defaultbbhgwtcthree@XXXIII@out{%
+    5.3}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\defaultbbhgwtcthree@XXXIII@out{%
+    25}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\defaultbbhgwtcthree@XXXIII@out{%
+    35}%
+    \else%
+      \def\defaultbbhgwtcthree@XXXIII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \defaultbbhgwtcthree@XXXIII@out
+}\newcommand\defaultbbhgwtcthree@XXXIV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\defaultbbhgwtcthree@XXXIV@out{%
+    \{%
+      "median": "1.0", %
+      "error plus": 0, %
+      "error minus": 0, %
+      "5th percentile": "1.0", %
+      "95th percentile": "1.0"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\defaultbbhgwtcthree@XXXIV@out{%
+    1.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\defaultbbhgwtcthree@XXXIV@out{%
+    0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\defaultbbhgwtcthree@XXXIV@out{%
+    0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\defaultbbhgwtcthree@XXXIV@out{%
+    1.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\defaultbbhgwtcthree@XXXIV@out{%
+    1.0}%
+    \else%
+      \def\defaultbbhgwtcthree@XXXIV@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \defaultbbhgwtcthree@XXXIV@out
+}\newcommand\defaultbbhgwtcthree@XXXV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\defaultbbhgwtcthree@XXXV@out{%
+    \{%
+      "median": "0.12", %
+      "error plus": "0.14", %
+      "error minus": "0.11", %
+      "5th percentile": "0.013", %
+      "95th percentile": "0.26"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\defaultbbhgwtcthree@XXXV@out{%
+    0.12}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\defaultbbhgwtcthree@XXXV@out{%
+    0.14}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\defaultbbhgwtcthree@XXXV@out{%
+    0.11}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\defaultbbhgwtcthree@XXXV@out{%
+    0.013}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\defaultbbhgwtcthree@XXXV@out{%
+    0.26}%
+    \else%
+      \def\defaultbbhgwtcthree@XXXV@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \defaultbbhgwtcthree@XXXV@out
+}\newcommand\defaultbbhgwtcthree@XXXVI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\defaultbbhgwtcthree@XXXVI@out{%
+    \{%
+      "median": "0.12", %
+      "error plus": "0.14", %
+      "error minus": "0.11", %
+      "5th percentile": "0.013", %
+      "95th percentile": "0.26"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\defaultbbhgwtcthree@XXXVI@out{%
+    0.12}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\defaultbbhgwtcthree@XXXVI@out{%
+    0.14}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\defaultbbhgwtcthree@XXXVI@out{%
+    0.11}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\defaultbbhgwtcthree@XXXVI@out{%
+    0.013}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\defaultbbhgwtcthree@XXXVI@out{%
+    0.26}%
+    \else%
+      \def\defaultbbhgwtcthree@XXXVI@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \defaultbbhgwtcthree@XXXVI@out
+}\newcommand\defaultbbhgwtcthree@XXXVII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\defaultbbhgwtcthree@XXXVII@out{%
+    \{%
+      "median": "0.48", %
+      "error plus": "0.46", %
+      "error minus": "1.1", %
+      "5th percentile": "{-}0.58", %
+      "95th percentile": "0.95"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\defaultbbhgwtcthree@XXXVII@out{%
+    0.48}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\defaultbbhgwtcthree@XXXVII@out{%
+    0.46}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\defaultbbhgwtcthree@XXXVII@out{%
+    1.1}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\defaultbbhgwtcthree@XXXVII@out{%
+    {-}0.58}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\defaultbbhgwtcthree@XXXVII@out{%
+    0.95}%
+    \else%
+      \def\defaultbbhgwtcthree@XXXVII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \defaultbbhgwtcthree@XXXVII@out
+}\newcommand\defaultbbhgwtcthree@XXXVIII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\defaultbbhgwtcthree@XXXVIII@out{%
+    \{%
+      "median": "0.48", %
+      "error plus": "0.46", %
+      "error minus": "1.1", %
+      "5th percentile": "{-}0.58", %
+      "95th percentile": "0.95"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\defaultbbhgwtcthree@XXXVIII@out{%
+    0.48}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\defaultbbhgwtcthree@XXXVIII@out{%
+    0.46}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\defaultbbhgwtcthree@XXXVIII@out{%
+    1.1}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\defaultbbhgwtcthree@XXXVIII@out{%
+    {-}0.58}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\defaultbbhgwtcthree@XXXVIII@out{%
+    0.95}%
+    \else%
+      \def\defaultbbhgwtcthree@XXXVIII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \defaultbbhgwtcthree@XXXVIII@out
+}\newcommand\defaultbbhgwtcthree@XXXIX[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\defaultbbhgwtcthree@XXXIX@out{%
+    \{%
+      "median": "28", %
+      "error plus": "12", %
+      "error minus": "8.8", %
+      "5th percentile": "19", %
+      "95th percentile": "40"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\defaultbbhgwtcthree@XXXIX@out{%
+    28}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\defaultbbhgwtcthree@XXXIX@out{%
+    12}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\defaultbbhgwtcthree@XXXIX@out{%
+    8.8}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\defaultbbhgwtcthree@XXXIX@out{%
+    19}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\defaultbbhgwtcthree@XXXIX@out{%
+    40}%
+    \else%
+      \def\defaultbbhgwtcthree@XXXIX@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \defaultbbhgwtcthree@XXXIX@out
+}\newcommand\defaultbbhgwtcthree@XL[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\defaultbbhgwtcthree@XL@out{%
+    \{%
+      "median": "1.5", %
+      "error plus": "0.39", %
+      "error minus": "1.0", %
+      "5th percentile": "0.47", %
+      "95th percentile": "1.9"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\defaultbbhgwtcthree@XL@out{%
+    1.5}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\defaultbbhgwtcthree@XL@out{%
+    0.39}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\defaultbbhgwtcthree@XL@out{%
+    1.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\defaultbbhgwtcthree@XL@out{%
+    0.47}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\defaultbbhgwtcthree@XL@out{%
+    1.9}%
+    \else%
+      \def\defaultbbhgwtcthree@XL@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \defaultbbhgwtcthree@XL@out
+}%
+\makeatother%

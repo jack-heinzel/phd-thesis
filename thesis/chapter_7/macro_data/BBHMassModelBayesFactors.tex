@@ -1,0 +1,39 @@
+\makeatletter%
+\newcommand\BBHMassModelBayesFactors[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\BBHMassModelBayesFactors@out{%
+    \{%
+      "default\_dominant\_mode": 65, %
+      "default\_subdominant\_mode": 35, %
+      "pl2pk1": "0.14", %
+      "pl2pk3": "{-}0.20", %
+      "plp": "{-}2.20"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{default_dominant_mode}=0%
+      \def\BBHMassModelBayesFactors@out{%
+    65}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{default_subdominant_mode}=0%
+      \def\BBHMassModelBayesFactors@out{%
+    35}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{pl2pk1}=0%
+      \def\BBHMassModelBayesFactors@out{%
+    0.14}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{pl2pk3}=0%
+      \def\BBHMassModelBayesFactors@out{%
+    {-}0.20}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{plp}=0%
+      \def\BBHMassModelBayesFactors@out{%
+    {-}2.20}%
+    \else%
+      \def\BBHMassModelBayesFactors@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \BBHMassModelBayesFactors@out
+}%
+\makeatother%

@@ -1,0 +1,34 @@
+\makeatletter%
+\newcommand\defaultVersusBSplineSpinMagnitudes[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\defaultVersusBSplineSpinMagnitudes@out{%
+    \{%
+      "discrepancy percentile for chi=0.8": 85, %
+      "discrepancy percentile for chi=0.9": 96, %
+      "discrepancy percentile for chi=1.0": 98, %
+      "chi at discrepancy=90": 0.83%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{discrepancy percentile for chi=0.8}=0%
+      \def\defaultVersusBSplineSpinMagnitudes@out{%
+    85}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{discrepancy percentile for chi=0.9}=0%
+      \def\defaultVersusBSplineSpinMagnitudes@out{%
+    96}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{discrepancy percentile for chi=1.0}=0%
+      \def\defaultVersusBSplineSpinMagnitudes@out{%
+    98}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{chi at discrepancy=90}=0%
+      \def\defaultVersusBSplineSpinMagnitudes@out{%
+    0.83}%
+    \else%
+      \def\defaultVersusBSplineSpinMagnitudes@out{%
+    ??}%
+    \fi\fi\fi\fi
+  \fi
+  \defaultVersusBSplineSpinMagnitudes@out
+}%
+\makeatother%

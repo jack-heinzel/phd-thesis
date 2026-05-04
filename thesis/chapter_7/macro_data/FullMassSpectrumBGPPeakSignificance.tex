@@ -1,0 +1,64 @@
+\makeatletter%
+\newcommand\FullMassSpectrumBGPPeakSignificance[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\FullMassSpectrumBGPPeakSignificance@out{%
+    \{%
+      "m1\_peaks": \{%
+        "(9, 12)": 77%
+      \}, %
+      "m2\_peaks": \{%
+        "(1, 2)": 99, %
+        "(7.23021864, 9.2586008)": 97%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{m1_peaks}=0%
+      \let\FullMassSpectrumBGPPeakSignificance@out\FullMassSpectrumBGPPeakSignificance@I%
+    \else%
+      \ifnum\pdfstrcmp{#1}{m2_peaks}=0%
+      \let\FullMassSpectrumBGPPeakSignificance@out\FullMassSpectrumBGPPeakSignificance@II%
+    \else%
+      \def\FullMassSpectrumBGPPeakSignificance@out{%
+    ??}%
+    \fi\fi
+  \fi
+  \FullMassSpectrumBGPPeakSignificance@out
+}\newcommand\FullMassSpectrumBGPPeakSignificance@I[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\FullMassSpectrumBGPPeakSignificance@I@out{%
+    \{%
+      "(9, 12)": 77%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{(9, 12)}=0%
+      \def\FullMassSpectrumBGPPeakSignificance@I@out{%
+    77}%
+    \else%
+      \def\FullMassSpectrumBGPPeakSignificance@I@out{%
+    ??}%
+    \fi
+  \fi
+  \FullMassSpectrumBGPPeakSignificance@I@out
+}\newcommand\FullMassSpectrumBGPPeakSignificance@II[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\FullMassSpectrumBGPPeakSignificance@II@out{%
+    \{%
+      "(1, 2)": 99, %
+      "(7.23021864, 9.2586008)": 97%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{(1, 2)}=0%
+      \def\FullMassSpectrumBGPPeakSignificance@II@out{%
+    99}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{(7.23021864, 9.2586008)}=0%
+      \def\FullMassSpectrumBGPPeakSignificance@II@out{%
+    97}%
+    \else%
+      \def\FullMassSpectrumBGPPeakSignificance@II@out{%
+    ??}%
+    \fi\fi
+  \fi
+  \FullMassSpectrumBGPPeakSignificance@II@out
+}%
+\makeatother%

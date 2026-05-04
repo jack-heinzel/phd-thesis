@@ -1,0 +1,19 @@
+\makeatletter%
+\newcommand\VaryingBetaQsTwoModesBetaDiffPerc[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\VaryingBetaQsTwoModesBetaDiffPerc@out{%
+    \{%
+      "beta\_peak\_pl\_diff\_perc": 88.6%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{beta_peak_pl_diff_perc}=0%
+      \def\VaryingBetaQsTwoModesBetaDiffPerc@out{%
+    88.6}%
+    \else%
+      \def\VaryingBetaQsTwoModesBetaDiffPerc@out{%
+    ??}%
+    \fi
+  \fi
+  \VaryingBetaQsTwoModesBetaDiffPerc@out
+}%
+\makeatother%

@@ -1,0 +1,326 @@
+\makeatletter%
+\newcommand\FullMassSpectrumBGPRate[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\FullMassSpectrumBGPRate@out{%
+    \{%
+      "R\_BNS": \{%
+        "50th\_percentile": 51, %
+        "5th\_percentile": 9, %
+        "95th\_percentile": 169, %
+        "error\_plus": 118, %
+        "error\_minus": 42, %
+        "mean": 65.16500447967286%
+      \}, %
+      "R\_NSBH": \{%
+        "50th\_percentile": 33, %
+        "5th\_percentile": 9, %
+        "95th\_percentile": 86, %
+        "error\_plus": 53, %
+        "error\_minus": 23, %
+        "mean": 37.968544618977496%
+      \}, %
+      "R\_BBH": \{%
+        "50th\_percentile": 20, %
+        "5th\_percentile": 15, %
+        "95th\_percentile": 26, %
+        "error\_plus": 7, %
+        "error\_minus": 5, %
+        "mean": 19.937265368364386%
+      \}, %
+      "R\_NS{-}Gap": \{%
+        "50th\_percentile": 17, %
+        "5th\_percentile": 2, %
+        "95th\_percentile": 64, %
+        "error\_plus": 48, %
+        "error\_minus": 15, %
+        "mean": 22.777847175851687%
+      \}, %
+      "R\_BH{-}Gap": \{%
+        "50th\_percentile": 1.6, %
+        "5th\_percentile": 0.2, %
+        "95th\_percentile": 7.0, %
+        "error\_plus": 5.3, %
+        "error\_minus": 1.4, %
+        "mean": 2.3515819405458296%
+      \}, %
+      "R\_Full": \{%
+        "50th\_percentile": 110, %
+        "5th\_percentile": 50, %
+        "95th\_percentile": 240, %
+        "error\_plus": 130, %
+        "error\_minus": 60, %
+        "mean": 123.07081446701474%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{R_BNS}=0%
+      \let\FullMassSpectrumBGPRate@out\FullMassSpectrumBGPRate@I%
+    \else%
+      \ifnum\pdfstrcmp{#1}{R_NSBH}=0%
+      \let\FullMassSpectrumBGPRate@out\FullMassSpectrumBGPRate@II%
+    \else%
+      \ifnum\pdfstrcmp{#1}{R_BBH}=0%
+      \let\FullMassSpectrumBGPRate@out\FullMassSpectrumBGPRate@III%
+    \else%
+      \ifnum\pdfstrcmp{#1}{R_NS-Gap}=0%
+      \let\FullMassSpectrumBGPRate@out\FullMassSpectrumBGPRate@IV%
+    \else%
+      \ifnum\pdfstrcmp{#1}{R_BH-Gap}=0%
+      \let\FullMassSpectrumBGPRate@out\FullMassSpectrumBGPRate@V%
+    \else%
+      \ifnum\pdfstrcmp{#1}{R_Full}=0%
+      \let\FullMassSpectrumBGPRate@out\FullMassSpectrumBGPRate@VI%
+    \else%
+      \def\FullMassSpectrumBGPRate@out{%
+    ??}%
+    \fi\fi\fi\fi\fi\fi
+  \fi
+  \FullMassSpectrumBGPRate@out
+}\newcommand\FullMassSpectrumBGPRate@I[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\FullMassSpectrumBGPRate@I@out{%
+    \{%
+      "50th\_percentile": 51, %
+      "5th\_percentile": 9, %
+      "95th\_percentile": 169, %
+      "error\_plus": 118, %
+      "error\_minus": 42, %
+      "mean": 65.16500447967286%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{50th_percentile}=0%
+      \def\FullMassSpectrumBGPRate@I@out{%
+    51}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th_percentile}=0%
+      \def\FullMassSpectrumBGPRate@I@out{%
+    9}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th_percentile}=0%
+      \def\FullMassSpectrumBGPRate@I@out{%
+    169}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error_plus}=0%
+      \def\FullMassSpectrumBGPRate@I@out{%
+    118}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error_minus}=0%
+      \def\FullMassSpectrumBGPRate@I@out{%
+    42}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mean}=0%
+      \def\FullMassSpectrumBGPRate@I@out{%
+    65.16500447967286}%
+    \else%
+      \def\FullMassSpectrumBGPRate@I@out{%
+    ??}%
+    \fi\fi\fi\fi\fi\fi
+  \fi
+  \FullMassSpectrumBGPRate@I@out
+}\newcommand\FullMassSpectrumBGPRate@II[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\FullMassSpectrumBGPRate@II@out{%
+    \{%
+      "50th\_percentile": 33, %
+      "5th\_percentile": 9, %
+      "95th\_percentile": 86, %
+      "error\_plus": 53, %
+      "error\_minus": 23, %
+      "mean": 37.968544618977496%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{50th_percentile}=0%
+      \def\FullMassSpectrumBGPRate@II@out{%
+    33}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th_percentile}=0%
+      \def\FullMassSpectrumBGPRate@II@out{%
+    9}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th_percentile}=0%
+      \def\FullMassSpectrumBGPRate@II@out{%
+    86}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error_plus}=0%
+      \def\FullMassSpectrumBGPRate@II@out{%
+    53}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error_minus}=0%
+      \def\FullMassSpectrumBGPRate@II@out{%
+    23}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mean}=0%
+      \def\FullMassSpectrumBGPRate@II@out{%
+    37.968544618977496}%
+    \else%
+      \def\FullMassSpectrumBGPRate@II@out{%
+    ??}%
+    \fi\fi\fi\fi\fi\fi
+  \fi
+  \FullMassSpectrumBGPRate@II@out
+}\newcommand\FullMassSpectrumBGPRate@III[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\FullMassSpectrumBGPRate@III@out{%
+    \{%
+      "50th\_percentile": 20, %
+      "5th\_percentile": 15, %
+      "95th\_percentile": 26, %
+      "error\_plus": 7, %
+      "error\_minus": 5, %
+      "mean": 19.937265368364386%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{50th_percentile}=0%
+      \def\FullMassSpectrumBGPRate@III@out{%
+    20}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th_percentile}=0%
+      \def\FullMassSpectrumBGPRate@III@out{%
+    15}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th_percentile}=0%
+      \def\FullMassSpectrumBGPRate@III@out{%
+    26}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error_plus}=0%
+      \def\FullMassSpectrumBGPRate@III@out{%
+    7}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error_minus}=0%
+      \def\FullMassSpectrumBGPRate@III@out{%
+    5}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mean}=0%
+      \def\FullMassSpectrumBGPRate@III@out{%
+    19.937265368364386}%
+    \else%
+      \def\FullMassSpectrumBGPRate@III@out{%
+    ??}%
+    \fi\fi\fi\fi\fi\fi
+  \fi
+  \FullMassSpectrumBGPRate@III@out
+}\newcommand\FullMassSpectrumBGPRate@IV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\FullMassSpectrumBGPRate@IV@out{%
+    \{%
+      "50th\_percentile": 17, %
+      "5th\_percentile": 2, %
+      "95th\_percentile": 64, %
+      "error\_plus": 48, %
+      "error\_minus": 15, %
+      "mean": 22.777847175851687%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{50th_percentile}=0%
+      \def\FullMassSpectrumBGPRate@IV@out{%
+    17}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th_percentile}=0%
+      \def\FullMassSpectrumBGPRate@IV@out{%
+    2}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th_percentile}=0%
+      \def\FullMassSpectrumBGPRate@IV@out{%
+    64}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error_plus}=0%
+      \def\FullMassSpectrumBGPRate@IV@out{%
+    48}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error_minus}=0%
+      \def\FullMassSpectrumBGPRate@IV@out{%
+    15}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mean}=0%
+      \def\FullMassSpectrumBGPRate@IV@out{%
+    22.777847175851687}%
+    \else%
+      \def\FullMassSpectrumBGPRate@IV@out{%
+    ??}%
+    \fi\fi\fi\fi\fi\fi
+  \fi
+  \FullMassSpectrumBGPRate@IV@out
+}\newcommand\FullMassSpectrumBGPRate@V[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\FullMassSpectrumBGPRate@V@out{%
+    \{%
+      "50th\_percentile": 1.6, %
+      "5th\_percentile": 0.2, %
+      "95th\_percentile": 7.0, %
+      "error\_plus": 5.3, %
+      "error\_minus": 1.4, %
+      "mean": 2.3515819405458296%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{50th_percentile}=0%
+      \def\FullMassSpectrumBGPRate@V@out{%
+    1.6}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th_percentile}=0%
+      \def\FullMassSpectrumBGPRate@V@out{%
+    0.2}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th_percentile}=0%
+      \def\FullMassSpectrumBGPRate@V@out{%
+    7.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error_plus}=0%
+      \def\FullMassSpectrumBGPRate@V@out{%
+    5.3}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error_minus}=0%
+      \def\FullMassSpectrumBGPRate@V@out{%
+    1.4}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mean}=0%
+      \def\FullMassSpectrumBGPRate@V@out{%
+    2.3515819405458296}%
+    \else%
+      \def\FullMassSpectrumBGPRate@V@out{%
+    ??}%
+    \fi\fi\fi\fi\fi\fi
+  \fi
+  \FullMassSpectrumBGPRate@V@out
+}\newcommand\FullMassSpectrumBGPRate@VI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\FullMassSpectrumBGPRate@VI@out{%
+    \{%
+      "50th\_percentile": 110, %
+      "5th\_percentile": 50, %
+      "95th\_percentile": 240, %
+      "error\_plus": 130, %
+      "error\_minus": 60, %
+      "mean": 123.07081446701474%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{50th_percentile}=0%
+      \def\FullMassSpectrumBGPRate@VI@out{%
+    110}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th_percentile}=0%
+      \def\FullMassSpectrumBGPRate@VI@out{%
+    50}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th_percentile}=0%
+      \def\FullMassSpectrumBGPRate@VI@out{%
+    240}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error_plus}=0%
+      \def\FullMassSpectrumBGPRate@VI@out{%
+    130}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error_minus}=0%
+      \def\FullMassSpectrumBGPRate@VI@out{%
+    60}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mean}=0%
+      \def\FullMassSpectrumBGPRate@VI@out{%
+    123.07081446701474}%
+    \else%
+      \def\FullMassSpectrumBGPRate@VI@out{%
+    ??}%
+    \fi\fi\fi\fi\fi\fi
+  \fi
+  \FullMassSpectrumBGPRate@VI@out
+}%
+\makeatother%

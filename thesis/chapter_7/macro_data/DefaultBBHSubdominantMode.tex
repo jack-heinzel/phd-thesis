@@ -1,0 +1,1725 @@
+\makeatletter%
+\newcommand\DefaultBBHSubdominantMode[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\DefaultBBHSubdominantMode@out{%
+    \{%
+      "alpha\_1": \{%
+        "median": "1.9", %
+        "error plus": "1.4", %
+        "error minus": "1.9", %
+        "5th percentile": "{-}0.014", %
+        "95th percentile": "3.4"%
+      \}, %
+      "alpha\_2": \{%
+        "median": "4.4", %
+        "error plus": "1.8", %
+        "error minus": "1.6", %
+        "5th percentile": "2.8", %
+        "95th percentile": "6.2"%
+      \}, %
+      "beta": \{%
+        "median": "1.5", %
+        "error plus": "1.4", %
+        "error minus": "1.2", %
+        "5th percentile": "0.33", %
+        "95th percentile": "2.9"%
+      \}, %
+      "mlow\_1": \{%
+        "median": "5.0", %
+        "error plus": "3.0", %
+        "error minus": "1.8", %
+        "5th percentile": "3.2", %
+        "95th percentile": "8.0"%
+      \}, %
+      "mlow\_2": \{%
+        "median": "3.6", %
+        "error plus": "1.3", %
+        "error minus": "0.54", %
+        "5th percentile": "3.0", %
+        "95th percentile": "4.9"%
+      \}, %
+      "break\_mass": \{%
+        "median": "36", %
+        "error plus": "13", %
+        "error minus": "13", %
+        "5th percentile": "23", %
+        "95th percentile": "48"%
+      \}, %
+      "mpp\_1": \{%
+        "median": "9.8", %
+        "error plus": "0.45", %
+        "error minus": "1.2", %
+        "5th percentile": "8.6", %
+        "95th percentile": "10"%
+      \}, %
+      "mpp\_2": \{%
+        "median": "29", %
+        "error plus": "2.8", %
+        "error minus": "3.2", %
+        "5th percentile": "26", %
+        "95th percentile": "32"%
+      \}, %
+      "sigpp\_1": \{%
+        "median": "0.65", %
+        "error plus": "0.85", %
+        "error minus": "0.36", %
+        "5th percentile": "0.29", %
+        "95th percentile": "1.5"%
+      \}, %
+      "sigpp\_2": \{%
+        "median": "7.7", %
+        "error plus": "2.1", %
+        "error minus": "2.7", %
+        "5th percentile": "5.0", %
+        "95th percentile": "9.7"%
+      \}, %
+      "delta\_m\_1": \{%
+        "median": "4.5", %
+        "error plus": "5.0", %
+        "error minus": "4.1", %
+        "5th percentile": "0.43", %
+        "95th percentile": "9.4"%
+      \}, %
+      "delta\_m\_2": \{%
+        "median": "4.4", %
+        "error plus": "4.2", %
+        "error minus": "4.0", %
+        "5th percentile": "0.34", %
+        "95th percentile": "8.6"%
+      \}, %
+      "lam\_0": \{%
+        "median": "0.32", %
+        "error plus": "0.31", %
+        "error minus": "0.21", %
+        "5th percentile": "0.11", %
+        "95th percentile": "0.64"%
+      \}, %
+      "lam\_1": \{%
+        "median": "0.60", %
+        "error plus": "0.21", %
+        "error minus": "0.29", %
+        "5th percentile": "0.31", %
+        "95th percentile": "0.81"%
+      \}, %
+      "mu\_chi": \{%
+        "median": "0.081", %
+        "error plus": "0.14", %
+        "error minus": "0.072", %
+        "5th percentile": "0.0088", %
+        "95th percentile": "0.22"%
+      \}, %
+      "sigma\_chi": \{%
+        "median": "0.33", %
+        "error plus": "0.070", %
+        "error minus": "0.073", %
+        "5th percentile": "0.26", %
+        "95th percentile": "0.40"%
+      \}, %
+      "xi\_spin": \{%
+        "median": "0.64", %
+        "error plus": "0.33", %
+        "error minus": "0.53", %
+        "5th percentile": "0.11", %
+        "95th percentile": "0.96"%
+      \}, %
+      "mu\_spin": \{%
+        "median": "0.38", %
+        "error plus": "0.55", %
+        "error minus": "0.93", %
+        "5th percentile": "{-}0.56", %
+        "95th percentile": "0.93"%
+      \}, %
+      "sigma\_spin": \{%
+        "median": "1.3", %
+        "error plus": "2.3", %
+        "error minus": "0.85", %
+        "5th percentile": "0.47", %
+        "95th percentile": "3.6"%
+      \}, %
+      "lamb": \{%
+        "median": "3.5", %
+        "error plus": "0.92", %
+        "error minus": "0.87", %
+        "5th percentile": "2.6", %
+        "95th percentile": "4.4"%
+      \}, %
+      "rate": \{%
+        "median": "15", %
+        "error plus": "5.7", %
+        "error minus": "4.2", %
+        "5th percentile": "11", %
+        "95th percentile": "21"%
+      \}, %
+      "mass\_1": \{%
+        "powerlaw\_slope\_18{-}19": \{%
+          "median": "0.84", %
+          "error plus": "1.4", %
+          "error minus": "1.7", %
+          "5th percentile": "{-}0.81", %
+          "95th percentile": "2.2"%
+        \}, %
+        "peak\_1\_location": \{%
+          "median": "9.8", %
+          "error plus": "0.3", %
+          "error minus": "0.6", %
+          "5th percentile": "9", %
+          "95th percentile": "10.1"%
+        \}, %
+        "peak\_2\_location": \{%
+          "median": "27.7", %
+          "error plus": "3.0", %
+          "error minus": "4.5", %
+          "5th percentile": "23", %
+          "95th percentile": "31"%
+        \}, %
+        "peak\_2\_percent": 54.0%
+      \}, %
+      "alpha\_diff": \{%
+        "median": "{-}2.7", %
+        "error plus": "2.9", %
+        "error minus": "3.0", %
+        "5th percentile": "{-}5.6", %
+        "95th percentile": "0.29"%
+      \}, %
+      "alpha\_diff\_perc": 93.0, %
+      "mass\_ratio": \{%
+        "peak": \{%
+          "median": "1.0", %
+          "error plus": 0, %
+          "error minus": 0, %
+          "5th percentile": "1.0", %
+          "95th percentile": "1.0"%
+        \}%
+      \}, %
+      "a\_1": \{%
+        "peak": \{%
+          "median": "0.081", %
+          "error plus": "0.14", %
+          "error minus": "0.072", %
+          "5th percentile": "0.0090", %
+          "95th percentile": "0.22"%
+        \}%
+      \}, %
+      "a\_2": \{%
+        "peak": \{%
+          "median": "0.081", %
+          "error plus": "0.14", %
+          "error minus": "0.072", %
+          "5th percentile": "0.0090", %
+          "95th percentile": "0.22"%
+        \}%
+      \}, %
+      "cos\_tilt\_1": \{%
+        "peak": \{%
+          "median": "0.38", %
+          "error plus": "0.55", %
+          "error minus": "0.93", %
+          "5th percentile": "{-}0.56", %
+          "95th percentile": "0.93"%
+        \}%
+      \}, %
+      "cos\_tilt\_2": \{%
+        "peak": \{%
+          "median": "0.38", %
+          "error plus": "0.55", %
+          "error minus": "0.93", %
+          "5th percentile": "{-}0.56", %
+          "95th percentile": "0.93"%
+        \}%
+      \}, %
+      "redshift": \{%
+        "rate\_at\_z\_0{-}2": \{%
+          "median": "28", %
+          "error plus": "8.9", %
+          "error minus": "6.6", %
+          "5th percentile": "22", %
+          "95th percentile": "37"%
+        \}, %
+        "ppd": \{%
+          "median": "1.5", %
+          "error plus": "0.37", %
+          "error minus": "0.95", %
+          "5th percentile": "0.55", %
+          "95th percentile": "1.9"%
+        \}%
+      \}, %
+      "mu\_plus\_sig": \{%
+        "median": "36", %
+        "error plus": "3.6", %
+        "error minus": "3.2", %
+        "5th percentile": "33", %
+        "95th percentile": "40"%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{alpha_1}=0%
+      \let\DefaultBBHSubdominantMode@out\DefaultBBHSubdominantMode@I%
+    \else%
+      \ifnum\pdfstrcmp{#1}{alpha_2}=0%
+      \let\DefaultBBHSubdominantMode@out\DefaultBBHSubdominantMode@II%
+    \else%
+      \ifnum\pdfstrcmp{#1}{beta}=0%
+      \let\DefaultBBHSubdominantMode@out\DefaultBBHSubdominantMode@III%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mlow_1}=0%
+      \let\DefaultBBHSubdominantMode@out\DefaultBBHSubdominantMode@IV%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mlow_2}=0%
+      \let\DefaultBBHSubdominantMode@out\DefaultBBHSubdominantMode@V%
+    \else%
+      \ifnum\pdfstrcmp{#1}{break_mass}=0%
+      \let\DefaultBBHSubdominantMode@out\DefaultBBHSubdominantMode@VI%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mpp_1}=0%
+      \let\DefaultBBHSubdominantMode@out\DefaultBBHSubdominantMode@VII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mpp_2}=0%
+      \let\DefaultBBHSubdominantMode@out\DefaultBBHSubdominantMode@VIII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{sigpp_1}=0%
+      \let\DefaultBBHSubdominantMode@out\DefaultBBHSubdominantMode@IX%
+    \else%
+      \ifnum\pdfstrcmp{#1}{sigpp_2}=0%
+      \let\DefaultBBHSubdominantMode@out\DefaultBBHSubdominantMode@X%
+    \else%
+      \ifnum\pdfstrcmp{#1}{delta_m_1}=0%
+      \let\DefaultBBHSubdominantMode@out\DefaultBBHSubdominantMode@XI%
+    \else%
+      \ifnum\pdfstrcmp{#1}{delta_m_2}=0%
+      \let\DefaultBBHSubdominantMode@out\DefaultBBHSubdominantMode@XII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{lam_0}=0%
+      \let\DefaultBBHSubdominantMode@out\DefaultBBHSubdominantMode@XIII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{lam_1}=0%
+      \let\DefaultBBHSubdominantMode@out\DefaultBBHSubdominantMode@XIV%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mu_chi}=0%
+      \let\DefaultBBHSubdominantMode@out\DefaultBBHSubdominantMode@XV%
+    \else%
+      \ifnum\pdfstrcmp{#1}{sigma_chi}=0%
+      \let\DefaultBBHSubdominantMode@out\DefaultBBHSubdominantMode@XVI%
+    \else%
+      \ifnum\pdfstrcmp{#1}{xi_spin}=0%
+      \let\DefaultBBHSubdominantMode@out\DefaultBBHSubdominantMode@XVII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mu_spin}=0%
+      \let\DefaultBBHSubdominantMode@out\DefaultBBHSubdominantMode@XVIII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{sigma_spin}=0%
+      \let\DefaultBBHSubdominantMode@out\DefaultBBHSubdominantMode@XIX%
+    \else%
+      \ifnum\pdfstrcmp{#1}{lamb}=0%
+      \let\DefaultBBHSubdominantMode@out\DefaultBBHSubdominantMode@XX%
+    \else%
+      \ifnum\pdfstrcmp{#1}{rate}=0%
+      \let\DefaultBBHSubdominantMode@out\DefaultBBHSubdominantMode@XXI%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mass_1}=0%
+      \let\DefaultBBHSubdominantMode@out\DefaultBBHSubdominantMode@XXII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{alpha_diff}=0%
+      \let\DefaultBBHSubdominantMode@out\DefaultBBHSubdominantMode@XXIII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{alpha_diff_perc}=0%
+      \def\DefaultBBHSubdominantMode@out{%
+    93.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mass_ratio}=0%
+      \let\DefaultBBHSubdominantMode@out\DefaultBBHSubdominantMode@XXIV%
+    \else%
+      \ifnum\pdfstrcmp{#1}{a_1}=0%
+      \let\DefaultBBHSubdominantMode@out\DefaultBBHSubdominantMode@XXV%
+    \else%
+      \ifnum\pdfstrcmp{#1}{a_2}=0%
+      \let\DefaultBBHSubdominantMode@out\DefaultBBHSubdominantMode@XXVI%
+    \else%
+      \ifnum\pdfstrcmp{#1}{cos_tilt_1}=0%
+      \let\DefaultBBHSubdominantMode@out\DefaultBBHSubdominantMode@XXVII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{cos_tilt_2}=0%
+      \let\DefaultBBHSubdominantMode@out\DefaultBBHSubdominantMode@XXVIII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{redshift}=0%
+      \let\DefaultBBHSubdominantMode@out\DefaultBBHSubdominantMode@XXIX%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mu_plus_sig}=0%
+      \let\DefaultBBHSubdominantMode@out\DefaultBBHSubdominantMode@XXX%
+    \else%
+      \def\DefaultBBHSubdominantMode@out{%
+    ??}%
+    \fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi
+  \fi
+  \DefaultBBHSubdominantMode@out
+}\newcommand\DefaultBBHSubdominantMode@I[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\DefaultBBHSubdominantMode@I@out{%
+    \{%
+      "median": "1.9", %
+      "error plus": "1.4", %
+      "error minus": "1.9", %
+      "5th percentile": "{-}0.014", %
+      "95th percentile": "3.4"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\DefaultBBHSubdominantMode@I@out{%
+    1.9}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\DefaultBBHSubdominantMode@I@out{%
+    1.4}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\DefaultBBHSubdominantMode@I@out{%
+    1.9}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\DefaultBBHSubdominantMode@I@out{%
+    {-}0.014}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\DefaultBBHSubdominantMode@I@out{%
+    3.4}%
+    \else%
+      \def\DefaultBBHSubdominantMode@I@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \DefaultBBHSubdominantMode@I@out
+}\newcommand\DefaultBBHSubdominantMode@II[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\DefaultBBHSubdominantMode@II@out{%
+    \{%
+      "median": "4.4", %
+      "error plus": "1.8", %
+      "error minus": "1.6", %
+      "5th percentile": "2.8", %
+      "95th percentile": "6.2"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\DefaultBBHSubdominantMode@II@out{%
+    4.4}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\DefaultBBHSubdominantMode@II@out{%
+    1.8}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\DefaultBBHSubdominantMode@II@out{%
+    1.6}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\DefaultBBHSubdominantMode@II@out{%
+    2.8}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\DefaultBBHSubdominantMode@II@out{%
+    6.2}%
+    \else%
+      \def\DefaultBBHSubdominantMode@II@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \DefaultBBHSubdominantMode@II@out
+}\newcommand\DefaultBBHSubdominantMode@III[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\DefaultBBHSubdominantMode@III@out{%
+    \{%
+      "median": "1.5", %
+      "error plus": "1.4", %
+      "error minus": "1.2", %
+      "5th percentile": "0.33", %
+      "95th percentile": "2.9"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\DefaultBBHSubdominantMode@III@out{%
+    1.5}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\DefaultBBHSubdominantMode@III@out{%
+    1.4}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\DefaultBBHSubdominantMode@III@out{%
+    1.2}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\DefaultBBHSubdominantMode@III@out{%
+    0.33}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\DefaultBBHSubdominantMode@III@out{%
+    2.9}%
+    \else%
+      \def\DefaultBBHSubdominantMode@III@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \DefaultBBHSubdominantMode@III@out
+}\newcommand\DefaultBBHSubdominantMode@IV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\DefaultBBHSubdominantMode@IV@out{%
+    \{%
+      "median": "5.0", %
+      "error plus": "3.0", %
+      "error minus": "1.8", %
+      "5th percentile": "3.2", %
+      "95th percentile": "8.0"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\DefaultBBHSubdominantMode@IV@out{%
+    5.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\DefaultBBHSubdominantMode@IV@out{%
+    3.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\DefaultBBHSubdominantMode@IV@out{%
+    1.8}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\DefaultBBHSubdominantMode@IV@out{%
+    3.2}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\DefaultBBHSubdominantMode@IV@out{%
+    8.0}%
+    \else%
+      \def\DefaultBBHSubdominantMode@IV@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \DefaultBBHSubdominantMode@IV@out
+}\newcommand\DefaultBBHSubdominantMode@V[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\DefaultBBHSubdominantMode@V@out{%
+    \{%
+      "median": "3.6", %
+      "error plus": "1.3", %
+      "error minus": "0.54", %
+      "5th percentile": "3.0", %
+      "95th percentile": "4.9"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\DefaultBBHSubdominantMode@V@out{%
+    3.6}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\DefaultBBHSubdominantMode@V@out{%
+    1.3}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\DefaultBBHSubdominantMode@V@out{%
+    0.54}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\DefaultBBHSubdominantMode@V@out{%
+    3.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\DefaultBBHSubdominantMode@V@out{%
+    4.9}%
+    \else%
+      \def\DefaultBBHSubdominantMode@V@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \DefaultBBHSubdominantMode@V@out
+}\newcommand\DefaultBBHSubdominantMode@VI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\DefaultBBHSubdominantMode@VI@out{%
+    \{%
+      "median": "36", %
+      "error plus": "13", %
+      "error minus": "13", %
+      "5th percentile": "23", %
+      "95th percentile": "48"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\DefaultBBHSubdominantMode@VI@out{%
+    36}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\DefaultBBHSubdominantMode@VI@out{%
+    13}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\DefaultBBHSubdominantMode@VI@out{%
+    13}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\DefaultBBHSubdominantMode@VI@out{%
+    23}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\DefaultBBHSubdominantMode@VI@out{%
+    48}%
+    \else%
+      \def\DefaultBBHSubdominantMode@VI@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \DefaultBBHSubdominantMode@VI@out
+}\newcommand\DefaultBBHSubdominantMode@VII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\DefaultBBHSubdominantMode@VII@out{%
+    \{%
+      "median": "9.8", %
+      "error plus": "0.45", %
+      "error minus": "1.2", %
+      "5th percentile": "8.6", %
+      "95th percentile": "10"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\DefaultBBHSubdominantMode@VII@out{%
+    9.8}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\DefaultBBHSubdominantMode@VII@out{%
+    0.45}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\DefaultBBHSubdominantMode@VII@out{%
+    1.2}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\DefaultBBHSubdominantMode@VII@out{%
+    8.6}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\DefaultBBHSubdominantMode@VII@out{%
+    10}%
+    \else%
+      \def\DefaultBBHSubdominantMode@VII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \DefaultBBHSubdominantMode@VII@out
+}\newcommand\DefaultBBHSubdominantMode@VIII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\DefaultBBHSubdominantMode@VIII@out{%
+    \{%
+      "median": "29", %
+      "error plus": "2.8", %
+      "error minus": "3.2", %
+      "5th percentile": "26", %
+      "95th percentile": "32"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\DefaultBBHSubdominantMode@VIII@out{%
+    29}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\DefaultBBHSubdominantMode@VIII@out{%
+    2.8}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\DefaultBBHSubdominantMode@VIII@out{%
+    3.2}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\DefaultBBHSubdominantMode@VIII@out{%
+    26}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\DefaultBBHSubdominantMode@VIII@out{%
+    32}%
+    \else%
+      \def\DefaultBBHSubdominantMode@VIII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \DefaultBBHSubdominantMode@VIII@out
+}\newcommand\DefaultBBHSubdominantMode@IX[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\DefaultBBHSubdominantMode@IX@out{%
+    \{%
+      "median": "0.65", %
+      "error plus": "0.85", %
+      "error minus": "0.36", %
+      "5th percentile": "0.29", %
+      "95th percentile": "1.5"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\DefaultBBHSubdominantMode@IX@out{%
+    0.65}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\DefaultBBHSubdominantMode@IX@out{%
+    0.85}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\DefaultBBHSubdominantMode@IX@out{%
+    0.36}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\DefaultBBHSubdominantMode@IX@out{%
+    0.29}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\DefaultBBHSubdominantMode@IX@out{%
+    1.5}%
+    \else%
+      \def\DefaultBBHSubdominantMode@IX@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \DefaultBBHSubdominantMode@IX@out
+}\newcommand\DefaultBBHSubdominantMode@X[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\DefaultBBHSubdominantMode@X@out{%
+    \{%
+      "median": "7.7", %
+      "error plus": "2.1", %
+      "error minus": "2.7", %
+      "5th percentile": "5.0", %
+      "95th percentile": "9.7"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\DefaultBBHSubdominantMode@X@out{%
+    7.7}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\DefaultBBHSubdominantMode@X@out{%
+    2.1}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\DefaultBBHSubdominantMode@X@out{%
+    2.7}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\DefaultBBHSubdominantMode@X@out{%
+    5.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\DefaultBBHSubdominantMode@X@out{%
+    9.7}%
+    \else%
+      \def\DefaultBBHSubdominantMode@X@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \DefaultBBHSubdominantMode@X@out
+}\newcommand\DefaultBBHSubdominantMode@XI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\DefaultBBHSubdominantMode@XI@out{%
+    \{%
+      "median": "4.5", %
+      "error plus": "5.0", %
+      "error minus": "4.1", %
+      "5th percentile": "0.43", %
+      "95th percentile": "9.4"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\DefaultBBHSubdominantMode@XI@out{%
+    4.5}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\DefaultBBHSubdominantMode@XI@out{%
+    5.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\DefaultBBHSubdominantMode@XI@out{%
+    4.1}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\DefaultBBHSubdominantMode@XI@out{%
+    0.43}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\DefaultBBHSubdominantMode@XI@out{%
+    9.4}%
+    \else%
+      \def\DefaultBBHSubdominantMode@XI@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \DefaultBBHSubdominantMode@XI@out
+}\newcommand\DefaultBBHSubdominantMode@XII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\DefaultBBHSubdominantMode@XII@out{%
+    \{%
+      "median": "4.4", %
+      "error plus": "4.2", %
+      "error minus": "4.0", %
+      "5th percentile": "0.34", %
+      "95th percentile": "8.6"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\DefaultBBHSubdominantMode@XII@out{%
+    4.4}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\DefaultBBHSubdominantMode@XII@out{%
+    4.2}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\DefaultBBHSubdominantMode@XII@out{%
+    4.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\DefaultBBHSubdominantMode@XII@out{%
+    0.34}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\DefaultBBHSubdominantMode@XII@out{%
+    8.6}%
+    \else%
+      \def\DefaultBBHSubdominantMode@XII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \DefaultBBHSubdominantMode@XII@out
+}\newcommand\DefaultBBHSubdominantMode@XIII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\DefaultBBHSubdominantMode@XIII@out{%
+    \{%
+      "median": "0.32", %
+      "error plus": "0.31", %
+      "error minus": "0.21", %
+      "5th percentile": "0.11", %
+      "95th percentile": "0.64"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\DefaultBBHSubdominantMode@XIII@out{%
+    0.32}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\DefaultBBHSubdominantMode@XIII@out{%
+    0.31}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\DefaultBBHSubdominantMode@XIII@out{%
+    0.21}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\DefaultBBHSubdominantMode@XIII@out{%
+    0.11}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\DefaultBBHSubdominantMode@XIII@out{%
+    0.64}%
+    \else%
+      \def\DefaultBBHSubdominantMode@XIII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \DefaultBBHSubdominantMode@XIII@out
+}\newcommand\DefaultBBHSubdominantMode@XIV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\DefaultBBHSubdominantMode@XIV@out{%
+    \{%
+      "median": "0.60", %
+      "error plus": "0.21", %
+      "error minus": "0.29", %
+      "5th percentile": "0.31", %
+      "95th percentile": "0.81"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\DefaultBBHSubdominantMode@XIV@out{%
+    0.60}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\DefaultBBHSubdominantMode@XIV@out{%
+    0.21}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\DefaultBBHSubdominantMode@XIV@out{%
+    0.29}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\DefaultBBHSubdominantMode@XIV@out{%
+    0.31}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\DefaultBBHSubdominantMode@XIV@out{%
+    0.81}%
+    \else%
+      \def\DefaultBBHSubdominantMode@XIV@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \DefaultBBHSubdominantMode@XIV@out
+}\newcommand\DefaultBBHSubdominantMode@XV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\DefaultBBHSubdominantMode@XV@out{%
+    \{%
+      "median": "0.081", %
+      "error plus": "0.14", %
+      "error minus": "0.072", %
+      "5th percentile": "0.0088", %
+      "95th percentile": "0.22"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\DefaultBBHSubdominantMode@XV@out{%
+    0.081}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\DefaultBBHSubdominantMode@XV@out{%
+    0.14}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\DefaultBBHSubdominantMode@XV@out{%
+    0.072}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\DefaultBBHSubdominantMode@XV@out{%
+    0.0088}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\DefaultBBHSubdominantMode@XV@out{%
+    0.22}%
+    \else%
+      \def\DefaultBBHSubdominantMode@XV@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \DefaultBBHSubdominantMode@XV@out
+}\newcommand\DefaultBBHSubdominantMode@XVI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\DefaultBBHSubdominantMode@XVI@out{%
+    \{%
+      "median": "0.33", %
+      "error plus": "0.070", %
+      "error minus": "0.073", %
+      "5th percentile": "0.26", %
+      "95th percentile": "0.40"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\DefaultBBHSubdominantMode@XVI@out{%
+    0.33}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\DefaultBBHSubdominantMode@XVI@out{%
+    0.070}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\DefaultBBHSubdominantMode@XVI@out{%
+    0.073}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\DefaultBBHSubdominantMode@XVI@out{%
+    0.26}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\DefaultBBHSubdominantMode@XVI@out{%
+    0.40}%
+    \else%
+      \def\DefaultBBHSubdominantMode@XVI@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \DefaultBBHSubdominantMode@XVI@out
+}\newcommand\DefaultBBHSubdominantMode@XVII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\DefaultBBHSubdominantMode@XVII@out{%
+    \{%
+      "median": "0.64", %
+      "error plus": "0.33", %
+      "error minus": "0.53", %
+      "5th percentile": "0.11", %
+      "95th percentile": "0.96"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\DefaultBBHSubdominantMode@XVII@out{%
+    0.64}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\DefaultBBHSubdominantMode@XVII@out{%
+    0.33}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\DefaultBBHSubdominantMode@XVII@out{%
+    0.53}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\DefaultBBHSubdominantMode@XVII@out{%
+    0.11}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\DefaultBBHSubdominantMode@XVII@out{%
+    0.96}%
+    \else%
+      \def\DefaultBBHSubdominantMode@XVII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \DefaultBBHSubdominantMode@XVII@out
+}\newcommand\DefaultBBHSubdominantMode@XVIII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\DefaultBBHSubdominantMode@XVIII@out{%
+    \{%
+      "median": "0.38", %
+      "error plus": "0.55", %
+      "error minus": "0.93", %
+      "5th percentile": "{-}0.56", %
+      "95th percentile": "0.93"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\DefaultBBHSubdominantMode@XVIII@out{%
+    0.38}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\DefaultBBHSubdominantMode@XVIII@out{%
+    0.55}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\DefaultBBHSubdominantMode@XVIII@out{%
+    0.93}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\DefaultBBHSubdominantMode@XVIII@out{%
+    {-}0.56}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\DefaultBBHSubdominantMode@XVIII@out{%
+    0.93}%
+    \else%
+      \def\DefaultBBHSubdominantMode@XVIII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \DefaultBBHSubdominantMode@XVIII@out
+}\newcommand\DefaultBBHSubdominantMode@XIX[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\DefaultBBHSubdominantMode@XIX@out{%
+    \{%
+      "median": "1.3", %
+      "error plus": "2.3", %
+      "error minus": "0.85", %
+      "5th percentile": "0.47", %
+      "95th percentile": "3.6"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\DefaultBBHSubdominantMode@XIX@out{%
+    1.3}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\DefaultBBHSubdominantMode@XIX@out{%
+    2.3}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\DefaultBBHSubdominantMode@XIX@out{%
+    0.85}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\DefaultBBHSubdominantMode@XIX@out{%
+    0.47}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\DefaultBBHSubdominantMode@XIX@out{%
+    3.6}%
+    \else%
+      \def\DefaultBBHSubdominantMode@XIX@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \DefaultBBHSubdominantMode@XIX@out
+}\newcommand\DefaultBBHSubdominantMode@XX[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\DefaultBBHSubdominantMode@XX@out{%
+    \{%
+      "median": "3.5", %
+      "error plus": "0.92", %
+      "error minus": "0.87", %
+      "5th percentile": "2.6", %
+      "95th percentile": "4.4"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\DefaultBBHSubdominantMode@XX@out{%
+    3.5}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\DefaultBBHSubdominantMode@XX@out{%
+    0.92}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\DefaultBBHSubdominantMode@XX@out{%
+    0.87}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\DefaultBBHSubdominantMode@XX@out{%
+    2.6}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\DefaultBBHSubdominantMode@XX@out{%
+    4.4}%
+    \else%
+      \def\DefaultBBHSubdominantMode@XX@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \DefaultBBHSubdominantMode@XX@out
+}\newcommand\DefaultBBHSubdominantMode@XXI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\DefaultBBHSubdominantMode@XXI@out{%
+    \{%
+      "median": "15", %
+      "error plus": "5.7", %
+      "error minus": "4.2", %
+      "5th percentile": "11", %
+      "95th percentile": "21"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\DefaultBBHSubdominantMode@XXI@out{%
+    15}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\DefaultBBHSubdominantMode@XXI@out{%
+    5.7}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\DefaultBBHSubdominantMode@XXI@out{%
+    4.2}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\DefaultBBHSubdominantMode@XXI@out{%
+    11}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\DefaultBBHSubdominantMode@XXI@out{%
+    21}%
+    \else%
+      \def\DefaultBBHSubdominantMode@XXI@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \DefaultBBHSubdominantMode@XXI@out
+}\newcommand\DefaultBBHSubdominantMode@XXII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\DefaultBBHSubdominantMode@XXII@out{%
+    \{%
+      "powerlaw\_slope\_18{-}19": \{%
+        "median": "0.84", %
+        "error plus": "1.4", %
+        "error minus": "1.7", %
+        "5th percentile": "{-}0.81", %
+        "95th percentile": "2.2"%
+      \}, %
+      "peak\_1\_location": \{%
+        "median": "9.8", %
+        "error plus": "0.3", %
+        "error minus": "0.6", %
+        "5th percentile": "9", %
+        "95th percentile": "10.1"%
+      \}, %
+      "peak\_2\_location": \{%
+        "median": "27.7", %
+        "error plus": "3.0", %
+        "error minus": "4.5", %
+        "5th percentile": "23", %
+        "95th percentile": "31"%
+      \}, %
+      "peak\_2\_percent": 54.0%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{powerlaw_slope_18-19}=0%
+      \let\DefaultBBHSubdominantMode@XXII@out\DefaultBBHSubdominantMode@XXXI%
+    \else%
+      \ifnum\pdfstrcmp{#1}{peak_1_location}=0%
+      \let\DefaultBBHSubdominantMode@XXII@out\DefaultBBHSubdominantMode@XXXII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{peak_2_location}=0%
+      \let\DefaultBBHSubdominantMode@XXII@out\DefaultBBHSubdominantMode@XXXIII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{peak_2_percent}=0%
+      \def\DefaultBBHSubdominantMode@XXII@out{%
+    54.0}%
+    \else%
+      \def\DefaultBBHSubdominantMode@XXII@out{%
+    ??}%
+    \fi\fi\fi\fi
+  \fi
+  \DefaultBBHSubdominantMode@XXII@out
+}\newcommand\DefaultBBHSubdominantMode@XXIII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\DefaultBBHSubdominantMode@XXIII@out{%
+    \{%
+      "median": "{-}2.7", %
+      "error plus": "2.9", %
+      "error minus": "3.0", %
+      "5th percentile": "{-}5.6", %
+      "95th percentile": "0.29"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\DefaultBBHSubdominantMode@XXIII@out{%
+    {-}2.7}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\DefaultBBHSubdominantMode@XXIII@out{%
+    2.9}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\DefaultBBHSubdominantMode@XXIII@out{%
+    3.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\DefaultBBHSubdominantMode@XXIII@out{%
+    {-}5.6}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\DefaultBBHSubdominantMode@XXIII@out{%
+    0.29}%
+    \else%
+      \def\DefaultBBHSubdominantMode@XXIII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \DefaultBBHSubdominantMode@XXIII@out
+}\newcommand\DefaultBBHSubdominantMode@XXIV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\DefaultBBHSubdominantMode@XXIV@out{%
+    \{%
+      "peak": \{%
+        "median": "1.0", %
+        "error plus": 0, %
+        "error minus": 0, %
+        "5th percentile": "1.0", %
+        "95th percentile": "1.0"%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{peak}=0%
+      \let\DefaultBBHSubdominantMode@XXIV@out\DefaultBBHSubdominantMode@XXXIV%
+    \else%
+      \def\DefaultBBHSubdominantMode@XXIV@out{%
+    ??}%
+    \fi
+  \fi
+  \DefaultBBHSubdominantMode@XXIV@out
+}\newcommand\DefaultBBHSubdominantMode@XXV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\DefaultBBHSubdominantMode@XXV@out{%
+    \{%
+      "peak": \{%
+        "median": "0.081", %
+        "error plus": "0.14", %
+        "error minus": "0.072", %
+        "5th percentile": "0.0090", %
+        "95th percentile": "0.22"%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{peak}=0%
+      \let\DefaultBBHSubdominantMode@XXV@out\DefaultBBHSubdominantMode@XXXV%
+    \else%
+      \def\DefaultBBHSubdominantMode@XXV@out{%
+    ??}%
+    \fi
+  \fi
+  \DefaultBBHSubdominantMode@XXV@out
+}\newcommand\DefaultBBHSubdominantMode@XXVI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\DefaultBBHSubdominantMode@XXVI@out{%
+    \{%
+      "peak": \{%
+        "median": "0.081", %
+        "error plus": "0.14", %
+        "error minus": "0.072", %
+        "5th percentile": "0.0090", %
+        "95th percentile": "0.22"%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{peak}=0%
+      \let\DefaultBBHSubdominantMode@XXVI@out\DefaultBBHSubdominantMode@XXXVI%
+    \else%
+      \def\DefaultBBHSubdominantMode@XXVI@out{%
+    ??}%
+    \fi
+  \fi
+  \DefaultBBHSubdominantMode@XXVI@out
+}\newcommand\DefaultBBHSubdominantMode@XXVII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\DefaultBBHSubdominantMode@XXVII@out{%
+    \{%
+      "peak": \{%
+        "median": "0.38", %
+        "error plus": "0.55", %
+        "error minus": "0.93", %
+        "5th percentile": "{-}0.56", %
+        "95th percentile": "0.93"%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{peak}=0%
+      \let\DefaultBBHSubdominantMode@XXVII@out\DefaultBBHSubdominantMode@XXXVII%
+    \else%
+      \def\DefaultBBHSubdominantMode@XXVII@out{%
+    ??}%
+    \fi
+  \fi
+  \DefaultBBHSubdominantMode@XXVII@out
+}\newcommand\DefaultBBHSubdominantMode@XXVIII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\DefaultBBHSubdominantMode@XXVIII@out{%
+    \{%
+      "peak": \{%
+        "median": "0.38", %
+        "error plus": "0.55", %
+        "error minus": "0.93", %
+        "5th percentile": "{-}0.56", %
+        "95th percentile": "0.93"%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{peak}=0%
+      \let\DefaultBBHSubdominantMode@XXVIII@out\DefaultBBHSubdominantMode@XXXVIII%
+    \else%
+      \def\DefaultBBHSubdominantMode@XXVIII@out{%
+    ??}%
+    \fi
+  \fi
+  \DefaultBBHSubdominantMode@XXVIII@out
+}\newcommand\DefaultBBHSubdominantMode@XXIX[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\DefaultBBHSubdominantMode@XXIX@out{%
+    \{%
+      "rate\_at\_z\_0{-}2": \{%
+        "median": "28", %
+        "error plus": "8.9", %
+        "error minus": "6.6", %
+        "5th percentile": "22", %
+        "95th percentile": "37"%
+      \}, %
+      "ppd": \{%
+        "median": "1.5", %
+        "error plus": "0.37", %
+        "error minus": "0.95", %
+        "5th percentile": "0.55", %
+        "95th percentile": "1.9"%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{rate_at_z_0-2}=0%
+      \let\DefaultBBHSubdominantMode@XXIX@out\DefaultBBHSubdominantMode@XXXIX%
+    \else%
+      \ifnum\pdfstrcmp{#1}{ppd}=0%
+      \let\DefaultBBHSubdominantMode@XXIX@out\DefaultBBHSubdominantMode@XL%
+    \else%
+      \def\DefaultBBHSubdominantMode@XXIX@out{%
+    ??}%
+    \fi\fi
+  \fi
+  \DefaultBBHSubdominantMode@XXIX@out
+}\newcommand\DefaultBBHSubdominantMode@XXX[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\DefaultBBHSubdominantMode@XXX@out{%
+    \{%
+      "median": "36", %
+      "error plus": "3.6", %
+      "error minus": "3.2", %
+      "5th percentile": "33", %
+      "95th percentile": "40"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\DefaultBBHSubdominantMode@XXX@out{%
+    36}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\DefaultBBHSubdominantMode@XXX@out{%
+    3.6}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\DefaultBBHSubdominantMode@XXX@out{%
+    3.2}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\DefaultBBHSubdominantMode@XXX@out{%
+    33}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\DefaultBBHSubdominantMode@XXX@out{%
+    40}%
+    \else%
+      \def\DefaultBBHSubdominantMode@XXX@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \DefaultBBHSubdominantMode@XXX@out
+}\newcommand\DefaultBBHSubdominantMode@XXXI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\DefaultBBHSubdominantMode@XXXI@out{%
+    \{%
+      "median": "0.84", %
+      "error plus": "1.4", %
+      "error minus": "1.7", %
+      "5th percentile": "{-}0.81", %
+      "95th percentile": "2.2"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\DefaultBBHSubdominantMode@XXXI@out{%
+    0.84}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\DefaultBBHSubdominantMode@XXXI@out{%
+    1.4}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\DefaultBBHSubdominantMode@XXXI@out{%
+    1.7}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\DefaultBBHSubdominantMode@XXXI@out{%
+    {-}0.81}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\DefaultBBHSubdominantMode@XXXI@out{%
+    2.2}%
+    \else%
+      \def\DefaultBBHSubdominantMode@XXXI@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \DefaultBBHSubdominantMode@XXXI@out
+}\newcommand\DefaultBBHSubdominantMode@XXXII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\DefaultBBHSubdominantMode@XXXII@out{%
+    \{%
+      "median": "9.8", %
+      "error plus": "0.3", %
+      "error minus": "0.6", %
+      "5th percentile": "9", %
+      "95th percentile": "10.1"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\DefaultBBHSubdominantMode@XXXII@out{%
+    9.8}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\DefaultBBHSubdominantMode@XXXII@out{%
+    0.3}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\DefaultBBHSubdominantMode@XXXII@out{%
+    0.6}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\DefaultBBHSubdominantMode@XXXII@out{%
+    9}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\DefaultBBHSubdominantMode@XXXII@out{%
+    10.1}%
+    \else%
+      \def\DefaultBBHSubdominantMode@XXXII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \DefaultBBHSubdominantMode@XXXII@out
+}\newcommand\DefaultBBHSubdominantMode@XXXIII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\DefaultBBHSubdominantMode@XXXIII@out{%
+    \{%
+      "median": "27.7", %
+      "error plus": "3.0", %
+      "error minus": "4.5", %
+      "5th percentile": "23", %
+      "95th percentile": "31"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\DefaultBBHSubdominantMode@XXXIII@out{%
+    27.7}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\DefaultBBHSubdominantMode@XXXIII@out{%
+    3.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\DefaultBBHSubdominantMode@XXXIII@out{%
+    4.5}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\DefaultBBHSubdominantMode@XXXIII@out{%
+    23}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\DefaultBBHSubdominantMode@XXXIII@out{%
+    31}%
+    \else%
+      \def\DefaultBBHSubdominantMode@XXXIII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \DefaultBBHSubdominantMode@XXXIII@out
+}\newcommand\DefaultBBHSubdominantMode@XXXIV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\DefaultBBHSubdominantMode@XXXIV@out{%
+    \{%
+      "median": "1.0", %
+      "error plus": 0, %
+      "error minus": 0, %
+      "5th percentile": "1.0", %
+      "95th percentile": "1.0"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\DefaultBBHSubdominantMode@XXXIV@out{%
+    1.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\DefaultBBHSubdominantMode@XXXIV@out{%
+    0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\DefaultBBHSubdominantMode@XXXIV@out{%
+    0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\DefaultBBHSubdominantMode@XXXIV@out{%
+    1.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\DefaultBBHSubdominantMode@XXXIV@out{%
+    1.0}%
+    \else%
+      \def\DefaultBBHSubdominantMode@XXXIV@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \DefaultBBHSubdominantMode@XXXIV@out
+}\newcommand\DefaultBBHSubdominantMode@XXXV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\DefaultBBHSubdominantMode@XXXV@out{%
+    \{%
+      "median": "0.081", %
+      "error plus": "0.14", %
+      "error minus": "0.072", %
+      "5th percentile": "0.0090", %
+      "95th percentile": "0.22"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\DefaultBBHSubdominantMode@XXXV@out{%
+    0.081}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\DefaultBBHSubdominantMode@XXXV@out{%
+    0.14}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\DefaultBBHSubdominantMode@XXXV@out{%
+    0.072}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\DefaultBBHSubdominantMode@XXXV@out{%
+    0.0090}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\DefaultBBHSubdominantMode@XXXV@out{%
+    0.22}%
+    \else%
+      \def\DefaultBBHSubdominantMode@XXXV@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \DefaultBBHSubdominantMode@XXXV@out
+}\newcommand\DefaultBBHSubdominantMode@XXXVI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\DefaultBBHSubdominantMode@XXXVI@out{%
+    \{%
+      "median": "0.081", %
+      "error plus": "0.14", %
+      "error minus": "0.072", %
+      "5th percentile": "0.0090", %
+      "95th percentile": "0.22"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\DefaultBBHSubdominantMode@XXXVI@out{%
+    0.081}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\DefaultBBHSubdominantMode@XXXVI@out{%
+    0.14}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\DefaultBBHSubdominantMode@XXXVI@out{%
+    0.072}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\DefaultBBHSubdominantMode@XXXVI@out{%
+    0.0090}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\DefaultBBHSubdominantMode@XXXVI@out{%
+    0.22}%
+    \else%
+      \def\DefaultBBHSubdominantMode@XXXVI@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \DefaultBBHSubdominantMode@XXXVI@out
+}\newcommand\DefaultBBHSubdominantMode@XXXVII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\DefaultBBHSubdominantMode@XXXVII@out{%
+    \{%
+      "median": "0.38", %
+      "error plus": "0.55", %
+      "error minus": "0.93", %
+      "5th percentile": "{-}0.56", %
+      "95th percentile": "0.93"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\DefaultBBHSubdominantMode@XXXVII@out{%
+    0.38}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\DefaultBBHSubdominantMode@XXXVII@out{%
+    0.55}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\DefaultBBHSubdominantMode@XXXVII@out{%
+    0.93}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\DefaultBBHSubdominantMode@XXXVII@out{%
+    {-}0.56}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\DefaultBBHSubdominantMode@XXXVII@out{%
+    0.93}%
+    \else%
+      \def\DefaultBBHSubdominantMode@XXXVII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \DefaultBBHSubdominantMode@XXXVII@out
+}\newcommand\DefaultBBHSubdominantMode@XXXVIII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\DefaultBBHSubdominantMode@XXXVIII@out{%
+    \{%
+      "median": "0.38", %
+      "error plus": "0.55", %
+      "error minus": "0.93", %
+      "5th percentile": "{-}0.56", %
+      "95th percentile": "0.93"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\DefaultBBHSubdominantMode@XXXVIII@out{%
+    0.38}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\DefaultBBHSubdominantMode@XXXVIII@out{%
+    0.55}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\DefaultBBHSubdominantMode@XXXVIII@out{%
+    0.93}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\DefaultBBHSubdominantMode@XXXVIII@out{%
+    {-}0.56}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\DefaultBBHSubdominantMode@XXXVIII@out{%
+    0.93}%
+    \else%
+      \def\DefaultBBHSubdominantMode@XXXVIII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \DefaultBBHSubdominantMode@XXXVIII@out
+}\newcommand\DefaultBBHSubdominantMode@XXXIX[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\DefaultBBHSubdominantMode@XXXIX@out{%
+    \{%
+      "median": "28", %
+      "error plus": "8.9", %
+      "error minus": "6.6", %
+      "5th percentile": "22", %
+      "95th percentile": "37"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\DefaultBBHSubdominantMode@XXXIX@out{%
+    28}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\DefaultBBHSubdominantMode@XXXIX@out{%
+    8.9}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\DefaultBBHSubdominantMode@XXXIX@out{%
+    6.6}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\DefaultBBHSubdominantMode@XXXIX@out{%
+    22}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\DefaultBBHSubdominantMode@XXXIX@out{%
+    37}%
+    \else%
+      \def\DefaultBBHSubdominantMode@XXXIX@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \DefaultBBHSubdominantMode@XXXIX@out
+}\newcommand\DefaultBBHSubdominantMode@XL[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\DefaultBBHSubdominantMode@XL@out{%
+    \{%
+      "median": "1.5", %
+      "error plus": "0.37", %
+      "error minus": "0.95", %
+      "5th percentile": "0.55", %
+      "95th percentile": "1.9"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\DefaultBBHSubdominantMode@XL@out{%
+    1.5}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\DefaultBBHSubdominantMode@XL@out{%
+    0.37}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\DefaultBBHSubdominantMode@XL@out{%
+    0.95}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\DefaultBBHSubdominantMode@XL@out{%
+    0.55}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\DefaultBBHSubdominantMode@XL@out{%
+    1.9}%
+    \else%
+      \def\DefaultBBHSubdominantMode@XL@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \DefaultBBHSubdominantMode@XL@out
+}%
+\makeatother%

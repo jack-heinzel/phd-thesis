@@ -1,0 +1,684 @@
+\makeatletter%
+\newcommand\IsoPeakIID[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\IsoPeakIID@out{%
+    \{%
+      "mass\_1": \{%
+        "peak": \{%
+          "peak\_mu": \{%
+            "median": "10.4", %
+            "error plus": "0.7", %
+            "error minus": "0.7", %
+            "5th percentile": "10", %
+            "95th percentile": "11.1"%
+          \}, %
+          "peak\_logsigp": \{%
+            "median": "0.097", %
+            "error plus": "0.050", %
+            "error minus": "0.036", %
+            "5th percentile": "0.061", %
+            "95th percentile": "0.15"%
+          \}%
+        \}%
+      \}, %
+      "mass\_ratio": \{%
+        "peak": \{%
+          "peak\_location": \{%
+            "median": "0.71", %
+            "error plus": "0.12", %
+            "error minus": "0.11", %
+            "5th percentile": "0.60", %
+            "95th percentile": "0.84"%
+          \}%
+        \}, %
+        "continuum": \{%
+          "peak\_location": \{%
+            "median": "0.76", %
+            "error plus": "0.21", %
+            "error minus": "0.25", %
+            "5th percentile": "0.51", %
+            "95th percentile": "0.97"%
+          \}%
+        \}%
+      \}, %
+      "a": \{%
+        "peak": \{%
+          "peak\_location": \{%
+            "median": "0.14", %
+            "error plus": "0.16", %
+            "error minus": "0.14", %
+            "5th percentile": 0, %
+            "95th percentile": "0.30"%
+          \}%
+        \}, %
+        "continuum": \{%
+          "peak\_location": \{%
+            "median": "0.15", %
+            "error plus": "0.21", %
+            "error minus": "0.15", %
+            "5th percentile": 0, %
+            "95th percentile": "0.37"%
+          \}%
+        \}%
+      \}, %
+      "cos\_tilt": \{%
+        "peak": \{%
+          "peak\_location": \{%
+            "median": "0.33", %
+            "error plus": "0.67", %
+            "error minus": "0.49", %
+            "5th percentile": "{-}0.16", %
+            "95th percentile": "1.0"%
+          \}%
+        \}, %
+        "continuum": \{%
+          "peak\_location": \{%
+            "median": "0.071", %
+            "error plus": "0.93", %
+            "error minus": "0.84", %
+            "5th percentile": "{-}0.76", %
+            "95th percentile": "1.0"%
+          \}%
+        \}%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{mass_1}=0%
+      \let\IsoPeakIID@out\IsoPeakIID@I%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mass_ratio}=0%
+      \let\IsoPeakIID@out\IsoPeakIID@II%
+    \else%
+      \ifnum\pdfstrcmp{#1}{a}=0%
+      \let\IsoPeakIID@out\IsoPeakIID@III%
+    \else%
+      \ifnum\pdfstrcmp{#1}{cos_tilt}=0%
+      \let\IsoPeakIID@out\IsoPeakIID@IV%
+    \else%
+      \def\IsoPeakIID@out{%
+    ??}%
+    \fi\fi\fi\fi
+  \fi
+  \IsoPeakIID@out
+}\newcommand\IsoPeakIID@I[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\IsoPeakIID@I@out{%
+    \{%
+      "peak": \{%
+        "peak\_mu": \{%
+          "median": "10.4", %
+          "error plus": "0.7", %
+          "error minus": "0.7", %
+          "5th percentile": "10", %
+          "95th percentile": "11.1"%
+        \}, %
+        "peak\_logsigp": \{%
+          "median": "0.097", %
+          "error plus": "0.050", %
+          "error minus": "0.036", %
+          "5th percentile": "0.061", %
+          "95th percentile": "0.15"%
+        \}%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{peak}=0%
+      \let\IsoPeakIID@I@out\IsoPeakIID@V%
+    \else%
+      \def\IsoPeakIID@I@out{%
+    ??}%
+    \fi
+  \fi
+  \IsoPeakIID@I@out
+}\newcommand\IsoPeakIID@II[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\IsoPeakIID@II@out{%
+    \{%
+      "peak": \{%
+        "peak\_location": \{%
+          "median": "0.71", %
+          "error plus": "0.12", %
+          "error minus": "0.11", %
+          "5th percentile": "0.60", %
+          "95th percentile": "0.84"%
+        \}%
+      \}, %
+      "continuum": \{%
+        "peak\_location": \{%
+          "median": "0.76", %
+          "error plus": "0.21", %
+          "error minus": "0.25", %
+          "5th percentile": "0.51", %
+          "95th percentile": "0.97"%
+        \}%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{peak}=0%
+      \let\IsoPeakIID@II@out\IsoPeakIID@VI%
+    \else%
+      \ifnum\pdfstrcmp{#1}{continuum}=0%
+      \let\IsoPeakIID@II@out\IsoPeakIID@VII%
+    \else%
+      \def\IsoPeakIID@II@out{%
+    ??}%
+    \fi\fi
+  \fi
+  \IsoPeakIID@II@out
+}\newcommand\IsoPeakIID@III[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\IsoPeakIID@III@out{%
+    \{%
+      "peak": \{%
+        "peak\_location": \{%
+          "median": "0.14", %
+          "error plus": "0.16", %
+          "error minus": "0.14", %
+          "5th percentile": 0, %
+          "95th percentile": "0.30"%
+        \}%
+      \}, %
+      "continuum": \{%
+        "peak\_location": \{%
+          "median": "0.15", %
+          "error plus": "0.21", %
+          "error minus": "0.15", %
+          "5th percentile": 0, %
+          "95th percentile": "0.37"%
+        \}%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{peak}=0%
+      \let\IsoPeakIID@III@out\IsoPeakIID@VIII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{continuum}=0%
+      \let\IsoPeakIID@III@out\IsoPeakIID@IX%
+    \else%
+      \def\IsoPeakIID@III@out{%
+    ??}%
+    \fi\fi
+  \fi
+  \IsoPeakIID@III@out
+}\newcommand\IsoPeakIID@IV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\IsoPeakIID@IV@out{%
+    \{%
+      "peak": \{%
+        "peak\_location": \{%
+          "median": "0.33", %
+          "error plus": "0.67", %
+          "error minus": "0.49", %
+          "5th percentile": "{-}0.16", %
+          "95th percentile": "1.0"%
+        \}%
+      \}, %
+      "continuum": \{%
+        "peak\_location": \{%
+          "median": "0.071", %
+          "error plus": "0.93", %
+          "error minus": "0.84", %
+          "5th percentile": "{-}0.76", %
+          "95th percentile": "1.0"%
+        \}%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{peak}=0%
+      \let\IsoPeakIID@IV@out\IsoPeakIID@X%
+    \else%
+      \ifnum\pdfstrcmp{#1}{continuum}=0%
+      \let\IsoPeakIID@IV@out\IsoPeakIID@XI%
+    \else%
+      \def\IsoPeakIID@IV@out{%
+    ??}%
+    \fi\fi
+  \fi
+  \IsoPeakIID@IV@out
+}\newcommand\IsoPeakIID@V[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\IsoPeakIID@V@out{%
+    \{%
+      "peak\_mu": \{%
+        "median": "10.4", %
+        "error plus": "0.7", %
+        "error minus": "0.7", %
+        "5th percentile": "10", %
+        "95th percentile": "11.1"%
+      \}, %
+      "peak\_logsigp": \{%
+        "median": "0.097", %
+        "error plus": "0.050", %
+        "error minus": "0.036", %
+        "5th percentile": "0.061", %
+        "95th percentile": "0.15"%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{peak_mu}=0%
+      \let\IsoPeakIID@V@out\IsoPeakIID@XII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{peak_logsigp}=0%
+      \let\IsoPeakIID@V@out\IsoPeakIID@XIII%
+    \else%
+      \def\IsoPeakIID@V@out{%
+    ??}%
+    \fi\fi
+  \fi
+  \IsoPeakIID@V@out
+}\newcommand\IsoPeakIID@VI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\IsoPeakIID@VI@out{%
+    \{%
+      "peak\_location": \{%
+        "median": "0.71", %
+        "error plus": "0.12", %
+        "error minus": "0.11", %
+        "5th percentile": "0.60", %
+        "95th percentile": "0.84"%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{peak_location}=0%
+      \let\IsoPeakIID@VI@out\IsoPeakIID@XIV%
+    \else%
+      \def\IsoPeakIID@VI@out{%
+    ??}%
+    \fi
+  \fi
+  \IsoPeakIID@VI@out
+}\newcommand\IsoPeakIID@VII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\IsoPeakIID@VII@out{%
+    \{%
+      "peak\_location": \{%
+        "median": "0.76", %
+        "error plus": "0.21", %
+        "error minus": "0.25", %
+        "5th percentile": "0.51", %
+        "95th percentile": "0.97"%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{peak_location}=0%
+      \let\IsoPeakIID@VII@out\IsoPeakIID@XV%
+    \else%
+      \def\IsoPeakIID@VII@out{%
+    ??}%
+    \fi
+  \fi
+  \IsoPeakIID@VII@out
+}\newcommand\IsoPeakIID@VIII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\IsoPeakIID@VIII@out{%
+    \{%
+      "peak\_location": \{%
+        "median": "0.14", %
+        "error plus": "0.16", %
+        "error minus": "0.14", %
+        "5th percentile": 0, %
+        "95th percentile": "0.30"%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{peak_location}=0%
+      \let\IsoPeakIID@VIII@out\IsoPeakIID@XVI%
+    \else%
+      \def\IsoPeakIID@VIII@out{%
+    ??}%
+    \fi
+  \fi
+  \IsoPeakIID@VIII@out
+}\newcommand\IsoPeakIID@IX[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\IsoPeakIID@IX@out{%
+    \{%
+      "peak\_location": \{%
+        "median": "0.15", %
+        "error plus": "0.21", %
+        "error minus": "0.15", %
+        "5th percentile": 0, %
+        "95th percentile": "0.37"%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{peak_location}=0%
+      \let\IsoPeakIID@IX@out\IsoPeakIID@XVII%
+    \else%
+      \def\IsoPeakIID@IX@out{%
+    ??}%
+    \fi
+  \fi
+  \IsoPeakIID@IX@out
+}\newcommand\IsoPeakIID@X[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\IsoPeakIID@X@out{%
+    \{%
+      "peak\_location": \{%
+        "median": "0.33", %
+        "error plus": "0.67", %
+        "error minus": "0.49", %
+        "5th percentile": "{-}0.16", %
+        "95th percentile": "1.0"%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{peak_location}=0%
+      \let\IsoPeakIID@X@out\IsoPeakIID@XVIII%
+    \else%
+      \def\IsoPeakIID@X@out{%
+    ??}%
+    \fi
+  \fi
+  \IsoPeakIID@X@out
+}\newcommand\IsoPeakIID@XI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\IsoPeakIID@XI@out{%
+    \{%
+      "peak\_location": \{%
+        "median": "0.071", %
+        "error plus": "0.93", %
+        "error minus": "0.84", %
+        "5th percentile": "{-}0.76", %
+        "95th percentile": "1.0"%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{peak_location}=0%
+      \let\IsoPeakIID@XI@out\IsoPeakIID@XIX%
+    \else%
+      \def\IsoPeakIID@XI@out{%
+    ??}%
+    \fi
+  \fi
+  \IsoPeakIID@XI@out
+}\newcommand\IsoPeakIID@XII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\IsoPeakIID@XII@out{%
+    \{%
+      "median": "10.4", %
+      "error plus": "0.7", %
+      "error minus": "0.7", %
+      "5th percentile": "10", %
+      "95th percentile": "11.1"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\IsoPeakIID@XII@out{%
+    10.4}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\IsoPeakIID@XII@out{%
+    0.7}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\IsoPeakIID@XII@out{%
+    0.7}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\IsoPeakIID@XII@out{%
+    10}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\IsoPeakIID@XII@out{%
+    11.1}%
+    \else%
+      \def\IsoPeakIID@XII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \IsoPeakIID@XII@out
+}\newcommand\IsoPeakIID@XIII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\IsoPeakIID@XIII@out{%
+    \{%
+      "median": "0.097", %
+      "error plus": "0.050", %
+      "error minus": "0.036", %
+      "5th percentile": "0.061", %
+      "95th percentile": "0.15"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\IsoPeakIID@XIII@out{%
+    0.097}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\IsoPeakIID@XIII@out{%
+    0.050}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\IsoPeakIID@XIII@out{%
+    0.036}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\IsoPeakIID@XIII@out{%
+    0.061}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\IsoPeakIID@XIII@out{%
+    0.15}%
+    \else%
+      \def\IsoPeakIID@XIII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \IsoPeakIID@XIII@out
+}\newcommand\IsoPeakIID@XIV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\IsoPeakIID@XIV@out{%
+    \{%
+      "median": "0.71", %
+      "error plus": "0.12", %
+      "error minus": "0.11", %
+      "5th percentile": "0.60", %
+      "95th percentile": "0.84"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\IsoPeakIID@XIV@out{%
+    0.71}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\IsoPeakIID@XIV@out{%
+    0.12}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\IsoPeakIID@XIV@out{%
+    0.11}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\IsoPeakIID@XIV@out{%
+    0.60}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\IsoPeakIID@XIV@out{%
+    0.84}%
+    \else%
+      \def\IsoPeakIID@XIV@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \IsoPeakIID@XIV@out
+}\newcommand\IsoPeakIID@XV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\IsoPeakIID@XV@out{%
+    \{%
+      "median": "0.76", %
+      "error plus": "0.21", %
+      "error minus": "0.25", %
+      "5th percentile": "0.51", %
+      "95th percentile": "0.97"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\IsoPeakIID@XV@out{%
+    0.76}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\IsoPeakIID@XV@out{%
+    0.21}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\IsoPeakIID@XV@out{%
+    0.25}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\IsoPeakIID@XV@out{%
+    0.51}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\IsoPeakIID@XV@out{%
+    0.97}%
+    \else%
+      \def\IsoPeakIID@XV@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \IsoPeakIID@XV@out
+}\newcommand\IsoPeakIID@XVI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\IsoPeakIID@XVI@out{%
+    \{%
+      "median": "0.14", %
+      "error plus": "0.16", %
+      "error minus": "0.14", %
+      "5th percentile": 0, %
+      "95th percentile": "0.30"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\IsoPeakIID@XVI@out{%
+    0.14}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\IsoPeakIID@XVI@out{%
+    0.16}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\IsoPeakIID@XVI@out{%
+    0.14}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\IsoPeakIID@XVI@out{%
+    0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\IsoPeakIID@XVI@out{%
+    0.30}%
+    \else%
+      \def\IsoPeakIID@XVI@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \IsoPeakIID@XVI@out
+}\newcommand\IsoPeakIID@XVII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\IsoPeakIID@XVII@out{%
+    \{%
+      "median": "0.15", %
+      "error plus": "0.21", %
+      "error minus": "0.15", %
+      "5th percentile": 0, %
+      "95th percentile": "0.37"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\IsoPeakIID@XVII@out{%
+    0.15}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\IsoPeakIID@XVII@out{%
+    0.21}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\IsoPeakIID@XVII@out{%
+    0.15}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\IsoPeakIID@XVII@out{%
+    0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\IsoPeakIID@XVII@out{%
+    0.37}%
+    \else%
+      \def\IsoPeakIID@XVII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \IsoPeakIID@XVII@out
+}\newcommand\IsoPeakIID@XVIII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\IsoPeakIID@XVIII@out{%
+    \{%
+      "median": "0.33", %
+      "error plus": "0.67", %
+      "error minus": "0.49", %
+      "5th percentile": "{-}0.16", %
+      "95th percentile": "1.0"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\IsoPeakIID@XVIII@out{%
+    0.33}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\IsoPeakIID@XVIII@out{%
+    0.67}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\IsoPeakIID@XVIII@out{%
+    0.49}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\IsoPeakIID@XVIII@out{%
+    {-}0.16}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\IsoPeakIID@XVIII@out{%
+    1.0}%
+    \else%
+      \def\IsoPeakIID@XVIII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \IsoPeakIID@XVIII@out
+}\newcommand\IsoPeakIID@XIX[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\IsoPeakIID@XIX@out{%
+    \{%
+      "median": "0.071", %
+      "error plus": "0.93", %
+      "error minus": "0.84", %
+      "5th percentile": "{-}0.76", %
+      "95th percentile": "1.0"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\IsoPeakIID@XIX@out{%
+    0.071}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\IsoPeakIID@XIX@out{%
+    0.93}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\IsoPeakIID@XIX@out{%
+    0.84}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\IsoPeakIID@XIX@out{%
+    {-}0.76}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\IsoPeakIID@XIX@out{%
+    1.0}%
+    \else%
+      \def\IsoPeakIID@XIX@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \IsoPeakIID@XIX@out
+}%
+\makeatother%

@@ -1,0 +1,238 @@
+\makeatletter%
+\newcommand\spinModelComparisonLogTenBayesFactors[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\spinModelComparisonLogTenBayesFactors@out{%
+    \{%
+      "MagBetaConstrainedIidTiltIsotropicTruncnormNid": \{%
+        "log10\_bayes\_factor\_over\_new\_default": {-}0.64, %
+        "log10\_bayes\_factor\_over\_old\_default": 0.02%
+      \}, %
+      "MagTruncnormIndTiltIsotropicTruncnormNnd": \{%
+        "log10\_bayes\_factor\_over\_new\_default": {-}0.91, %
+        "log10\_bayes\_factor\_over\_old\_default": {-}0.25%
+      \}, %
+      "MagTruncnormIidTiltIsotropicTruncnormNid": \{%
+        "log10\_bayes\_factor\_over\_new\_default": 0.0, %
+        "log10\_bayes\_factor\_over\_old\_default": 0.66%
+      \}, %
+      "MagTruncnormIidTiltIsotropicAlignedNid": \{%
+        "log10\_bayes\_factor\_over\_new\_default": {-}0.08, %
+        "log10\_bayes\_factor\_over\_old\_default": 0.57%
+      \}, %
+      "MagTruncnormIidTiltIsotropicTruncnormNnd": \{%
+        "log10\_bayes\_factor\_over\_new\_default": {-}0.17, %
+        "log10\_bayes\_factor\_over\_old\_default": 0.49%
+      \}, %
+      "MagBetaConstrainedIidTiltIsotropicAlignedNid": \{%
+        "log10\_bayes\_factor\_over\_new\_default": {-}0.66, %
+        "log10\_bayes\_factor\_over\_old\_default": 0.0%
+      \}, %
+      "MagTruncnormIndTiltIsotropicTruncnormNid": \{%
+        "log10\_bayes\_factor\_over\_new\_default": {-}1.09, %
+        "log10\_bayes\_factor\_over\_old\_default": {-}0.43%
+      \}, %
+      "MagBetaUnconstrainedIidTiltIsotropicTruncnormNid": \{%
+        "log10\_bayes\_factor\_over\_new\_default": {-}0.98, %
+        "log10\_bayes\_factor\_over\_old\_default": {-}0.32%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{MagBetaConstrainedIidTiltIsotropicTruncnormNid}=0%
+      \let\spinModelComparisonLogTenBayesFactors@out\spinModelComparisonLogTenBayesFactors@I%
+    \else%
+      \ifnum\pdfstrcmp{#1}{MagTruncnormIndTiltIsotropicTruncnormNnd}=0%
+      \let\spinModelComparisonLogTenBayesFactors@out\spinModelComparisonLogTenBayesFactors@II%
+    \else%
+      \ifnum\pdfstrcmp{#1}{MagTruncnormIidTiltIsotropicTruncnormNid}=0%
+      \let\spinModelComparisonLogTenBayesFactors@out\spinModelComparisonLogTenBayesFactors@III%
+    \else%
+      \ifnum\pdfstrcmp{#1}{MagTruncnormIidTiltIsotropicAlignedNid}=0%
+      \let\spinModelComparisonLogTenBayesFactors@out\spinModelComparisonLogTenBayesFactors@IV%
+    \else%
+      \ifnum\pdfstrcmp{#1}{MagTruncnormIidTiltIsotropicTruncnormNnd}=0%
+      \let\spinModelComparisonLogTenBayesFactors@out\spinModelComparisonLogTenBayesFactors@V%
+    \else%
+      \ifnum\pdfstrcmp{#1}{MagBetaConstrainedIidTiltIsotropicAlignedNid}=0%
+      \let\spinModelComparisonLogTenBayesFactors@out\spinModelComparisonLogTenBayesFactors@VI%
+    \else%
+      \ifnum\pdfstrcmp{#1}{MagTruncnormIndTiltIsotropicTruncnormNid}=0%
+      \let\spinModelComparisonLogTenBayesFactors@out\spinModelComparisonLogTenBayesFactors@VII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{MagBetaUnconstrainedIidTiltIsotropicTruncnormNid}=0%
+      \let\spinModelComparisonLogTenBayesFactors@out\spinModelComparisonLogTenBayesFactors@VIII%
+    \else%
+      \def\spinModelComparisonLogTenBayesFactors@out{%
+    ??}%
+    \fi\fi\fi\fi\fi\fi\fi\fi
+  \fi
+  \spinModelComparisonLogTenBayesFactors@out
+}\newcommand\spinModelComparisonLogTenBayesFactors@I[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\spinModelComparisonLogTenBayesFactors@I@out{%
+    \{%
+      "log10\_bayes\_factor\_over\_new\_default": {-}0.64, %
+      "log10\_bayes\_factor\_over\_old\_default": 0.02%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{log10_bayes_factor_over_new_default}=0%
+      \def\spinModelComparisonLogTenBayesFactors@I@out{%
+    {-}0.64}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{log10_bayes_factor_over_old_default}=0%
+      \def\spinModelComparisonLogTenBayesFactors@I@out{%
+    0.02}%
+    \else%
+      \def\spinModelComparisonLogTenBayesFactors@I@out{%
+    ??}%
+    \fi\fi
+  \fi
+  \spinModelComparisonLogTenBayesFactors@I@out
+}\newcommand\spinModelComparisonLogTenBayesFactors@II[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\spinModelComparisonLogTenBayesFactors@II@out{%
+    \{%
+      "log10\_bayes\_factor\_over\_new\_default": {-}0.91, %
+      "log10\_bayes\_factor\_over\_old\_default": {-}0.25%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{log10_bayes_factor_over_new_default}=0%
+      \def\spinModelComparisonLogTenBayesFactors@II@out{%
+    {-}0.91}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{log10_bayes_factor_over_old_default}=0%
+      \def\spinModelComparisonLogTenBayesFactors@II@out{%
+    {-}0.25}%
+    \else%
+      \def\spinModelComparisonLogTenBayesFactors@II@out{%
+    ??}%
+    \fi\fi
+  \fi
+  \spinModelComparisonLogTenBayesFactors@II@out
+}\newcommand\spinModelComparisonLogTenBayesFactors@III[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\spinModelComparisonLogTenBayesFactors@III@out{%
+    \{%
+      "log10\_bayes\_factor\_over\_new\_default": 0.0, %
+      "log10\_bayes\_factor\_over\_old\_default": 0.66%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{log10_bayes_factor_over_new_default}=0%
+      \def\spinModelComparisonLogTenBayesFactors@III@out{%
+    0.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{log10_bayes_factor_over_old_default}=0%
+      \def\spinModelComparisonLogTenBayesFactors@III@out{%
+    0.66}%
+    \else%
+      \def\spinModelComparisonLogTenBayesFactors@III@out{%
+    ??}%
+    \fi\fi
+  \fi
+  \spinModelComparisonLogTenBayesFactors@III@out
+}\newcommand\spinModelComparisonLogTenBayesFactors@IV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\spinModelComparisonLogTenBayesFactors@IV@out{%
+    \{%
+      "log10\_bayes\_factor\_over\_new\_default": {-}0.08, %
+      "log10\_bayes\_factor\_over\_old\_default": 0.57%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{log10_bayes_factor_over_new_default}=0%
+      \def\spinModelComparisonLogTenBayesFactors@IV@out{%
+    {-}0.08}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{log10_bayes_factor_over_old_default}=0%
+      \def\spinModelComparisonLogTenBayesFactors@IV@out{%
+    0.57}%
+    \else%
+      \def\spinModelComparisonLogTenBayesFactors@IV@out{%
+    ??}%
+    \fi\fi
+  \fi
+  \spinModelComparisonLogTenBayesFactors@IV@out
+}\newcommand\spinModelComparisonLogTenBayesFactors@V[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\spinModelComparisonLogTenBayesFactors@V@out{%
+    \{%
+      "log10\_bayes\_factor\_over\_new\_default": {-}0.17, %
+      "log10\_bayes\_factor\_over\_old\_default": 0.49%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{log10_bayes_factor_over_new_default}=0%
+      \def\spinModelComparisonLogTenBayesFactors@V@out{%
+    {-}0.17}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{log10_bayes_factor_over_old_default}=0%
+      \def\spinModelComparisonLogTenBayesFactors@V@out{%
+    0.49}%
+    \else%
+      \def\spinModelComparisonLogTenBayesFactors@V@out{%
+    ??}%
+    \fi\fi
+  \fi
+  \spinModelComparisonLogTenBayesFactors@V@out
+}\newcommand\spinModelComparisonLogTenBayesFactors@VI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\spinModelComparisonLogTenBayesFactors@VI@out{%
+    \{%
+      "log10\_bayes\_factor\_over\_new\_default": {-}0.66, %
+      "log10\_bayes\_factor\_over\_old\_default": 0.0%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{log10_bayes_factor_over_new_default}=0%
+      \def\spinModelComparisonLogTenBayesFactors@VI@out{%
+    {-}0.66}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{log10_bayes_factor_over_old_default}=0%
+      \def\spinModelComparisonLogTenBayesFactors@VI@out{%
+    0.0}%
+    \else%
+      \def\spinModelComparisonLogTenBayesFactors@VI@out{%
+    ??}%
+    \fi\fi
+  \fi
+  \spinModelComparisonLogTenBayesFactors@VI@out
+}\newcommand\spinModelComparisonLogTenBayesFactors@VII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\spinModelComparisonLogTenBayesFactors@VII@out{%
+    \{%
+      "log10\_bayes\_factor\_over\_new\_default": {-}1.09, %
+      "log10\_bayes\_factor\_over\_old\_default": {-}0.43%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{log10_bayes_factor_over_new_default}=0%
+      \def\spinModelComparisonLogTenBayesFactors@VII@out{%
+    {-}1.09}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{log10_bayes_factor_over_old_default}=0%
+      \def\spinModelComparisonLogTenBayesFactors@VII@out{%
+    {-}0.43}%
+    \else%
+      \def\spinModelComparisonLogTenBayesFactors@VII@out{%
+    ??}%
+    \fi\fi
+  \fi
+  \spinModelComparisonLogTenBayesFactors@VII@out
+}\newcommand\spinModelComparisonLogTenBayesFactors@VIII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\spinModelComparisonLogTenBayesFactors@VIII@out{%
+    \{%
+      "log10\_bayes\_factor\_over\_new\_default": {-}0.98, %
+      "log10\_bayes\_factor\_over\_old\_default": {-}0.32%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{log10_bayes_factor_over_new_default}=0%
+      \def\spinModelComparisonLogTenBayesFactors@VIII@out{%
+    {-}0.98}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{log10_bayes_factor_over_old_default}=0%
+      \def\spinModelComparisonLogTenBayesFactors@VIII@out{%
+    {-}0.32}%
+    \else%
+      \def\spinModelComparisonLogTenBayesFactors@VIII@out{%
+    ??}%
+    \fi\fi
+  \fi
+  \spinModelComparisonLogTenBayesFactors@VIII@out
+}%
+\makeatother%

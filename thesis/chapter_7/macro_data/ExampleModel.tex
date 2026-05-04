@@ -1,0 +1,255 @@
+\makeatletter%
+\newcommand\ExampleModel[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\ExampleModel@out{%
+    \{%
+      "param": \{%
+        "alpha": \{%
+          "median": 2.1, %
+          "error plus": 1.3, %
+          "error minus": 1.2, %
+          "5th percentile": 0.9, %
+          "95th percentile": 3.4%
+        \}, %
+        "m\_min": \{%
+          "median": 5.1, %
+          "5th percentile": 2.1, %
+          "95th percentile": 7.3%
+        \}, %
+        "m\_max": \{%
+          "median": 90.1, %
+          "5th percentile": 85.3, %
+          "95th percentile": 103.7%
+        \}%
+      \}, %
+      "ppd": \{%
+        "mass\_1\_source": \{%
+          "median": 28.7, %
+          "5th percentile": 8.1, %
+          "95th percentile": 87.3%
+        \}, %
+        "mass\_2\_source": \{%
+          "median": 22.7, %
+          "5th percentile": 6.3, %
+          "95th percentile": 54.1%
+        \}%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{param}=0%
+      \let\ExampleModel@out\ExampleModel@I%
+    \else%
+      \ifnum\pdfstrcmp{#1}{ppd}=0%
+      \let\ExampleModel@out\ExampleModel@II%
+    \else%
+      \def\ExampleModel@out{%
+    ??}%
+    \fi\fi
+  \fi
+  \ExampleModel@out
+}\newcommand\ExampleModel@I[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\ExampleModel@I@out{%
+    \{%
+      "alpha": \{%
+        "median": 2.1, %
+        "error plus": 1.3, %
+        "error minus": 1.2, %
+        "5th percentile": 0.9, %
+        "95th percentile": 3.4%
+      \}, %
+      "m\_min": \{%
+        "median": 5.1, %
+        "5th percentile": 2.1, %
+        "95th percentile": 7.3%
+      \}, %
+      "m\_max": \{%
+        "median": 90.1, %
+        "5th percentile": 85.3, %
+        "95th percentile": 103.7%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{alpha}=0%
+      \let\ExampleModel@I@out\ExampleModel@III%
+    \else%
+      \ifnum\pdfstrcmp{#1}{m_min}=0%
+      \let\ExampleModel@I@out\ExampleModel@IV%
+    \else%
+      \ifnum\pdfstrcmp{#1}{m_max}=0%
+      \let\ExampleModel@I@out\ExampleModel@V%
+    \else%
+      \def\ExampleModel@I@out{%
+    ??}%
+    \fi\fi\fi
+  \fi
+  \ExampleModel@I@out
+}\newcommand\ExampleModel@II[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\ExampleModel@II@out{%
+    \{%
+      "mass\_1\_source": \{%
+        "median": 28.7, %
+        "5th percentile": 8.1, %
+        "95th percentile": 87.3%
+      \}, %
+      "mass\_2\_source": \{%
+        "median": 22.7, %
+        "5th percentile": 6.3, %
+        "95th percentile": 54.1%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{mass_1_source}=0%
+      \let\ExampleModel@II@out\ExampleModel@VI%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mass_2_source}=0%
+      \let\ExampleModel@II@out\ExampleModel@VII%
+    \else%
+      \def\ExampleModel@II@out{%
+    ??}%
+    \fi\fi
+  \fi
+  \ExampleModel@II@out
+}\newcommand\ExampleModel@III[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\ExampleModel@III@out{%
+    \{%
+      "median": 2.1, %
+      "error plus": 1.3, %
+      "error minus": 1.2, %
+      "5th percentile": 0.9, %
+      "95th percentile": 3.4%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\ExampleModel@III@out{%
+    2.1}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\ExampleModel@III@out{%
+    1.3}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\ExampleModel@III@out{%
+    1.2}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\ExampleModel@III@out{%
+    0.9}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\ExampleModel@III@out{%
+    3.4}%
+    \else%
+      \def\ExampleModel@III@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \ExampleModel@III@out
+}\newcommand\ExampleModel@IV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\ExampleModel@IV@out{%
+    \{%
+      "median": 5.1, %
+      "5th percentile": 2.1, %
+      "95th percentile": 7.3%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\ExampleModel@IV@out{%
+    5.1}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\ExampleModel@IV@out{%
+    2.1}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\ExampleModel@IV@out{%
+    7.3}%
+    \else%
+      \def\ExampleModel@IV@out{%
+    ??}%
+    \fi\fi\fi
+  \fi
+  \ExampleModel@IV@out
+}\newcommand\ExampleModel@V[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\ExampleModel@V@out{%
+    \{%
+      "median": 90.1, %
+      "5th percentile": 85.3, %
+      "95th percentile": 103.7%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\ExampleModel@V@out{%
+    90.1}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\ExampleModel@V@out{%
+    85.3}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\ExampleModel@V@out{%
+    103.7}%
+    \else%
+      \def\ExampleModel@V@out{%
+    ??}%
+    \fi\fi\fi
+  \fi
+  \ExampleModel@V@out
+}\newcommand\ExampleModel@VI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\ExampleModel@VI@out{%
+    \{%
+      "median": 28.7, %
+      "5th percentile": 8.1, %
+      "95th percentile": 87.3%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\ExampleModel@VI@out{%
+    28.7}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\ExampleModel@VI@out{%
+    8.1}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\ExampleModel@VI@out{%
+    87.3}%
+    \else%
+      \def\ExampleModel@VI@out{%
+    ??}%
+    \fi\fi\fi
+  \fi
+  \ExampleModel@VI@out
+}\newcommand\ExampleModel@VII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\ExampleModel@VII@out{%
+    \{%
+      "median": 22.7, %
+      "5th percentile": 6.3, %
+      "95th percentile": 54.1%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\ExampleModel@VII@out{%
+    22.7}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\ExampleModel@VII@out{%
+    6.3}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\ExampleModel@VII@out{%
+    54.1}%
+    \else%
+      \def\ExampleModel@VII@out{%
+    ??}%
+    \fi\fi\fi
+  \fi
+  \ExampleModel@VII@out
+}%
+\makeatother%

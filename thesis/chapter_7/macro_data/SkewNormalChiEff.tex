@@ -1,0 +1,509 @@
+\makeatletter%
+\newcommand\SkewNormalChiEff[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\SkewNormalChiEff@out{%
+    \{%
+      "param": \{%
+        "mu\_chi\_eff": \{%
+          "median": {-}0.08, %
+          "5th percentile": {-}0.11, %
+          "95th percentile": {-}0.06, %
+          "error plus": 0.03, %
+          "error minus": 0.03%
+        \}, %
+        "sigma\_chi\_eff": \{%
+          "median": 0.17, %
+          "5th percentile": 0.14, %
+          "95th percentile": 0.21, %
+          "error plus": 0.03, %
+          "error minus": 0.03%
+        \}, %
+        "mu\_chi\_p": \{%
+          "median": 0.33, %
+          "5th percentile": 0.26, %
+          "95th percentile": 0.39, %
+          "error plus": 0.07, %
+          "error minus": 0.06%
+        \}, %
+        "sigma\_chi\_p": \{%
+          "median": 0.18, %
+          "5th percentile": 0.13, %
+          "95th percentile": 0.27, %
+          "error plus": 0.09, %
+          "error minus": 0.05%
+        \}, %
+        "eta\_chi\_eff": \{%
+          "median": 10.96, %
+          "5th percentile": 3.17, %
+          "95th percentile": 18.96, %
+          "error plus": 8.0, %
+          "error minus": 7.79%
+        \}, %
+        "min\_chi\_eff": \{%
+          "median": {-}0.1, %
+          "5th percentile": {-}0.15, %
+          "95th percentile": {-}0.07, %
+          "error plus": 0.03, %
+          "error minus": 0.05%
+        \}, %
+        "f\_neg\_chi\_eff": \{%
+          "median": 0.33, %
+          "5th percentile": 0.24, %
+          "95th percentile": 0.41, %
+          "error plus": 0.08, %
+          "error minus": 0.09%
+        \}%
+      \}, %
+      "ppd": \{%
+        "chi\_eff": \{%
+          "median": 0.03, %
+          "5th percentile": {-}0.08, %
+          "95th percentile": 0.26, %
+          "spin at peak": {-}0.03%
+        \}, %
+        "chi\_p": \{%
+          "median": 0.34, %
+          "5th percentile": 0.08, %
+          "95th percentile": 0.65, %
+          "spin at peak": 0.33%
+        \}%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{param}=0%
+      \let\SkewNormalChiEff@out\SkewNormalChiEff@I%
+    \else%
+      \ifnum\pdfstrcmp{#1}{ppd}=0%
+      \let\SkewNormalChiEff@out\SkewNormalChiEff@II%
+    \else%
+      \def\SkewNormalChiEff@out{%
+    ??}%
+    \fi\fi
+  \fi
+  \SkewNormalChiEff@out
+}\newcommand\SkewNormalChiEff@I[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\SkewNormalChiEff@I@out{%
+    \{%
+      "mu\_chi\_eff": \{%
+        "median": {-}0.08, %
+        "5th percentile": {-}0.11, %
+        "95th percentile": {-}0.06, %
+        "error plus": 0.03, %
+        "error minus": 0.03%
+      \}, %
+      "sigma\_chi\_eff": \{%
+        "median": 0.17, %
+        "5th percentile": 0.14, %
+        "95th percentile": 0.21, %
+        "error plus": 0.03, %
+        "error minus": 0.03%
+      \}, %
+      "mu\_chi\_p": \{%
+        "median": 0.33, %
+        "5th percentile": 0.26, %
+        "95th percentile": 0.39, %
+        "error plus": 0.07, %
+        "error minus": 0.06%
+      \}, %
+      "sigma\_chi\_p": \{%
+        "median": 0.18, %
+        "5th percentile": 0.13, %
+        "95th percentile": 0.27, %
+        "error plus": 0.09, %
+        "error minus": 0.05%
+      \}, %
+      "eta\_chi\_eff": \{%
+        "median": 10.96, %
+        "5th percentile": 3.17, %
+        "95th percentile": 18.96, %
+        "error plus": 8.0, %
+        "error minus": 7.79%
+      \}, %
+      "min\_chi\_eff": \{%
+        "median": {-}0.1, %
+        "5th percentile": {-}0.15, %
+        "95th percentile": {-}0.07, %
+        "error plus": 0.03, %
+        "error minus": 0.05%
+      \}, %
+      "f\_neg\_chi\_eff": \{%
+        "median": 0.33, %
+        "5th percentile": 0.24, %
+        "95th percentile": 0.41, %
+        "error plus": 0.08, %
+        "error minus": 0.09%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{mu_chi_eff}=0%
+      \let\SkewNormalChiEff@I@out\SkewNormalChiEff@III%
+    \else%
+      \ifnum\pdfstrcmp{#1}{sigma_chi_eff}=0%
+      \let\SkewNormalChiEff@I@out\SkewNormalChiEff@IV%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mu_chi_p}=0%
+      \let\SkewNormalChiEff@I@out\SkewNormalChiEff@V%
+    \else%
+      \ifnum\pdfstrcmp{#1}{sigma_chi_p}=0%
+      \let\SkewNormalChiEff@I@out\SkewNormalChiEff@VI%
+    \else%
+      \ifnum\pdfstrcmp{#1}{eta_chi_eff}=0%
+      \let\SkewNormalChiEff@I@out\SkewNormalChiEff@VII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{min_chi_eff}=0%
+      \let\SkewNormalChiEff@I@out\SkewNormalChiEff@VIII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{f_neg_chi_eff}=0%
+      \let\SkewNormalChiEff@I@out\SkewNormalChiEff@IX%
+    \else%
+      \def\SkewNormalChiEff@I@out{%
+    ??}%
+    \fi\fi\fi\fi\fi\fi\fi
+  \fi
+  \SkewNormalChiEff@I@out
+}\newcommand\SkewNormalChiEff@II[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\SkewNormalChiEff@II@out{%
+    \{%
+      "chi\_eff": \{%
+        "median": 0.03, %
+        "5th percentile": {-}0.08, %
+        "95th percentile": 0.26, %
+        "spin at peak": {-}0.03%
+      \}, %
+      "chi\_p": \{%
+        "median": 0.34, %
+        "5th percentile": 0.08, %
+        "95th percentile": 0.65, %
+        "spin at peak": 0.33%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{chi_eff}=0%
+      \let\SkewNormalChiEff@II@out\SkewNormalChiEff@X%
+    \else%
+      \ifnum\pdfstrcmp{#1}{chi_p}=0%
+      \let\SkewNormalChiEff@II@out\SkewNormalChiEff@XI%
+    \else%
+      \def\SkewNormalChiEff@II@out{%
+    ??}%
+    \fi\fi
+  \fi
+  \SkewNormalChiEff@II@out
+}\newcommand\SkewNormalChiEff@III[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\SkewNormalChiEff@III@out{%
+    \{%
+      "median": {-}0.08, %
+      "5th percentile": {-}0.11, %
+      "95th percentile": {-}0.06, %
+      "error plus": 0.03, %
+      "error minus": 0.03%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\SkewNormalChiEff@III@out{%
+    {-}0.08}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\SkewNormalChiEff@III@out{%
+    {-}0.11}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\SkewNormalChiEff@III@out{%
+    {-}0.06}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\SkewNormalChiEff@III@out{%
+    0.03}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\SkewNormalChiEff@III@out{%
+    0.03}%
+    \else%
+      \def\SkewNormalChiEff@III@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \SkewNormalChiEff@III@out
+}\newcommand\SkewNormalChiEff@IV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\SkewNormalChiEff@IV@out{%
+    \{%
+      "median": 0.17, %
+      "5th percentile": 0.14, %
+      "95th percentile": 0.21, %
+      "error plus": 0.03, %
+      "error minus": 0.03%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\SkewNormalChiEff@IV@out{%
+    0.17}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\SkewNormalChiEff@IV@out{%
+    0.14}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\SkewNormalChiEff@IV@out{%
+    0.21}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\SkewNormalChiEff@IV@out{%
+    0.03}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\SkewNormalChiEff@IV@out{%
+    0.03}%
+    \else%
+      \def\SkewNormalChiEff@IV@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \SkewNormalChiEff@IV@out
+}\newcommand\SkewNormalChiEff@V[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\SkewNormalChiEff@V@out{%
+    \{%
+      "median": 0.33, %
+      "5th percentile": 0.26, %
+      "95th percentile": 0.39, %
+      "error plus": 0.07, %
+      "error minus": 0.06%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\SkewNormalChiEff@V@out{%
+    0.33}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\SkewNormalChiEff@V@out{%
+    0.26}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\SkewNormalChiEff@V@out{%
+    0.39}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\SkewNormalChiEff@V@out{%
+    0.07}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\SkewNormalChiEff@V@out{%
+    0.06}%
+    \else%
+      \def\SkewNormalChiEff@V@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \SkewNormalChiEff@V@out
+}\newcommand\SkewNormalChiEff@VI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\SkewNormalChiEff@VI@out{%
+    \{%
+      "median": 0.18, %
+      "5th percentile": 0.13, %
+      "95th percentile": 0.27, %
+      "error plus": 0.09, %
+      "error minus": 0.05%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\SkewNormalChiEff@VI@out{%
+    0.18}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\SkewNormalChiEff@VI@out{%
+    0.13}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\SkewNormalChiEff@VI@out{%
+    0.27}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\SkewNormalChiEff@VI@out{%
+    0.09}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\SkewNormalChiEff@VI@out{%
+    0.05}%
+    \else%
+      \def\SkewNormalChiEff@VI@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \SkewNormalChiEff@VI@out
+}\newcommand\SkewNormalChiEff@VII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\SkewNormalChiEff@VII@out{%
+    \{%
+      "median": 10.96, %
+      "5th percentile": 3.17, %
+      "95th percentile": 18.96, %
+      "error plus": 8.0, %
+      "error minus": 7.79%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\SkewNormalChiEff@VII@out{%
+    10.96}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\SkewNormalChiEff@VII@out{%
+    3.17}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\SkewNormalChiEff@VII@out{%
+    18.96}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\SkewNormalChiEff@VII@out{%
+    8.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\SkewNormalChiEff@VII@out{%
+    7.79}%
+    \else%
+      \def\SkewNormalChiEff@VII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \SkewNormalChiEff@VII@out
+}\newcommand\SkewNormalChiEff@VIII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\SkewNormalChiEff@VIII@out{%
+    \{%
+      "median": {-}0.1, %
+      "5th percentile": {-}0.15, %
+      "95th percentile": {-}0.07, %
+      "error plus": 0.03, %
+      "error minus": 0.05%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\SkewNormalChiEff@VIII@out{%
+    {-}0.1}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\SkewNormalChiEff@VIII@out{%
+    {-}0.15}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\SkewNormalChiEff@VIII@out{%
+    {-}0.07}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\SkewNormalChiEff@VIII@out{%
+    0.03}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\SkewNormalChiEff@VIII@out{%
+    0.05}%
+    \else%
+      \def\SkewNormalChiEff@VIII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \SkewNormalChiEff@VIII@out
+}\newcommand\SkewNormalChiEff@IX[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\SkewNormalChiEff@IX@out{%
+    \{%
+      "median": 0.33, %
+      "5th percentile": 0.24, %
+      "95th percentile": 0.41, %
+      "error plus": 0.08, %
+      "error minus": 0.09%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\SkewNormalChiEff@IX@out{%
+    0.33}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\SkewNormalChiEff@IX@out{%
+    0.24}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\SkewNormalChiEff@IX@out{%
+    0.41}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\SkewNormalChiEff@IX@out{%
+    0.08}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\SkewNormalChiEff@IX@out{%
+    0.09}%
+    \else%
+      \def\SkewNormalChiEff@IX@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \SkewNormalChiEff@IX@out
+}\newcommand\SkewNormalChiEff@X[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\SkewNormalChiEff@X@out{%
+    \{%
+      "median": 0.03, %
+      "5th percentile": {-}0.08, %
+      "95th percentile": 0.26, %
+      "spin at peak": {-}0.03%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\SkewNormalChiEff@X@out{%
+    0.03}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\SkewNormalChiEff@X@out{%
+    {-}0.08}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\SkewNormalChiEff@X@out{%
+    0.26}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{spin at peak}=0%
+      \def\SkewNormalChiEff@X@out{%
+    {-}0.03}%
+    \else%
+      \def\SkewNormalChiEff@X@out{%
+    ??}%
+    \fi\fi\fi\fi
+  \fi
+  \SkewNormalChiEff@X@out
+}\newcommand\SkewNormalChiEff@XI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\SkewNormalChiEff@XI@out{%
+    \{%
+      "median": 0.34, %
+      "5th percentile": 0.08, %
+      "95th percentile": 0.65, %
+      "spin at peak": 0.33%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\SkewNormalChiEff@XI@out{%
+    0.34}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\SkewNormalChiEff@XI@out{%
+    0.08}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\SkewNormalChiEff@XI@out{%
+    0.65}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{spin at peak}=0%
+      \def\SkewNormalChiEff@XI@out{%
+    0.33}%
+    \else%
+      \def\SkewNormalChiEff@XI@out{%
+    ??}%
+    \fi\fi\fi\fi
+  \fi
+  \SkewNormalChiEff@XI@out
+}%
+\makeatother%

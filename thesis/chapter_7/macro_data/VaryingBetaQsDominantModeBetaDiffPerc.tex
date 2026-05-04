@@ -1,0 +1,24 @@
+\makeatletter%
+\newcommand\VaryingBetaQsDominantModeBetaDiffPerc[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\VaryingBetaQsDominantModeBetaDiffPerc@out{%
+    \{%
+      "beta\_peak\_pl\_diff\_perc": 96.7, %
+      "dom\_posterior\_fraction": 91.6%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{beta_peak_pl_diff_perc}=0%
+      \def\VaryingBetaQsDominantModeBetaDiffPerc@out{%
+    96.7}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{dom_posterior_fraction}=0%
+      \def\VaryingBetaQsDominantModeBetaDiffPerc@out{%
+    91.6}%
+    \else%
+      \def\VaryingBetaQsDominantModeBetaDiffPerc@out{%
+    ??}%
+    \fi\fi
+  \fi
+  \VaryingBetaQsDominantModeBetaDiffPerc@out
+}%
+\makeatother%

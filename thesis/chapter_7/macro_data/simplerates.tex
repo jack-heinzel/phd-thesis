@@ -1,0 +1,116 @@
+\makeatletter%
+\newcommand\simplerates[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\simplerates@out{%
+    \{%
+      "RBNS": \{%
+        "5th percentile": 13, %
+        "median": 61, %
+        "95th percentile": 170%
+      \}, %
+      "RNSBH3Msun": \{%
+        "5th percentile": 11, %
+        "median": 30, %
+        "95th percentile": 63%
+      \}, %
+      "RNSBH5Msun": \{%
+        "5th percentile": 10, %
+        "median": 27, %
+        "95th percentile": 58%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{RBNS}=0%
+      \let\simplerates@out\simplerates@I%
+    \else%
+      \ifnum\pdfstrcmp{#1}{RNSBH3Msun}=0%
+      \let\simplerates@out\simplerates@II%
+    \else%
+      \ifnum\pdfstrcmp{#1}{RNSBH5Msun}=0%
+      \let\simplerates@out\simplerates@III%
+    \else%
+      \def\simplerates@out{%
+    ??}%
+    \fi\fi\fi
+  \fi
+  \simplerates@out
+}\newcommand\simplerates@I[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\simplerates@I@out{%
+    \{%
+      "5th percentile": 13, %
+      "median": 61, %
+      "95th percentile": 170%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\simplerates@I@out{%
+    13}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\simplerates@I@out{%
+    61}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\simplerates@I@out{%
+    170}%
+    \else%
+      \def\simplerates@I@out{%
+    ??}%
+    \fi\fi\fi
+  \fi
+  \simplerates@I@out
+}\newcommand\simplerates@II[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\simplerates@II@out{%
+    \{%
+      "5th percentile": 11, %
+      "median": 30, %
+      "95th percentile": 63%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\simplerates@II@out{%
+    11}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\simplerates@II@out{%
+    30}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\simplerates@II@out{%
+    63}%
+    \else%
+      \def\simplerates@II@out{%
+    ??}%
+    \fi\fi\fi
+  \fi
+  \simplerates@II@out
+}\newcommand\simplerates@III[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\simplerates@III@out{%
+    \{%
+      "5th percentile": 10, %
+      "median": 27, %
+      "95th percentile": 58%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\simplerates@III@out{%
+    10}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\simplerates@III@out{%
+    27}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\simplerates@III@out{%
+    58}%
+    \else%
+      \def\simplerates@III@out{%
+    ??}%
+    \fi\fi\fi
+  \fi
+  \simplerates@III@out
+}%
+\makeatother%

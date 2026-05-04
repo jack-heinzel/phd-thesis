@@ -1,0 +1,356 @@
+\makeatletter%
+\newcommand\counts[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\counts@out{%
+    \{%
+      "FAROnePerYear": \{%
+        "O4aBNS": 0, %
+        "O4aNSBH": 1, %
+        "O4aBBH": 84, %
+        "O4aTotal": 85, %
+        "O3bBNS": 0, %
+        "O3bNSBH": 2, %
+        "O3bBBH": 23, %
+        "O3bTotal": 25, %
+        "O3aBNS": 1, %
+        "O3aNSBH": 2, %
+        "O3aBBH": 36, %
+        "O3aTotal": 39, %
+        "O2BNS": 1, %
+        "O2NSBH": 0, %
+        "O2BBH": 7, %
+        "O2Total": 8, %
+        "O1BNS": 0, %
+        "O1NSBH": 0, %
+        "O1BBH": 3, %
+        "O1Total": 3, %
+        "totalBNS": 2, %
+        "totalNSBH": 5, %
+        "totalBBH": 153, %
+        "total": 160%
+      \}, %
+      "FAROnePerFourYears": \{%
+        "O4aBNS": 0, %
+        "O4aNSBH": 1, %
+        "O4aBBH": 76, %
+        "O4aTotal": 77, %
+        "O3bBNS": 0, %
+        "O3bNSBH": 2, %
+        "O3bBBH": 21, %
+        "O3bTotal": 23, %
+        "O3aBNS": 1, %
+        "O3aNSBH": 0, %
+        "O3aBBH": 31, %
+        "O3aTotal": 32, %
+        "O2BNS": 1, %
+        "O2NSBH": 0, %
+        "O2BBH": 7, %
+        "O2Total": 8, %
+        "O1BNS": 0, %
+        "O1NSBH": 0, %
+        "O1BBH": 3, %
+        "O1Total": 3, %
+        "totalBNS": 2, %
+        "totalNSBH": 3, %
+        "totalBBH": 138, %
+        "total": 143%
+      \}, %
+      "combined": \{%
+        "total": 158%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{FAROnePerYear}=0%
+      \let\counts@out\counts@I%
+    \else%
+      \ifnum\pdfstrcmp{#1}{FAROnePerFourYears}=0%
+      \let\counts@out\counts@II%
+    \else%
+      \ifnum\pdfstrcmp{#1}{combined}=0%
+      \let\counts@out\counts@III%
+    \else%
+      \def\counts@out{%
+    ??}%
+    \fi\fi\fi
+  \fi
+  \counts@out
+}\newcommand\counts@I[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\counts@I@out{%
+    \{%
+      "O4aBNS": 0, %
+      "O4aNSBH": 1, %
+      "O4aBBH": 84, %
+      "O4aTotal": 85, %
+      "O3bBNS": 0, %
+      "O3bNSBH": 2, %
+      "O3bBBH": 23, %
+      "O3bTotal": 25, %
+      "O3aBNS": 1, %
+      "O3aNSBH": 2, %
+      "O3aBBH": 36, %
+      "O3aTotal": 39, %
+      "O2BNS": 1, %
+      "O2NSBH": 0, %
+      "O2BBH": 7, %
+      "O2Total": 8, %
+      "O1BNS": 0, %
+      "O1NSBH": 0, %
+      "O1BBH": 3, %
+      "O1Total": 3, %
+      "totalBNS": 2, %
+      "totalNSBH": 5, %
+      "totalBBH": 153, %
+      "total": 160%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{O4aBNS}=0%
+      \def\counts@I@out{%
+    0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{O4aNSBH}=0%
+      \def\counts@I@out{%
+    1}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{O4aBBH}=0%
+      \def\counts@I@out{%
+    84}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{O4aTotal}=0%
+      \def\counts@I@out{%
+    85}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{O3bBNS}=0%
+      \def\counts@I@out{%
+    0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{O3bNSBH}=0%
+      \def\counts@I@out{%
+    2}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{O3bBBH}=0%
+      \def\counts@I@out{%
+    23}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{O3bTotal}=0%
+      \def\counts@I@out{%
+    25}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{O3aBNS}=0%
+      \def\counts@I@out{%
+    1}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{O3aNSBH}=0%
+      \def\counts@I@out{%
+    2}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{O3aBBH}=0%
+      \def\counts@I@out{%
+    36}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{O3aTotal}=0%
+      \def\counts@I@out{%
+    39}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{O2BNS}=0%
+      \def\counts@I@out{%
+    1}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{O2NSBH}=0%
+      \def\counts@I@out{%
+    0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{O2BBH}=0%
+      \def\counts@I@out{%
+    7}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{O2Total}=0%
+      \def\counts@I@out{%
+    8}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{O1BNS}=0%
+      \def\counts@I@out{%
+    0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{O1NSBH}=0%
+      \def\counts@I@out{%
+    0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{O1BBH}=0%
+      \def\counts@I@out{%
+    3}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{O1Total}=0%
+      \def\counts@I@out{%
+    3}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{totalBNS}=0%
+      \def\counts@I@out{%
+    2}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{totalNSBH}=0%
+      \def\counts@I@out{%
+    5}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{totalBBH}=0%
+      \def\counts@I@out{%
+    153}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{total}=0%
+      \def\counts@I@out{%
+    160}%
+    \else%
+      \def\counts@I@out{%
+    ??}%
+    \fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi
+  \fi
+  \counts@I@out
+}\newcommand\counts@II[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\counts@II@out{%
+    \{%
+      "O4aBNS": 0, %
+      "O4aNSBH": 1, %
+      "O4aBBH": 76, %
+      "O4aTotal": 77, %
+      "O3bBNS": 0, %
+      "O3bNSBH": 2, %
+      "O3bBBH": 21, %
+      "O3bTotal": 23, %
+      "O3aBNS": 1, %
+      "O3aNSBH": 0, %
+      "O3aBBH": 31, %
+      "O3aTotal": 32, %
+      "O2BNS": 1, %
+      "O2NSBH": 0, %
+      "O2BBH": 7, %
+      "O2Total": 8, %
+      "O1BNS": 0, %
+      "O1NSBH": 0, %
+      "O1BBH": 3, %
+      "O1Total": 3, %
+      "totalBNS": 2, %
+      "totalNSBH": 3, %
+      "totalBBH": 138, %
+      "total": 143%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{O4aBNS}=0%
+      \def\counts@II@out{%
+    0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{O4aNSBH}=0%
+      \def\counts@II@out{%
+    1}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{O4aBBH}=0%
+      \def\counts@II@out{%
+    76}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{O4aTotal}=0%
+      \def\counts@II@out{%
+    77}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{O3bBNS}=0%
+      \def\counts@II@out{%
+    0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{O3bNSBH}=0%
+      \def\counts@II@out{%
+    2}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{O3bBBH}=0%
+      \def\counts@II@out{%
+    21}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{O3bTotal}=0%
+      \def\counts@II@out{%
+    23}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{O3aBNS}=0%
+      \def\counts@II@out{%
+    1}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{O3aNSBH}=0%
+      \def\counts@II@out{%
+    0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{O3aBBH}=0%
+      \def\counts@II@out{%
+    31}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{O3aTotal}=0%
+      \def\counts@II@out{%
+    32}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{O2BNS}=0%
+      \def\counts@II@out{%
+    1}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{O2NSBH}=0%
+      \def\counts@II@out{%
+    0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{O2BBH}=0%
+      \def\counts@II@out{%
+    7}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{O2Total}=0%
+      \def\counts@II@out{%
+    8}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{O1BNS}=0%
+      \def\counts@II@out{%
+    0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{O1NSBH}=0%
+      \def\counts@II@out{%
+    0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{O1BBH}=0%
+      \def\counts@II@out{%
+    3}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{O1Total}=0%
+      \def\counts@II@out{%
+    3}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{totalBNS}=0%
+      \def\counts@II@out{%
+    2}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{totalNSBH}=0%
+      \def\counts@II@out{%
+    3}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{totalBBH}=0%
+      \def\counts@II@out{%
+    138}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{total}=0%
+      \def\counts@II@out{%
+    143}%
+    \else%
+      \def\counts@II@out{%
+    ??}%
+    \fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi
+  \fi
+  \counts@II@out
+}\newcommand\counts@III[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\counts@III@out{%
+    \{%
+      "total": 158%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{total}=0%
+      \def\counts@III@out{%
+    158}%
+    \else%
+      \def\counts@III@out{%
+    ??}%
+    \fi
+  \fi
+  \counts@III@out
+}%
+\makeatother%

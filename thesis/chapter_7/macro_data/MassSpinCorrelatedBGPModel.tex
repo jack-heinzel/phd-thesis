@@ -1,0 +1,136 @@
+\makeatletter%
+\newcommand\MassSpinCorrelatedBGPModel[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MassSpinCorrelatedBGPModel@out{%
+    \{%
+      "param": \{%
+        "positive{-}to{-}negative chi\_eff ratio for m in 30{-}40": \{%
+          "median": 1.9, %
+          "5th percentile": 0.7, %
+          "95th percentile": 6.7, %
+          "error plus": 4.8, %
+          "error minus": 1.2%
+        \}, %
+        "positive{-}to{-}negative chi\_eff ratio for m outside 30{-}40": \{%
+          "median": 6.6, %
+          "5th percentile": 2.4, %
+          "95th percentile": 20.7, %
+          "error plus": 14.1, %
+          "error minus": 4.2%
+        \}%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{param}=0%
+      \let\MassSpinCorrelatedBGPModel@out\MassSpinCorrelatedBGPModel@I%
+    \else%
+      \def\MassSpinCorrelatedBGPModel@out{%
+    ??}%
+    \fi
+  \fi
+  \MassSpinCorrelatedBGPModel@out
+}\newcommand\MassSpinCorrelatedBGPModel@I[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MassSpinCorrelatedBGPModel@I@out{%
+    \{%
+      "positive{-}to{-}negative chi\_eff ratio for m in 30{-}40": \{%
+        "median": 1.9, %
+        "5th percentile": 0.7, %
+        "95th percentile": 6.7, %
+        "error plus": 4.8, %
+        "error minus": 1.2%
+      \}, %
+      "positive{-}to{-}negative chi\_eff ratio for m outside 30{-}40": \{%
+        "median": 6.6, %
+        "5th percentile": 2.4, %
+        "95th percentile": 20.7, %
+        "error plus": 14.1, %
+        "error minus": 4.2%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{positive-to-negative chi_eff ratio for m in 30-40}=0%
+      \let\MassSpinCorrelatedBGPModel@I@out\MassSpinCorrelatedBGPModel@II%
+    \else%
+      \ifnum\pdfstrcmp{#1}{positive-to-negative chi_eff ratio for m outside 30-40}=0%
+      \let\MassSpinCorrelatedBGPModel@I@out\MassSpinCorrelatedBGPModel@III%
+    \else%
+      \def\MassSpinCorrelatedBGPModel@I@out{%
+    ??}%
+    \fi\fi
+  \fi
+  \MassSpinCorrelatedBGPModel@I@out
+}\newcommand\MassSpinCorrelatedBGPModel@II[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MassSpinCorrelatedBGPModel@II@out{%
+    \{%
+      "median": 1.9, %
+      "5th percentile": 0.7, %
+      "95th percentile": 6.7, %
+      "error plus": 4.8, %
+      "error minus": 1.2%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MassSpinCorrelatedBGPModel@II@out{%
+    1.9}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MassSpinCorrelatedBGPModel@II@out{%
+    0.7}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MassSpinCorrelatedBGPModel@II@out{%
+    6.7}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MassSpinCorrelatedBGPModel@II@out{%
+    4.8}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MassSpinCorrelatedBGPModel@II@out{%
+    1.2}%
+    \else%
+      \def\MassSpinCorrelatedBGPModel@II@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MassSpinCorrelatedBGPModel@II@out
+}\newcommand\MassSpinCorrelatedBGPModel@III[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MassSpinCorrelatedBGPModel@III@out{%
+    \{%
+      "median": 6.6, %
+      "5th percentile": 2.4, %
+      "95th percentile": 20.7, %
+      "error plus": 14.1, %
+      "error minus": 4.2%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MassSpinCorrelatedBGPModel@III@out{%
+    6.6}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MassSpinCorrelatedBGPModel@III@out{%
+    2.4}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MassSpinCorrelatedBGPModel@III@out{%
+    20.7}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MassSpinCorrelatedBGPModel@III@out{%
+    14.1}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MassSpinCorrelatedBGPModel@III@out{%
+    4.2}%
+    \else%
+      \def\MassSpinCorrelatedBGPModel@III@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MassSpinCorrelatedBGPModel@III@out
+}%
+\makeatother%

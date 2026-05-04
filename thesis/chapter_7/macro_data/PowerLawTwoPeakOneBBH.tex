@@ -1,0 +1,842 @@
+\makeatletter%
+\newcommand\PowerLawTwoPeakOneBBH[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\PowerLawTwoPeakOneBBH@out{%
+    \{%
+      "alpha\_1": \{%
+        "median": "0.73", %
+        "error plus": "0.90", %
+        "error minus": "1.2", %
+        "5th percentile": "{-}0.48", %
+        "95th percentile": "1.6"%
+      \}, %
+      "alpha\_2": \{%
+        "median": "5.8", %
+        "error plus": "1.1", %
+        "error minus": "0.86", %
+        "5th percentile": "5.0", %
+        "95th percentile": "6.9"%
+      \}, %
+      "beta": \{%
+        "median": "1.6", %
+        "error plus": "1.4", %
+        "error minus": "1.2", %
+        "5th percentile": "0.39", %
+        "95th percentile": "2.9"%
+      \}, %
+      "mlow\_1": \{%
+        "median": "5.0", %
+        "error plus": "3.3", %
+        "error minus": "1.7", %
+        "5th percentile": "3.2", %
+        "95th percentile": "8.3"%
+      \}, %
+      "mlow\_2": \{%
+        "median": "3.5", %
+        "error plus": "1.2", %
+        "error minus": "0.49", %
+        "5th percentile": "3.0", %
+        "95th percentile": "4.7"%
+      \}, %
+      "break\_mass": \{%
+        "median": "34.1", %
+        "error plus": "3.7", %
+        "error minus": "3.4", %
+        "5th percentile": "31", %
+        "95th percentile": "38"%
+      \}, %
+      "mpp\_1": \{%
+        "median": "9.7", %
+        "error plus": "0.47", %
+        "error minus": "1.8", %
+        "5th percentile": "7.9", %
+        "95th percentile": "10"%
+      \}, %
+      "sigpp\_1": \{%
+        "median": "0.68", %
+        "error plus": "1.0", %
+        "error minus": "0.35", %
+        "5th percentile": "0.32", %
+        "95th percentile": "1.7"%
+      \}, %
+      "delta\_m\_1": \{%
+        "median": "4.7", %
+        "error plus": "4.8", %
+        "error minus": "4.4", %
+        "5th percentile": "0.32", %
+        "95th percentile": "9.5"%
+      \}, %
+      "delta\_m\_2": \{%
+        "median": "3.9", %
+        "error plus": "4.8", %
+        "error minus": "3.6", %
+        "5th percentile": "0.32", %
+        "95th percentile": "8.7"%
+      \}, %
+      "lam\_0": \{%
+        "median": "0.30", %
+        "error plus": "0.23", %
+        "error minus": "0.19", %
+        "5th percentile": "0.11", %
+        "95th percentile": "0.52"%
+      \}, %
+      "mu\_chi": \{%
+        "median": "0.087", %
+        "error plus": "0.14", %
+        "error minus": "0.078", %
+        "5th percentile": "0.0085", %
+        "95th percentile": "0.22"%
+      \}, %
+      "sigma\_chi": \{%
+        "median": "0.33", %
+        "error plus": "0.078", %
+        "error minus": "0.079", %
+        "5th percentile": "0.25", %
+        "95th percentile": "0.41"%
+      \}, %
+      "xi\_spin": \{%
+        "median": "0.63", %
+        "error plus": "0.33", %
+        "error minus": "0.55", %
+        "5th percentile": "0.083", %
+        "95th percentile": "0.97"%
+      \}, %
+      "mu\_spin": \{%
+        "median": "0.41", %
+        "error plus": "0.52", %
+        "error minus": "0.91", %
+        "5th percentile": "{-}0.50", %
+        "95th percentile": "0.93"%
+      \}, %
+      "sigma\_spin": \{%
+        "median": "1.3", %
+        "error plus": "2.3", %
+        "error minus": "0.87", %
+        "5th percentile": "0.48", %
+        "95th percentile": "3.7"%
+      \}, %
+      "lamb": \{%
+        "median": "3.5", %
+        "error plus": "0.97", %
+        "error minus": "1.0", %
+        "5th percentile": "2.4", %
+        "95th percentile": "4.4"%
+      \}, %
+      "rate": \{%
+        "median": "15", %
+        "error plus": "5.8", %
+        "error minus": "4.3", %
+        "5th percentile": "11", %
+        "95th percentile": "21"%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{alpha_1}=0%
+      \let\PowerLawTwoPeakOneBBH@out\PowerLawTwoPeakOneBBH@I%
+    \else%
+      \ifnum\pdfstrcmp{#1}{alpha_2}=0%
+      \let\PowerLawTwoPeakOneBBH@out\PowerLawTwoPeakOneBBH@II%
+    \else%
+      \ifnum\pdfstrcmp{#1}{beta}=0%
+      \let\PowerLawTwoPeakOneBBH@out\PowerLawTwoPeakOneBBH@III%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mlow_1}=0%
+      \let\PowerLawTwoPeakOneBBH@out\PowerLawTwoPeakOneBBH@IV%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mlow_2}=0%
+      \let\PowerLawTwoPeakOneBBH@out\PowerLawTwoPeakOneBBH@V%
+    \else%
+      \ifnum\pdfstrcmp{#1}{break_mass}=0%
+      \let\PowerLawTwoPeakOneBBH@out\PowerLawTwoPeakOneBBH@VI%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mpp_1}=0%
+      \let\PowerLawTwoPeakOneBBH@out\PowerLawTwoPeakOneBBH@VII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{sigpp_1}=0%
+      \let\PowerLawTwoPeakOneBBH@out\PowerLawTwoPeakOneBBH@VIII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{delta_m_1}=0%
+      \let\PowerLawTwoPeakOneBBH@out\PowerLawTwoPeakOneBBH@IX%
+    \else%
+      \ifnum\pdfstrcmp{#1}{delta_m_2}=0%
+      \let\PowerLawTwoPeakOneBBH@out\PowerLawTwoPeakOneBBH@X%
+    \else%
+      \ifnum\pdfstrcmp{#1}{lam_0}=0%
+      \let\PowerLawTwoPeakOneBBH@out\PowerLawTwoPeakOneBBH@XI%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mu_chi}=0%
+      \let\PowerLawTwoPeakOneBBH@out\PowerLawTwoPeakOneBBH@XII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{sigma_chi}=0%
+      \let\PowerLawTwoPeakOneBBH@out\PowerLawTwoPeakOneBBH@XIII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{xi_spin}=0%
+      \let\PowerLawTwoPeakOneBBH@out\PowerLawTwoPeakOneBBH@XIV%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mu_spin}=0%
+      \let\PowerLawTwoPeakOneBBH@out\PowerLawTwoPeakOneBBH@XV%
+    \else%
+      \ifnum\pdfstrcmp{#1}{sigma_spin}=0%
+      \let\PowerLawTwoPeakOneBBH@out\PowerLawTwoPeakOneBBH@XVI%
+    \else%
+      \ifnum\pdfstrcmp{#1}{lamb}=0%
+      \let\PowerLawTwoPeakOneBBH@out\PowerLawTwoPeakOneBBH@XVII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{rate}=0%
+      \let\PowerLawTwoPeakOneBBH@out\PowerLawTwoPeakOneBBH@XVIII%
+    \else%
+      \def\PowerLawTwoPeakOneBBH@out{%
+    ??}%
+    \fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi
+  \fi
+  \PowerLawTwoPeakOneBBH@out
+}\newcommand\PowerLawTwoPeakOneBBH@I[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\PowerLawTwoPeakOneBBH@I@out{%
+    \{%
+      "median": "0.73", %
+      "error plus": "0.90", %
+      "error minus": "1.2", %
+      "5th percentile": "{-}0.48", %
+      "95th percentile": "1.6"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\PowerLawTwoPeakOneBBH@I@out{%
+    0.73}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\PowerLawTwoPeakOneBBH@I@out{%
+    0.90}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\PowerLawTwoPeakOneBBH@I@out{%
+    1.2}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\PowerLawTwoPeakOneBBH@I@out{%
+    {-}0.48}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\PowerLawTwoPeakOneBBH@I@out{%
+    1.6}%
+    \else%
+      \def\PowerLawTwoPeakOneBBH@I@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \PowerLawTwoPeakOneBBH@I@out
+}\newcommand\PowerLawTwoPeakOneBBH@II[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\PowerLawTwoPeakOneBBH@II@out{%
+    \{%
+      "median": "5.8", %
+      "error plus": "1.1", %
+      "error minus": "0.86", %
+      "5th percentile": "5.0", %
+      "95th percentile": "6.9"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\PowerLawTwoPeakOneBBH@II@out{%
+    5.8}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\PowerLawTwoPeakOneBBH@II@out{%
+    1.1}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\PowerLawTwoPeakOneBBH@II@out{%
+    0.86}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\PowerLawTwoPeakOneBBH@II@out{%
+    5.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\PowerLawTwoPeakOneBBH@II@out{%
+    6.9}%
+    \else%
+      \def\PowerLawTwoPeakOneBBH@II@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \PowerLawTwoPeakOneBBH@II@out
+}\newcommand\PowerLawTwoPeakOneBBH@III[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\PowerLawTwoPeakOneBBH@III@out{%
+    \{%
+      "median": "1.6", %
+      "error plus": "1.4", %
+      "error minus": "1.2", %
+      "5th percentile": "0.39", %
+      "95th percentile": "2.9"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\PowerLawTwoPeakOneBBH@III@out{%
+    1.6}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\PowerLawTwoPeakOneBBH@III@out{%
+    1.4}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\PowerLawTwoPeakOneBBH@III@out{%
+    1.2}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\PowerLawTwoPeakOneBBH@III@out{%
+    0.39}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\PowerLawTwoPeakOneBBH@III@out{%
+    2.9}%
+    \else%
+      \def\PowerLawTwoPeakOneBBH@III@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \PowerLawTwoPeakOneBBH@III@out
+}\newcommand\PowerLawTwoPeakOneBBH@IV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\PowerLawTwoPeakOneBBH@IV@out{%
+    \{%
+      "median": "5.0", %
+      "error plus": "3.3", %
+      "error minus": "1.7", %
+      "5th percentile": "3.2", %
+      "95th percentile": "8.3"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\PowerLawTwoPeakOneBBH@IV@out{%
+    5.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\PowerLawTwoPeakOneBBH@IV@out{%
+    3.3}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\PowerLawTwoPeakOneBBH@IV@out{%
+    1.7}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\PowerLawTwoPeakOneBBH@IV@out{%
+    3.2}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\PowerLawTwoPeakOneBBH@IV@out{%
+    8.3}%
+    \else%
+      \def\PowerLawTwoPeakOneBBH@IV@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \PowerLawTwoPeakOneBBH@IV@out
+}\newcommand\PowerLawTwoPeakOneBBH@V[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\PowerLawTwoPeakOneBBH@V@out{%
+    \{%
+      "median": "3.5", %
+      "error plus": "1.2", %
+      "error minus": "0.49", %
+      "5th percentile": "3.0", %
+      "95th percentile": "4.7"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\PowerLawTwoPeakOneBBH@V@out{%
+    3.5}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\PowerLawTwoPeakOneBBH@V@out{%
+    1.2}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\PowerLawTwoPeakOneBBH@V@out{%
+    0.49}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\PowerLawTwoPeakOneBBH@V@out{%
+    3.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\PowerLawTwoPeakOneBBH@V@out{%
+    4.7}%
+    \else%
+      \def\PowerLawTwoPeakOneBBH@V@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \PowerLawTwoPeakOneBBH@V@out
+}\newcommand\PowerLawTwoPeakOneBBH@VI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\PowerLawTwoPeakOneBBH@VI@out{%
+    \{%
+      "median": "34.1", %
+      "error plus": "3.7", %
+      "error minus": "3.4", %
+      "5th percentile": "31", %
+      "95th percentile": "38"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\PowerLawTwoPeakOneBBH@VI@out{%
+    34.1}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\PowerLawTwoPeakOneBBH@VI@out{%
+    3.7}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\PowerLawTwoPeakOneBBH@VI@out{%
+    3.4}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\PowerLawTwoPeakOneBBH@VI@out{%
+    31}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\PowerLawTwoPeakOneBBH@VI@out{%
+    38}%
+    \else%
+      \def\PowerLawTwoPeakOneBBH@VI@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \PowerLawTwoPeakOneBBH@VI@out
+}\newcommand\PowerLawTwoPeakOneBBH@VII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\PowerLawTwoPeakOneBBH@VII@out{%
+    \{%
+      "median": "9.7", %
+      "error plus": "0.47", %
+      "error minus": "1.8", %
+      "5th percentile": "7.9", %
+      "95th percentile": "10"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\PowerLawTwoPeakOneBBH@VII@out{%
+    9.7}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\PowerLawTwoPeakOneBBH@VII@out{%
+    0.47}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\PowerLawTwoPeakOneBBH@VII@out{%
+    1.8}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\PowerLawTwoPeakOneBBH@VII@out{%
+    7.9}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\PowerLawTwoPeakOneBBH@VII@out{%
+    10}%
+    \else%
+      \def\PowerLawTwoPeakOneBBH@VII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \PowerLawTwoPeakOneBBH@VII@out
+}\newcommand\PowerLawTwoPeakOneBBH@VIII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\PowerLawTwoPeakOneBBH@VIII@out{%
+    \{%
+      "median": "0.68", %
+      "error plus": "1.0", %
+      "error minus": "0.35", %
+      "5th percentile": "0.32", %
+      "95th percentile": "1.7"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\PowerLawTwoPeakOneBBH@VIII@out{%
+    0.68}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\PowerLawTwoPeakOneBBH@VIII@out{%
+    1.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\PowerLawTwoPeakOneBBH@VIII@out{%
+    0.35}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\PowerLawTwoPeakOneBBH@VIII@out{%
+    0.32}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\PowerLawTwoPeakOneBBH@VIII@out{%
+    1.7}%
+    \else%
+      \def\PowerLawTwoPeakOneBBH@VIII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \PowerLawTwoPeakOneBBH@VIII@out
+}\newcommand\PowerLawTwoPeakOneBBH@IX[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\PowerLawTwoPeakOneBBH@IX@out{%
+    \{%
+      "median": "4.7", %
+      "error plus": "4.8", %
+      "error minus": "4.4", %
+      "5th percentile": "0.32", %
+      "95th percentile": "9.5"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\PowerLawTwoPeakOneBBH@IX@out{%
+    4.7}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\PowerLawTwoPeakOneBBH@IX@out{%
+    4.8}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\PowerLawTwoPeakOneBBH@IX@out{%
+    4.4}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\PowerLawTwoPeakOneBBH@IX@out{%
+    0.32}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\PowerLawTwoPeakOneBBH@IX@out{%
+    9.5}%
+    \else%
+      \def\PowerLawTwoPeakOneBBH@IX@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \PowerLawTwoPeakOneBBH@IX@out
+}\newcommand\PowerLawTwoPeakOneBBH@X[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\PowerLawTwoPeakOneBBH@X@out{%
+    \{%
+      "median": "3.9", %
+      "error plus": "4.8", %
+      "error minus": "3.6", %
+      "5th percentile": "0.32", %
+      "95th percentile": "8.7"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\PowerLawTwoPeakOneBBH@X@out{%
+    3.9}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\PowerLawTwoPeakOneBBH@X@out{%
+    4.8}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\PowerLawTwoPeakOneBBH@X@out{%
+    3.6}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\PowerLawTwoPeakOneBBH@X@out{%
+    0.32}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\PowerLawTwoPeakOneBBH@X@out{%
+    8.7}%
+    \else%
+      \def\PowerLawTwoPeakOneBBH@X@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \PowerLawTwoPeakOneBBH@X@out
+}\newcommand\PowerLawTwoPeakOneBBH@XI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\PowerLawTwoPeakOneBBH@XI@out{%
+    \{%
+      "median": "0.30", %
+      "error plus": "0.23", %
+      "error minus": "0.19", %
+      "5th percentile": "0.11", %
+      "95th percentile": "0.52"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\PowerLawTwoPeakOneBBH@XI@out{%
+    0.30}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\PowerLawTwoPeakOneBBH@XI@out{%
+    0.23}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\PowerLawTwoPeakOneBBH@XI@out{%
+    0.19}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\PowerLawTwoPeakOneBBH@XI@out{%
+    0.11}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\PowerLawTwoPeakOneBBH@XI@out{%
+    0.52}%
+    \else%
+      \def\PowerLawTwoPeakOneBBH@XI@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \PowerLawTwoPeakOneBBH@XI@out
+}\newcommand\PowerLawTwoPeakOneBBH@XII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\PowerLawTwoPeakOneBBH@XII@out{%
+    \{%
+      "median": "0.087", %
+      "error plus": "0.14", %
+      "error minus": "0.078", %
+      "5th percentile": "0.0085", %
+      "95th percentile": "0.22"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\PowerLawTwoPeakOneBBH@XII@out{%
+    0.087}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\PowerLawTwoPeakOneBBH@XII@out{%
+    0.14}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\PowerLawTwoPeakOneBBH@XII@out{%
+    0.078}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\PowerLawTwoPeakOneBBH@XII@out{%
+    0.0085}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\PowerLawTwoPeakOneBBH@XII@out{%
+    0.22}%
+    \else%
+      \def\PowerLawTwoPeakOneBBH@XII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \PowerLawTwoPeakOneBBH@XII@out
+}\newcommand\PowerLawTwoPeakOneBBH@XIII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\PowerLawTwoPeakOneBBH@XIII@out{%
+    \{%
+      "median": "0.33", %
+      "error plus": "0.078", %
+      "error minus": "0.079", %
+      "5th percentile": "0.25", %
+      "95th percentile": "0.41"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\PowerLawTwoPeakOneBBH@XIII@out{%
+    0.33}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\PowerLawTwoPeakOneBBH@XIII@out{%
+    0.078}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\PowerLawTwoPeakOneBBH@XIII@out{%
+    0.079}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\PowerLawTwoPeakOneBBH@XIII@out{%
+    0.25}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\PowerLawTwoPeakOneBBH@XIII@out{%
+    0.41}%
+    \else%
+      \def\PowerLawTwoPeakOneBBH@XIII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \PowerLawTwoPeakOneBBH@XIII@out
+}\newcommand\PowerLawTwoPeakOneBBH@XIV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\PowerLawTwoPeakOneBBH@XIV@out{%
+    \{%
+      "median": "0.63", %
+      "error plus": "0.33", %
+      "error minus": "0.55", %
+      "5th percentile": "0.083", %
+      "95th percentile": "0.97"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\PowerLawTwoPeakOneBBH@XIV@out{%
+    0.63}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\PowerLawTwoPeakOneBBH@XIV@out{%
+    0.33}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\PowerLawTwoPeakOneBBH@XIV@out{%
+    0.55}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\PowerLawTwoPeakOneBBH@XIV@out{%
+    0.083}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\PowerLawTwoPeakOneBBH@XIV@out{%
+    0.97}%
+    \else%
+      \def\PowerLawTwoPeakOneBBH@XIV@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \PowerLawTwoPeakOneBBH@XIV@out
+}\newcommand\PowerLawTwoPeakOneBBH@XV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\PowerLawTwoPeakOneBBH@XV@out{%
+    \{%
+      "median": "0.41", %
+      "error plus": "0.52", %
+      "error minus": "0.91", %
+      "5th percentile": "{-}0.50", %
+      "95th percentile": "0.93"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\PowerLawTwoPeakOneBBH@XV@out{%
+    0.41}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\PowerLawTwoPeakOneBBH@XV@out{%
+    0.52}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\PowerLawTwoPeakOneBBH@XV@out{%
+    0.91}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\PowerLawTwoPeakOneBBH@XV@out{%
+    {-}0.50}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\PowerLawTwoPeakOneBBH@XV@out{%
+    0.93}%
+    \else%
+      \def\PowerLawTwoPeakOneBBH@XV@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \PowerLawTwoPeakOneBBH@XV@out
+}\newcommand\PowerLawTwoPeakOneBBH@XVI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\PowerLawTwoPeakOneBBH@XVI@out{%
+    \{%
+      "median": "1.3", %
+      "error plus": "2.3", %
+      "error minus": "0.87", %
+      "5th percentile": "0.48", %
+      "95th percentile": "3.7"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\PowerLawTwoPeakOneBBH@XVI@out{%
+    1.3}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\PowerLawTwoPeakOneBBH@XVI@out{%
+    2.3}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\PowerLawTwoPeakOneBBH@XVI@out{%
+    0.87}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\PowerLawTwoPeakOneBBH@XVI@out{%
+    0.48}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\PowerLawTwoPeakOneBBH@XVI@out{%
+    3.7}%
+    \else%
+      \def\PowerLawTwoPeakOneBBH@XVI@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \PowerLawTwoPeakOneBBH@XVI@out
+}\newcommand\PowerLawTwoPeakOneBBH@XVII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\PowerLawTwoPeakOneBBH@XVII@out{%
+    \{%
+      "median": "3.5", %
+      "error plus": "0.97", %
+      "error minus": "1.0", %
+      "5th percentile": "2.4", %
+      "95th percentile": "4.4"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\PowerLawTwoPeakOneBBH@XVII@out{%
+    3.5}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\PowerLawTwoPeakOneBBH@XVII@out{%
+    0.97}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\PowerLawTwoPeakOneBBH@XVII@out{%
+    1.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\PowerLawTwoPeakOneBBH@XVII@out{%
+    2.4}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\PowerLawTwoPeakOneBBH@XVII@out{%
+    4.4}%
+    \else%
+      \def\PowerLawTwoPeakOneBBH@XVII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \PowerLawTwoPeakOneBBH@XVII@out
+}\newcommand\PowerLawTwoPeakOneBBH@XVIII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\PowerLawTwoPeakOneBBH@XVIII@out{%
+    \{%
+      "median": "15", %
+      "error plus": "5.8", %
+      "error minus": "4.3", %
+      "5th percentile": "11", %
+      "95th percentile": "21"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\PowerLawTwoPeakOneBBH@XVIII@out{%
+    15}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\PowerLawTwoPeakOneBBH@XVIII@out{%
+    5.8}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\PowerLawTwoPeakOneBBH@XVIII@out{%
+    4.3}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\PowerLawTwoPeakOneBBH@XVIII@out{%
+    11}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\PowerLawTwoPeakOneBBH@XVIII@out{%
+    21}%
+    \else%
+      \def\PowerLawTwoPeakOneBBH@XVIII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \PowerLawTwoPeakOneBBH@XVIII@out
+}%
+\makeatother%

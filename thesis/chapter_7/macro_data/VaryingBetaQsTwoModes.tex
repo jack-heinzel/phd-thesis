@@ -1,0 +1,242 @@
+\makeatletter%
+\newcommand\VaryingBetaQsTwoModes[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\VaryingBetaQsTwoModes@out{%
+    \{%
+      "param": \{%
+        "beta\_q\_high\_mass\_peak": \{%
+          "5th percentile": {-}5.8, %
+          "95th percentile": 11.9, %
+          "error minus": 12.1, %
+          "error plus": 5.6, %
+          "median": 6.3%
+        \}, %
+        "beta\_q\_high\_mass\_peak\_minus\_beta\_q\_power\_law": \{%
+          "5th percentile": {-}8.9, %
+          "95th percentile": 11.6, %
+          "error minus": 14.9, %
+          "error plus": 5.6, %
+          "median": 6.0%
+        \}, %
+        "beta\_q\_low\_mass\_peak": \{%
+          "5th percentile": {-}7.2, %
+          "95th percentile": 8.9, %
+          "error minus": 7.1, %
+          "error plus": 9.0, %
+          "median": {-}0.1%
+        \}, %
+        "beta\_q\_power\_law": \{%
+          "5th percentile": {-}1.0, %
+          "95th percentile": 3.2, %
+          "error minus": 1.5, %
+          "error plus": 2.7, %
+          "median": 0.5%
+        \}%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{param}=0%
+      \let\VaryingBetaQsTwoModes@out\VaryingBetaQsTwoModes@I%
+    \else%
+      \def\VaryingBetaQsTwoModes@out{%
+    ??}%
+    \fi
+  \fi
+  \VaryingBetaQsTwoModes@out
+}\newcommand\VaryingBetaQsTwoModes@I[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\VaryingBetaQsTwoModes@I@out{%
+    \{%
+      "beta\_q\_high\_mass\_peak": \{%
+        "5th percentile": {-}5.8, %
+        "95th percentile": 11.9, %
+        "error minus": 12.1, %
+        "error plus": 5.6, %
+        "median": 6.3%
+      \}, %
+      "beta\_q\_high\_mass\_peak\_minus\_beta\_q\_power\_law": \{%
+        "5th percentile": {-}8.9, %
+        "95th percentile": 11.6, %
+        "error minus": 14.9, %
+        "error plus": 5.6, %
+        "median": 6.0%
+      \}, %
+      "beta\_q\_low\_mass\_peak": \{%
+        "5th percentile": {-}7.2, %
+        "95th percentile": 8.9, %
+        "error minus": 7.1, %
+        "error plus": 9.0, %
+        "median": {-}0.1%
+      \}, %
+      "beta\_q\_power\_law": \{%
+        "5th percentile": {-}1.0, %
+        "95th percentile": 3.2, %
+        "error minus": 1.5, %
+        "error plus": 2.7, %
+        "median": 0.5%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{beta_q_high_mass_peak}=0%
+      \let\VaryingBetaQsTwoModes@I@out\VaryingBetaQsTwoModes@II%
+    \else%
+      \ifnum\pdfstrcmp{#1}{beta_q_high_mass_peak_minus_beta_q_power_law}=0%
+      \let\VaryingBetaQsTwoModes@I@out\VaryingBetaQsTwoModes@III%
+    \else%
+      \ifnum\pdfstrcmp{#1}{beta_q_low_mass_peak}=0%
+      \let\VaryingBetaQsTwoModes@I@out\VaryingBetaQsTwoModes@IV%
+    \else%
+      \ifnum\pdfstrcmp{#1}{beta_q_power_law}=0%
+      \let\VaryingBetaQsTwoModes@I@out\VaryingBetaQsTwoModes@V%
+    \else%
+      \def\VaryingBetaQsTwoModes@I@out{%
+    ??}%
+    \fi\fi\fi\fi
+  \fi
+  \VaryingBetaQsTwoModes@I@out
+}\newcommand\VaryingBetaQsTwoModes@II[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\VaryingBetaQsTwoModes@II@out{%
+    \{%
+      "5th percentile": {-}5.8, %
+      "95th percentile": 11.9, %
+      "error minus": 12.1, %
+      "error plus": 5.6, %
+      "median": 6.3%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\VaryingBetaQsTwoModes@II@out{%
+    {-}5.8}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\VaryingBetaQsTwoModes@II@out{%
+    11.9}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\VaryingBetaQsTwoModes@II@out{%
+    12.1}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\VaryingBetaQsTwoModes@II@out{%
+    5.6}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\VaryingBetaQsTwoModes@II@out{%
+    6.3}%
+    \else%
+      \def\VaryingBetaQsTwoModes@II@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \VaryingBetaQsTwoModes@II@out
+}\newcommand\VaryingBetaQsTwoModes@III[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\VaryingBetaQsTwoModes@III@out{%
+    \{%
+      "5th percentile": {-}8.9, %
+      "95th percentile": 11.6, %
+      "error minus": 14.9, %
+      "error plus": 5.6, %
+      "median": 6.0%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\VaryingBetaQsTwoModes@III@out{%
+    {-}8.9}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\VaryingBetaQsTwoModes@III@out{%
+    11.6}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\VaryingBetaQsTwoModes@III@out{%
+    14.9}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\VaryingBetaQsTwoModes@III@out{%
+    5.6}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\VaryingBetaQsTwoModes@III@out{%
+    6.0}%
+    \else%
+      \def\VaryingBetaQsTwoModes@III@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \VaryingBetaQsTwoModes@III@out
+}\newcommand\VaryingBetaQsTwoModes@IV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\VaryingBetaQsTwoModes@IV@out{%
+    \{%
+      "5th percentile": {-}7.2, %
+      "95th percentile": 8.9, %
+      "error minus": 7.1, %
+      "error plus": 9.0, %
+      "median": {-}0.1%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\VaryingBetaQsTwoModes@IV@out{%
+    {-}7.2}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\VaryingBetaQsTwoModes@IV@out{%
+    8.9}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\VaryingBetaQsTwoModes@IV@out{%
+    7.1}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\VaryingBetaQsTwoModes@IV@out{%
+    9.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\VaryingBetaQsTwoModes@IV@out{%
+    {-}0.1}%
+    \else%
+      \def\VaryingBetaQsTwoModes@IV@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \VaryingBetaQsTwoModes@IV@out
+}\newcommand\VaryingBetaQsTwoModes@V[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\VaryingBetaQsTwoModes@V@out{%
+    \{%
+      "5th percentile": {-}1.0, %
+      "95th percentile": 3.2, %
+      "error minus": 1.5, %
+      "error plus": 2.7, %
+      "median": 0.5%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\VaryingBetaQsTwoModes@V@out{%
+    {-}1.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\VaryingBetaQsTwoModes@V@out{%
+    3.2}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\VaryingBetaQsTwoModes@V@out{%
+    1.5}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\VaryingBetaQsTwoModes@V@out{%
+    2.7}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\VaryingBetaQsTwoModes@V@out{%
+    0.5}%
+    \else%
+      \def\VaryingBetaQsTwoModes@V@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \VaryingBetaQsTwoModes@V@out
+}%
+\makeatother%

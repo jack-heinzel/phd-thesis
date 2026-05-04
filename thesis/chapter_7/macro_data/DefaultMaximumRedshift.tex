@@ -1,0 +1,106 @@
+\makeatletter%
+\newcommand\DefaultMaximumRedshift[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\DefaultMaximumRedshift@out{%
+    \{%
+      "detectable": \{%
+        "50th\_percentile": 1.54, %
+        "95th\_percentile": 1.62, %
+        "5th\_percentile": 1.44, %
+        "error\_plus": 0.08, %
+        "error\_minus": 0.09%
+      \}, %
+      "GWTC{-}4{-}like": \{%
+        "50th\_percentile": 1.5, %
+        "95th\_percentile": 1.8, %
+        "5th\_percentile": 1.3, %
+        "error\_plus": 0.3, %
+        "error\_minus": 0.2%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{detectable}=0%
+      \let\DefaultMaximumRedshift@out\DefaultMaximumRedshift@I%
+    \else%
+      \ifnum\pdfstrcmp{#1}{GWTC-4-like}=0%
+      \let\DefaultMaximumRedshift@out\DefaultMaximumRedshift@II%
+    \else%
+      \def\DefaultMaximumRedshift@out{%
+    ??}%
+    \fi\fi
+  \fi
+  \DefaultMaximumRedshift@out
+}\newcommand\DefaultMaximumRedshift@I[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\DefaultMaximumRedshift@I@out{%
+    \{%
+      "50th\_percentile": 1.54, %
+      "95th\_percentile": 1.62, %
+      "5th\_percentile": 1.44, %
+      "error\_plus": 0.08, %
+      "error\_minus": 0.09%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{50th_percentile}=0%
+      \def\DefaultMaximumRedshift@I@out{%
+    1.54}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th_percentile}=0%
+      \def\DefaultMaximumRedshift@I@out{%
+    1.62}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th_percentile}=0%
+      \def\DefaultMaximumRedshift@I@out{%
+    1.44}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error_plus}=0%
+      \def\DefaultMaximumRedshift@I@out{%
+    0.08}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error_minus}=0%
+      \def\DefaultMaximumRedshift@I@out{%
+    0.09}%
+    \else%
+      \def\DefaultMaximumRedshift@I@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \DefaultMaximumRedshift@I@out
+}\newcommand\DefaultMaximumRedshift@II[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\DefaultMaximumRedshift@II@out{%
+    \{%
+      "50th\_percentile": 1.5, %
+      "95th\_percentile": 1.8, %
+      "5th\_percentile": 1.3, %
+      "error\_plus": 0.3, %
+      "error\_minus": 0.2%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{50th_percentile}=0%
+      \def\DefaultMaximumRedshift@II@out{%
+    1.5}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th_percentile}=0%
+      \def\DefaultMaximumRedshift@II@out{%
+    1.8}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th_percentile}=0%
+      \def\DefaultMaximumRedshift@II@out{%
+    1.3}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error_plus}=0%
+      \def\DefaultMaximumRedshift@II@out{%
+    0.3}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error_minus}=0%
+      \def\DefaultMaximumRedshift@II@out{%
+    0.2}%
+    \else%
+      \def\DefaultMaximumRedshift@II@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \DefaultMaximumRedshift@II@out
+}%
+\makeatother%

@@ -1,0 +1,326 @@
+\makeatletter%
+\newcommand\OriginalFullMassSpectrumBGPRate[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\OriginalFullMassSpectrumBGPRate@out{%
+    \{%
+      "R\_BNS": \{%
+        "50th\_percentile": 50.644299741959486, %
+        "5th\_percentile": 8.773538874436245, %
+        "95th\_percentile": 169.062007802654, %
+        "error\_plus": 118.41770806069451, %
+        "error\_minus": 41.870760867523245, %
+        "mean": 65.16500447967286%
+      \}, %
+      "R\_NSBH": \{%
+        "50th\_percentile": 32.59222923306184, %
+        "5th\_percentile": 9.272622953294395, %
+        "95th\_percentile": 85.59905785385943, %
+        "error\_plus": 53.00682862079759, %
+        "error\_minus": 23.31960627976745, %
+        "mean": 37.968544618977496%
+      \}, %
+      "R\_BBH": \{%
+        "50th\_percentile": 19.572856992907404, %
+        "5th\_percentile": 14.66808758700284, %
+        "95th\_percentile": 26.425775413027317, %
+        "error\_plus": 6.852918420119913, %
+        "error\_minus": 4.904769405904563, %
+        "mean": 19.937265368364386%
+      \}, %
+      "R\_NS{-}Gap": \{%
+        "50th\_percentile": 16.76880435316408, %
+        "5th\_percentile": 1.6276896778363994, %
+        "95th\_percentile": 64.27494804058972, %
+        "error\_plus": 47.50614368742564, %
+        "error\_minus": 15.14111467532768, %
+        "mean": 22.777847175851687%
+      \}, %
+      "R\_BH{-}Gap": \{%
+        "50th\_percentile": 1.603751667416776, %
+        "5th\_percentile": 0.22348152047076986, %
+        "95th\_percentile": 6.950939281020081, %
+        "error\_plus": 5.347187613603305, %
+        "error\_minus": 1.3802701469460061, %
+        "mean": 2.3515819405458296%
+      \}, %
+      "R\_Full": \{%
+        "50th\_percentile": 110.90973503061272, %
+        "5th\_percentile": 51.26202136187299, %
+        "95th\_percentile": 237.0655331094016, %
+        "error\_plus": 126.15579807878888, %
+        "error\_minus": 59.64771366873973, %
+        "mean": 123.07081446701474%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{R_BNS}=0%
+      \let\OriginalFullMassSpectrumBGPRate@out\OriginalFullMassSpectrumBGPRate@I%
+    \else%
+      \ifnum\pdfstrcmp{#1}{R_NSBH}=0%
+      \let\OriginalFullMassSpectrumBGPRate@out\OriginalFullMassSpectrumBGPRate@II%
+    \else%
+      \ifnum\pdfstrcmp{#1}{R_BBH}=0%
+      \let\OriginalFullMassSpectrumBGPRate@out\OriginalFullMassSpectrumBGPRate@III%
+    \else%
+      \ifnum\pdfstrcmp{#1}{R_NS-Gap}=0%
+      \let\OriginalFullMassSpectrumBGPRate@out\OriginalFullMassSpectrumBGPRate@IV%
+    \else%
+      \ifnum\pdfstrcmp{#1}{R_BH-Gap}=0%
+      \let\OriginalFullMassSpectrumBGPRate@out\OriginalFullMassSpectrumBGPRate@V%
+    \else%
+      \ifnum\pdfstrcmp{#1}{R_Full}=0%
+      \let\OriginalFullMassSpectrumBGPRate@out\OriginalFullMassSpectrumBGPRate@VI%
+    \else%
+      \def\OriginalFullMassSpectrumBGPRate@out{%
+    ??}%
+    \fi\fi\fi\fi\fi\fi
+  \fi
+  \OriginalFullMassSpectrumBGPRate@out
+}\newcommand\OriginalFullMassSpectrumBGPRate@I[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\OriginalFullMassSpectrumBGPRate@I@out{%
+    \{%
+      "50th\_percentile": 50.644299741959486, %
+      "5th\_percentile": 8.773538874436245, %
+      "95th\_percentile": 169.062007802654, %
+      "error\_plus": 118.41770806069451, %
+      "error\_minus": 41.870760867523245, %
+      "mean": 65.16500447967286%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{50th_percentile}=0%
+      \def\OriginalFullMassSpectrumBGPRate@I@out{%
+    50.644299741959486}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th_percentile}=0%
+      \def\OriginalFullMassSpectrumBGPRate@I@out{%
+    8.773538874436245}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th_percentile}=0%
+      \def\OriginalFullMassSpectrumBGPRate@I@out{%
+    169.062007802654}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error_plus}=0%
+      \def\OriginalFullMassSpectrumBGPRate@I@out{%
+    118.41770806069451}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error_minus}=0%
+      \def\OriginalFullMassSpectrumBGPRate@I@out{%
+    41.870760867523245}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mean}=0%
+      \def\OriginalFullMassSpectrumBGPRate@I@out{%
+    65.16500447967286}%
+    \else%
+      \def\OriginalFullMassSpectrumBGPRate@I@out{%
+    ??}%
+    \fi\fi\fi\fi\fi\fi
+  \fi
+  \OriginalFullMassSpectrumBGPRate@I@out
+}\newcommand\OriginalFullMassSpectrumBGPRate@II[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\OriginalFullMassSpectrumBGPRate@II@out{%
+    \{%
+      "50th\_percentile": 32.59222923306184, %
+      "5th\_percentile": 9.272622953294395, %
+      "95th\_percentile": 85.59905785385943, %
+      "error\_plus": 53.00682862079759, %
+      "error\_minus": 23.31960627976745, %
+      "mean": 37.968544618977496%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{50th_percentile}=0%
+      \def\OriginalFullMassSpectrumBGPRate@II@out{%
+    32.59222923306184}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th_percentile}=0%
+      \def\OriginalFullMassSpectrumBGPRate@II@out{%
+    9.272622953294395}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th_percentile}=0%
+      \def\OriginalFullMassSpectrumBGPRate@II@out{%
+    85.59905785385943}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error_plus}=0%
+      \def\OriginalFullMassSpectrumBGPRate@II@out{%
+    53.00682862079759}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error_minus}=0%
+      \def\OriginalFullMassSpectrumBGPRate@II@out{%
+    23.31960627976745}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mean}=0%
+      \def\OriginalFullMassSpectrumBGPRate@II@out{%
+    37.968544618977496}%
+    \else%
+      \def\OriginalFullMassSpectrumBGPRate@II@out{%
+    ??}%
+    \fi\fi\fi\fi\fi\fi
+  \fi
+  \OriginalFullMassSpectrumBGPRate@II@out
+}\newcommand\OriginalFullMassSpectrumBGPRate@III[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\OriginalFullMassSpectrumBGPRate@III@out{%
+    \{%
+      "50th\_percentile": 19.572856992907404, %
+      "5th\_percentile": 14.66808758700284, %
+      "95th\_percentile": 26.425775413027317, %
+      "error\_plus": 6.852918420119913, %
+      "error\_minus": 4.904769405904563, %
+      "mean": 19.937265368364386%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{50th_percentile}=0%
+      \def\OriginalFullMassSpectrumBGPRate@III@out{%
+    19.572856992907404}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th_percentile}=0%
+      \def\OriginalFullMassSpectrumBGPRate@III@out{%
+    14.66808758700284}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th_percentile}=0%
+      \def\OriginalFullMassSpectrumBGPRate@III@out{%
+    26.425775413027317}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error_plus}=0%
+      \def\OriginalFullMassSpectrumBGPRate@III@out{%
+    6.852918420119913}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error_minus}=0%
+      \def\OriginalFullMassSpectrumBGPRate@III@out{%
+    4.904769405904563}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mean}=0%
+      \def\OriginalFullMassSpectrumBGPRate@III@out{%
+    19.937265368364386}%
+    \else%
+      \def\OriginalFullMassSpectrumBGPRate@III@out{%
+    ??}%
+    \fi\fi\fi\fi\fi\fi
+  \fi
+  \OriginalFullMassSpectrumBGPRate@III@out
+}\newcommand\OriginalFullMassSpectrumBGPRate@IV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\OriginalFullMassSpectrumBGPRate@IV@out{%
+    \{%
+      "50th\_percentile": 16.76880435316408, %
+      "5th\_percentile": 1.6276896778363994, %
+      "95th\_percentile": 64.27494804058972, %
+      "error\_plus": 47.50614368742564, %
+      "error\_minus": 15.14111467532768, %
+      "mean": 22.777847175851687%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{50th_percentile}=0%
+      \def\OriginalFullMassSpectrumBGPRate@IV@out{%
+    16.76880435316408}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th_percentile}=0%
+      \def\OriginalFullMassSpectrumBGPRate@IV@out{%
+    1.6276896778363994}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th_percentile}=0%
+      \def\OriginalFullMassSpectrumBGPRate@IV@out{%
+    64.27494804058972}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error_plus}=0%
+      \def\OriginalFullMassSpectrumBGPRate@IV@out{%
+    47.50614368742564}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error_minus}=0%
+      \def\OriginalFullMassSpectrumBGPRate@IV@out{%
+    15.14111467532768}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mean}=0%
+      \def\OriginalFullMassSpectrumBGPRate@IV@out{%
+    22.777847175851687}%
+    \else%
+      \def\OriginalFullMassSpectrumBGPRate@IV@out{%
+    ??}%
+    \fi\fi\fi\fi\fi\fi
+  \fi
+  \OriginalFullMassSpectrumBGPRate@IV@out
+}\newcommand\OriginalFullMassSpectrumBGPRate@V[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\OriginalFullMassSpectrumBGPRate@V@out{%
+    \{%
+      "50th\_percentile": 1.603751667416776, %
+      "5th\_percentile": 0.22348152047076986, %
+      "95th\_percentile": 6.950939281020081, %
+      "error\_plus": 5.347187613603305, %
+      "error\_minus": 1.3802701469460061, %
+      "mean": 2.3515819405458296%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{50th_percentile}=0%
+      \def\OriginalFullMassSpectrumBGPRate@V@out{%
+    1.603751667416776}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th_percentile}=0%
+      \def\OriginalFullMassSpectrumBGPRate@V@out{%
+    0.22348152047076986}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th_percentile}=0%
+      \def\OriginalFullMassSpectrumBGPRate@V@out{%
+    6.950939281020081}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error_plus}=0%
+      \def\OriginalFullMassSpectrumBGPRate@V@out{%
+    5.347187613603305}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error_minus}=0%
+      \def\OriginalFullMassSpectrumBGPRate@V@out{%
+    1.3802701469460061}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mean}=0%
+      \def\OriginalFullMassSpectrumBGPRate@V@out{%
+    2.3515819405458296}%
+    \else%
+      \def\OriginalFullMassSpectrumBGPRate@V@out{%
+    ??}%
+    \fi\fi\fi\fi\fi\fi
+  \fi
+  \OriginalFullMassSpectrumBGPRate@V@out
+}\newcommand\OriginalFullMassSpectrumBGPRate@VI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\OriginalFullMassSpectrumBGPRate@VI@out{%
+    \{%
+      "50th\_percentile": 110.90973503061272, %
+      "5th\_percentile": 51.26202136187299, %
+      "95th\_percentile": 237.0655331094016, %
+      "error\_plus": 126.15579807878888, %
+      "error\_minus": 59.64771366873973, %
+      "mean": 123.07081446701474%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{50th_percentile}=0%
+      \def\OriginalFullMassSpectrumBGPRate@VI@out{%
+    110.90973503061272}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th_percentile}=0%
+      \def\OriginalFullMassSpectrumBGPRate@VI@out{%
+    51.26202136187299}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th_percentile}=0%
+      \def\OriginalFullMassSpectrumBGPRate@VI@out{%
+    237.0655331094016}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error_plus}=0%
+      \def\OriginalFullMassSpectrumBGPRate@VI@out{%
+    126.15579807878888}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error_minus}=0%
+      \def\OriginalFullMassSpectrumBGPRate@VI@out{%
+    59.64771366873973}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mean}=0%
+      \def\OriginalFullMassSpectrumBGPRate@VI@out{%
+    123.07081446701474}%
+    \else%
+      \def\OriginalFullMassSpectrumBGPRate@VI@out{%
+    ??}%
+    \fi\fi\fi\fi\fi\fi
+  \fi
+  \OriginalFullMassSpectrumBGPRate@VI@out
+}%
+\makeatother%

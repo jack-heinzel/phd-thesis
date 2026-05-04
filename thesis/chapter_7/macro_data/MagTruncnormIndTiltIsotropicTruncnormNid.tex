@@ -1,0 +1,1815 @@
+\makeatletter%
+\newcommand\MagTruncnormIndTiltIsotropicTruncnormNid[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagTruncnormIndTiltIsotropicTruncnormNid@out{%
+    \{%
+      "ln\_evidence": {-}1034.43, %
+      "ln\_evidence\_error": 0.25, %
+      "ln\_bayes\_factor\_over\_new\_default": {-}2.13, %
+      "ln\_bayes\_factor\_over\_old\_default": {-}1.49, %
+      "param": \{%
+        "alpha\_1": \{%
+          "median": 1.88, %
+          "5th percentile": {-}0.2, %
+          "95th percentile": 3.1, %
+          "error plus": 1.22, %
+          "error minus": 2.08%
+        \}, %
+        "alpha\_2": \{%
+          "median": 4.66, %
+          "5th percentile": 3.27, %
+          "95th percentile": 6.33, %
+          "error plus": 1.67, %
+          "error minus": 1.39%
+        \}, %
+        "beta": \{%
+          "median": 1.63, %
+          "5th percentile": 0.5, %
+          "95th percentile": 3.1, %
+          "error plus": 1.47, %
+          "error minus": 1.14%
+        \}, %
+        "mlow\_1": \{%
+          "median": 5.14, %
+          "5th percentile": 3.23, %
+          "95th percentile": 8.34, %
+          "error plus": 3.2, %
+          "error minus": 1.91%
+        \}, %
+        "mlow\_2": \{%
+          "median": 3.56, %
+          "5th percentile": 3.03, %
+          "95th percentile": 4.89, %
+          "error plus": 1.32, %
+          "error minus": 0.53%
+        \}, %
+        "break\_mass": \{%
+          "median": 35.24, %
+          "5th percentile": 21.77, %
+          "95th percentile": 48.05, %
+          "error plus": 12.81, %
+          "error minus": 13.47%
+        \}, %
+        "mpp\_1": \{%
+          "median": 9.73, %
+          "5th percentile": 8.41, %
+          "95th percentile": 10.22, %
+          "error plus": 0.5, %
+          "error minus": 1.32%
+        \}, %
+        "mpp\_2": \{%
+          "median": 32.04, %
+          "5th percentile": 26.28, %
+          "95th percentile": 35.26, %
+          "error plus": 3.22, %
+          "error minus": 5.76%
+        \}, %
+        "sigpp\_1": \{%
+          "median": 0.66, %
+          "5th percentile": 0.32, %
+          "95th percentile": 1.56, %
+          "error plus": 0.9, %
+          "error minus": 0.34%
+        \}, %
+        "sigpp\_2": \{%
+          "median": 4.66, %
+          "5th percentile": 1.49, %
+          "95th percentile": 9.24, %
+          "error plus": 4.58, %
+          "error minus": 3.17%
+        \}, %
+        "delta\_m\_1": \{%
+          "median": 4.72, %
+          "5th percentile": 0.32, %
+          "95th percentile": 9.29, %
+          "error plus": 4.57, %
+          "error minus": 4.4%
+        \}, %
+        "delta\_m\_2": \{%
+          "median": 4.01, %
+          "5th percentile": 0.37, %
+          "95th percentile": 8.62, %
+          "error plus": 4.62, %
+          "error minus": 3.63%
+        \}, %
+        "lam\_0": \{%
+          "median": 0.36, %
+          "5th percentile": 0.14, %
+          "95th percentile": 0.65, %
+          "error plus": 0.29, %
+          "error minus": 0.22%
+        \}, %
+        "lam\_1": \{%
+          "median": 0.59, %
+          "5th percentile": 0.32, %
+          "95th percentile": 0.82, %
+          "error plus": 0.22, %
+          "error minus": 0.28%
+        \}, %
+        "lamb": \{%
+          "median": 3.35, %
+          "5th percentile": 2.47, %
+          "95th percentile": 4.26, %
+          "error plus": 0.91, %
+          "error minus": 0.88%
+        \}, %
+        "mu\_chi\_1": \{%
+          "median": 0.1, %
+          "5th percentile": 0.01, %
+          "95th percentile": 0.25, %
+          "error plus": 0.15, %
+          "error minus": 0.09%
+        \}, %
+        "sigma\_chi\_1": \{%
+          "median": 0.33, %
+          "5th percentile": 0.22, %
+          "95th percentile": 0.46, %
+          "error plus": 0.13, %
+          "error minus": 0.11%
+        \}, %
+        "mu\_chi\_2": \{%
+          "median": 0.12, %
+          "5th percentile": 0.01, %
+          "95th percentile": 0.27, %
+          "error plus": 0.16, %
+          "error minus": 0.11%
+        \}, %
+        "sigma\_chi\_2": \{%
+          "median": 0.32, %
+          "5th percentile": 0.19, %
+          "95th percentile": 0.48, %
+          "error plus": 0.17, %
+          "error minus": 0.12%
+        \}, %
+        "xi\_spin": \{%
+          "median": 0.66, %
+          "5th percentile": 0.12, %
+          "95th percentile": 0.97, %
+          "error plus": 0.31, %
+          "error minus": 0.54%
+        \}, %
+        "mu\_spin": \{%
+          "median": 0.41, %
+          "5th percentile": {-}0.41, %
+          "95th percentile": 0.93, %
+          "error plus": 0.52, %
+          "error minus": 0.82%
+        \}, %
+        "sigma\_spin": \{%
+          "median": 1.35, %
+          "5th percentile": 0.46, %
+          "95th percentile": 3.64, %
+          "error plus": 2.29, %
+          "error minus": 0.89%
+        \}, %
+        "rate": \{%
+          "median": 15.42, %
+          "5th percentile": 11.26, %
+          "95th percentile": 21.14, %
+          "error plus": 5.72, %
+          "error minus": 4.16%
+        \}, %
+        "log\_likelihood": \{%
+          "median": {-}1009.86, %
+          "5th percentile": {-}1015.8, %
+          "95th percentile": {-}1005.27, %
+          "error plus": 4.59, %
+          "error minus": 5.94%
+        \}, %
+        "variance": \{%
+          "median": 0.9, %
+          "5th percentile": 0.69, %
+          "95th percentile": 0.99, %
+          "error plus": 0.09, %
+          "error minus": 0.21%
+        \}, %
+        "min\_neff": \{%
+          "median": 56.09, %
+          "5th percentile": 33.25, %
+          "95th percentile": 88.34, %
+          "error plus": 32.25, %
+          "error minus": 22.85%
+        \}, %
+        "selection\_neff": \{%
+          "median": 1993.0, %
+          "5th percentile": 1993.0, %
+          "95th percentile": 1993.0, %
+          "error plus": 0.0, %
+          "error minus": 0.0%
+        \}%
+      \}, %
+      "ppd": \{%
+        "a\_1": \{%
+          "median": 0.27, %
+          "5th percentile": 0.03, %
+          "90th percentile": 0.61, %
+          "95th percentile": 0.72, %
+          "peak": 0.13%
+        \}, %
+        "a\_2": \{%
+          "median": 0.27, %
+          "5th percentile": 0.03, %
+          "90th percentile": 0.61, %
+          "95th percentile": 0.72, %
+          "peak": 0.15%
+        \}, %
+        "cos\_tilt": \{%
+          "median": 0.08, %
+          "5th percentile": {-}0.87, %
+          "90th percentile": 0.8, %
+          "95th percentile": 0.9, %
+          "peak": 0.3%
+        \}, %
+        "mass\_1": \{%
+          "median": 10.1, %
+          "5th percentile": 8.02, %
+          "90th percentile": 26.29, %
+          "95th percentile": 33.44, %
+          "peak": 9.91%
+        \}, %
+        "mass\_ratio": \{%
+          "median": 0.84, %
+          "5th percentile": 0.52, %
+          "90th percentile": 0.97, %
+          "95th percentile": 0.99, %
+          "peak": 1.0%
+        \}, %
+        "redshift": \{%
+          "median": 0.3, %
+          "5th percentile": 0.05, %
+          "90th percentile": 0.44, %
+          "95th percentile": 0.45, %
+          "peak": 2.0%
+        \}%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{ln_evidence}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@out{%
+    {-}1034.43}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{ln_evidence_error}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@out{%
+    0.25}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{ln_bayes_factor_over_new_default}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@out{%
+    {-}2.13}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{ln_bayes_factor_over_old_default}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@out{%
+    {-}1.49}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{param}=0%
+      \let\MagTruncnormIndTiltIsotropicTruncnormNid@out\MagTruncnormIndTiltIsotropicTruncnormNid@I%
+    \else%
+      \ifnum\pdfstrcmp{#1}{ppd}=0%
+      \let\MagTruncnormIndTiltIsotropicTruncnormNid@out\MagTruncnormIndTiltIsotropicTruncnormNid@II%
+    \else%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@out{%
+    ??}%
+    \fi\fi\fi\fi\fi\fi
+  \fi
+  \MagTruncnormIndTiltIsotropicTruncnormNid@out
+}\newcommand\MagTruncnormIndTiltIsotropicTruncnormNid@I[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagTruncnormIndTiltIsotropicTruncnormNid@I@out{%
+    \{%
+      "alpha\_1": \{%
+        "median": 1.88, %
+        "5th percentile": {-}0.2, %
+        "95th percentile": 3.1, %
+        "error plus": 1.22, %
+        "error minus": 2.08%
+      \}, %
+      "alpha\_2": \{%
+        "median": 4.66, %
+        "5th percentile": 3.27, %
+        "95th percentile": 6.33, %
+        "error plus": 1.67, %
+        "error minus": 1.39%
+      \}, %
+      "beta": \{%
+        "median": 1.63, %
+        "5th percentile": 0.5, %
+        "95th percentile": 3.1, %
+        "error plus": 1.47, %
+        "error minus": 1.14%
+      \}, %
+      "mlow\_1": \{%
+        "median": 5.14, %
+        "5th percentile": 3.23, %
+        "95th percentile": 8.34, %
+        "error plus": 3.2, %
+        "error minus": 1.91%
+      \}, %
+      "mlow\_2": \{%
+        "median": 3.56, %
+        "5th percentile": 3.03, %
+        "95th percentile": 4.89, %
+        "error plus": 1.32, %
+        "error minus": 0.53%
+      \}, %
+      "break\_mass": \{%
+        "median": 35.24, %
+        "5th percentile": 21.77, %
+        "95th percentile": 48.05, %
+        "error plus": 12.81, %
+        "error minus": 13.47%
+      \}, %
+      "mpp\_1": \{%
+        "median": 9.73, %
+        "5th percentile": 8.41, %
+        "95th percentile": 10.22, %
+        "error plus": 0.5, %
+        "error minus": 1.32%
+      \}, %
+      "mpp\_2": \{%
+        "median": 32.04, %
+        "5th percentile": 26.28, %
+        "95th percentile": 35.26, %
+        "error plus": 3.22, %
+        "error minus": 5.76%
+      \}, %
+      "sigpp\_1": \{%
+        "median": 0.66, %
+        "5th percentile": 0.32, %
+        "95th percentile": 1.56, %
+        "error plus": 0.9, %
+        "error minus": 0.34%
+      \}, %
+      "sigpp\_2": \{%
+        "median": 4.66, %
+        "5th percentile": 1.49, %
+        "95th percentile": 9.24, %
+        "error plus": 4.58, %
+        "error minus": 3.17%
+      \}, %
+      "delta\_m\_1": \{%
+        "median": 4.72, %
+        "5th percentile": 0.32, %
+        "95th percentile": 9.29, %
+        "error plus": 4.57, %
+        "error minus": 4.4%
+      \}, %
+      "delta\_m\_2": \{%
+        "median": 4.01, %
+        "5th percentile": 0.37, %
+        "95th percentile": 8.62, %
+        "error plus": 4.62, %
+        "error minus": 3.63%
+      \}, %
+      "lam\_0": \{%
+        "median": 0.36, %
+        "5th percentile": 0.14, %
+        "95th percentile": 0.65, %
+        "error plus": 0.29, %
+        "error minus": 0.22%
+      \}, %
+      "lam\_1": \{%
+        "median": 0.59, %
+        "5th percentile": 0.32, %
+        "95th percentile": 0.82, %
+        "error plus": 0.22, %
+        "error minus": 0.28%
+      \}, %
+      "lamb": \{%
+        "median": 3.35, %
+        "5th percentile": 2.47, %
+        "95th percentile": 4.26, %
+        "error plus": 0.91, %
+        "error minus": 0.88%
+      \}, %
+      "mu\_chi\_1": \{%
+        "median": 0.1, %
+        "5th percentile": 0.01, %
+        "95th percentile": 0.25, %
+        "error plus": 0.15, %
+        "error minus": 0.09%
+      \}, %
+      "sigma\_chi\_1": \{%
+        "median": 0.33, %
+        "5th percentile": 0.22, %
+        "95th percentile": 0.46, %
+        "error plus": 0.13, %
+        "error minus": 0.11%
+      \}, %
+      "mu\_chi\_2": \{%
+        "median": 0.12, %
+        "5th percentile": 0.01, %
+        "95th percentile": 0.27, %
+        "error plus": 0.16, %
+        "error minus": 0.11%
+      \}, %
+      "sigma\_chi\_2": \{%
+        "median": 0.32, %
+        "5th percentile": 0.19, %
+        "95th percentile": 0.48, %
+        "error plus": 0.17, %
+        "error minus": 0.12%
+      \}, %
+      "xi\_spin": \{%
+        "median": 0.66, %
+        "5th percentile": 0.12, %
+        "95th percentile": 0.97, %
+        "error plus": 0.31, %
+        "error minus": 0.54%
+      \}, %
+      "mu\_spin": \{%
+        "median": 0.41, %
+        "5th percentile": {-}0.41, %
+        "95th percentile": 0.93, %
+        "error plus": 0.52, %
+        "error minus": 0.82%
+      \}, %
+      "sigma\_spin": \{%
+        "median": 1.35, %
+        "5th percentile": 0.46, %
+        "95th percentile": 3.64, %
+        "error plus": 2.29, %
+        "error minus": 0.89%
+      \}, %
+      "rate": \{%
+        "median": 15.42, %
+        "5th percentile": 11.26, %
+        "95th percentile": 21.14, %
+        "error plus": 5.72, %
+        "error minus": 4.16%
+      \}, %
+      "log\_likelihood": \{%
+        "median": {-}1009.86, %
+        "5th percentile": {-}1015.8, %
+        "95th percentile": {-}1005.27, %
+        "error plus": 4.59, %
+        "error minus": 5.94%
+      \}, %
+      "variance": \{%
+        "median": 0.9, %
+        "5th percentile": 0.69, %
+        "95th percentile": 0.99, %
+        "error plus": 0.09, %
+        "error minus": 0.21%
+      \}, %
+      "min\_neff": \{%
+        "median": 56.09, %
+        "5th percentile": 33.25, %
+        "95th percentile": 88.34, %
+        "error plus": 32.25, %
+        "error minus": 22.85%
+      \}, %
+      "selection\_neff": \{%
+        "median": 1993.0, %
+        "5th percentile": 1993.0, %
+        "95th percentile": 1993.0, %
+        "error plus": 0.0, %
+        "error minus": 0.0%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{alpha_1}=0%
+      \let\MagTruncnormIndTiltIsotropicTruncnormNid@I@out\MagTruncnormIndTiltIsotropicTruncnormNid@III%
+    \else%
+      \ifnum\pdfstrcmp{#1}{alpha_2}=0%
+      \let\MagTruncnormIndTiltIsotropicTruncnormNid@I@out\MagTruncnormIndTiltIsotropicTruncnormNid@IV%
+    \else%
+      \ifnum\pdfstrcmp{#1}{beta}=0%
+      \let\MagTruncnormIndTiltIsotropicTruncnormNid@I@out\MagTruncnormIndTiltIsotropicTruncnormNid@V%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mlow_1}=0%
+      \let\MagTruncnormIndTiltIsotropicTruncnormNid@I@out\MagTruncnormIndTiltIsotropicTruncnormNid@VI%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mlow_2}=0%
+      \let\MagTruncnormIndTiltIsotropicTruncnormNid@I@out\MagTruncnormIndTiltIsotropicTruncnormNid@VII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{break_mass}=0%
+      \let\MagTruncnormIndTiltIsotropicTruncnormNid@I@out\MagTruncnormIndTiltIsotropicTruncnormNid@VIII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mpp_1}=0%
+      \let\MagTruncnormIndTiltIsotropicTruncnormNid@I@out\MagTruncnormIndTiltIsotropicTruncnormNid@IX%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mpp_2}=0%
+      \let\MagTruncnormIndTiltIsotropicTruncnormNid@I@out\MagTruncnormIndTiltIsotropicTruncnormNid@X%
+    \else%
+      \ifnum\pdfstrcmp{#1}{sigpp_1}=0%
+      \let\MagTruncnormIndTiltIsotropicTruncnormNid@I@out\MagTruncnormIndTiltIsotropicTruncnormNid@XI%
+    \else%
+      \ifnum\pdfstrcmp{#1}{sigpp_2}=0%
+      \let\MagTruncnormIndTiltIsotropicTruncnormNid@I@out\MagTruncnormIndTiltIsotropicTruncnormNid@XII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{delta_m_1}=0%
+      \let\MagTruncnormIndTiltIsotropicTruncnormNid@I@out\MagTruncnormIndTiltIsotropicTruncnormNid@XIII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{delta_m_2}=0%
+      \let\MagTruncnormIndTiltIsotropicTruncnormNid@I@out\MagTruncnormIndTiltIsotropicTruncnormNid@XIV%
+    \else%
+      \ifnum\pdfstrcmp{#1}{lam_0}=0%
+      \let\MagTruncnormIndTiltIsotropicTruncnormNid@I@out\MagTruncnormIndTiltIsotropicTruncnormNid@XV%
+    \else%
+      \ifnum\pdfstrcmp{#1}{lam_1}=0%
+      \let\MagTruncnormIndTiltIsotropicTruncnormNid@I@out\MagTruncnormIndTiltIsotropicTruncnormNid@XVI%
+    \else%
+      \ifnum\pdfstrcmp{#1}{lamb}=0%
+      \let\MagTruncnormIndTiltIsotropicTruncnormNid@I@out\MagTruncnormIndTiltIsotropicTruncnormNid@XVII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mu_chi_1}=0%
+      \let\MagTruncnormIndTiltIsotropicTruncnormNid@I@out\MagTruncnormIndTiltIsotropicTruncnormNid@XVIII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{sigma_chi_1}=0%
+      \let\MagTruncnormIndTiltIsotropicTruncnormNid@I@out\MagTruncnormIndTiltIsotropicTruncnormNid@XIX%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mu_chi_2}=0%
+      \let\MagTruncnormIndTiltIsotropicTruncnormNid@I@out\MagTruncnormIndTiltIsotropicTruncnormNid@XX%
+    \else%
+      \ifnum\pdfstrcmp{#1}{sigma_chi_2}=0%
+      \let\MagTruncnormIndTiltIsotropicTruncnormNid@I@out\MagTruncnormIndTiltIsotropicTruncnormNid@XXI%
+    \else%
+      \ifnum\pdfstrcmp{#1}{xi_spin}=0%
+      \let\MagTruncnormIndTiltIsotropicTruncnormNid@I@out\MagTruncnormIndTiltIsotropicTruncnormNid@XXII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mu_spin}=0%
+      \let\MagTruncnormIndTiltIsotropicTruncnormNid@I@out\MagTruncnormIndTiltIsotropicTruncnormNid@XXIII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{sigma_spin}=0%
+      \let\MagTruncnormIndTiltIsotropicTruncnormNid@I@out\MagTruncnormIndTiltIsotropicTruncnormNid@XXIV%
+    \else%
+      \ifnum\pdfstrcmp{#1}{rate}=0%
+      \let\MagTruncnormIndTiltIsotropicTruncnormNid@I@out\MagTruncnormIndTiltIsotropicTruncnormNid@XXV%
+    \else%
+      \ifnum\pdfstrcmp{#1}{log_likelihood}=0%
+      \let\MagTruncnormIndTiltIsotropicTruncnormNid@I@out\MagTruncnormIndTiltIsotropicTruncnormNid@XXVI%
+    \else%
+      \ifnum\pdfstrcmp{#1}{variance}=0%
+      \let\MagTruncnormIndTiltIsotropicTruncnormNid@I@out\MagTruncnormIndTiltIsotropicTruncnormNid@XXVII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{min_neff}=0%
+      \let\MagTruncnormIndTiltIsotropicTruncnormNid@I@out\MagTruncnormIndTiltIsotropicTruncnormNid@XXVIII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{selection_neff}=0%
+      \let\MagTruncnormIndTiltIsotropicTruncnormNid@I@out\MagTruncnormIndTiltIsotropicTruncnormNid@XXIX%
+    \else%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@I@out{%
+    ??}%
+    \fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi
+  \fi
+  \MagTruncnormIndTiltIsotropicTruncnormNid@I@out
+}\newcommand\MagTruncnormIndTiltIsotropicTruncnormNid@II[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagTruncnormIndTiltIsotropicTruncnormNid@II@out{%
+    \{%
+      "a\_1": \{%
+        "median": 0.27, %
+        "5th percentile": 0.03, %
+        "90th percentile": 0.61, %
+        "95th percentile": 0.72, %
+        "peak": 0.13%
+      \}, %
+      "a\_2": \{%
+        "median": 0.27, %
+        "5th percentile": 0.03, %
+        "90th percentile": 0.61, %
+        "95th percentile": 0.72, %
+        "peak": 0.15%
+      \}, %
+      "cos\_tilt": \{%
+        "median": 0.08, %
+        "5th percentile": {-}0.87, %
+        "90th percentile": 0.8, %
+        "95th percentile": 0.9, %
+        "peak": 0.3%
+      \}, %
+      "mass\_1": \{%
+        "median": 10.1, %
+        "5th percentile": 8.02, %
+        "90th percentile": 26.29, %
+        "95th percentile": 33.44, %
+        "peak": 9.91%
+      \}, %
+      "mass\_ratio": \{%
+        "median": 0.84, %
+        "5th percentile": 0.52, %
+        "90th percentile": 0.97, %
+        "95th percentile": 0.99, %
+        "peak": 1.0%
+      \}, %
+      "redshift": \{%
+        "median": 0.3, %
+        "5th percentile": 0.05, %
+        "90th percentile": 0.44, %
+        "95th percentile": 0.45, %
+        "peak": 2.0%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{a_1}=0%
+      \let\MagTruncnormIndTiltIsotropicTruncnormNid@II@out\MagTruncnormIndTiltIsotropicTruncnormNid@XXX%
+    \else%
+      \ifnum\pdfstrcmp{#1}{a_2}=0%
+      \let\MagTruncnormIndTiltIsotropicTruncnormNid@II@out\MagTruncnormIndTiltIsotropicTruncnormNid@XXXI%
+    \else%
+      \ifnum\pdfstrcmp{#1}{cos_tilt}=0%
+      \let\MagTruncnormIndTiltIsotropicTruncnormNid@II@out\MagTruncnormIndTiltIsotropicTruncnormNid@XXXII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mass_1}=0%
+      \let\MagTruncnormIndTiltIsotropicTruncnormNid@II@out\MagTruncnormIndTiltIsotropicTruncnormNid@XXXIII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mass_ratio}=0%
+      \let\MagTruncnormIndTiltIsotropicTruncnormNid@II@out\MagTruncnormIndTiltIsotropicTruncnormNid@XXXIV%
+    \else%
+      \ifnum\pdfstrcmp{#1}{redshift}=0%
+      \let\MagTruncnormIndTiltIsotropicTruncnormNid@II@out\MagTruncnormIndTiltIsotropicTruncnormNid@XXXV%
+    \else%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@II@out{%
+    ??}%
+    \fi\fi\fi\fi\fi\fi
+  \fi
+  \MagTruncnormIndTiltIsotropicTruncnormNid@II@out
+}\newcommand\MagTruncnormIndTiltIsotropicTruncnormNid@III[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagTruncnormIndTiltIsotropicTruncnormNid@III@out{%
+    \{%
+      "median": 1.88, %
+      "5th percentile": {-}0.2, %
+      "95th percentile": 3.1, %
+      "error plus": 1.22, %
+      "error minus": 2.08%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@III@out{%
+    1.88}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@III@out{%
+    {-}0.2}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@III@out{%
+    3.1}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@III@out{%
+    1.22}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@III@out{%
+    2.08}%
+    \else%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@III@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagTruncnormIndTiltIsotropicTruncnormNid@III@out
+}\newcommand\MagTruncnormIndTiltIsotropicTruncnormNid@IV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagTruncnormIndTiltIsotropicTruncnormNid@IV@out{%
+    \{%
+      "median": 4.66, %
+      "5th percentile": 3.27, %
+      "95th percentile": 6.33, %
+      "error plus": 1.67, %
+      "error minus": 1.39%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@IV@out{%
+    4.66}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@IV@out{%
+    3.27}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@IV@out{%
+    6.33}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@IV@out{%
+    1.67}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@IV@out{%
+    1.39}%
+    \else%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@IV@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagTruncnormIndTiltIsotropicTruncnormNid@IV@out
+}\newcommand\MagTruncnormIndTiltIsotropicTruncnormNid@V[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagTruncnormIndTiltIsotropicTruncnormNid@V@out{%
+    \{%
+      "median": 1.63, %
+      "5th percentile": 0.5, %
+      "95th percentile": 3.1, %
+      "error plus": 1.47, %
+      "error minus": 1.14%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@V@out{%
+    1.63}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@V@out{%
+    0.5}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@V@out{%
+    3.1}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@V@out{%
+    1.47}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@V@out{%
+    1.14}%
+    \else%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@V@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagTruncnormIndTiltIsotropicTruncnormNid@V@out
+}\newcommand\MagTruncnormIndTiltIsotropicTruncnormNid@VI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagTruncnormIndTiltIsotropicTruncnormNid@VI@out{%
+    \{%
+      "median": 5.14, %
+      "5th percentile": 3.23, %
+      "95th percentile": 8.34, %
+      "error plus": 3.2, %
+      "error minus": 1.91%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@VI@out{%
+    5.14}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@VI@out{%
+    3.23}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@VI@out{%
+    8.34}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@VI@out{%
+    3.2}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@VI@out{%
+    1.91}%
+    \else%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@VI@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagTruncnormIndTiltIsotropicTruncnormNid@VI@out
+}\newcommand\MagTruncnormIndTiltIsotropicTruncnormNid@VII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagTruncnormIndTiltIsotropicTruncnormNid@VII@out{%
+    \{%
+      "median": 3.56, %
+      "5th percentile": 3.03, %
+      "95th percentile": 4.89, %
+      "error plus": 1.32, %
+      "error minus": 0.53%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@VII@out{%
+    3.56}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@VII@out{%
+    3.03}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@VII@out{%
+    4.89}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@VII@out{%
+    1.32}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@VII@out{%
+    0.53}%
+    \else%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@VII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagTruncnormIndTiltIsotropicTruncnormNid@VII@out
+}\newcommand\MagTruncnormIndTiltIsotropicTruncnormNid@VIII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagTruncnormIndTiltIsotropicTruncnormNid@VIII@out{%
+    \{%
+      "median": 35.24, %
+      "5th percentile": 21.77, %
+      "95th percentile": 48.05, %
+      "error plus": 12.81, %
+      "error minus": 13.47%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@VIII@out{%
+    35.24}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@VIII@out{%
+    21.77}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@VIII@out{%
+    48.05}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@VIII@out{%
+    12.81}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@VIII@out{%
+    13.47}%
+    \else%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@VIII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagTruncnormIndTiltIsotropicTruncnormNid@VIII@out
+}\newcommand\MagTruncnormIndTiltIsotropicTruncnormNid@IX[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagTruncnormIndTiltIsotropicTruncnormNid@IX@out{%
+    \{%
+      "median": 9.73, %
+      "5th percentile": 8.41, %
+      "95th percentile": 10.22, %
+      "error plus": 0.5, %
+      "error minus": 1.32%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@IX@out{%
+    9.73}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@IX@out{%
+    8.41}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@IX@out{%
+    10.22}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@IX@out{%
+    0.5}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@IX@out{%
+    1.32}%
+    \else%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@IX@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagTruncnormIndTiltIsotropicTruncnormNid@IX@out
+}\newcommand\MagTruncnormIndTiltIsotropicTruncnormNid@X[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagTruncnormIndTiltIsotropicTruncnormNid@X@out{%
+    \{%
+      "median": 32.04, %
+      "5th percentile": 26.28, %
+      "95th percentile": 35.26, %
+      "error plus": 3.22, %
+      "error minus": 5.76%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@X@out{%
+    32.04}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@X@out{%
+    26.28}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@X@out{%
+    35.26}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@X@out{%
+    3.22}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@X@out{%
+    5.76}%
+    \else%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@X@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagTruncnormIndTiltIsotropicTruncnormNid@X@out
+}\newcommand\MagTruncnormIndTiltIsotropicTruncnormNid@XI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagTruncnormIndTiltIsotropicTruncnormNid@XI@out{%
+    \{%
+      "median": 0.66, %
+      "5th percentile": 0.32, %
+      "95th percentile": 1.56, %
+      "error plus": 0.9, %
+      "error minus": 0.34%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XI@out{%
+    0.66}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XI@out{%
+    0.32}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XI@out{%
+    1.56}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XI@out{%
+    0.9}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XI@out{%
+    0.34}%
+    \else%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XI@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagTruncnormIndTiltIsotropicTruncnormNid@XI@out
+}\newcommand\MagTruncnormIndTiltIsotropicTruncnormNid@XII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagTruncnormIndTiltIsotropicTruncnormNid@XII@out{%
+    \{%
+      "median": 4.66, %
+      "5th percentile": 1.49, %
+      "95th percentile": 9.24, %
+      "error plus": 4.58, %
+      "error minus": 3.17%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XII@out{%
+    4.66}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XII@out{%
+    1.49}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XII@out{%
+    9.24}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XII@out{%
+    4.58}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XII@out{%
+    3.17}%
+    \else%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagTruncnormIndTiltIsotropicTruncnormNid@XII@out
+}\newcommand\MagTruncnormIndTiltIsotropicTruncnormNid@XIII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagTruncnormIndTiltIsotropicTruncnormNid@XIII@out{%
+    \{%
+      "median": 4.72, %
+      "5th percentile": 0.32, %
+      "95th percentile": 9.29, %
+      "error plus": 4.57, %
+      "error minus": 4.4%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XIII@out{%
+    4.72}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XIII@out{%
+    0.32}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XIII@out{%
+    9.29}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XIII@out{%
+    4.57}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XIII@out{%
+    4.4}%
+    \else%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XIII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagTruncnormIndTiltIsotropicTruncnormNid@XIII@out
+}\newcommand\MagTruncnormIndTiltIsotropicTruncnormNid@XIV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagTruncnormIndTiltIsotropicTruncnormNid@XIV@out{%
+    \{%
+      "median": 4.01, %
+      "5th percentile": 0.37, %
+      "95th percentile": 8.62, %
+      "error plus": 4.62, %
+      "error minus": 3.63%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XIV@out{%
+    4.01}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XIV@out{%
+    0.37}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XIV@out{%
+    8.62}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XIV@out{%
+    4.62}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XIV@out{%
+    3.63}%
+    \else%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XIV@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagTruncnormIndTiltIsotropicTruncnormNid@XIV@out
+}\newcommand\MagTruncnormIndTiltIsotropicTruncnormNid@XV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagTruncnormIndTiltIsotropicTruncnormNid@XV@out{%
+    \{%
+      "median": 0.36, %
+      "5th percentile": 0.14, %
+      "95th percentile": 0.65, %
+      "error plus": 0.29, %
+      "error minus": 0.22%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XV@out{%
+    0.36}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XV@out{%
+    0.14}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XV@out{%
+    0.65}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XV@out{%
+    0.29}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XV@out{%
+    0.22}%
+    \else%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XV@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagTruncnormIndTiltIsotropicTruncnormNid@XV@out
+}\newcommand\MagTruncnormIndTiltIsotropicTruncnormNid@XVI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagTruncnormIndTiltIsotropicTruncnormNid@XVI@out{%
+    \{%
+      "median": 0.59, %
+      "5th percentile": 0.32, %
+      "95th percentile": 0.82, %
+      "error plus": 0.22, %
+      "error minus": 0.28%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XVI@out{%
+    0.59}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XVI@out{%
+    0.32}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XVI@out{%
+    0.82}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XVI@out{%
+    0.22}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XVI@out{%
+    0.28}%
+    \else%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XVI@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagTruncnormIndTiltIsotropicTruncnormNid@XVI@out
+}\newcommand\MagTruncnormIndTiltIsotropicTruncnormNid@XVII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagTruncnormIndTiltIsotropicTruncnormNid@XVII@out{%
+    \{%
+      "median": 3.35, %
+      "5th percentile": 2.47, %
+      "95th percentile": 4.26, %
+      "error plus": 0.91, %
+      "error minus": 0.88%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XVII@out{%
+    3.35}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XVII@out{%
+    2.47}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XVII@out{%
+    4.26}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XVII@out{%
+    0.91}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XVII@out{%
+    0.88}%
+    \else%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XVII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagTruncnormIndTiltIsotropicTruncnormNid@XVII@out
+}\newcommand\MagTruncnormIndTiltIsotropicTruncnormNid@XVIII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagTruncnormIndTiltIsotropicTruncnormNid@XVIII@out{%
+    \{%
+      "median": 0.1, %
+      "5th percentile": 0.01, %
+      "95th percentile": 0.25, %
+      "error plus": 0.15, %
+      "error minus": 0.09%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XVIII@out{%
+    0.1}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XVIII@out{%
+    0.01}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XVIII@out{%
+    0.25}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XVIII@out{%
+    0.15}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XVIII@out{%
+    0.09}%
+    \else%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XVIII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagTruncnormIndTiltIsotropicTruncnormNid@XVIII@out
+}\newcommand\MagTruncnormIndTiltIsotropicTruncnormNid@XIX[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagTruncnormIndTiltIsotropicTruncnormNid@XIX@out{%
+    \{%
+      "median": 0.33, %
+      "5th percentile": 0.22, %
+      "95th percentile": 0.46, %
+      "error plus": 0.13, %
+      "error minus": 0.11%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XIX@out{%
+    0.33}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XIX@out{%
+    0.22}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XIX@out{%
+    0.46}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XIX@out{%
+    0.13}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XIX@out{%
+    0.11}%
+    \else%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XIX@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagTruncnormIndTiltIsotropicTruncnormNid@XIX@out
+}\newcommand\MagTruncnormIndTiltIsotropicTruncnormNid@XX[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagTruncnormIndTiltIsotropicTruncnormNid@XX@out{%
+    \{%
+      "median": 0.12, %
+      "5th percentile": 0.01, %
+      "95th percentile": 0.27, %
+      "error plus": 0.16, %
+      "error minus": 0.11%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XX@out{%
+    0.12}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XX@out{%
+    0.01}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XX@out{%
+    0.27}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XX@out{%
+    0.16}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XX@out{%
+    0.11}%
+    \else%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XX@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagTruncnormIndTiltIsotropicTruncnormNid@XX@out
+}\newcommand\MagTruncnormIndTiltIsotropicTruncnormNid@XXI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXI@out{%
+    \{%
+      "median": 0.32, %
+      "5th percentile": 0.19, %
+      "95th percentile": 0.48, %
+      "error plus": 0.17, %
+      "error minus": 0.12%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXI@out{%
+    0.32}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXI@out{%
+    0.19}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXI@out{%
+    0.48}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXI@out{%
+    0.17}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXI@out{%
+    0.12}%
+    \else%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXI@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagTruncnormIndTiltIsotropicTruncnormNid@XXI@out
+}\newcommand\MagTruncnormIndTiltIsotropicTruncnormNid@XXII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXII@out{%
+    \{%
+      "median": 0.66, %
+      "5th percentile": 0.12, %
+      "95th percentile": 0.97, %
+      "error plus": 0.31, %
+      "error minus": 0.54%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXII@out{%
+    0.66}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXII@out{%
+    0.12}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXII@out{%
+    0.97}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXII@out{%
+    0.31}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXII@out{%
+    0.54}%
+    \else%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagTruncnormIndTiltIsotropicTruncnormNid@XXII@out
+}\newcommand\MagTruncnormIndTiltIsotropicTruncnormNid@XXIII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXIII@out{%
+    \{%
+      "median": 0.41, %
+      "5th percentile": {-}0.41, %
+      "95th percentile": 0.93, %
+      "error plus": 0.52, %
+      "error minus": 0.82%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXIII@out{%
+    0.41}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXIII@out{%
+    {-}0.41}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXIII@out{%
+    0.93}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXIII@out{%
+    0.52}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXIII@out{%
+    0.82}%
+    \else%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXIII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagTruncnormIndTiltIsotropicTruncnormNid@XXIII@out
+}\newcommand\MagTruncnormIndTiltIsotropicTruncnormNid@XXIV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXIV@out{%
+    \{%
+      "median": 1.35, %
+      "5th percentile": 0.46, %
+      "95th percentile": 3.64, %
+      "error plus": 2.29, %
+      "error minus": 0.89%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXIV@out{%
+    1.35}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXIV@out{%
+    0.46}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXIV@out{%
+    3.64}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXIV@out{%
+    2.29}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXIV@out{%
+    0.89}%
+    \else%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXIV@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagTruncnormIndTiltIsotropicTruncnormNid@XXIV@out
+}\newcommand\MagTruncnormIndTiltIsotropicTruncnormNid@XXV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXV@out{%
+    \{%
+      "median": 15.42, %
+      "5th percentile": 11.26, %
+      "95th percentile": 21.14, %
+      "error plus": 5.72, %
+      "error minus": 4.16%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXV@out{%
+    15.42}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXV@out{%
+    11.26}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXV@out{%
+    21.14}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXV@out{%
+    5.72}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXV@out{%
+    4.16}%
+    \else%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXV@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagTruncnormIndTiltIsotropicTruncnormNid@XXV@out
+}\newcommand\MagTruncnormIndTiltIsotropicTruncnormNid@XXVI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXVI@out{%
+    \{%
+      "median": {-}1009.86, %
+      "5th percentile": {-}1015.8, %
+      "95th percentile": {-}1005.27, %
+      "error plus": 4.59, %
+      "error minus": 5.94%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXVI@out{%
+    {-}1009.86}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXVI@out{%
+    {-}1015.8}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXVI@out{%
+    {-}1005.27}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXVI@out{%
+    4.59}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXVI@out{%
+    5.94}%
+    \else%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXVI@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagTruncnormIndTiltIsotropicTruncnormNid@XXVI@out
+}\newcommand\MagTruncnormIndTiltIsotropicTruncnormNid@XXVII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXVII@out{%
+    \{%
+      "median": 0.9, %
+      "5th percentile": 0.69, %
+      "95th percentile": 0.99, %
+      "error plus": 0.09, %
+      "error minus": 0.21%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXVII@out{%
+    0.9}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXVII@out{%
+    0.69}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXVII@out{%
+    0.99}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXVII@out{%
+    0.09}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXVII@out{%
+    0.21}%
+    \else%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXVII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagTruncnormIndTiltIsotropicTruncnormNid@XXVII@out
+}\newcommand\MagTruncnormIndTiltIsotropicTruncnormNid@XXVIII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXVIII@out{%
+    \{%
+      "median": 56.09, %
+      "5th percentile": 33.25, %
+      "95th percentile": 88.34, %
+      "error plus": 32.25, %
+      "error minus": 22.85%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXVIII@out{%
+    56.09}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXVIII@out{%
+    33.25}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXVIII@out{%
+    88.34}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXVIII@out{%
+    32.25}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXVIII@out{%
+    22.85}%
+    \else%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXVIII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagTruncnormIndTiltIsotropicTruncnormNid@XXVIII@out
+}\newcommand\MagTruncnormIndTiltIsotropicTruncnormNid@XXIX[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXIX@out{%
+    \{%
+      "median": 1993.0, %
+      "5th percentile": 1993.0, %
+      "95th percentile": 1993.0, %
+      "error plus": 0.0, %
+      "error minus": 0.0%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXIX@out{%
+    1993.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXIX@out{%
+    1993.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXIX@out{%
+    1993.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXIX@out{%
+    0.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXIX@out{%
+    0.0}%
+    \else%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXIX@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagTruncnormIndTiltIsotropicTruncnormNid@XXIX@out
+}\newcommand\MagTruncnormIndTiltIsotropicTruncnormNid@XXX[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXX@out{%
+    \{%
+      "median": 0.27, %
+      "5th percentile": 0.03, %
+      "90th percentile": 0.61, %
+      "95th percentile": 0.72, %
+      "peak": 0.13%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXX@out{%
+    0.27}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXX@out{%
+    0.03}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{90th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXX@out{%
+    0.61}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXX@out{%
+    0.72}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{peak}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXX@out{%
+    0.13}%
+    \else%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXX@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagTruncnormIndTiltIsotropicTruncnormNid@XXX@out
+}\newcommand\MagTruncnormIndTiltIsotropicTruncnormNid@XXXI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXXI@out{%
+    \{%
+      "median": 0.27, %
+      "5th percentile": 0.03, %
+      "90th percentile": 0.61, %
+      "95th percentile": 0.72, %
+      "peak": 0.15%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXXI@out{%
+    0.27}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXXI@out{%
+    0.03}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{90th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXXI@out{%
+    0.61}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXXI@out{%
+    0.72}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{peak}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXXI@out{%
+    0.15}%
+    \else%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXXI@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagTruncnormIndTiltIsotropicTruncnormNid@XXXI@out
+}\newcommand\MagTruncnormIndTiltIsotropicTruncnormNid@XXXII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXXII@out{%
+    \{%
+      "median": 0.08, %
+      "5th percentile": {-}0.87, %
+      "90th percentile": 0.8, %
+      "95th percentile": 0.9, %
+      "peak": 0.3%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXXII@out{%
+    0.08}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXXII@out{%
+    {-}0.87}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{90th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXXII@out{%
+    0.8}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXXII@out{%
+    0.9}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{peak}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXXII@out{%
+    0.3}%
+    \else%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXXII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagTruncnormIndTiltIsotropicTruncnormNid@XXXII@out
+}\newcommand\MagTruncnormIndTiltIsotropicTruncnormNid@XXXIII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXXIII@out{%
+    \{%
+      "median": 10.1, %
+      "5th percentile": 8.02, %
+      "90th percentile": 26.29, %
+      "95th percentile": 33.44, %
+      "peak": 9.91%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXXIII@out{%
+    10.1}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXXIII@out{%
+    8.02}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{90th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXXIII@out{%
+    26.29}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXXIII@out{%
+    33.44}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{peak}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXXIII@out{%
+    9.91}%
+    \else%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXXIII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagTruncnormIndTiltIsotropicTruncnormNid@XXXIII@out
+}\newcommand\MagTruncnormIndTiltIsotropicTruncnormNid@XXXIV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXXIV@out{%
+    \{%
+      "median": 0.84, %
+      "5th percentile": 0.52, %
+      "90th percentile": 0.97, %
+      "95th percentile": 0.99, %
+      "peak": 1.0%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXXIV@out{%
+    0.84}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXXIV@out{%
+    0.52}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{90th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXXIV@out{%
+    0.97}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXXIV@out{%
+    0.99}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{peak}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXXIV@out{%
+    1.0}%
+    \else%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXXIV@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagTruncnormIndTiltIsotropicTruncnormNid@XXXIV@out
+}\newcommand\MagTruncnormIndTiltIsotropicTruncnormNid@XXXV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXXV@out{%
+    \{%
+      "median": 0.3, %
+      "5th percentile": 0.05, %
+      "90th percentile": 0.44, %
+      "95th percentile": 0.45, %
+      "peak": 2.0%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXXV@out{%
+    0.3}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXXV@out{%
+    0.05}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{90th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXXV@out{%
+    0.44}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXXV@out{%
+    0.45}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{peak}=0%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXXV@out{%
+    2.0}%
+    \else%
+      \def\MagTruncnormIndTiltIsotropicTruncnormNid@XXXV@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagTruncnormIndTiltIsotropicTruncnormNid@XXXV@out
+}%
+\makeatother%

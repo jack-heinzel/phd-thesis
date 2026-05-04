@@ -1,0 +1,73 @@
+# This file is a source file for other quantities
+#
+# FORMAT
+# key: A string key
+# latex_key (optional): A latex-macro friendly key. If empty, a key will be generated
+# quantity: the numerical value
+# unit: the units
+# reviewed [Yes, No]: if the value has been reviewed
+# If reviewed is NA then the reviewers have determined this quantity should not be reviweed
+#
+# USAGE
+# To read the csv file in with pandas, you can use:
+# df = pd.read_csv("other_quantities.csv", header=0, comment="#", skipinitialspace=True)
+
+# Column names
+key, latex_key, value, unit, reviewed
+
+# Cosmo parameters
+# See https://lscsoft.docs.ligo.org/lalsuite/lal/group___l_a_l_constants__h.html for reference values in LAL
+# See GWTC-3 https://arxiv.org/pdf/2111.03606
+# Implementation: we use UniformSourceFrame prior https://github.com/bilby-dev/bilby/blob/main/bilby/gw/prior.py#L327
+# Planck15_LAL cosmology: https://github.com/bilby-dev/bilby/blob/main/bilby/gw/cosmology.py#L61
+hzero_value, HzeroValue, 67.9, km second^{-1} Mpc^{-1}, Yes
+wm_value, WmValue, 0.3065,, Yes
+
+# Others
+# These are the standard thresholds used from GWTC-1 onwards
+pastro_threshold, PASTROTHRESHOLD, 0.5,, Yes
+pastro_threshold_percent, PASTROTHRESHOLDPCT, 50, percent, Yes
+
+# O2 Montana Earthquake magnitude
+# see: https://earthquake.usgs.gov/earthquakes/eventpage/us10009757/technical
+o2_montana_earthquake_magnitude, , 5.8, , Yes
+# See https://journals.aps.org/prx/abstract/10.1103/PhysRevX.9.031040
+o2_montana_earthquake_bns_drop, OtwoMontanaEarthquakeBNSDrop, 10, Mpc, Yes
+
+# M 7.5 - 2024 Noto Peninsula, Japan Earthquake
+# see: https://earthquake.usgs.gov/earthquakes/eventpage/us6000m0xl/technical
+o4_noto_peninsula_earthquake_magnitude, , 7.5, , Yes
+
+# Sensemon ranges
+# Taken from https://dcc.ligo.org/LIGO-T2500209 Equation 22
+sensemon_range_coefficient, , 1.01618726748049498e-20, Mpc second^{-1/6}, Yes
+
+first_generation_virgo_laser_power, , 20, watt, NA
+o1_ground_motion_magnitude_reduction, , 10, , NA
+o1_ground_motion_suppression_frequency, , 10, hertz, NA
+o2_bns_range_improvement, , 100, Mpc, NA
+o2_duty_factors_percentage, , 50, percent, NA
+o2_commissioning_adv_bns_range, , 20, Mpc, NA
+o2_adv_laser_power, , 13, watt, NA
+o4_commissioning_adv_laser_power_used, , 40, watt, NA
+o4_adv_cavity_finesse, , 450, , NA
+o4_adv_test_mass_kg, , 42, kg, NA
+o4_adv_laser_power_used, , 125, watt, NA
+o4_adv_decreased_laser_power, , 18, watt, NA
+o4_badv_bns_range_target, , 54, Mpc, NA
+o3_gk_temperature_test_mass, , 250, K, NA
+o3_gk_kagra_strain_sensitivity, , 3.0e-22, hertz, NA
+o3_gk_kagra_reference_frequency, , 250, hertz, NA
+o3_bns_range_gain_after_electronic_noise, , 2, Mpc, NA
+o3_bns_range_gain_after_mitigated_scattered_light, , 2, Mpc, NA
+o4_kagra_number_of_seismic_noise_isolator_restored, , 10, , NA
+o4_kagra_increased_laser_power, , 10, watt, NA
+o4_kagra_cooled_mirrod_temperature, , 100, kelvin, NA
+minimum_mass_for_microlensing, , e5, Msun, NA
+vsr_four_bns_range, , 12, Mpc, NA
+adv_laser_power_design, , 125, watt, NA
+
+# Candidate numbers
+numbercandidatesgwtc3,,90,,Yes
+numbercandidatesgwtcall,,218,,Yes
+numbercandidatespegwtc4,,86,,Yes

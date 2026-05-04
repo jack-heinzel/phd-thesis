@@ -1,0 +1,174 @@
+\makeatletter%
+\newcommand\samplePurityEstimate[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\samplePurityEstimate@out{%
+    \{%
+      "totalNumEvents": 161, %
+      "numEventsFAROnePerFourYear": 144, %
+      "expectedNumFalseTrialsFactor": \{%
+        "full": 6.721301493142698, %
+        "rounded": 6.7%
+      \}, %
+      "expectedNumFalseSimple": \{%
+        "full": 1.9103253732856744, %
+        "rounded": 1.9%
+      \}, %
+      "percentFalseTrialsFactor": \{%
+        "full": 4.174721424312235, %
+        "rounded": 4.17%
+      \}, %
+      "percentFalseSimple": \{%
+        "full": 1.1865374989352013, %
+        "rounded": 1.19%
+      \}, %
+      "totalAnalysisTimeYears": \{%
+        "full": 1.9103253732856744, %
+        "rounded": 1.91%
+      \}, %
+      "totalNumEventsO4aOnly": 85, %
+      "totalNumEventsGWTC3": 76%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{totalNumEvents}=0%
+      \def\samplePurityEstimate@out{%
+    161}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{numEventsFAROnePerFourYear}=0%
+      \def\samplePurityEstimate@out{%
+    144}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{expectedNumFalseTrialsFactor}=0%
+      \let\samplePurityEstimate@out\samplePurityEstimate@I%
+    \else%
+      \ifnum\pdfstrcmp{#1}{expectedNumFalseSimple}=0%
+      \let\samplePurityEstimate@out\samplePurityEstimate@II%
+    \else%
+      \ifnum\pdfstrcmp{#1}{percentFalseTrialsFactor}=0%
+      \let\samplePurityEstimate@out\samplePurityEstimate@III%
+    \else%
+      \ifnum\pdfstrcmp{#1}{percentFalseSimple}=0%
+      \let\samplePurityEstimate@out\samplePurityEstimate@IV%
+    \else%
+      \ifnum\pdfstrcmp{#1}{totalAnalysisTimeYears}=0%
+      \let\samplePurityEstimate@out\samplePurityEstimate@V%
+    \else%
+      \ifnum\pdfstrcmp{#1}{totalNumEventsO4aOnly}=0%
+      \def\samplePurityEstimate@out{%
+    85}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{totalNumEventsGWTC3}=0%
+      \def\samplePurityEstimate@out{%
+    76}%
+    \else%
+      \def\samplePurityEstimate@out{%
+    ??}%
+    \fi\fi\fi\fi\fi\fi\fi\fi\fi
+  \fi
+  \samplePurityEstimate@out
+}\newcommand\samplePurityEstimate@I[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\samplePurityEstimate@I@out{%
+    \{%
+      "full": 6.721301493142698, %
+      "rounded": 6.7%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{full}=0%
+      \def\samplePurityEstimate@I@out{%
+    6.721301493142698}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{rounded}=0%
+      \def\samplePurityEstimate@I@out{%
+    6.7}%
+    \else%
+      \def\samplePurityEstimate@I@out{%
+    ??}%
+    \fi\fi
+  \fi
+  \samplePurityEstimate@I@out
+}\newcommand\samplePurityEstimate@II[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\samplePurityEstimate@II@out{%
+    \{%
+      "full": 1.9103253732856744, %
+      "rounded": 1.9%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{full}=0%
+      \def\samplePurityEstimate@II@out{%
+    1.9103253732856744}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{rounded}=0%
+      \def\samplePurityEstimate@II@out{%
+    1.9}%
+    \else%
+      \def\samplePurityEstimate@II@out{%
+    ??}%
+    \fi\fi
+  \fi
+  \samplePurityEstimate@II@out
+}\newcommand\samplePurityEstimate@III[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\samplePurityEstimate@III@out{%
+    \{%
+      "full": 4.174721424312235, %
+      "rounded": 4.17%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{full}=0%
+      \def\samplePurityEstimate@III@out{%
+    4.174721424312235}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{rounded}=0%
+      \def\samplePurityEstimate@III@out{%
+    4.17}%
+    \else%
+      \def\samplePurityEstimate@III@out{%
+    ??}%
+    \fi\fi
+  \fi
+  \samplePurityEstimate@III@out
+}\newcommand\samplePurityEstimate@IV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\samplePurityEstimate@IV@out{%
+    \{%
+      "full": 1.1865374989352013, %
+      "rounded": 1.19%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{full}=0%
+      \def\samplePurityEstimate@IV@out{%
+    1.1865374989352013}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{rounded}=0%
+      \def\samplePurityEstimate@IV@out{%
+    1.19}%
+    \else%
+      \def\samplePurityEstimate@IV@out{%
+    ??}%
+    \fi\fi
+  \fi
+  \samplePurityEstimate@IV@out
+}\newcommand\samplePurityEstimate@V[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\samplePurityEstimate@V@out{%
+    \{%
+      "full": 1.9103253732856744, %
+      "rounded": 1.91%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{full}=0%
+      \def\samplePurityEstimate@V@out{%
+    1.9103253732856744}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{rounded}=0%
+      \def\samplePurityEstimate@V@out{%
+    1.91}%
+    \else%
+      \def\samplePurityEstimate@V@out{%
+    ??}%
+    \fi\fi
+  \fi
+  \samplePurityEstimate@V@out
+}%
+\makeatother%

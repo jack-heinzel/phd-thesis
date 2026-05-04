@@ -1,0 +1,170 @@
+\makeatletter%
+\newcommand\FgmcRates[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\FgmcRates@out{%
+    \{%
+      "RatesBBH": \{%
+        "median": "15.1", %
+        "5th percentile": "13.1", %
+        "95th percentile": "17.3", %
+        "error plus": "2.2", %
+        "error minus": "2.01", %
+        "mean": "15.2"%
+      \}, %
+      "RatesBNS": \{%
+        "median": "137", %
+        "5th percentile": "30.9", %
+        "95th percentile": "361", %
+        "error plus": "224", %
+        "error minus": "106", %
+        "mean": "159"%
+      \}, %
+      "RatesNSBH": \{%
+        "median": "67.1", %
+        "5th percentile": "22.2", %
+        "95th percentile": "143", %
+        "error plus": "76.1", %
+        "error minus": "44.9", %
+        "mean": "72.9"%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{RatesBBH}=0%
+      \let\FgmcRates@out\FgmcRates@I%
+    \else%
+      \ifnum\pdfstrcmp{#1}{RatesBNS}=0%
+      \let\FgmcRates@out\FgmcRates@II%
+    \else%
+      \ifnum\pdfstrcmp{#1}{RatesNSBH}=0%
+      \let\FgmcRates@out\FgmcRates@III%
+    \else%
+      \def\FgmcRates@out{%
+    ??}%
+    \fi\fi\fi
+  \fi
+  \FgmcRates@out
+}\newcommand\FgmcRates@I[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\FgmcRates@I@out{%
+    \{%
+      "median": "15.1", %
+      "5th percentile": "13.1", %
+      "95th percentile": "17.3", %
+      "error plus": "2.2", %
+      "error minus": "2.01", %
+      "mean": "15.2"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\FgmcRates@I@out{%
+    15.1}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\FgmcRates@I@out{%
+    13.1}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\FgmcRates@I@out{%
+    17.3}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\FgmcRates@I@out{%
+    2.2}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\FgmcRates@I@out{%
+    2.01}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mean}=0%
+      \def\FgmcRates@I@out{%
+    15.2}%
+    \else%
+      \def\FgmcRates@I@out{%
+    ??}%
+    \fi\fi\fi\fi\fi\fi
+  \fi
+  \FgmcRates@I@out
+}\newcommand\FgmcRates@II[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\FgmcRates@II@out{%
+    \{%
+      "median": "137", %
+      "5th percentile": "30.9", %
+      "95th percentile": "361", %
+      "error plus": "224", %
+      "error minus": "106", %
+      "mean": "159"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\FgmcRates@II@out{%
+    137}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\FgmcRates@II@out{%
+    30.9}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\FgmcRates@II@out{%
+    361}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\FgmcRates@II@out{%
+    224}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\FgmcRates@II@out{%
+    106}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mean}=0%
+      \def\FgmcRates@II@out{%
+    159}%
+    \else%
+      \def\FgmcRates@II@out{%
+    ??}%
+    \fi\fi\fi\fi\fi\fi
+  \fi
+  \FgmcRates@II@out
+}\newcommand\FgmcRates@III[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\FgmcRates@III@out{%
+    \{%
+      "median": "67.1", %
+      "5th percentile": "22.2", %
+      "95th percentile": "143", %
+      "error plus": "76.1", %
+      "error minus": "44.9", %
+      "mean": "72.9"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\FgmcRates@III@out{%
+    67.1}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\FgmcRates@III@out{%
+    22.2}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\FgmcRates@III@out{%
+    143}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\FgmcRates@III@out{%
+    76.1}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\FgmcRates@III@out{%
+    44.9}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mean}=0%
+      \def\FgmcRates@III@out{%
+    72.9}%
+    \else%
+      \def\FgmcRates@III@out{%
+    ??}%
+    \fi\fi\fi\fi\fi\fi
+  \fi
+  \FgmcRates@III@out
+}%
+\makeatother%

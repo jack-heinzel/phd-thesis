@@ -1,0 +1,350 @@
+\makeatletter%
+\newcommand\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@out{%
+    \{%
+      "param": \{%
+        "chi\_A\_1st": \{%
+          "median": 0.05, %
+          "error plus": 0.03, %
+          "error minus": 0.02, %
+          "5th percentile": 0.03, %
+          "95th percentile": 0.08%
+        \}, %
+        "chi\_A\_99th": \{%
+          "median": 0.88, %
+          "error plus": 0.06, %
+          "error minus": 0.07, %
+          "5th percentile": 0.81, %
+          "95th percentile": 0.94%
+        \}, %
+        "chi\_B\_1st": \{%
+          "median": 0.0, %
+          "error plus": 0.01, %
+          "error minus": 0.0, %
+          "5th percentile": 0.0, %
+          "95th percentile": 0.01%
+        \}, %
+        "chi\_B\_99th": \{%
+          "median": 0.61, %
+          "error plus": 0.09, %
+          "error minus": 0.07, %
+          "5th percentile": 0.54, %
+          "95th percentile": 0.69%
+        \}%
+      \}, %
+      "ppd": \{%
+        "chi\_A": \{%
+          "median": NaN, %
+          "5th percentile": NaN, %
+          "95th percentile": NaN, %
+          "spin at peak": 0.34%
+        \}, %
+        "chi\_B": \{%
+          "median": NaN, %
+          "5th percentile": NaN, %
+          "95th percentile": NaN, %
+          "spin at peak": 0.0%
+        \}%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{param}=0%
+      \let\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@out\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@I%
+    \else%
+      \ifnum\pdfstrcmp{#1}{ppd}=0%
+      \let\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@out\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@II%
+    \else%
+      \def\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@out{%
+    ??}%
+    \fi\fi
+  \fi
+  \MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@out
+}\newcommand\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@I[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@I@out{%
+    \{%
+      "chi\_A\_1st": \{%
+        "median": 0.05, %
+        "error plus": 0.03, %
+        "error minus": 0.02, %
+        "5th percentile": 0.03, %
+        "95th percentile": 0.08%
+      \}, %
+      "chi\_A\_99th": \{%
+        "median": 0.88, %
+        "error plus": 0.06, %
+        "error minus": 0.07, %
+        "5th percentile": 0.81, %
+        "95th percentile": 0.94%
+      \}, %
+      "chi\_B\_1st": \{%
+        "median": 0.0, %
+        "error plus": 0.01, %
+        "error minus": 0.0, %
+        "5th percentile": 0.0, %
+        "95th percentile": 0.01%
+      \}, %
+      "chi\_B\_99th": \{%
+        "median": 0.61, %
+        "error plus": 0.09, %
+        "error minus": 0.07, %
+        "5th percentile": 0.54, %
+        "95th percentile": 0.69%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{chi_A_1st}=0%
+      \let\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@I@out\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@III%
+    \else%
+      \ifnum\pdfstrcmp{#1}{chi_A_99th}=0%
+      \let\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@I@out\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@IV%
+    \else%
+      \ifnum\pdfstrcmp{#1}{chi_B_1st}=0%
+      \let\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@I@out\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@V%
+    \else%
+      \ifnum\pdfstrcmp{#1}{chi_B_99th}=0%
+      \let\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@I@out\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@VI%
+    \else%
+      \def\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@I@out{%
+    ??}%
+    \fi\fi\fi\fi
+  \fi
+  \MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@I@out
+}\newcommand\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@II[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@II@out{%
+    \{%
+      "chi\_A": \{%
+        "median": NaN, %
+        "5th percentile": NaN, %
+        "95th percentile": NaN, %
+        "spin at peak": 0.34%
+      \}, %
+      "chi\_B": \{%
+        "median": NaN, %
+        "5th percentile": NaN, %
+        "95th percentile": NaN, %
+        "spin at peak": 0.0%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{chi_A}=0%
+      \let\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@II@out\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@VII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{chi_B}=0%
+      \let\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@II@out\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@VIII%
+    \else%
+      \def\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@II@out{%
+    ??}%
+    \fi\fi
+  \fi
+  \MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@II@out
+}\newcommand\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@III[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@III@out{%
+    \{%
+      "median": 0.05, %
+      "error plus": 0.03, %
+      "error minus": 0.02, %
+      "5th percentile": 0.03, %
+      "95th percentile": 0.08%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@III@out{%
+    0.05}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@III@out{%
+    0.03}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@III@out{%
+    0.02}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@III@out{%
+    0.03}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@III@out{%
+    0.08}%
+    \else%
+      \def\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@III@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@III@out
+}\newcommand\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@IV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@IV@out{%
+    \{%
+      "median": 0.88, %
+      "error plus": 0.06, %
+      "error minus": 0.07, %
+      "5th percentile": 0.81, %
+      "95th percentile": 0.94%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@IV@out{%
+    0.88}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@IV@out{%
+    0.06}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@IV@out{%
+    0.07}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@IV@out{%
+    0.81}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@IV@out{%
+    0.94}%
+    \else%
+      \def\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@IV@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@IV@out
+}\newcommand\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@V[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@V@out{%
+    \{%
+      "median": 0.0, %
+      "error plus": 0.01, %
+      "error minus": 0.0, %
+      "5th percentile": 0.0, %
+      "95th percentile": 0.01%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@V@out{%
+    0.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@V@out{%
+    0.01}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@V@out{%
+    0.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@V@out{%
+    0.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@V@out{%
+    0.01}%
+    \else%
+      \def\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@V@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@V@out
+}\newcommand\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@VI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@VI@out{%
+    \{%
+      "median": 0.61, %
+      "error plus": 0.09, %
+      "error minus": 0.07, %
+      "5th percentile": 0.54, %
+      "95th percentile": 0.69%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@VI@out{%
+    0.61}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@VI@out{%
+    0.09}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@VI@out{%
+    0.07}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@VI@out{%
+    0.54}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@VI@out{%
+    0.69}%
+    \else%
+      \def\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@VI@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@VI@out
+}\newcommand\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@VII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@VII@out{%
+    \{%
+      "median": NaN, %
+      "5th percentile": NaN, %
+      "95th percentile": NaN, %
+      "spin at peak": 0.34%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@VII@out{%
+    nan}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@VII@out{%
+    nan}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@VII@out{%
+    nan}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{spin at peak}=0%
+      \def\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@VII@out{%
+    0.34}%
+    \else%
+      \def\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@VII@out{%
+    ??}%
+    \fi\fi\fi\fi
+  \fi
+  \MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@VII@out
+}\newcommand\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@VIII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@VIII@out{%
+    \{%
+      "median": NaN, %
+      "5th percentile": NaN, %
+      "95th percentile": NaN, %
+      "spin at peak": 0.0%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@VIII@out{%
+    nan}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@VIII@out{%
+    nan}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@VIII@out{%
+    nan}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{spin at peak}=0%
+      \def\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@VIII@out{%
+    0.0}%
+    \else%
+      \def\MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@VIII@out{%
+    ??}%
+    \fi\fi\fi\fi
+  \fi
+  \MagBetaUnconstrainedIidTiltIsotropicTruncnormSpinSorting@VIII@out
+}%
+\makeatother%

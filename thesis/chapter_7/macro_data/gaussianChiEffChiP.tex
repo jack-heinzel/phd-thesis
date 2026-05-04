@@ -1,0 +1,509 @@
+\makeatletter%
+\newcommand\gaussianChiEffChiP[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\gaussianChiEffChiP@out{%
+    \{%
+      "param": \{%
+        "mu\_eff": \{%
+          "median": 0.04, %
+          "5th percentile": 0.02, %
+          "95th percentile": 0.06, %
+          "error plus": 0.02, %
+          "error minus": 0.02%
+        \}, %
+        "sig\_eff": \{%
+          "median": 0.1, %
+          "5th percentile": 0.08, %
+          "95th percentile": 0.13, %
+          "error plus": 0.03, %
+          "error minus": 0.03%
+        \}, %
+        "mu\_p": \{%
+          "median": 0.31, %
+          "5th percentile": 0.23, %
+          "95th percentile": 0.39, %
+          "error plus": 0.08, %
+          "error minus": 0.08%
+        \}, %
+        "sig\_p": \{%
+          "median": 0.18, %
+          "5th percentile": 0.12, %
+          "95th percentile": 0.32, %
+          "error plus": 0.14, %
+          "error minus": 0.06%
+        \}, %
+        "cov": \{%
+          "median": 0.08, %
+          "5th percentile": {-}0.44, %
+          "95th percentile": 0.58, %
+          "error plus": 0.5, %
+          "error minus": 0.52%
+        \}, %
+        "min\_eff": \{%
+          "median": {-}0.19, %
+          "5th percentile": {-}0.27, %
+          "95th percentile": {-}0.13, %
+          "error plus": 0.06, %
+          "error minus": 0.07%
+        \}, %
+        "f\_neg\_eff": \{%
+          "median": 0.33, %
+          "5th percentile": 0.23, %
+          "95th percentile": 0.41, %
+          "error plus": 0.08, %
+          "error minus": 0.1%
+        \}%
+      \}, %
+      "ppd": \{%
+        "chi\_eff": \{%
+          "median": 0.05, %
+          "5th percentile": {-}0.13, %
+          "95th percentile": 0.22, %
+          "spin at peak": 0.05%
+        \}, %
+        "chi\_p": \{%
+          "median": 0.33, %
+          "5th percentile": 0.07, %
+          "95th percentile": 0.65, %
+          "spin at peak": 0.31%
+        \}%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{param}=0%
+      \let\gaussianChiEffChiP@out\gaussianChiEffChiP@I%
+    \else%
+      \ifnum\pdfstrcmp{#1}{ppd}=0%
+      \let\gaussianChiEffChiP@out\gaussianChiEffChiP@II%
+    \else%
+      \def\gaussianChiEffChiP@out{%
+    ??}%
+    \fi\fi
+  \fi
+  \gaussianChiEffChiP@out
+}\newcommand\gaussianChiEffChiP@I[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\gaussianChiEffChiP@I@out{%
+    \{%
+      "mu\_eff": \{%
+        "median": 0.04, %
+        "5th percentile": 0.02, %
+        "95th percentile": 0.06, %
+        "error plus": 0.02, %
+        "error minus": 0.02%
+      \}, %
+      "sig\_eff": \{%
+        "median": 0.1, %
+        "5th percentile": 0.08, %
+        "95th percentile": 0.13, %
+        "error plus": 0.03, %
+        "error minus": 0.03%
+      \}, %
+      "mu\_p": \{%
+        "median": 0.31, %
+        "5th percentile": 0.23, %
+        "95th percentile": 0.39, %
+        "error plus": 0.08, %
+        "error minus": 0.08%
+      \}, %
+      "sig\_p": \{%
+        "median": 0.18, %
+        "5th percentile": 0.12, %
+        "95th percentile": 0.32, %
+        "error plus": 0.14, %
+        "error minus": 0.06%
+      \}, %
+      "cov": \{%
+        "median": 0.08, %
+        "5th percentile": {-}0.44, %
+        "95th percentile": 0.58, %
+        "error plus": 0.5, %
+        "error minus": 0.52%
+      \}, %
+      "min\_eff": \{%
+        "median": {-}0.19, %
+        "5th percentile": {-}0.27, %
+        "95th percentile": {-}0.13, %
+        "error plus": 0.06, %
+        "error minus": 0.07%
+      \}, %
+      "f\_neg\_eff": \{%
+        "median": 0.33, %
+        "5th percentile": 0.23, %
+        "95th percentile": 0.41, %
+        "error plus": 0.08, %
+        "error minus": 0.1%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{mu_eff}=0%
+      \let\gaussianChiEffChiP@I@out\gaussianChiEffChiP@III%
+    \else%
+      \ifnum\pdfstrcmp{#1}{sig_eff}=0%
+      \let\gaussianChiEffChiP@I@out\gaussianChiEffChiP@IV%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mu_p}=0%
+      \let\gaussianChiEffChiP@I@out\gaussianChiEffChiP@V%
+    \else%
+      \ifnum\pdfstrcmp{#1}{sig_p}=0%
+      \let\gaussianChiEffChiP@I@out\gaussianChiEffChiP@VI%
+    \else%
+      \ifnum\pdfstrcmp{#1}{cov}=0%
+      \let\gaussianChiEffChiP@I@out\gaussianChiEffChiP@VII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{min_eff}=0%
+      \let\gaussianChiEffChiP@I@out\gaussianChiEffChiP@VIII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{f_neg_eff}=0%
+      \let\gaussianChiEffChiP@I@out\gaussianChiEffChiP@IX%
+    \else%
+      \def\gaussianChiEffChiP@I@out{%
+    ??}%
+    \fi\fi\fi\fi\fi\fi\fi
+  \fi
+  \gaussianChiEffChiP@I@out
+}\newcommand\gaussianChiEffChiP@II[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\gaussianChiEffChiP@II@out{%
+    \{%
+      "chi\_eff": \{%
+        "median": 0.05, %
+        "5th percentile": {-}0.13, %
+        "95th percentile": 0.22, %
+        "spin at peak": 0.05%
+      \}, %
+      "chi\_p": \{%
+        "median": 0.33, %
+        "5th percentile": 0.07, %
+        "95th percentile": 0.65, %
+        "spin at peak": 0.31%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{chi_eff}=0%
+      \let\gaussianChiEffChiP@II@out\gaussianChiEffChiP@X%
+    \else%
+      \ifnum\pdfstrcmp{#1}{chi_p}=0%
+      \let\gaussianChiEffChiP@II@out\gaussianChiEffChiP@XI%
+    \else%
+      \def\gaussianChiEffChiP@II@out{%
+    ??}%
+    \fi\fi
+  \fi
+  \gaussianChiEffChiP@II@out
+}\newcommand\gaussianChiEffChiP@III[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\gaussianChiEffChiP@III@out{%
+    \{%
+      "median": 0.04, %
+      "5th percentile": 0.02, %
+      "95th percentile": 0.06, %
+      "error plus": 0.02, %
+      "error minus": 0.02%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\gaussianChiEffChiP@III@out{%
+    0.04}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\gaussianChiEffChiP@III@out{%
+    0.02}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\gaussianChiEffChiP@III@out{%
+    0.06}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\gaussianChiEffChiP@III@out{%
+    0.02}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\gaussianChiEffChiP@III@out{%
+    0.02}%
+    \else%
+      \def\gaussianChiEffChiP@III@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \gaussianChiEffChiP@III@out
+}\newcommand\gaussianChiEffChiP@IV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\gaussianChiEffChiP@IV@out{%
+    \{%
+      "median": 0.1, %
+      "5th percentile": 0.08, %
+      "95th percentile": 0.13, %
+      "error plus": 0.03, %
+      "error minus": 0.03%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\gaussianChiEffChiP@IV@out{%
+    0.1}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\gaussianChiEffChiP@IV@out{%
+    0.08}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\gaussianChiEffChiP@IV@out{%
+    0.13}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\gaussianChiEffChiP@IV@out{%
+    0.03}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\gaussianChiEffChiP@IV@out{%
+    0.03}%
+    \else%
+      \def\gaussianChiEffChiP@IV@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \gaussianChiEffChiP@IV@out
+}\newcommand\gaussianChiEffChiP@V[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\gaussianChiEffChiP@V@out{%
+    \{%
+      "median": 0.31, %
+      "5th percentile": 0.23, %
+      "95th percentile": 0.39, %
+      "error plus": 0.08, %
+      "error minus": 0.08%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\gaussianChiEffChiP@V@out{%
+    0.31}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\gaussianChiEffChiP@V@out{%
+    0.23}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\gaussianChiEffChiP@V@out{%
+    0.39}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\gaussianChiEffChiP@V@out{%
+    0.08}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\gaussianChiEffChiP@V@out{%
+    0.08}%
+    \else%
+      \def\gaussianChiEffChiP@V@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \gaussianChiEffChiP@V@out
+}\newcommand\gaussianChiEffChiP@VI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\gaussianChiEffChiP@VI@out{%
+    \{%
+      "median": 0.18, %
+      "5th percentile": 0.12, %
+      "95th percentile": 0.32, %
+      "error plus": 0.14, %
+      "error minus": 0.06%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\gaussianChiEffChiP@VI@out{%
+    0.18}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\gaussianChiEffChiP@VI@out{%
+    0.12}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\gaussianChiEffChiP@VI@out{%
+    0.32}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\gaussianChiEffChiP@VI@out{%
+    0.14}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\gaussianChiEffChiP@VI@out{%
+    0.06}%
+    \else%
+      \def\gaussianChiEffChiP@VI@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \gaussianChiEffChiP@VI@out
+}\newcommand\gaussianChiEffChiP@VII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\gaussianChiEffChiP@VII@out{%
+    \{%
+      "median": 0.08, %
+      "5th percentile": {-}0.44, %
+      "95th percentile": 0.58, %
+      "error plus": 0.5, %
+      "error minus": 0.52%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\gaussianChiEffChiP@VII@out{%
+    0.08}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\gaussianChiEffChiP@VII@out{%
+    {-}0.44}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\gaussianChiEffChiP@VII@out{%
+    0.58}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\gaussianChiEffChiP@VII@out{%
+    0.5}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\gaussianChiEffChiP@VII@out{%
+    0.52}%
+    \else%
+      \def\gaussianChiEffChiP@VII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \gaussianChiEffChiP@VII@out
+}\newcommand\gaussianChiEffChiP@VIII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\gaussianChiEffChiP@VIII@out{%
+    \{%
+      "median": {-}0.19, %
+      "5th percentile": {-}0.27, %
+      "95th percentile": {-}0.13, %
+      "error plus": 0.06, %
+      "error minus": 0.07%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\gaussianChiEffChiP@VIII@out{%
+    {-}0.19}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\gaussianChiEffChiP@VIII@out{%
+    {-}0.27}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\gaussianChiEffChiP@VIII@out{%
+    {-}0.13}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\gaussianChiEffChiP@VIII@out{%
+    0.06}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\gaussianChiEffChiP@VIII@out{%
+    0.07}%
+    \else%
+      \def\gaussianChiEffChiP@VIII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \gaussianChiEffChiP@VIII@out
+}\newcommand\gaussianChiEffChiP@IX[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\gaussianChiEffChiP@IX@out{%
+    \{%
+      "median": 0.33, %
+      "5th percentile": 0.23, %
+      "95th percentile": 0.41, %
+      "error plus": 0.08, %
+      "error minus": 0.1%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\gaussianChiEffChiP@IX@out{%
+    0.33}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\gaussianChiEffChiP@IX@out{%
+    0.23}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\gaussianChiEffChiP@IX@out{%
+    0.41}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\gaussianChiEffChiP@IX@out{%
+    0.08}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\gaussianChiEffChiP@IX@out{%
+    0.1}%
+    \else%
+      \def\gaussianChiEffChiP@IX@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \gaussianChiEffChiP@IX@out
+}\newcommand\gaussianChiEffChiP@X[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\gaussianChiEffChiP@X@out{%
+    \{%
+      "median": 0.05, %
+      "5th percentile": {-}0.13, %
+      "95th percentile": 0.22, %
+      "spin at peak": 0.05%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\gaussianChiEffChiP@X@out{%
+    0.05}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\gaussianChiEffChiP@X@out{%
+    {-}0.13}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\gaussianChiEffChiP@X@out{%
+    0.22}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{spin at peak}=0%
+      \def\gaussianChiEffChiP@X@out{%
+    0.05}%
+    \else%
+      \def\gaussianChiEffChiP@X@out{%
+    ??}%
+    \fi\fi\fi\fi
+  \fi
+  \gaussianChiEffChiP@X@out
+}\newcommand\gaussianChiEffChiP@XI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\gaussianChiEffChiP@XI@out{%
+    \{%
+      "median": 0.33, %
+      "5th percentile": 0.07, %
+      "95th percentile": 0.65, %
+      "spin at peak": 0.31%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\gaussianChiEffChiP@XI@out{%
+    0.33}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\gaussianChiEffChiP@XI@out{%
+    0.07}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\gaussianChiEffChiP@XI@out{%
+    0.65}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{spin at peak}=0%
+      \def\gaussianChiEffChiP@XI@out{%
+    0.31}%
+    \else%
+      \def\gaussianChiEffChiP@XI@out{%
+    ??}%
+    \fi\fi\fi\fi
+  \fi
+  \gaussianChiEffChiP@XI@out
+}%
+\makeatother%

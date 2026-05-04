@@ -1,0 +1,1603 @@
+\makeatletter%
+\newcommand\MagBetaConstrainedIidTiltIsotropicAlignedNid[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@out{%
+    \{%
+      "ln\_evidence": {-}1032.94, %
+      "ln\_evidence\_error": 0.24, %
+      "ln\_bayes\_factor\_over\_new\_default": {-}0.65, %
+      "ln\_bayes\_factor\_over\_old\_default": 0.0, %
+      "param": \{%
+        "alpha\_1": \{%
+          "median": 1.83, %
+          "5th percentile": {-}0.08, %
+          "95th percentile": 3.15, %
+          "error plus": 1.31, %
+          "error minus": 1.91%
+        \}, %
+        "alpha\_2": \{%
+          "median": 4.65, %
+          "5th percentile": 3.24, %
+          "95th percentile": 6.25, %
+          "error plus": 1.6, %
+          "error minus": 1.41%
+        \}, %
+        "beta": \{%
+          "median": 1.55, %
+          "5th percentile": 0.43, %
+          "95th percentile": 2.89, %
+          "error plus": 1.34, %
+          "error minus": 1.12%
+        \}, %
+        "mlow\_1": \{%
+          "median": 5.34, %
+          "5th percentile": 3.26, %
+          "95th percentile": 8.62, %
+          "error plus": 3.28, %
+          "error minus": 2.08%
+        \}, %
+        "mlow\_2": \{%
+          "median": 3.58, %
+          "5th percentile": 3.03, %
+          "95th percentile": 4.86, %
+          "error plus": 1.28, %
+          "error minus": 0.55%
+        \}, %
+        "break\_mass": \{%
+          "median": 35.03, %
+          "5th percentile": 22.97, %
+          "95th percentile": 47.96, %
+          "error plus": 12.93, %
+          "error minus": 12.06%
+        \}, %
+        "mpp\_1": \{%
+          "median": 9.72, %
+          "5th percentile": 7.41, %
+          "95th percentile": 10.19, %
+          "error plus": 0.47, %
+          "error minus": 2.31%
+        \}, %
+        "mpp\_2": \{%
+          "median": 32.13, %
+          "5th percentile": 26.08, %
+          "95th percentile": 35.94, %
+          "error plus": 3.81, %
+          "error minus": 6.05%
+        \}, %
+        "sigpp\_1": \{%
+          "median": 0.67, %
+          "5th percentile": 0.32, %
+          "95th percentile": 1.81, %
+          "error plus": 1.14, %
+          "error minus": 0.35%
+        \}, %
+        "sigpp\_2": \{%
+          "median": 4.79, %
+          "5th percentile": 1.57, %
+          "95th percentile": 9.33, %
+          "error plus": 4.54, %
+          "error minus": 3.23%
+        \}, %
+        "delta\_m\_1": \{%
+          "median": 4.14, %
+          "5th percentile": 0.33, %
+          "95th percentile": 9.08, %
+          "error plus": 4.94, %
+          "error minus": 3.81%
+        \}, %
+        "delta\_m\_2": \{%
+          "median": 4.02, %
+          "5th percentile": 0.36, %
+          "95th percentile": 8.77, %
+          "error plus": 4.74, %
+          "error minus": 3.66%
+        \}, %
+        "lam\_0": \{%
+          "median": 0.34, %
+          "5th percentile": 0.12, %
+          "95th percentile": 0.65, %
+          "error plus": 0.31, %
+          "error minus": 0.22%
+        \}, %
+        "lam\_1": \{%
+          "median": 0.61, %
+          "5th percentile": 0.3, %
+          "95th percentile": 0.84, %
+          "error plus": 0.23, %
+          "error minus": 0.3%
+        \}, %
+        "lamb": \{%
+          "median": 3.34, %
+          "5th percentile": 2.42, %
+          "95th percentile": 4.25, %
+          "error plus": 0.91, %
+          "error minus": 0.92%
+        \}, %
+        "mu\_chi": \{%
+          "median": 0.29, %
+          "5th percentile": 0.26, %
+          "95th percentile": 0.33, %
+          "error plus": 0.04, %
+          "error minus": 0.03%
+        \}, %
+        "sigma\_chi": \{%
+          "median": 0.2, %
+          "5th percentile": 0.18, %
+          "95th percentile": 0.22, %
+          "error plus": 0.02, %
+          "error minus": 0.02%
+        \}, %
+        "xi\_spin": \{%
+          "median": 0.66, %
+          "5th percentile": 0.13, %
+          "95th percentile": 0.97, %
+          "error plus": 0.3, %
+          "error minus": 0.53%
+        \}, %
+        "sigma\_spin": \{%
+          "median": 1.74, %
+          "5th percentile": 0.95, %
+          "95th percentile": 3.6, %
+          "error plus": 1.86, %
+          "error minus": 0.79%
+        \}, %
+        "rate": \{%
+          "median": 15.28, %
+          "5th percentile": 11.17, %
+          "95th percentile": 20.86, %
+          "error plus": 5.58, %
+          "error minus": 4.11%
+        \}, %
+        "log\_likelihood": \{%
+          "median": {-}1009.4, %
+          "5th percentile": {-}1014.96, %
+          "95th percentile": {-}1005.36, %
+          "error plus": 4.04, %
+          "error minus": 5.56%
+        \}, %
+        "variance": \{%
+          "median": 0.91, %
+          "5th percentile": 0.71, %
+          "95th percentile": 0.99, %
+          "error plus": 0.08, %
+          "error minus": 0.2%
+        \}, %
+        "min\_neff": \{%
+          "median": 54.85, %
+          "5th percentile": 33.54, %
+          "95th percentile": 82.9, %
+          "error plus": 28.05, %
+          "error minus": 21.31%
+        \}, %
+        "selection\_neff": \{%
+          "median": 1993.0, %
+          "5th percentile": 1993.0, %
+          "95th percentile": 1993.0, %
+          "error plus": 0.0, %
+          "error minus": 0.0%
+        \}%
+      \}, %
+      "ppd": \{%
+        "a": \{%
+          "median": 0.26, %
+          "5th percentile": 0.03, %
+          "90th percentile": 0.58, %
+          "95th percentile": 0.68, %
+          "peak": 0.1%
+        \}, %
+        "cos\_tilt": \{%
+          "median": 0.1, %
+          "5th percentile": {-}0.87, %
+          "90th percentile": 0.83, %
+          "95th percentile": 0.91, %
+          "peak": 1.0%
+        \}, %
+        "mass\_1": \{%
+          "median": 10.11, %
+          "5th percentile": 8.08, %
+          "90th percentile": 26.66, %
+          "95th percentile": 33.7, %
+          "peak": 9.91%
+        \}, %
+        "mass\_ratio": \{%
+          "median": 0.84, %
+          "5th percentile": 0.51, %
+          "90th percentile": 0.97, %
+          "95th percentile": 0.99, %
+          "peak": 1.0%
+        \}, %
+        "redshift": \{%
+          "median": 0.3, %
+          "5th percentile": 0.05, %
+          "90th percentile": 0.44, %
+          "95th percentile": 0.45, %
+          "peak": 2.0%
+        \}%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{ln_evidence}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@out{%
+    {-}1032.94}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{ln_evidence_error}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@out{%
+    0.24}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{ln_bayes_factor_over_new_default}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@out{%
+    {-}0.65}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{ln_bayes_factor_over_old_default}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@out{%
+    0.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{param}=0%
+      \let\MagBetaConstrainedIidTiltIsotropicAlignedNid@out\MagBetaConstrainedIidTiltIsotropicAlignedNid@I%
+    \else%
+      \ifnum\pdfstrcmp{#1}{ppd}=0%
+      \let\MagBetaConstrainedIidTiltIsotropicAlignedNid@out\MagBetaConstrainedIidTiltIsotropicAlignedNid@II%
+    \else%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@out{%
+    ??}%
+    \fi\fi\fi\fi\fi\fi
+  \fi
+  \MagBetaConstrainedIidTiltIsotropicAlignedNid@out
+}\newcommand\MagBetaConstrainedIidTiltIsotropicAlignedNid@I[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@I@out{%
+    \{%
+      "alpha\_1": \{%
+        "median": 1.83, %
+        "5th percentile": {-}0.08, %
+        "95th percentile": 3.15, %
+        "error plus": 1.31, %
+        "error minus": 1.91%
+      \}, %
+      "alpha\_2": \{%
+        "median": 4.65, %
+        "5th percentile": 3.24, %
+        "95th percentile": 6.25, %
+        "error plus": 1.6, %
+        "error minus": 1.41%
+      \}, %
+      "beta": \{%
+        "median": 1.55, %
+        "5th percentile": 0.43, %
+        "95th percentile": 2.89, %
+        "error plus": 1.34, %
+        "error minus": 1.12%
+      \}, %
+      "mlow\_1": \{%
+        "median": 5.34, %
+        "5th percentile": 3.26, %
+        "95th percentile": 8.62, %
+        "error plus": 3.28, %
+        "error minus": 2.08%
+      \}, %
+      "mlow\_2": \{%
+        "median": 3.58, %
+        "5th percentile": 3.03, %
+        "95th percentile": 4.86, %
+        "error plus": 1.28, %
+        "error minus": 0.55%
+      \}, %
+      "break\_mass": \{%
+        "median": 35.03, %
+        "5th percentile": 22.97, %
+        "95th percentile": 47.96, %
+        "error plus": 12.93, %
+        "error minus": 12.06%
+      \}, %
+      "mpp\_1": \{%
+        "median": 9.72, %
+        "5th percentile": 7.41, %
+        "95th percentile": 10.19, %
+        "error plus": 0.47, %
+        "error minus": 2.31%
+      \}, %
+      "mpp\_2": \{%
+        "median": 32.13, %
+        "5th percentile": 26.08, %
+        "95th percentile": 35.94, %
+        "error plus": 3.81, %
+        "error minus": 6.05%
+      \}, %
+      "sigpp\_1": \{%
+        "median": 0.67, %
+        "5th percentile": 0.32, %
+        "95th percentile": 1.81, %
+        "error plus": 1.14, %
+        "error minus": 0.35%
+      \}, %
+      "sigpp\_2": \{%
+        "median": 4.79, %
+        "5th percentile": 1.57, %
+        "95th percentile": 9.33, %
+        "error plus": 4.54, %
+        "error minus": 3.23%
+      \}, %
+      "delta\_m\_1": \{%
+        "median": 4.14, %
+        "5th percentile": 0.33, %
+        "95th percentile": 9.08, %
+        "error plus": 4.94, %
+        "error minus": 3.81%
+      \}, %
+      "delta\_m\_2": \{%
+        "median": 4.02, %
+        "5th percentile": 0.36, %
+        "95th percentile": 8.77, %
+        "error plus": 4.74, %
+        "error minus": 3.66%
+      \}, %
+      "lam\_0": \{%
+        "median": 0.34, %
+        "5th percentile": 0.12, %
+        "95th percentile": 0.65, %
+        "error plus": 0.31, %
+        "error minus": 0.22%
+      \}, %
+      "lam\_1": \{%
+        "median": 0.61, %
+        "5th percentile": 0.3, %
+        "95th percentile": 0.84, %
+        "error plus": 0.23, %
+        "error minus": 0.3%
+      \}, %
+      "lamb": \{%
+        "median": 3.34, %
+        "5th percentile": 2.42, %
+        "95th percentile": 4.25, %
+        "error plus": 0.91, %
+        "error minus": 0.92%
+      \}, %
+      "mu\_chi": \{%
+        "median": 0.29, %
+        "5th percentile": 0.26, %
+        "95th percentile": 0.33, %
+        "error plus": 0.04, %
+        "error minus": 0.03%
+      \}, %
+      "sigma\_chi": \{%
+        "median": 0.2, %
+        "5th percentile": 0.18, %
+        "95th percentile": 0.22, %
+        "error plus": 0.02, %
+        "error minus": 0.02%
+      \}, %
+      "xi\_spin": \{%
+        "median": 0.66, %
+        "5th percentile": 0.13, %
+        "95th percentile": 0.97, %
+        "error plus": 0.3, %
+        "error minus": 0.53%
+      \}, %
+      "sigma\_spin": \{%
+        "median": 1.74, %
+        "5th percentile": 0.95, %
+        "95th percentile": 3.6, %
+        "error plus": 1.86, %
+        "error minus": 0.79%
+      \}, %
+      "rate": \{%
+        "median": 15.28, %
+        "5th percentile": 11.17, %
+        "95th percentile": 20.86, %
+        "error plus": 5.58, %
+        "error minus": 4.11%
+      \}, %
+      "log\_likelihood": \{%
+        "median": {-}1009.4, %
+        "5th percentile": {-}1014.96, %
+        "95th percentile": {-}1005.36, %
+        "error plus": 4.04, %
+        "error minus": 5.56%
+      \}, %
+      "variance": \{%
+        "median": 0.91, %
+        "5th percentile": 0.71, %
+        "95th percentile": 0.99, %
+        "error plus": 0.08, %
+        "error minus": 0.2%
+      \}, %
+      "min\_neff": \{%
+        "median": 54.85, %
+        "5th percentile": 33.54, %
+        "95th percentile": 82.9, %
+        "error plus": 28.05, %
+        "error minus": 21.31%
+      \}, %
+      "selection\_neff": \{%
+        "median": 1993.0, %
+        "5th percentile": 1993.0, %
+        "95th percentile": 1993.0, %
+        "error plus": 0.0, %
+        "error minus": 0.0%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{alpha_1}=0%
+      \let\MagBetaConstrainedIidTiltIsotropicAlignedNid@I@out\MagBetaConstrainedIidTiltIsotropicAlignedNid@III%
+    \else%
+      \ifnum\pdfstrcmp{#1}{alpha_2}=0%
+      \let\MagBetaConstrainedIidTiltIsotropicAlignedNid@I@out\MagBetaConstrainedIidTiltIsotropicAlignedNid@IV%
+    \else%
+      \ifnum\pdfstrcmp{#1}{beta}=0%
+      \let\MagBetaConstrainedIidTiltIsotropicAlignedNid@I@out\MagBetaConstrainedIidTiltIsotropicAlignedNid@V%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mlow_1}=0%
+      \let\MagBetaConstrainedIidTiltIsotropicAlignedNid@I@out\MagBetaConstrainedIidTiltIsotropicAlignedNid@VI%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mlow_2}=0%
+      \let\MagBetaConstrainedIidTiltIsotropicAlignedNid@I@out\MagBetaConstrainedIidTiltIsotropicAlignedNid@VII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{break_mass}=0%
+      \let\MagBetaConstrainedIidTiltIsotropicAlignedNid@I@out\MagBetaConstrainedIidTiltIsotropicAlignedNid@VIII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mpp_1}=0%
+      \let\MagBetaConstrainedIidTiltIsotropicAlignedNid@I@out\MagBetaConstrainedIidTiltIsotropicAlignedNid@IX%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mpp_2}=0%
+      \let\MagBetaConstrainedIidTiltIsotropicAlignedNid@I@out\MagBetaConstrainedIidTiltIsotropicAlignedNid@X%
+    \else%
+      \ifnum\pdfstrcmp{#1}{sigpp_1}=0%
+      \let\MagBetaConstrainedIidTiltIsotropicAlignedNid@I@out\MagBetaConstrainedIidTiltIsotropicAlignedNid@XI%
+    \else%
+      \ifnum\pdfstrcmp{#1}{sigpp_2}=0%
+      \let\MagBetaConstrainedIidTiltIsotropicAlignedNid@I@out\MagBetaConstrainedIidTiltIsotropicAlignedNid@XII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{delta_m_1}=0%
+      \let\MagBetaConstrainedIidTiltIsotropicAlignedNid@I@out\MagBetaConstrainedIidTiltIsotropicAlignedNid@XIII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{delta_m_2}=0%
+      \let\MagBetaConstrainedIidTiltIsotropicAlignedNid@I@out\MagBetaConstrainedIidTiltIsotropicAlignedNid@XIV%
+    \else%
+      \ifnum\pdfstrcmp{#1}{lam_0}=0%
+      \let\MagBetaConstrainedIidTiltIsotropicAlignedNid@I@out\MagBetaConstrainedIidTiltIsotropicAlignedNid@XV%
+    \else%
+      \ifnum\pdfstrcmp{#1}{lam_1}=0%
+      \let\MagBetaConstrainedIidTiltIsotropicAlignedNid@I@out\MagBetaConstrainedIidTiltIsotropicAlignedNid@XVI%
+    \else%
+      \ifnum\pdfstrcmp{#1}{lamb}=0%
+      \let\MagBetaConstrainedIidTiltIsotropicAlignedNid@I@out\MagBetaConstrainedIidTiltIsotropicAlignedNid@XVII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mu_chi}=0%
+      \let\MagBetaConstrainedIidTiltIsotropicAlignedNid@I@out\MagBetaConstrainedIidTiltIsotropicAlignedNid@XVIII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{sigma_chi}=0%
+      \let\MagBetaConstrainedIidTiltIsotropicAlignedNid@I@out\MagBetaConstrainedIidTiltIsotropicAlignedNid@XIX%
+    \else%
+      \ifnum\pdfstrcmp{#1}{xi_spin}=0%
+      \let\MagBetaConstrainedIidTiltIsotropicAlignedNid@I@out\MagBetaConstrainedIidTiltIsotropicAlignedNid@XX%
+    \else%
+      \ifnum\pdfstrcmp{#1}{sigma_spin}=0%
+      \let\MagBetaConstrainedIidTiltIsotropicAlignedNid@I@out\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXI%
+    \else%
+      \ifnum\pdfstrcmp{#1}{rate}=0%
+      \let\MagBetaConstrainedIidTiltIsotropicAlignedNid@I@out\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{log_likelihood}=0%
+      \let\MagBetaConstrainedIidTiltIsotropicAlignedNid@I@out\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXIII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{variance}=0%
+      \let\MagBetaConstrainedIidTiltIsotropicAlignedNid@I@out\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXIV%
+    \else%
+      \ifnum\pdfstrcmp{#1}{min_neff}=0%
+      \let\MagBetaConstrainedIidTiltIsotropicAlignedNid@I@out\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXV%
+    \else%
+      \ifnum\pdfstrcmp{#1}{selection_neff}=0%
+      \let\MagBetaConstrainedIidTiltIsotropicAlignedNid@I@out\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXVI%
+    \else%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@I@out{%
+    ??}%
+    \fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi
+  \fi
+  \MagBetaConstrainedIidTiltIsotropicAlignedNid@I@out
+}\newcommand\MagBetaConstrainedIidTiltIsotropicAlignedNid@II[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@II@out{%
+    \{%
+      "a": \{%
+        "median": 0.26, %
+        "5th percentile": 0.03, %
+        "90th percentile": 0.58, %
+        "95th percentile": 0.68, %
+        "peak": 0.1%
+      \}, %
+      "cos\_tilt": \{%
+        "median": 0.1, %
+        "5th percentile": {-}0.87, %
+        "90th percentile": 0.83, %
+        "95th percentile": 0.91, %
+        "peak": 1.0%
+      \}, %
+      "mass\_1": \{%
+        "median": 10.11, %
+        "5th percentile": 8.08, %
+        "90th percentile": 26.66, %
+        "95th percentile": 33.7, %
+        "peak": 9.91%
+      \}, %
+      "mass\_ratio": \{%
+        "median": 0.84, %
+        "5th percentile": 0.51, %
+        "90th percentile": 0.97, %
+        "95th percentile": 0.99, %
+        "peak": 1.0%
+      \}, %
+      "redshift": \{%
+        "median": 0.3, %
+        "5th percentile": 0.05, %
+        "90th percentile": 0.44, %
+        "95th percentile": 0.45, %
+        "peak": 2.0%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{a}=0%
+      \let\MagBetaConstrainedIidTiltIsotropicAlignedNid@II@out\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXVII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{cos_tilt}=0%
+      \let\MagBetaConstrainedIidTiltIsotropicAlignedNid@II@out\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXVIII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mass_1}=0%
+      \let\MagBetaConstrainedIidTiltIsotropicAlignedNid@II@out\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXIX%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mass_ratio}=0%
+      \let\MagBetaConstrainedIidTiltIsotropicAlignedNid@II@out\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXX%
+    \else%
+      \ifnum\pdfstrcmp{#1}{redshift}=0%
+      \let\MagBetaConstrainedIidTiltIsotropicAlignedNid@II@out\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXXI%
+    \else%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@II@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagBetaConstrainedIidTiltIsotropicAlignedNid@II@out
+}\newcommand\MagBetaConstrainedIidTiltIsotropicAlignedNid@III[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@III@out{%
+    \{%
+      "median": 1.83, %
+      "5th percentile": {-}0.08, %
+      "95th percentile": 3.15, %
+      "error plus": 1.31, %
+      "error minus": 1.91%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@III@out{%
+    1.83}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@III@out{%
+    {-}0.08}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@III@out{%
+    3.15}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@III@out{%
+    1.31}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@III@out{%
+    1.91}%
+    \else%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@III@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagBetaConstrainedIidTiltIsotropicAlignedNid@III@out
+}\newcommand\MagBetaConstrainedIidTiltIsotropicAlignedNid@IV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@IV@out{%
+    \{%
+      "median": 4.65, %
+      "5th percentile": 3.24, %
+      "95th percentile": 6.25, %
+      "error plus": 1.6, %
+      "error minus": 1.41%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@IV@out{%
+    4.65}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@IV@out{%
+    3.24}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@IV@out{%
+    6.25}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@IV@out{%
+    1.6}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@IV@out{%
+    1.41}%
+    \else%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@IV@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagBetaConstrainedIidTiltIsotropicAlignedNid@IV@out
+}\newcommand\MagBetaConstrainedIidTiltIsotropicAlignedNid@V[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@V@out{%
+    \{%
+      "median": 1.55, %
+      "5th percentile": 0.43, %
+      "95th percentile": 2.89, %
+      "error plus": 1.34, %
+      "error minus": 1.12%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@V@out{%
+    1.55}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@V@out{%
+    0.43}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@V@out{%
+    2.89}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@V@out{%
+    1.34}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@V@out{%
+    1.12}%
+    \else%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@V@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagBetaConstrainedIidTiltIsotropicAlignedNid@V@out
+}\newcommand\MagBetaConstrainedIidTiltIsotropicAlignedNid@VI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@VI@out{%
+    \{%
+      "median": 5.34, %
+      "5th percentile": 3.26, %
+      "95th percentile": 8.62, %
+      "error plus": 3.28, %
+      "error minus": 2.08%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@VI@out{%
+    5.34}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@VI@out{%
+    3.26}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@VI@out{%
+    8.62}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@VI@out{%
+    3.28}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@VI@out{%
+    2.08}%
+    \else%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@VI@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagBetaConstrainedIidTiltIsotropicAlignedNid@VI@out
+}\newcommand\MagBetaConstrainedIidTiltIsotropicAlignedNid@VII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@VII@out{%
+    \{%
+      "median": 3.58, %
+      "5th percentile": 3.03, %
+      "95th percentile": 4.86, %
+      "error plus": 1.28, %
+      "error minus": 0.55%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@VII@out{%
+    3.58}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@VII@out{%
+    3.03}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@VII@out{%
+    4.86}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@VII@out{%
+    1.28}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@VII@out{%
+    0.55}%
+    \else%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@VII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagBetaConstrainedIidTiltIsotropicAlignedNid@VII@out
+}\newcommand\MagBetaConstrainedIidTiltIsotropicAlignedNid@VIII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@VIII@out{%
+    \{%
+      "median": 35.03, %
+      "5th percentile": 22.97, %
+      "95th percentile": 47.96, %
+      "error plus": 12.93, %
+      "error minus": 12.06%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@VIII@out{%
+    35.03}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@VIII@out{%
+    22.97}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@VIII@out{%
+    47.96}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@VIII@out{%
+    12.93}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@VIII@out{%
+    12.06}%
+    \else%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@VIII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagBetaConstrainedIidTiltIsotropicAlignedNid@VIII@out
+}\newcommand\MagBetaConstrainedIidTiltIsotropicAlignedNid@IX[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@IX@out{%
+    \{%
+      "median": 9.72, %
+      "5th percentile": 7.41, %
+      "95th percentile": 10.19, %
+      "error plus": 0.47, %
+      "error minus": 2.31%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@IX@out{%
+    9.72}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@IX@out{%
+    7.41}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@IX@out{%
+    10.19}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@IX@out{%
+    0.47}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@IX@out{%
+    2.31}%
+    \else%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@IX@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagBetaConstrainedIidTiltIsotropicAlignedNid@IX@out
+}\newcommand\MagBetaConstrainedIidTiltIsotropicAlignedNid@X[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@X@out{%
+    \{%
+      "median": 32.13, %
+      "5th percentile": 26.08, %
+      "95th percentile": 35.94, %
+      "error plus": 3.81, %
+      "error minus": 6.05%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@X@out{%
+    32.13}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@X@out{%
+    26.08}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@X@out{%
+    35.94}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@X@out{%
+    3.81}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@X@out{%
+    6.05}%
+    \else%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@X@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagBetaConstrainedIidTiltIsotropicAlignedNid@X@out
+}\newcommand\MagBetaConstrainedIidTiltIsotropicAlignedNid@XI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XI@out{%
+    \{%
+      "median": 0.67, %
+      "5th percentile": 0.32, %
+      "95th percentile": 1.81, %
+      "error plus": 1.14, %
+      "error minus": 0.35%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XI@out{%
+    0.67}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XI@out{%
+    0.32}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XI@out{%
+    1.81}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XI@out{%
+    1.14}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XI@out{%
+    0.35}%
+    \else%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XI@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagBetaConstrainedIidTiltIsotropicAlignedNid@XI@out
+}\newcommand\MagBetaConstrainedIidTiltIsotropicAlignedNid@XII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XII@out{%
+    \{%
+      "median": 4.79, %
+      "5th percentile": 1.57, %
+      "95th percentile": 9.33, %
+      "error plus": 4.54, %
+      "error minus": 3.23%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XII@out{%
+    4.79}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XII@out{%
+    1.57}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XII@out{%
+    9.33}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XII@out{%
+    4.54}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XII@out{%
+    3.23}%
+    \else%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagBetaConstrainedIidTiltIsotropicAlignedNid@XII@out
+}\newcommand\MagBetaConstrainedIidTiltIsotropicAlignedNid@XIII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XIII@out{%
+    \{%
+      "median": 4.14, %
+      "5th percentile": 0.33, %
+      "95th percentile": 9.08, %
+      "error plus": 4.94, %
+      "error minus": 3.81%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XIII@out{%
+    4.14}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XIII@out{%
+    0.33}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XIII@out{%
+    9.08}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XIII@out{%
+    4.94}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XIII@out{%
+    3.81}%
+    \else%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XIII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagBetaConstrainedIidTiltIsotropicAlignedNid@XIII@out
+}\newcommand\MagBetaConstrainedIidTiltIsotropicAlignedNid@XIV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XIV@out{%
+    \{%
+      "median": 4.02, %
+      "5th percentile": 0.36, %
+      "95th percentile": 8.77, %
+      "error plus": 4.74, %
+      "error minus": 3.66%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XIV@out{%
+    4.02}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XIV@out{%
+    0.36}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XIV@out{%
+    8.77}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XIV@out{%
+    4.74}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XIV@out{%
+    3.66}%
+    \else%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XIV@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagBetaConstrainedIidTiltIsotropicAlignedNid@XIV@out
+}\newcommand\MagBetaConstrainedIidTiltIsotropicAlignedNid@XV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XV@out{%
+    \{%
+      "median": 0.34, %
+      "5th percentile": 0.12, %
+      "95th percentile": 0.65, %
+      "error plus": 0.31, %
+      "error minus": 0.22%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XV@out{%
+    0.34}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XV@out{%
+    0.12}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XV@out{%
+    0.65}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XV@out{%
+    0.31}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XV@out{%
+    0.22}%
+    \else%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XV@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagBetaConstrainedIidTiltIsotropicAlignedNid@XV@out
+}\newcommand\MagBetaConstrainedIidTiltIsotropicAlignedNid@XVI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XVI@out{%
+    \{%
+      "median": 0.61, %
+      "5th percentile": 0.3, %
+      "95th percentile": 0.84, %
+      "error plus": 0.23, %
+      "error minus": 0.3%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XVI@out{%
+    0.61}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XVI@out{%
+    0.3}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XVI@out{%
+    0.84}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XVI@out{%
+    0.23}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XVI@out{%
+    0.3}%
+    \else%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XVI@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagBetaConstrainedIidTiltIsotropicAlignedNid@XVI@out
+}\newcommand\MagBetaConstrainedIidTiltIsotropicAlignedNid@XVII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XVII@out{%
+    \{%
+      "median": 3.34, %
+      "5th percentile": 2.42, %
+      "95th percentile": 4.25, %
+      "error plus": 0.91, %
+      "error minus": 0.92%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XVII@out{%
+    3.34}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XVII@out{%
+    2.42}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XVII@out{%
+    4.25}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XVII@out{%
+    0.91}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XVII@out{%
+    0.92}%
+    \else%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XVII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagBetaConstrainedIidTiltIsotropicAlignedNid@XVII@out
+}\newcommand\MagBetaConstrainedIidTiltIsotropicAlignedNid@XVIII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XVIII@out{%
+    \{%
+      "median": 0.29, %
+      "5th percentile": 0.26, %
+      "95th percentile": 0.33, %
+      "error plus": 0.04, %
+      "error minus": 0.03%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XVIII@out{%
+    0.29}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XVIII@out{%
+    0.26}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XVIII@out{%
+    0.33}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XVIII@out{%
+    0.04}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XVIII@out{%
+    0.03}%
+    \else%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XVIII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagBetaConstrainedIidTiltIsotropicAlignedNid@XVIII@out
+}\newcommand\MagBetaConstrainedIidTiltIsotropicAlignedNid@XIX[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XIX@out{%
+    \{%
+      "median": 0.2, %
+      "5th percentile": 0.18, %
+      "95th percentile": 0.22, %
+      "error plus": 0.02, %
+      "error minus": 0.02%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XIX@out{%
+    0.2}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XIX@out{%
+    0.18}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XIX@out{%
+    0.22}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XIX@out{%
+    0.02}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XIX@out{%
+    0.02}%
+    \else%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XIX@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagBetaConstrainedIidTiltIsotropicAlignedNid@XIX@out
+}\newcommand\MagBetaConstrainedIidTiltIsotropicAlignedNid@XX[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XX@out{%
+    \{%
+      "median": 0.66, %
+      "5th percentile": 0.13, %
+      "95th percentile": 0.97, %
+      "error plus": 0.3, %
+      "error minus": 0.53%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XX@out{%
+    0.66}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XX@out{%
+    0.13}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XX@out{%
+    0.97}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XX@out{%
+    0.3}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XX@out{%
+    0.53}%
+    \else%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XX@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagBetaConstrainedIidTiltIsotropicAlignedNid@XX@out
+}\newcommand\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXI@out{%
+    \{%
+      "median": 1.74, %
+      "5th percentile": 0.95, %
+      "95th percentile": 3.6, %
+      "error plus": 1.86, %
+      "error minus": 0.79%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXI@out{%
+    1.74}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXI@out{%
+    0.95}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXI@out{%
+    3.6}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXI@out{%
+    1.86}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXI@out{%
+    0.79}%
+    \else%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXI@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagBetaConstrainedIidTiltIsotropicAlignedNid@XXI@out
+}\newcommand\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXII@out{%
+    \{%
+      "median": 15.28, %
+      "5th percentile": 11.17, %
+      "95th percentile": 20.86, %
+      "error plus": 5.58, %
+      "error minus": 4.11%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXII@out{%
+    15.28}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXII@out{%
+    11.17}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXII@out{%
+    20.86}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXII@out{%
+    5.58}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXII@out{%
+    4.11}%
+    \else%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagBetaConstrainedIidTiltIsotropicAlignedNid@XXII@out
+}\newcommand\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXIII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXIII@out{%
+    \{%
+      "median": {-}1009.4, %
+      "5th percentile": {-}1014.96, %
+      "95th percentile": {-}1005.36, %
+      "error plus": 4.04, %
+      "error minus": 5.56%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXIII@out{%
+    {-}1009.4}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXIII@out{%
+    {-}1014.96}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXIII@out{%
+    {-}1005.36}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXIII@out{%
+    4.04}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXIII@out{%
+    5.56}%
+    \else%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXIII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagBetaConstrainedIidTiltIsotropicAlignedNid@XXIII@out
+}\newcommand\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXIV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXIV@out{%
+    \{%
+      "median": 0.91, %
+      "5th percentile": 0.71, %
+      "95th percentile": 0.99, %
+      "error plus": 0.08, %
+      "error minus": 0.2%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXIV@out{%
+    0.91}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXIV@out{%
+    0.71}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXIV@out{%
+    0.99}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXIV@out{%
+    0.08}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXIV@out{%
+    0.2}%
+    \else%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXIV@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagBetaConstrainedIidTiltIsotropicAlignedNid@XXIV@out
+}\newcommand\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXV@out{%
+    \{%
+      "median": 54.85, %
+      "5th percentile": 33.54, %
+      "95th percentile": 82.9, %
+      "error plus": 28.05, %
+      "error minus": 21.31%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXV@out{%
+    54.85}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXV@out{%
+    33.54}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXV@out{%
+    82.9}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXV@out{%
+    28.05}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXV@out{%
+    21.31}%
+    \else%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXV@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagBetaConstrainedIidTiltIsotropicAlignedNid@XXV@out
+}\newcommand\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXVI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXVI@out{%
+    \{%
+      "median": 1993.0, %
+      "5th percentile": 1993.0, %
+      "95th percentile": 1993.0, %
+      "error plus": 0.0, %
+      "error minus": 0.0%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXVI@out{%
+    1993.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXVI@out{%
+    1993.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXVI@out{%
+    1993.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXVI@out{%
+    0.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXVI@out{%
+    0.0}%
+    \else%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXVI@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagBetaConstrainedIidTiltIsotropicAlignedNid@XXVI@out
+}\newcommand\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXVII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXVII@out{%
+    \{%
+      "median": 0.26, %
+      "5th percentile": 0.03, %
+      "90th percentile": 0.58, %
+      "95th percentile": 0.68, %
+      "peak": 0.1%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXVII@out{%
+    0.26}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXVII@out{%
+    0.03}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{90th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXVII@out{%
+    0.58}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXVII@out{%
+    0.68}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{peak}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXVII@out{%
+    0.1}%
+    \else%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXVII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagBetaConstrainedIidTiltIsotropicAlignedNid@XXVII@out
+}\newcommand\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXVIII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXVIII@out{%
+    \{%
+      "median": 0.1, %
+      "5th percentile": {-}0.87, %
+      "90th percentile": 0.83, %
+      "95th percentile": 0.91, %
+      "peak": 1.0%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXVIII@out{%
+    0.1}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXVIII@out{%
+    {-}0.87}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{90th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXVIII@out{%
+    0.83}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXVIII@out{%
+    0.91}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{peak}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXVIII@out{%
+    1.0}%
+    \else%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXVIII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagBetaConstrainedIidTiltIsotropicAlignedNid@XXVIII@out
+}\newcommand\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXIX[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXIX@out{%
+    \{%
+      "median": 10.11, %
+      "5th percentile": 8.08, %
+      "90th percentile": 26.66, %
+      "95th percentile": 33.7, %
+      "peak": 9.91%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXIX@out{%
+    10.11}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXIX@out{%
+    8.08}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{90th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXIX@out{%
+    26.66}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXIX@out{%
+    33.7}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{peak}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXIX@out{%
+    9.91}%
+    \else%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXIX@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagBetaConstrainedIidTiltIsotropicAlignedNid@XXIX@out
+}\newcommand\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXX[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXX@out{%
+    \{%
+      "median": 0.84, %
+      "5th percentile": 0.51, %
+      "90th percentile": 0.97, %
+      "95th percentile": 0.99, %
+      "peak": 1.0%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXX@out{%
+    0.84}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXX@out{%
+    0.51}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{90th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXX@out{%
+    0.97}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXX@out{%
+    0.99}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{peak}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXX@out{%
+    1.0}%
+    \else%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXX@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagBetaConstrainedIidTiltIsotropicAlignedNid@XXX@out
+}\newcommand\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXXI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXXI@out{%
+    \{%
+      "median": 0.3, %
+      "5th percentile": 0.05, %
+      "90th percentile": 0.44, %
+      "95th percentile": 0.45, %
+      "peak": 2.0%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXXI@out{%
+    0.3}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXXI@out{%
+    0.05}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{90th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXXI@out{%
+    0.44}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXXI@out{%
+    0.45}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{peak}=0%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXXI@out{%
+    2.0}%
+    \else%
+      \def\MagBetaConstrainedIidTiltIsotropicAlignedNid@XXXI@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \MagBetaConstrainedIidTiltIsotropicAlignedNid@XXXI@out
+}%
+\makeatother%

@@ -1,0 +1,136 @@
+\makeatletter%
+\newcommand\BsplineChiEff[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\BsplineChiEff@out{%
+    \{%
+      "chi\_eff": \{%
+        "percent\_less\_zero": \{%
+          "median": "41.1", %
+          "error plus": "6.3", %
+          "error minus": "6.2", %
+          "5th percentile": "35.0", %
+          "95th percentile": "47.5"%
+        \}, %
+        "1st\_percentile": \{%
+          "median": "{-}0.41", %
+          "error plus": "0.06", %
+          "error minus": "0.06", %
+          "5th percentile": "{-}0.48", %
+          "95th percentile": "{-}0.36"%
+        \}%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{chi_eff}=0%
+      \let\BsplineChiEff@out\BsplineChiEff@I%
+    \else%
+      \def\BsplineChiEff@out{%
+    ??}%
+    \fi
+  \fi
+  \BsplineChiEff@out
+}\newcommand\BsplineChiEff@I[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\BsplineChiEff@I@out{%
+    \{%
+      "percent\_less\_zero": \{%
+        "median": "41.1", %
+        "error plus": "6.3", %
+        "error minus": "6.2", %
+        "5th percentile": "35.0", %
+        "95th percentile": "47.5"%
+      \}, %
+      "1st\_percentile": \{%
+        "median": "{-}0.41", %
+        "error plus": "0.06", %
+        "error minus": "0.06", %
+        "5th percentile": "{-}0.48", %
+        "95th percentile": "{-}0.36"%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{percent_less_zero}=0%
+      \let\BsplineChiEff@I@out\BsplineChiEff@II%
+    \else%
+      \ifnum\pdfstrcmp{#1}{1st_percentile}=0%
+      \let\BsplineChiEff@I@out\BsplineChiEff@III%
+    \else%
+      \def\BsplineChiEff@I@out{%
+    ??}%
+    \fi\fi
+  \fi
+  \BsplineChiEff@I@out
+}\newcommand\BsplineChiEff@II[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\BsplineChiEff@II@out{%
+    \{%
+      "median": "41.1", %
+      "error plus": "6.3", %
+      "error minus": "6.2", %
+      "5th percentile": "35.0", %
+      "95th percentile": "47.5"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\BsplineChiEff@II@out{%
+    41.1}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\BsplineChiEff@II@out{%
+    6.3}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\BsplineChiEff@II@out{%
+    6.2}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\BsplineChiEff@II@out{%
+    35.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\BsplineChiEff@II@out{%
+    47.5}%
+    \else%
+      \def\BsplineChiEff@II@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \BsplineChiEff@II@out
+}\newcommand\BsplineChiEff@III[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\BsplineChiEff@III@out{%
+    \{%
+      "median": "{-}0.41", %
+      "error plus": "0.06", %
+      "error minus": "0.06", %
+      "5th percentile": "{-}0.48", %
+      "95th percentile": "{-}0.36"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\BsplineChiEff@III@out{%
+    {-}0.41}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\BsplineChiEff@III@out{%
+    0.06}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\BsplineChiEff@III@out{%
+    0.06}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\BsplineChiEff@III@out{%
+    {-}0.48}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\BsplineChiEff@III@out{%
+    {-}0.36}%
+    \else%
+      \def\BsplineChiEff@III@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \BsplineChiEff@III@out
+}%
+\makeatother%

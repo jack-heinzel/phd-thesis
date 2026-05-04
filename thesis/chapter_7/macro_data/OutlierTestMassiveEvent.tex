@@ -1,0 +1,280 @@
+\makeatletter%
+\newcommand\OutlierTestMassiveEvent[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\OutlierTestMassiveEvent@out{%
+    \{%
+      "percentilemmax300": \{%
+        "total\_mass\_source": \{%
+          "median": 87, %
+          "error plus": 6, %
+          "error minus": 10%
+        \}, %
+        "mass\_1\_source": \{%
+          "median": 82, %
+          "error plus": 9, %
+          "error minus": 11%
+        \}, %
+        "mass\_2\_source": \{%
+          "median": 87, %
+          "error plus": 8, %
+          "error minus": 12%
+        \}%
+      \}, %
+      "percentilemmaxlessthan300": \{%
+        "total\_mass\_source": \{%
+          "median": 94, %
+          "error plus": 4, %
+          "error minus": 5%
+        \}, %
+        "mass\_1\_source": \{%
+          "median": 92, %
+          "error plus": 5, %
+          "error minus": 7%
+        \}, %
+        "mass\_2\_source": \{%
+          "median": 94, %
+          "error plus": 4, %
+          "error minus": 9%
+        \}%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{percentilemmax300}=0%
+      \let\OutlierTestMassiveEvent@out\OutlierTestMassiveEvent@I%
+    \else%
+      \ifnum\pdfstrcmp{#1}{percentilemmaxlessthan300}=0%
+      \let\OutlierTestMassiveEvent@out\OutlierTestMassiveEvent@II%
+    \else%
+      \def\OutlierTestMassiveEvent@out{%
+    ??}%
+    \fi\fi
+  \fi
+  \OutlierTestMassiveEvent@out
+}\newcommand\OutlierTestMassiveEvent@I[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\OutlierTestMassiveEvent@I@out{%
+    \{%
+      "total\_mass\_source": \{%
+        "median": 87, %
+        "error plus": 6, %
+        "error minus": 10%
+      \}, %
+      "mass\_1\_source": \{%
+        "median": 82, %
+        "error plus": 9, %
+        "error minus": 11%
+      \}, %
+      "mass\_2\_source": \{%
+        "median": 87, %
+        "error plus": 8, %
+        "error minus": 12%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{total_mass_source}=0%
+      \let\OutlierTestMassiveEvent@I@out\OutlierTestMassiveEvent@III%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mass_1_source}=0%
+      \let\OutlierTestMassiveEvent@I@out\OutlierTestMassiveEvent@IV%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mass_2_source}=0%
+      \let\OutlierTestMassiveEvent@I@out\OutlierTestMassiveEvent@V%
+    \else%
+      \def\OutlierTestMassiveEvent@I@out{%
+    ??}%
+    \fi\fi\fi
+  \fi
+  \OutlierTestMassiveEvent@I@out
+}\newcommand\OutlierTestMassiveEvent@II[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\OutlierTestMassiveEvent@II@out{%
+    \{%
+      "total\_mass\_source": \{%
+        "median": 94, %
+        "error plus": 4, %
+        "error minus": 5%
+      \}, %
+      "mass\_1\_source": \{%
+        "median": 92, %
+        "error plus": 5, %
+        "error minus": 7%
+      \}, %
+      "mass\_2\_source": \{%
+        "median": 94, %
+        "error plus": 4, %
+        "error minus": 9%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{total_mass_source}=0%
+      \let\OutlierTestMassiveEvent@II@out\OutlierTestMassiveEvent@VI%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mass_1_source}=0%
+      \let\OutlierTestMassiveEvent@II@out\OutlierTestMassiveEvent@VII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mass_2_source}=0%
+      \let\OutlierTestMassiveEvent@II@out\OutlierTestMassiveEvent@VIII%
+    \else%
+      \def\OutlierTestMassiveEvent@II@out{%
+    ??}%
+    \fi\fi\fi
+  \fi
+  \OutlierTestMassiveEvent@II@out
+}\newcommand\OutlierTestMassiveEvent@III[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\OutlierTestMassiveEvent@III@out{%
+    \{%
+      "median": 87, %
+      "error plus": 6, %
+      "error minus": 10%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\OutlierTestMassiveEvent@III@out{%
+    87}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\OutlierTestMassiveEvent@III@out{%
+    6}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\OutlierTestMassiveEvent@III@out{%
+    10}%
+    \else%
+      \def\OutlierTestMassiveEvent@III@out{%
+    ??}%
+    \fi\fi\fi
+  \fi
+  \OutlierTestMassiveEvent@III@out
+}\newcommand\OutlierTestMassiveEvent@IV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\OutlierTestMassiveEvent@IV@out{%
+    \{%
+      "median": 82, %
+      "error plus": 9, %
+      "error minus": 11%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\OutlierTestMassiveEvent@IV@out{%
+    82}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\OutlierTestMassiveEvent@IV@out{%
+    9}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\OutlierTestMassiveEvent@IV@out{%
+    11}%
+    \else%
+      \def\OutlierTestMassiveEvent@IV@out{%
+    ??}%
+    \fi\fi\fi
+  \fi
+  \OutlierTestMassiveEvent@IV@out
+}\newcommand\OutlierTestMassiveEvent@V[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\OutlierTestMassiveEvent@V@out{%
+    \{%
+      "median": 87, %
+      "error plus": 8, %
+      "error minus": 12%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\OutlierTestMassiveEvent@V@out{%
+    87}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\OutlierTestMassiveEvent@V@out{%
+    8}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\OutlierTestMassiveEvent@V@out{%
+    12}%
+    \else%
+      \def\OutlierTestMassiveEvent@V@out{%
+    ??}%
+    \fi\fi\fi
+  \fi
+  \OutlierTestMassiveEvent@V@out
+}\newcommand\OutlierTestMassiveEvent@VI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\OutlierTestMassiveEvent@VI@out{%
+    \{%
+      "median": 94, %
+      "error plus": 4, %
+      "error minus": 5%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\OutlierTestMassiveEvent@VI@out{%
+    94}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\OutlierTestMassiveEvent@VI@out{%
+    4}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\OutlierTestMassiveEvent@VI@out{%
+    5}%
+    \else%
+      \def\OutlierTestMassiveEvent@VI@out{%
+    ??}%
+    \fi\fi\fi
+  \fi
+  \OutlierTestMassiveEvent@VI@out
+}\newcommand\OutlierTestMassiveEvent@VII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\OutlierTestMassiveEvent@VII@out{%
+    \{%
+      "median": 92, %
+      "error plus": 5, %
+      "error minus": 7%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\OutlierTestMassiveEvent@VII@out{%
+    92}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\OutlierTestMassiveEvent@VII@out{%
+    5}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\OutlierTestMassiveEvent@VII@out{%
+    7}%
+    \else%
+      \def\OutlierTestMassiveEvent@VII@out{%
+    ??}%
+    \fi\fi\fi
+  \fi
+  \OutlierTestMassiveEvent@VII@out
+}\newcommand\OutlierTestMassiveEvent@VIII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\OutlierTestMassiveEvent@VIII@out{%
+    \{%
+      "median": 94, %
+      "error plus": 4, %
+      "error minus": 9%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\OutlierTestMassiveEvent@VIII@out{%
+    94}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\OutlierTestMassiveEvent@VIII@out{%
+    4}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\OutlierTestMassiveEvent@VIII@out{%
+    9}%
+    \else%
+      \def\OutlierTestMassiveEvent@VIII@out{%
+    ??}%
+    \fi\fi\fi
+  \fi
+  \OutlierTestMassiveEvent@VIII@out
+}%
+\makeatother%

@@ -1,0 +1,53 @@
+# This file is a source file for range quantities
+#
+# FORMAT
+# key: A string key
+# latex_key (optional): A latex-macro friendly key. If empty, a key will be generated
+# quantity: the numerical value
+# unit: the units
+# reviewed [Yes, No]: if the value has been reviewed
+#
+# USAGE
+# To read the csv file in with pandas, you can use:
+# df = pd.read_csv("range_quantities.csv", header=0, comment="#", skipinitialspace=True)
+
+# Column names
+key, latex_key, value, unit, reviewed
+
+o1_lho_range, OoneLHORange, 77.0412141711, Mpc, Yes
+o1_llo_range, OoneLLORange, 70.442490731, Mpc, Yes
+o2_lho_range, OtwoLHORange, 77.8651737027, Mpc, Yes
+o2_llo_range, OtwoLLORange, 97.2053833026, Mpc, Yes
+o2_virgo_range, OtwoVirgoRange, 27.162793797, Mpc, Yes
+o3_lho_range, OthreeLHORange, 113.493787915, Mpc, Yes
+o3_llo_range, OthreeLLORange, 135.464666304, Mpc, Yes
+o3_virgo_range, OthreeVirgoRange, 57.4187395607, Mpc, Yes
+o3gk_geo_range, OthreeGKGEORange, 1.08274164216, Mpc, Yes
+o3gk_kagra_range, OthreeGKKAGRARange, 0.68632871622, Mpc, Yes
+o3a_lho_range, OthreeaLHORange, 109.188733106, Mpc, Yes
+o3a_llo_range, OthreeaLLORange, 135.464666304, Mpc, Yes
+o3a_virgo_range, OthreeaVirgoRange, 49.7172521801, Mpc, Yes
+o3b_lho_range, OthreebLHORange, 113.493787915, Mpc, Yes
+o3b_llo_range, OthreebLLORange, 133.238300772, Mpc, Yes
+o3b_virgo_range, OthreebVirgoRange, 57.4187395607, Mpc, Yes
+o4a_lho_range, OfouraLHORange, 158.265761553, Mpc, Yes
+o4a_llo_range, OfouraLLORange, 161.970620142, Mpc, Yes
+o4b_lho_range, OfourbLHORange, 160.922259557, Mpc, No
+o4b_llo_range, OfourbLLORange, 171.076606979, Mpc, No
+o4b_virgo_range, OfourbVirgoRange, 53.0033013035, Mpc, No
+o1_lho_median_range, OoneLHOMedianRange, 76.2757110959, Mpc, Yes
+o1_llo_median_range, OoneLLOMedianRange, 65.8002996701, Mpc, Yes
+o2_lho_median_range, OtwoLHOMedianRange, 66.0108832944, Mpc, Yes
+o2_llo_median_range, OtwoLLOMedianRange, 88.2326201321, Mpc, Yes
+o2_virgo_median_range, OtwoVirgoMedianRange, 26.6317646601, Mpc, Yes
+o3a_lho_median_range, OthreeaLHOMedianRange, 108.295597571, Mpc, Yes
+o3a_llo_median_range, OthreeaLLOMedianRange, 135.074551606, Mpc, Yes
+o3a_virgo_median_range, OthreeaVirgoMedianRange, 46.5143456575, Mpc, Yes
+o3b_lho_median_range, OthreebLHOMedianRange, 113.849644041, Mpc, Yes
+o3b_llo_median_range, OthreebLLOMedianRange, 131.913506405, Mpc, Yes
+o3b_virgo_median_range, OthreebVirgoMedianRange, 51.109122194, Mpc, Yes
+o4a_lho_median_range, OfouraLHOMedianRange, 147.242336787, Mpc, Yes
+o4a_llo_median_range, OfouraLLOMedianRange, 155.339647537, Mpc, Yes
+o4b_lho_median_range, OfourbLHOMedianRange, 157.617254862, Mpc, No
+o4b_llo_median_range, OfourbLLOMedianRange, 167.143700169, Mpc, No
+o4b_virgo_median_range, OfourbVirgoMedianRange, 51.5401372656, Mpc, No

@@ -1,0 +1,104 @@
+# This file is a source file for vt quantities
+#
+# FORMAT
+# key: A string key
+# latex_key (optional): A latex-macro friendly key. If empty, a key will be generated
+# quantity: the numerical value
+# unit: the units
+# reviewed [Yes, No]: if the value has been reviewed
+#
+# USAGE
+# To read the csv file in with pandas, you can use:
+# df = pd.read_csv("vt_quantities.csv", header=0, comment="#", skipinitialspace=True)
+
+# Column names
+key, latex_key, value, unit, reviewed
+
+o1_vt_total, OoneVTTotal, 1.588786e-04, GpcCubedYear, Yes
+o1_vt_hl, OoneVTHL, 1.588786e-04, GpcCubedYear, Yes
+o1_vt_hl_fraction, OoneVTHLFraction, 100.0, percent, Yes
+o2_vt_total, OtwoVTTotal, 3.518480e-04, GpcCubedYear, Yes
+o2_vt_hl, OtwoVTHL, 3.268875e-04, GpcCubedYear, Yes
+o2_vt_hl_fraction, OtwoVTHLFraction, 92.9058884771241, percent, Yes
+o2_vt_hv, OtwoVTHV, 3.624116e-07, GpcCubedYear, Yes
+o2_vt_hv_fraction, OtwoVTHVFraction, 0.10300231249792227, percent, Yes
+o2_vt_lv, OtwoVTLV, 4.801174e-07, GpcCubedYear, Yes
+o2_vt_lv_fraction, OtwoVTLVFraction, 0.13645592269776868, percent, Yes
+o2_vt_hlv, OtwoVTHLV, 2.411796e-05, GpcCubedYear, Yes
+o2_vt_hlv_fraction, OtwoVTHLVFraction, 6.854653287680193, percent, Yes
+o2v_vt_total, OtwoVVTTotal, 2.782653e-05, GpcCubedYear, Yes
+o2v_vt_hl, OtwoVVTHL, 2.866040e-06, GpcCubedYear, Yes
+o2v_vt_hl_fraction, OtwoVVTHLFraction, 10.299667174341284, percent, Yes
+o2v_vt_hv, OtwoVVTHV, 3.624116e-07, GpcCubedYear, Yes
+o2v_vt_hv_fraction, OtwoVVTHVFraction, 1.3023958931407658, percent, Yes
+o2v_vt_lv, OtwoVVTLV, 4.801174e-07, GpcCubedYear, Yes
+o2v_vt_lv_fraction, OtwoVVTLVFraction, 1.7253945955814596, percent, Yes
+o2v_vt_hlv, OtwoVVTHLV, 2.411796e-05, GpcCubedYear, Yes
+o2v_vt_hlv_fraction, OtwoVVTHLVFraction, 86.6725423369365, percent, Yes
+o3_vt_total, OthreeVTTotal, 3.207126e-03, GpcCubedYear, Yes
+o3_vt_h, OthreeVTH, 4.473158e-05, GpcCubedYear, Yes
+o3_vt_h_fraction, OthreeVTHFraction, 1.3947559911194556, percent, Yes
+o3_vt_l, OthreeVTL, 7.468101e-05, GpcCubedYear, Yes
+o3_vt_l_fraction, OthreeVTLFraction, 2.328595888036877, percent, Yes
+o3_vt_v, OthreeVTV, 9.715321e-06, GpcCubedYear, Yes
+o3_vt_v_fraction, OthreeVTVFraction, 0.30292917960082977, percent, Yes
+o3_vt_hl, OthreeVTHL, 7.203780e-04, GpcCubedYear, Yes
+o3_vt_hl_fraction, OthreeVTHLFraction, 22.46179350156841, percent, Yes
+o3_vt_hv, OthreeVTHV, 4.094091e-05, GpcCubedYear, Yes
+o3_vt_hv_fraction, OthreeVTHVFraction, 1.2765607456797292, percent, Yes
+o3_vt_lv, OthreeVTLV, 5.034511e-05, GpcCubedYear, Yes
+o3_vt_lv_fraction, OthreeVTLVFraction, 1.569788923282707, percent, Yes
+o3_vt_hlv, OthreeVTHLV, 2.266334e-03, GpcCubedYear, Yes
+o3_vt_hlv_fraction, OthreeVTHLVFraction, 70.665575770712, percent, Yes
+o3a_vt_total, OthreeaVTTotal, 1.577953e-03, GpcCubedYear, Yes
+o3a_vt_h, OthreeaVTH, 2.303184e-05, GpcCubedYear, Yes
+o3a_vt_h_fraction, OthreeaVTHFraction, 1.4596030760471457, percent, Yes
+o3a_vt_l, OthreeaVTL, 4.930507e-05, GpcCubedYear, Yes
+o3a_vt_l_fraction, OthreeaVTLFraction, 3.124623290815694, percent, Yes
+o3a_vt_v, OthreeaVTV, 5.411221e-06, GpcCubedYear, Yes
+o3a_vt_v_fraction, OthreeaVTVFraction, 0.34292673396355955, percent, Yes
+o3a_vt_hl, OthreeaVTHL, 3.516607e-04, GpcCubedYear, Yes
+o3a_vt_hl_fraction, OthreeaVTHLFraction, 22.285885042592113, percent, Yes
+o3a_vt_hv, OthreeaVTHV, 1.952628e-05, GpcCubedYear, Yes
+o3a_vt_hv_fraction, OthreeaVTHVFraction, 1.2374438235000373, percent, Yes
+o3a_vt_lv, OthreeaVTLV, 2.848752e-05, GpcCubedYear, Yes
+o3a_vt_lv_fraction, OthreeaVTLVFraction, 1.8053471139227868, percent, Yes
+o3a_vt_hlv, OthreeaVTHLV, 1.100530e-03, GpcCubedYear, Yes
+o3a_vt_hlv_fraction, OthreeaVTHLVFraction, 69.74417091915865, percent, Yes
+o3b_vt_total, OthreebVTTotal, 1.629173e-03, GpcCubedYear, Yes
+o3b_vt_h, OthreebVTH, 2.169974e-05, GpcCubedYear, Yes
+o3b_vt_h_fraction, OthreebVTHFraction, 1.3319476851977212, percent, Yes
+o3b_vt_l, OthreebVTL, 2.537593e-05, GpcCubedYear, Yes
+o3b_vt_l_fraction, OthreebVTLFraction, 1.5575954229956814, percent, Yes
+o3b_vt_v, OthreebVTV, 4.304099e-06, GpcCubedYear, Yes
+o3b_vt_v_fraction, OthreebVTVFraction, 0.26418914011660666, percent, Yes
+o3b_vt_hl, OthreebVTHL, 3.687173e-04, GpcCubedYear, Yes
+o3b_vt_hl_fraction, OthreebVTHLFraction, 22.63217143479277, percent, Yes
+o3b_vt_hv, OthreebVTHV, 2.141464e-05, GpcCubedYear, Yes
+o3b_vt_hv_fraction, OthreebVTHVFraction, 1.314447839875534, percent, Yes
+o3b_vt_lv, OthreebVTLV, 2.185759e-05, GpcCubedYear, Yes
+o3b_vt_lv_fraction, OthreebVTLVFraction, 1.3416366336834218, percent, Yes
+o3b_vt_hlv, OthreebVTHLV, 1.165804e-03, GpcCubedYear, Yes
+o3b_vt_hlv_fraction, OthreebVTHLVFraction, 71.55801184333826, percent, Yes
+o4a_vt_total, OfouraVTTotal, 5.282292e-03, GpcCubedYear, Yes
+o4a_vt_h, OfouraVTH, 3.849450e-04, GpcCubedYear, Yes
+o4a_vt_h_fraction, OfouraVTHFraction, 7.287461454548954, percent, Yes
+o4a_vt_l, OfouraVTL, 4.568192e-04, GpcCubedYear, Yes
+o4a_vt_l_fraction, OfouraVTLFraction, 8.648125663678139, percent, Yes
+o4a_vt_hl, OfouraVTHL, 4.440528e-03, GpcCubedYear, Yes
+o4a_vt_hl_fraction, OfouraVTHLFraction, 84.0644128817729, percent, Yes
+o4b_vt_total, OfourbVTTotal, 5.245143e-03, GpcCubedYear, No
+o4b_vt_h, OfourbVTH, 9.657884e-05, GpcCubedYear, No
+o4b_vt_h_fraction, OfourbVTHFraction, 1.8413004316233457, percent, No
+o4b_vt_l, OfourbVTL, 3.330493e-04, GpcCubedYear, No
+o4b_vt_l_fraction, OfourbVTLFraction, 6.349671451468955, percent, No
+o4b_vt_v, OfourbVTV, 1.308837e-05, GpcCubedYear, No
+o4b_vt_v_fraction, OfourbVTVFraction, 0.2495331520950701, percent, No
+o4b_vt_hl, OfourbVTHL, 9.107948e-04, GpcCubedYear, No
+o4b_vt_hl_fraction, OfourbVTHLFraction, 17.364536840130302, percent, No
+o4b_vt_hv, OfourbVTHV, 3.139248e-05, GpcCubedYear, No
+o4b_vt_hv_fraction, OfourbVTHVFraction, 0.598505710178218, percent, No
+o4b_vt_lv, OfourbVTLV, 9.565171e-05, GpcCubedYear, No
+o4b_vt_lv_fraction, OfourbVTLVFraction, 1.8236244121992216, percent, No
+o4b_vt_hlv, OfourbVTHLV, 3.764587e-03, GpcCubedYear, No
+o4b_vt_hlv_fraction, OfourbVTHLVFraction, 71.77282800230488, percent, No

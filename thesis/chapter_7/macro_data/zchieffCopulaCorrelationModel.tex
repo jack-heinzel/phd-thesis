@@ -1,0 +1,1058 @@
+\makeatletter%
+\newcommand\zchieffCopulaCorrelationModel[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\zchieffCopulaCorrelationModel@out{%
+    \{%
+      "param": \{%
+        "alpha\_1": \{%
+          "median": 1.87, %
+          "5th percentile": 0.06, %
+          "95th percentile": 3.13, %
+          "error plus": 1.26, %
+          "error minus": 1.81%
+        \}, %
+        "alpha\_2": \{%
+          "median": 4.71, %
+          "5th percentile": 3.3, %
+          "95th percentile": 6.19, %
+          "error plus": 1.48, %
+          "error minus": 1.41%
+        \}, %
+        "beta": \{%
+          "median": 1.35, %
+          "5th percentile": 0.28, %
+          "95th percentile": 2.64, %
+          "error plus": 1.29, %
+          "error minus": 1.07%
+        \}, %
+        "break\_mass": \{%
+          "median": 35.37, %
+          "5th percentile": 22.37, %
+          "95th percentile": 48.0, %
+          "error plus": 12.63, %
+          "error minus": 13.01%
+        \}, %
+        "delta\_m\_1": \{%
+          "median": 4.81, %
+          "5th percentile": 0.42, %
+          "95th percentile": 9.39, %
+          "error plus": 4.59, %
+          "error minus": 4.39%
+        \}, %
+        "delta\_m\_2": \{%
+          "median": 3.31, %
+          "5th percentile": 0.29, %
+          "95th percentile": 7.16, %
+          "error plus": 3.85, %
+          "error minus": 3.02%
+        \}, %
+        "lam\_0": \{%
+          "median": 0.36, %
+          "5th percentile": 0.14, %
+          "95th percentile": 0.66, %
+          "error plus": 0.3, %
+          "error minus": 0.22%
+        \}, %
+        "lam\_1": \{%
+          "median": 0.6, %
+          "5th percentile": 0.3, %
+          "95th percentile": 0.82, %
+          "error plus": 0.23, %
+          "error minus": 0.3%
+        \}, %
+        "lamb": \{%
+          "median": 3.04, %
+          "5th percentile": 2.11, %
+          "95th percentile": 3.99, %
+          "error plus": 0.95, %
+          "error minus": 0.93%
+        \}, %
+        "mlow\_1": \{%
+          "median": 5.21, %
+          "5th percentile": 3.29, %
+          "95th percentile": 8.16, %
+          "error plus": 2.95, %
+          "error minus": 1.92%
+        \}, %
+        "mlow\_2": \{%
+          "median": 3.6, %
+          "5th percentile": 3.03, %
+          "95th percentile": 4.94, %
+          "error plus": 1.35, %
+          "error minus": 0.56%
+        \}, %
+        "mmax": \{%
+          "median": 300.0, %
+          "5th percentile": 300.0, %
+          "95th percentile": 300.0, %
+          "error plus": 0.0, %
+          "error minus": 0.0%
+        \}, %
+        "mpp\_1": \{%
+          "median": 9.72, %
+          "5th percentile": 8.19, %
+          "95th percentile": 10.24, %
+          "error plus": 0.52, %
+          "error minus": 1.53%
+        \}, %
+        "mpp\_2": \{%
+          "median": 32.22, %
+          "5th percentile": 26.36, %
+          "95th percentile": 35.75, %
+          "error plus": 3.53, %
+          "error minus": 5.86%
+        \}, %
+        "mu\_chi\_eff": \{%
+          "median": 0.17, %
+          "5th percentile": 0.08, %
+          "95th percentile": 0.24, %
+          "error plus": 0.07, %
+          "error minus": 0.09%
+        \}, %
+        "mu\_chi\_p": \{%
+          "median": 0.35, %
+          "5th percentile": 0.3, %
+          "95th percentile": 0.41, %
+          "error plus": 0.06, %
+          "error minus": 0.05%
+        \}, %
+        "sigma\_chi\_eff": \{%
+          "median": 0.14, %
+          "5th percentile": 0.11, %
+          "95th percentile": 0.17, %
+          "error plus": 0.03, %
+          "error minus": 0.03%
+        \}, %
+        "sigma\_chi\_p": \{%
+          "median": 0.18, %
+          "5th percentile": 0.14, %
+          "95th percentile": 0.25, %
+          "error plus": 0.07, %
+          "error minus": 0.05%
+        \}, %
+        "kappa": \{%
+          "median": 4.25, %
+          "5th percentile": 1.24, %
+          "95th percentile": 6.84, %
+          "error plus": 2.59, %
+          "error minus": 3.01, %
+          "correlated percentile": 96.9%
+        \}%
+      \}, %
+      "ppd": \{\}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{param}=0%
+      \let\zchieffCopulaCorrelationModel@out\zchieffCopulaCorrelationModel@I%
+    \else%
+      \ifnum\pdfstrcmp{#1}{ppd}=0%
+      \let\zchieffCopulaCorrelationModel@out\zchieffCopulaCorrelationModel@II%
+    \else%
+      \def\zchieffCopulaCorrelationModel@out{%
+    ??}%
+    \fi\fi
+  \fi
+  \zchieffCopulaCorrelationModel@out
+}\newcommand\zchieffCopulaCorrelationModel@I[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\zchieffCopulaCorrelationModel@I@out{%
+    \{%
+      "alpha\_1": \{%
+        "median": 1.87, %
+        "5th percentile": 0.06, %
+        "95th percentile": 3.13, %
+        "error plus": 1.26, %
+        "error minus": 1.81%
+      \}, %
+      "alpha\_2": \{%
+        "median": 4.71, %
+        "5th percentile": 3.3, %
+        "95th percentile": 6.19, %
+        "error plus": 1.48, %
+        "error minus": 1.41%
+      \}, %
+      "beta": \{%
+        "median": 1.35, %
+        "5th percentile": 0.28, %
+        "95th percentile": 2.64, %
+        "error plus": 1.29, %
+        "error minus": 1.07%
+      \}, %
+      "break\_mass": \{%
+        "median": 35.37, %
+        "5th percentile": 22.37, %
+        "95th percentile": 48.0, %
+        "error plus": 12.63, %
+        "error minus": 13.01%
+      \}, %
+      "delta\_m\_1": \{%
+        "median": 4.81, %
+        "5th percentile": 0.42, %
+        "95th percentile": 9.39, %
+        "error plus": 4.59, %
+        "error minus": 4.39%
+      \}, %
+      "delta\_m\_2": \{%
+        "median": 3.31, %
+        "5th percentile": 0.29, %
+        "95th percentile": 7.16, %
+        "error plus": 3.85, %
+        "error minus": 3.02%
+      \}, %
+      "lam\_0": \{%
+        "median": 0.36, %
+        "5th percentile": 0.14, %
+        "95th percentile": 0.66, %
+        "error plus": 0.3, %
+        "error minus": 0.22%
+      \}, %
+      "lam\_1": \{%
+        "median": 0.6, %
+        "5th percentile": 0.3, %
+        "95th percentile": 0.82, %
+        "error plus": 0.23, %
+        "error minus": 0.3%
+      \}, %
+      "lamb": \{%
+        "median": 3.04, %
+        "5th percentile": 2.11, %
+        "95th percentile": 3.99, %
+        "error plus": 0.95, %
+        "error minus": 0.93%
+      \}, %
+      "mlow\_1": \{%
+        "median": 5.21, %
+        "5th percentile": 3.29, %
+        "95th percentile": 8.16, %
+        "error plus": 2.95, %
+        "error minus": 1.92%
+      \}, %
+      "mlow\_2": \{%
+        "median": 3.6, %
+        "5th percentile": 3.03, %
+        "95th percentile": 4.94, %
+        "error plus": 1.35, %
+        "error minus": 0.56%
+      \}, %
+      "mmax": \{%
+        "median": 300.0, %
+        "5th percentile": 300.0, %
+        "95th percentile": 300.0, %
+        "error plus": 0.0, %
+        "error minus": 0.0%
+      \}, %
+      "mpp\_1": \{%
+        "median": 9.72, %
+        "5th percentile": 8.19, %
+        "95th percentile": 10.24, %
+        "error plus": 0.52, %
+        "error minus": 1.53%
+      \}, %
+      "mpp\_2": \{%
+        "median": 32.22, %
+        "5th percentile": 26.36, %
+        "95th percentile": 35.75, %
+        "error plus": 3.53, %
+        "error minus": 5.86%
+      \}, %
+      "mu\_chi\_eff": \{%
+        "median": 0.17, %
+        "5th percentile": 0.08, %
+        "95th percentile": 0.24, %
+        "error plus": 0.07, %
+        "error minus": 0.09%
+      \}, %
+      "mu\_chi\_p": \{%
+        "median": 0.35, %
+        "5th percentile": 0.3, %
+        "95th percentile": 0.41, %
+        "error plus": 0.06, %
+        "error minus": 0.05%
+      \}, %
+      "sigma\_chi\_eff": \{%
+        "median": 0.14, %
+        "5th percentile": 0.11, %
+        "95th percentile": 0.17, %
+        "error plus": 0.03, %
+        "error minus": 0.03%
+      \}, %
+      "sigma\_chi\_p": \{%
+        "median": 0.18, %
+        "5th percentile": 0.14, %
+        "95th percentile": 0.25, %
+        "error plus": 0.07, %
+        "error minus": 0.05%
+      \}, %
+      "kappa": \{%
+        "median": 4.25, %
+        "5th percentile": 1.24, %
+        "95th percentile": 6.84, %
+        "error plus": 2.59, %
+        "error minus": 3.01, %
+        "correlated percentile": 96.9%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{alpha_1}=0%
+      \let\zchieffCopulaCorrelationModel@I@out\zchieffCopulaCorrelationModel@III%
+    \else%
+      \ifnum\pdfstrcmp{#1}{alpha_2}=0%
+      \let\zchieffCopulaCorrelationModel@I@out\zchieffCopulaCorrelationModel@IV%
+    \else%
+      \ifnum\pdfstrcmp{#1}{beta}=0%
+      \let\zchieffCopulaCorrelationModel@I@out\zchieffCopulaCorrelationModel@V%
+    \else%
+      \ifnum\pdfstrcmp{#1}{break_mass}=0%
+      \let\zchieffCopulaCorrelationModel@I@out\zchieffCopulaCorrelationModel@VI%
+    \else%
+      \ifnum\pdfstrcmp{#1}{delta_m_1}=0%
+      \let\zchieffCopulaCorrelationModel@I@out\zchieffCopulaCorrelationModel@VII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{delta_m_2}=0%
+      \let\zchieffCopulaCorrelationModel@I@out\zchieffCopulaCorrelationModel@VIII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{lam_0}=0%
+      \let\zchieffCopulaCorrelationModel@I@out\zchieffCopulaCorrelationModel@IX%
+    \else%
+      \ifnum\pdfstrcmp{#1}{lam_1}=0%
+      \let\zchieffCopulaCorrelationModel@I@out\zchieffCopulaCorrelationModel@X%
+    \else%
+      \ifnum\pdfstrcmp{#1}{lamb}=0%
+      \let\zchieffCopulaCorrelationModel@I@out\zchieffCopulaCorrelationModel@XI%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mlow_1}=0%
+      \let\zchieffCopulaCorrelationModel@I@out\zchieffCopulaCorrelationModel@XII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mlow_2}=0%
+      \let\zchieffCopulaCorrelationModel@I@out\zchieffCopulaCorrelationModel@XIII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mmax}=0%
+      \let\zchieffCopulaCorrelationModel@I@out\zchieffCopulaCorrelationModel@XIV%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mpp_1}=0%
+      \let\zchieffCopulaCorrelationModel@I@out\zchieffCopulaCorrelationModel@XV%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mpp_2}=0%
+      \let\zchieffCopulaCorrelationModel@I@out\zchieffCopulaCorrelationModel@XVI%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mu_chi_eff}=0%
+      \let\zchieffCopulaCorrelationModel@I@out\zchieffCopulaCorrelationModel@XVII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mu_chi_p}=0%
+      \let\zchieffCopulaCorrelationModel@I@out\zchieffCopulaCorrelationModel@XVIII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{sigma_chi_eff}=0%
+      \let\zchieffCopulaCorrelationModel@I@out\zchieffCopulaCorrelationModel@XIX%
+    \else%
+      \ifnum\pdfstrcmp{#1}{sigma_chi_p}=0%
+      \let\zchieffCopulaCorrelationModel@I@out\zchieffCopulaCorrelationModel@XX%
+    \else%
+      \ifnum\pdfstrcmp{#1}{kappa}=0%
+      \let\zchieffCopulaCorrelationModel@I@out\zchieffCopulaCorrelationModel@XXI%
+    \else%
+      \def\zchieffCopulaCorrelationModel@I@out{%
+    ??}%
+    \fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi
+  \fi
+  \zchieffCopulaCorrelationModel@I@out
+}\newcommand\zchieffCopulaCorrelationModel@II[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\zchieffCopulaCorrelationModel@II@out{%
+    \{\}}%
+  \else%
+    \def\zchieffCopulaCorrelationModel@II@out{%
+    ??}%
+    
+  \fi
+  \zchieffCopulaCorrelationModel@II@out
+}\newcommand\zchieffCopulaCorrelationModel@III[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\zchieffCopulaCorrelationModel@III@out{%
+    \{%
+      "median": 1.87, %
+      "5th percentile": 0.06, %
+      "95th percentile": 3.13, %
+      "error plus": 1.26, %
+      "error minus": 1.81%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\zchieffCopulaCorrelationModel@III@out{%
+    1.87}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\zchieffCopulaCorrelationModel@III@out{%
+    0.06}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\zchieffCopulaCorrelationModel@III@out{%
+    3.13}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\zchieffCopulaCorrelationModel@III@out{%
+    1.26}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\zchieffCopulaCorrelationModel@III@out{%
+    1.81}%
+    \else%
+      \def\zchieffCopulaCorrelationModel@III@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \zchieffCopulaCorrelationModel@III@out
+}\newcommand\zchieffCopulaCorrelationModel@IV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\zchieffCopulaCorrelationModel@IV@out{%
+    \{%
+      "median": 4.71, %
+      "5th percentile": 3.3, %
+      "95th percentile": 6.19, %
+      "error plus": 1.48, %
+      "error minus": 1.41%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\zchieffCopulaCorrelationModel@IV@out{%
+    4.71}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\zchieffCopulaCorrelationModel@IV@out{%
+    3.3}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\zchieffCopulaCorrelationModel@IV@out{%
+    6.19}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\zchieffCopulaCorrelationModel@IV@out{%
+    1.48}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\zchieffCopulaCorrelationModel@IV@out{%
+    1.41}%
+    \else%
+      \def\zchieffCopulaCorrelationModel@IV@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \zchieffCopulaCorrelationModel@IV@out
+}\newcommand\zchieffCopulaCorrelationModel@V[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\zchieffCopulaCorrelationModel@V@out{%
+    \{%
+      "median": 1.35, %
+      "5th percentile": 0.28, %
+      "95th percentile": 2.64, %
+      "error plus": 1.29, %
+      "error minus": 1.07%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\zchieffCopulaCorrelationModel@V@out{%
+    1.35}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\zchieffCopulaCorrelationModel@V@out{%
+    0.28}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\zchieffCopulaCorrelationModel@V@out{%
+    2.64}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\zchieffCopulaCorrelationModel@V@out{%
+    1.29}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\zchieffCopulaCorrelationModel@V@out{%
+    1.07}%
+    \else%
+      \def\zchieffCopulaCorrelationModel@V@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \zchieffCopulaCorrelationModel@V@out
+}\newcommand\zchieffCopulaCorrelationModel@VI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\zchieffCopulaCorrelationModel@VI@out{%
+    \{%
+      "median": 35.37, %
+      "5th percentile": 22.37, %
+      "95th percentile": 48.0, %
+      "error plus": 12.63, %
+      "error minus": 13.01%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\zchieffCopulaCorrelationModel@VI@out{%
+    35.37}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\zchieffCopulaCorrelationModel@VI@out{%
+    22.37}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\zchieffCopulaCorrelationModel@VI@out{%
+    48.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\zchieffCopulaCorrelationModel@VI@out{%
+    12.63}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\zchieffCopulaCorrelationModel@VI@out{%
+    13.01}%
+    \else%
+      \def\zchieffCopulaCorrelationModel@VI@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \zchieffCopulaCorrelationModel@VI@out
+}\newcommand\zchieffCopulaCorrelationModel@VII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\zchieffCopulaCorrelationModel@VII@out{%
+    \{%
+      "median": 4.81, %
+      "5th percentile": 0.42, %
+      "95th percentile": 9.39, %
+      "error plus": 4.59, %
+      "error minus": 4.39%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\zchieffCopulaCorrelationModel@VII@out{%
+    4.81}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\zchieffCopulaCorrelationModel@VII@out{%
+    0.42}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\zchieffCopulaCorrelationModel@VII@out{%
+    9.39}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\zchieffCopulaCorrelationModel@VII@out{%
+    4.59}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\zchieffCopulaCorrelationModel@VII@out{%
+    4.39}%
+    \else%
+      \def\zchieffCopulaCorrelationModel@VII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \zchieffCopulaCorrelationModel@VII@out
+}\newcommand\zchieffCopulaCorrelationModel@VIII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\zchieffCopulaCorrelationModel@VIII@out{%
+    \{%
+      "median": 3.31, %
+      "5th percentile": 0.29, %
+      "95th percentile": 7.16, %
+      "error plus": 3.85, %
+      "error minus": 3.02%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\zchieffCopulaCorrelationModel@VIII@out{%
+    3.31}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\zchieffCopulaCorrelationModel@VIII@out{%
+    0.29}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\zchieffCopulaCorrelationModel@VIII@out{%
+    7.16}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\zchieffCopulaCorrelationModel@VIII@out{%
+    3.85}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\zchieffCopulaCorrelationModel@VIII@out{%
+    3.02}%
+    \else%
+      \def\zchieffCopulaCorrelationModel@VIII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \zchieffCopulaCorrelationModel@VIII@out
+}\newcommand\zchieffCopulaCorrelationModel@IX[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\zchieffCopulaCorrelationModel@IX@out{%
+    \{%
+      "median": 0.36, %
+      "5th percentile": 0.14, %
+      "95th percentile": 0.66, %
+      "error plus": 0.3, %
+      "error minus": 0.22%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\zchieffCopulaCorrelationModel@IX@out{%
+    0.36}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\zchieffCopulaCorrelationModel@IX@out{%
+    0.14}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\zchieffCopulaCorrelationModel@IX@out{%
+    0.66}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\zchieffCopulaCorrelationModel@IX@out{%
+    0.3}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\zchieffCopulaCorrelationModel@IX@out{%
+    0.22}%
+    \else%
+      \def\zchieffCopulaCorrelationModel@IX@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \zchieffCopulaCorrelationModel@IX@out
+}\newcommand\zchieffCopulaCorrelationModel@X[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\zchieffCopulaCorrelationModel@X@out{%
+    \{%
+      "median": 0.6, %
+      "5th percentile": 0.3, %
+      "95th percentile": 0.82, %
+      "error plus": 0.23, %
+      "error minus": 0.3%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\zchieffCopulaCorrelationModel@X@out{%
+    0.6}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\zchieffCopulaCorrelationModel@X@out{%
+    0.3}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\zchieffCopulaCorrelationModel@X@out{%
+    0.82}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\zchieffCopulaCorrelationModel@X@out{%
+    0.23}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\zchieffCopulaCorrelationModel@X@out{%
+    0.3}%
+    \else%
+      \def\zchieffCopulaCorrelationModel@X@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \zchieffCopulaCorrelationModel@X@out
+}\newcommand\zchieffCopulaCorrelationModel@XI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\zchieffCopulaCorrelationModel@XI@out{%
+    \{%
+      "median": 3.04, %
+      "5th percentile": 2.11, %
+      "95th percentile": 3.99, %
+      "error plus": 0.95, %
+      "error minus": 0.93%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\zchieffCopulaCorrelationModel@XI@out{%
+    3.04}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\zchieffCopulaCorrelationModel@XI@out{%
+    2.11}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\zchieffCopulaCorrelationModel@XI@out{%
+    3.99}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\zchieffCopulaCorrelationModel@XI@out{%
+    0.95}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\zchieffCopulaCorrelationModel@XI@out{%
+    0.93}%
+    \else%
+      \def\zchieffCopulaCorrelationModel@XI@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \zchieffCopulaCorrelationModel@XI@out
+}\newcommand\zchieffCopulaCorrelationModel@XII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\zchieffCopulaCorrelationModel@XII@out{%
+    \{%
+      "median": 5.21, %
+      "5th percentile": 3.29, %
+      "95th percentile": 8.16, %
+      "error plus": 2.95, %
+      "error minus": 1.92%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\zchieffCopulaCorrelationModel@XII@out{%
+    5.21}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\zchieffCopulaCorrelationModel@XII@out{%
+    3.29}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\zchieffCopulaCorrelationModel@XII@out{%
+    8.16}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\zchieffCopulaCorrelationModel@XII@out{%
+    2.95}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\zchieffCopulaCorrelationModel@XII@out{%
+    1.92}%
+    \else%
+      \def\zchieffCopulaCorrelationModel@XII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \zchieffCopulaCorrelationModel@XII@out
+}\newcommand\zchieffCopulaCorrelationModel@XIII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\zchieffCopulaCorrelationModel@XIII@out{%
+    \{%
+      "median": 3.6, %
+      "5th percentile": 3.03, %
+      "95th percentile": 4.94, %
+      "error plus": 1.35, %
+      "error minus": 0.56%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\zchieffCopulaCorrelationModel@XIII@out{%
+    3.6}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\zchieffCopulaCorrelationModel@XIII@out{%
+    3.03}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\zchieffCopulaCorrelationModel@XIII@out{%
+    4.94}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\zchieffCopulaCorrelationModel@XIII@out{%
+    1.35}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\zchieffCopulaCorrelationModel@XIII@out{%
+    0.56}%
+    \else%
+      \def\zchieffCopulaCorrelationModel@XIII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \zchieffCopulaCorrelationModel@XIII@out
+}\newcommand\zchieffCopulaCorrelationModel@XIV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\zchieffCopulaCorrelationModel@XIV@out{%
+    \{%
+      "median": 300.0, %
+      "5th percentile": 300.0, %
+      "95th percentile": 300.0, %
+      "error plus": 0.0, %
+      "error minus": 0.0%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\zchieffCopulaCorrelationModel@XIV@out{%
+    300.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\zchieffCopulaCorrelationModel@XIV@out{%
+    300.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\zchieffCopulaCorrelationModel@XIV@out{%
+    300.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\zchieffCopulaCorrelationModel@XIV@out{%
+    0.0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\zchieffCopulaCorrelationModel@XIV@out{%
+    0.0}%
+    \else%
+      \def\zchieffCopulaCorrelationModel@XIV@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \zchieffCopulaCorrelationModel@XIV@out
+}\newcommand\zchieffCopulaCorrelationModel@XV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\zchieffCopulaCorrelationModel@XV@out{%
+    \{%
+      "median": 9.72, %
+      "5th percentile": 8.19, %
+      "95th percentile": 10.24, %
+      "error plus": 0.52, %
+      "error minus": 1.53%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\zchieffCopulaCorrelationModel@XV@out{%
+    9.72}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\zchieffCopulaCorrelationModel@XV@out{%
+    8.19}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\zchieffCopulaCorrelationModel@XV@out{%
+    10.24}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\zchieffCopulaCorrelationModel@XV@out{%
+    0.52}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\zchieffCopulaCorrelationModel@XV@out{%
+    1.53}%
+    \else%
+      \def\zchieffCopulaCorrelationModel@XV@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \zchieffCopulaCorrelationModel@XV@out
+}\newcommand\zchieffCopulaCorrelationModel@XVI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\zchieffCopulaCorrelationModel@XVI@out{%
+    \{%
+      "median": 32.22, %
+      "5th percentile": 26.36, %
+      "95th percentile": 35.75, %
+      "error plus": 3.53, %
+      "error minus": 5.86%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\zchieffCopulaCorrelationModel@XVI@out{%
+    32.22}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\zchieffCopulaCorrelationModel@XVI@out{%
+    26.36}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\zchieffCopulaCorrelationModel@XVI@out{%
+    35.75}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\zchieffCopulaCorrelationModel@XVI@out{%
+    3.53}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\zchieffCopulaCorrelationModel@XVI@out{%
+    5.86}%
+    \else%
+      \def\zchieffCopulaCorrelationModel@XVI@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \zchieffCopulaCorrelationModel@XVI@out
+}\newcommand\zchieffCopulaCorrelationModel@XVII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\zchieffCopulaCorrelationModel@XVII@out{%
+    \{%
+      "median": 0.17, %
+      "5th percentile": 0.08, %
+      "95th percentile": 0.24, %
+      "error plus": 0.07, %
+      "error minus": 0.09%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\zchieffCopulaCorrelationModel@XVII@out{%
+    0.17}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\zchieffCopulaCorrelationModel@XVII@out{%
+    0.08}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\zchieffCopulaCorrelationModel@XVII@out{%
+    0.24}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\zchieffCopulaCorrelationModel@XVII@out{%
+    0.07}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\zchieffCopulaCorrelationModel@XVII@out{%
+    0.09}%
+    \else%
+      \def\zchieffCopulaCorrelationModel@XVII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \zchieffCopulaCorrelationModel@XVII@out
+}\newcommand\zchieffCopulaCorrelationModel@XVIII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\zchieffCopulaCorrelationModel@XVIII@out{%
+    \{%
+      "median": 0.35, %
+      "5th percentile": 0.3, %
+      "95th percentile": 0.41, %
+      "error plus": 0.06, %
+      "error minus": 0.05%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\zchieffCopulaCorrelationModel@XVIII@out{%
+    0.35}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\zchieffCopulaCorrelationModel@XVIII@out{%
+    0.3}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\zchieffCopulaCorrelationModel@XVIII@out{%
+    0.41}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\zchieffCopulaCorrelationModel@XVIII@out{%
+    0.06}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\zchieffCopulaCorrelationModel@XVIII@out{%
+    0.05}%
+    \else%
+      \def\zchieffCopulaCorrelationModel@XVIII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \zchieffCopulaCorrelationModel@XVIII@out
+}\newcommand\zchieffCopulaCorrelationModel@XIX[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\zchieffCopulaCorrelationModel@XIX@out{%
+    \{%
+      "median": 0.14, %
+      "5th percentile": 0.11, %
+      "95th percentile": 0.17, %
+      "error plus": 0.03, %
+      "error minus": 0.03%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\zchieffCopulaCorrelationModel@XIX@out{%
+    0.14}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\zchieffCopulaCorrelationModel@XIX@out{%
+    0.11}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\zchieffCopulaCorrelationModel@XIX@out{%
+    0.17}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\zchieffCopulaCorrelationModel@XIX@out{%
+    0.03}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\zchieffCopulaCorrelationModel@XIX@out{%
+    0.03}%
+    \else%
+      \def\zchieffCopulaCorrelationModel@XIX@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \zchieffCopulaCorrelationModel@XIX@out
+}\newcommand\zchieffCopulaCorrelationModel@XX[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\zchieffCopulaCorrelationModel@XX@out{%
+    \{%
+      "median": 0.18, %
+      "5th percentile": 0.14, %
+      "95th percentile": 0.25, %
+      "error plus": 0.07, %
+      "error minus": 0.05%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\zchieffCopulaCorrelationModel@XX@out{%
+    0.18}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\zchieffCopulaCorrelationModel@XX@out{%
+    0.14}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\zchieffCopulaCorrelationModel@XX@out{%
+    0.25}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\zchieffCopulaCorrelationModel@XX@out{%
+    0.07}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\zchieffCopulaCorrelationModel@XX@out{%
+    0.05}%
+    \else%
+      \def\zchieffCopulaCorrelationModel@XX@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \zchieffCopulaCorrelationModel@XX@out
+}\newcommand\zchieffCopulaCorrelationModel@XXI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\zchieffCopulaCorrelationModel@XXI@out{%
+    \{%
+      "median": 4.25, %
+      "5th percentile": 1.24, %
+      "95th percentile": 6.84, %
+      "error plus": 2.59, %
+      "error minus": 3.01, %
+      "correlated percentile": 96.9%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\zchieffCopulaCorrelationModel@XXI@out{%
+    4.25}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\zchieffCopulaCorrelationModel@XXI@out{%
+    1.24}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\zchieffCopulaCorrelationModel@XXI@out{%
+    6.84}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\zchieffCopulaCorrelationModel@XXI@out{%
+    2.59}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\zchieffCopulaCorrelationModel@XXI@out{%
+    3.01}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{correlated percentile}=0%
+      \def\zchieffCopulaCorrelationModel@XXI@out{%
+    96.9}%
+    \else%
+      \def\zchieffCopulaCorrelationModel@XXI@out{%
+    ??}%
+    \fi\fi\fi\fi\fi\fi
+  \fi
+  \zchieffCopulaCorrelationModel@XXI@out
+}%
+\makeatother%

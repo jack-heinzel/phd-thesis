@@ -1,0 +1,670 @@
+\makeatletter%
+\newcommand\BsplineIID[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\BsplineIID@out{%
+    \{%
+      "mass\_1": \{%
+        "peak\_1\_location": \{%
+          "median": "10.1", %
+          "error plus": "0.7", %
+          "error minus": "0.7", %
+          "5th percentile": "9", %
+          "95th percentile": "10.8"%
+        \}, %
+        "peak\_2\_location": \{%
+          "median": "32.7", %
+          "error plus": "2.6", %
+          "error minus": "4.1", %
+          "5th percentile": "29", %
+          "95th percentile": "35"%
+        \}, %
+        "ppd": \{%
+          "median": "10", %
+          "error plus": "23", %
+          "error minus": "2.2", %
+          "5th percentile": "8.2", %
+          "95th percentile": "33"%
+        \}%
+      \}, %
+      "mass\_ratio": \{%
+        "peak": \{%
+          "median": "0.75", %
+          "error plus": "0.12", %
+          "error minus": "0.16", %
+          "5th percentile": "0.59", %
+          "95th percentile": "0.87"%
+        \}, %
+        "ppd": \{%
+          "median": "0.71", %
+          "error plus": "0.23", %
+          "error minus": "0.34", %
+          "5th percentile": "0.37", %
+          "95th percentile": "0.94"%
+        \}%
+      \}, %
+      "a": \{%
+        "peak": \{%
+          "median": "0.18", %
+          "error plus": "0.15", %
+          "error minus": "0.18", %
+          "5th percentile": 0, %
+          "95th percentile": "0.33"%
+        \}, %
+        "ppd": \{%
+          "median": "0.30", %
+          "error plus": "0.58", %
+          "error minus": "0.27", %
+          "5th percentile": "0.035", %
+          "95th percentile": "0.88"%
+        \}%
+      \}, %
+      "cos\_tilt": \{%
+        "peak": \{%
+          "median": "0.19", %
+          "error plus": "0.81", %
+          "error minus": "0.34", %
+          "5th percentile": "{-}0.15", %
+          "95th percentile": "1.0"%
+        \}, %
+        "ppd": \{%
+          "median": "0.11", %
+          "error plus": "0.77", %
+          "error minus": "0.94", %
+          "5th percentile": "{-}0.83", %
+          "95th percentile": "0.88"%
+        \}%
+      \}, %
+      "redshift": \{%
+        "ppd": \{%
+          "median": "1.5", %
+          "error plus": "0.90", %
+          "error minus": "1.1", %
+          "5th percentile": "0.43", %
+          "95th percentile": "2.4"%
+        \}%
+      \}, %
+      "rate\_at\_z\_0{-}2": \{%
+        "median": "39", %
+        "error plus": "23", %
+        "error minus": "11", %
+        "5th percentile": "28", %
+        "95th percentile": "62"%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{mass_1}=0%
+      \let\BsplineIID@out\BsplineIID@I%
+    \else%
+      \ifnum\pdfstrcmp{#1}{mass_ratio}=0%
+      \let\BsplineIID@out\BsplineIID@II%
+    \else%
+      \ifnum\pdfstrcmp{#1}{a}=0%
+      \let\BsplineIID@out\BsplineIID@III%
+    \else%
+      \ifnum\pdfstrcmp{#1}{cos_tilt}=0%
+      \let\BsplineIID@out\BsplineIID@IV%
+    \else%
+      \ifnum\pdfstrcmp{#1}{redshift}=0%
+      \let\BsplineIID@out\BsplineIID@V%
+    \else%
+      \ifnum\pdfstrcmp{#1}{rate_at_z_0-2}=0%
+      \let\BsplineIID@out\BsplineIID@VI%
+    \else%
+      \def\BsplineIID@out{%
+    ??}%
+    \fi\fi\fi\fi\fi\fi
+  \fi
+  \BsplineIID@out
+}\newcommand\BsplineIID@I[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\BsplineIID@I@out{%
+    \{%
+      "peak\_1\_location": \{%
+        "median": "10.1", %
+        "error plus": "0.7", %
+        "error minus": "0.7", %
+        "5th percentile": "9", %
+        "95th percentile": "10.8"%
+      \}, %
+      "peak\_2\_location": \{%
+        "median": "32.7", %
+        "error plus": "2.6", %
+        "error minus": "4.1", %
+        "5th percentile": "29", %
+        "95th percentile": "35"%
+      \}, %
+      "ppd": \{%
+        "median": "10", %
+        "error plus": "23", %
+        "error minus": "2.2", %
+        "5th percentile": "8.2", %
+        "95th percentile": "33"%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{peak_1_location}=0%
+      \let\BsplineIID@I@out\BsplineIID@VII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{peak_2_location}=0%
+      \let\BsplineIID@I@out\BsplineIID@VIII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{ppd}=0%
+      \let\BsplineIID@I@out\BsplineIID@IX%
+    \else%
+      \def\BsplineIID@I@out{%
+    ??}%
+    \fi\fi\fi
+  \fi
+  \BsplineIID@I@out
+}\newcommand\BsplineIID@II[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\BsplineIID@II@out{%
+    \{%
+      "peak": \{%
+        "median": "0.75", %
+        "error plus": "0.12", %
+        "error minus": "0.16", %
+        "5th percentile": "0.59", %
+        "95th percentile": "0.87"%
+      \}, %
+      "ppd": \{%
+        "median": "0.71", %
+        "error plus": "0.23", %
+        "error minus": "0.34", %
+        "5th percentile": "0.37", %
+        "95th percentile": "0.94"%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{peak}=0%
+      \let\BsplineIID@II@out\BsplineIID@X%
+    \else%
+      \ifnum\pdfstrcmp{#1}{ppd}=0%
+      \let\BsplineIID@II@out\BsplineIID@XI%
+    \else%
+      \def\BsplineIID@II@out{%
+    ??}%
+    \fi\fi
+  \fi
+  \BsplineIID@II@out
+}\newcommand\BsplineIID@III[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\BsplineIID@III@out{%
+    \{%
+      "peak": \{%
+        "median": "0.18", %
+        "error plus": "0.15", %
+        "error minus": "0.18", %
+        "5th percentile": 0, %
+        "95th percentile": "0.33"%
+      \}, %
+      "ppd": \{%
+        "median": "0.30", %
+        "error plus": "0.58", %
+        "error minus": "0.27", %
+        "5th percentile": "0.035", %
+        "95th percentile": "0.88"%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{peak}=0%
+      \let\BsplineIID@III@out\BsplineIID@XII%
+    \else%
+      \ifnum\pdfstrcmp{#1}{ppd}=0%
+      \let\BsplineIID@III@out\BsplineIID@XIII%
+    \else%
+      \def\BsplineIID@III@out{%
+    ??}%
+    \fi\fi
+  \fi
+  \BsplineIID@III@out
+}\newcommand\BsplineIID@IV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\BsplineIID@IV@out{%
+    \{%
+      "peak": \{%
+        "median": "0.19", %
+        "error plus": "0.81", %
+        "error minus": "0.34", %
+        "5th percentile": "{-}0.15", %
+        "95th percentile": "1.0"%
+      \}, %
+      "ppd": \{%
+        "median": "0.11", %
+        "error plus": "0.77", %
+        "error minus": "0.94", %
+        "5th percentile": "{-}0.83", %
+        "95th percentile": "0.88"%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{peak}=0%
+      \let\BsplineIID@IV@out\BsplineIID@XIV%
+    \else%
+      \ifnum\pdfstrcmp{#1}{ppd}=0%
+      \let\BsplineIID@IV@out\BsplineIID@XV%
+    \else%
+      \def\BsplineIID@IV@out{%
+    ??}%
+    \fi\fi
+  \fi
+  \BsplineIID@IV@out
+}\newcommand\BsplineIID@V[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\BsplineIID@V@out{%
+    \{%
+      "ppd": \{%
+        "median": "1.5", %
+        "error plus": "0.90", %
+        "error minus": "1.1", %
+        "5th percentile": "0.43", %
+        "95th percentile": "2.4"%
+      \}%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{ppd}=0%
+      \let\BsplineIID@V@out\BsplineIID@XVI%
+    \else%
+      \def\BsplineIID@V@out{%
+    ??}%
+    \fi
+  \fi
+  \BsplineIID@V@out
+}\newcommand\BsplineIID@VI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\BsplineIID@VI@out{%
+    \{%
+      "median": "39", %
+      "error plus": "23", %
+      "error minus": "11", %
+      "5th percentile": "28", %
+      "95th percentile": "62"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\BsplineIID@VI@out{%
+    39}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\BsplineIID@VI@out{%
+    23}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\BsplineIID@VI@out{%
+    11}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\BsplineIID@VI@out{%
+    28}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\BsplineIID@VI@out{%
+    62}%
+    \else%
+      \def\BsplineIID@VI@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \BsplineIID@VI@out
+}\newcommand\BsplineIID@VII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\BsplineIID@VII@out{%
+    \{%
+      "median": "10.1", %
+      "error plus": "0.7", %
+      "error minus": "0.7", %
+      "5th percentile": "9", %
+      "95th percentile": "10.8"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\BsplineIID@VII@out{%
+    10.1}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\BsplineIID@VII@out{%
+    0.7}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\BsplineIID@VII@out{%
+    0.7}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\BsplineIID@VII@out{%
+    9}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\BsplineIID@VII@out{%
+    10.8}%
+    \else%
+      \def\BsplineIID@VII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \BsplineIID@VII@out
+}\newcommand\BsplineIID@VIII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\BsplineIID@VIII@out{%
+    \{%
+      "median": "32.7", %
+      "error plus": "2.6", %
+      "error minus": "4.1", %
+      "5th percentile": "29", %
+      "95th percentile": "35"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\BsplineIID@VIII@out{%
+    32.7}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\BsplineIID@VIII@out{%
+    2.6}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\BsplineIID@VIII@out{%
+    4.1}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\BsplineIID@VIII@out{%
+    29}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\BsplineIID@VIII@out{%
+    35}%
+    \else%
+      \def\BsplineIID@VIII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \BsplineIID@VIII@out
+}\newcommand\BsplineIID@IX[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\BsplineIID@IX@out{%
+    \{%
+      "median": "10", %
+      "error plus": "23", %
+      "error minus": "2.2", %
+      "5th percentile": "8.2", %
+      "95th percentile": "33"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\BsplineIID@IX@out{%
+    10}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\BsplineIID@IX@out{%
+    23}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\BsplineIID@IX@out{%
+    2.2}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\BsplineIID@IX@out{%
+    8.2}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\BsplineIID@IX@out{%
+    33}%
+    \else%
+      \def\BsplineIID@IX@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \BsplineIID@IX@out
+}\newcommand\BsplineIID@X[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\BsplineIID@X@out{%
+    \{%
+      "median": "0.75", %
+      "error plus": "0.12", %
+      "error minus": "0.16", %
+      "5th percentile": "0.59", %
+      "95th percentile": "0.87"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\BsplineIID@X@out{%
+    0.75}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\BsplineIID@X@out{%
+    0.12}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\BsplineIID@X@out{%
+    0.16}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\BsplineIID@X@out{%
+    0.59}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\BsplineIID@X@out{%
+    0.87}%
+    \else%
+      \def\BsplineIID@X@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \BsplineIID@X@out
+}\newcommand\BsplineIID@XI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\BsplineIID@XI@out{%
+    \{%
+      "median": "0.71", %
+      "error plus": "0.23", %
+      "error minus": "0.34", %
+      "5th percentile": "0.37", %
+      "95th percentile": "0.94"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\BsplineIID@XI@out{%
+    0.71}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\BsplineIID@XI@out{%
+    0.23}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\BsplineIID@XI@out{%
+    0.34}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\BsplineIID@XI@out{%
+    0.37}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\BsplineIID@XI@out{%
+    0.94}%
+    \else%
+      \def\BsplineIID@XI@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \BsplineIID@XI@out
+}\newcommand\BsplineIID@XII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\BsplineIID@XII@out{%
+    \{%
+      "median": "0.18", %
+      "error plus": "0.15", %
+      "error minus": "0.18", %
+      "5th percentile": 0, %
+      "95th percentile": "0.33"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\BsplineIID@XII@out{%
+    0.18}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\BsplineIID@XII@out{%
+    0.15}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\BsplineIID@XII@out{%
+    0.18}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\BsplineIID@XII@out{%
+    0}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\BsplineIID@XII@out{%
+    0.33}%
+    \else%
+      \def\BsplineIID@XII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \BsplineIID@XII@out
+}\newcommand\BsplineIID@XIII[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\BsplineIID@XIII@out{%
+    \{%
+      "median": "0.30", %
+      "error plus": "0.58", %
+      "error minus": "0.27", %
+      "5th percentile": "0.035", %
+      "95th percentile": "0.88"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\BsplineIID@XIII@out{%
+    0.30}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\BsplineIID@XIII@out{%
+    0.58}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\BsplineIID@XIII@out{%
+    0.27}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\BsplineIID@XIII@out{%
+    0.035}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\BsplineIID@XIII@out{%
+    0.88}%
+    \else%
+      \def\BsplineIID@XIII@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \BsplineIID@XIII@out
+}\newcommand\BsplineIID@XIV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\BsplineIID@XIV@out{%
+    \{%
+      "median": "0.19", %
+      "error plus": "0.81", %
+      "error minus": "0.34", %
+      "5th percentile": "{-}0.15", %
+      "95th percentile": "1.0"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\BsplineIID@XIV@out{%
+    0.19}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\BsplineIID@XIV@out{%
+    0.81}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\BsplineIID@XIV@out{%
+    0.34}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\BsplineIID@XIV@out{%
+    {-}0.15}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\BsplineIID@XIV@out{%
+    1.0}%
+    \else%
+      \def\BsplineIID@XIV@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \BsplineIID@XIV@out
+}\newcommand\BsplineIID@XV[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\BsplineIID@XV@out{%
+    \{%
+      "median": "0.11", %
+      "error plus": "0.77", %
+      "error minus": "0.94", %
+      "5th percentile": "{-}0.83", %
+      "95th percentile": "0.88"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\BsplineIID@XV@out{%
+    0.11}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\BsplineIID@XV@out{%
+    0.77}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\BsplineIID@XV@out{%
+    0.94}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\BsplineIID@XV@out{%
+    {-}0.83}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\BsplineIID@XV@out{%
+    0.88}%
+    \else%
+      \def\BsplineIID@XV@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \BsplineIID@XV@out
+}\newcommand\BsplineIID@XVI[1][all]{%
+  \ifnum\pdfstrcmp{#1}{all}=0%
+    \def\BsplineIID@XVI@out{%
+    \{%
+      "median": "1.5", %
+      "error plus": "0.90", %
+      "error minus": "1.1", %
+      "5th percentile": "0.43", %
+      "95th percentile": "2.4"%
+    \}}%
+  \else%
+    \ifnum\pdfstrcmp{#1}{median}=0%
+      \def\BsplineIID@XVI@out{%
+    1.5}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error plus}=0%
+      \def\BsplineIID@XVI@out{%
+    0.90}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{error minus}=0%
+      \def\BsplineIID@XVI@out{%
+    1.1}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{5th percentile}=0%
+      \def\BsplineIID@XVI@out{%
+    0.43}%
+    \else%
+      \ifnum\pdfstrcmp{#1}{95th percentile}=0%
+      \def\BsplineIID@XVI@out{%
+    2.4}%
+    \else%
+      \def\BsplineIID@XVI@out{%
+    ??}%
+    \fi\fi\fi\fi\fi
+  \fi
+  \BsplineIID@XVI@out
+}%
+\makeatother%
