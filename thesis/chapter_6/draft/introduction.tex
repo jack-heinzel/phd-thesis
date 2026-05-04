@@ -85,7 +85,7 @@ where the single event integral quantities are often estimated with
 \eeq
 with the $\theta_{ij}$ drawn from the \PE posterior $p(\theta|d_i)$ using the prior $\pi(\theta|{\rm PE})$; $1\le i\le \Nobs$ indexes the event number and $1 \le j \le \NPE$ indexes the individual event samples. We ignore the constant evidence term $\int p(d_i|\theta)\pi(\theta|{\rm PE})\dd\theta$, as constant factors in the likelihood are normalized out in the Bayesian posterior. 
 
-The selection efficiency is estimated with a large number of simulated sources $\{\theta_j\}_{j=1}^{\Ninj} \sim p(\theta|{\rm draw})$ drawn from a fiducial population. The signals are then added to noise from the \GW detectors. Then, searches \citep[e.g.][]{Allen:2005fk, Usman:2015kfa, Messick:2016aqy} are run over these data, detecting some subset of the simulated events. We estimate the selection efficiency by \citep{Tiwari:2017ndi, Farr:2019rap}
+The selection efficiency is estimated with a large number of simulated sources $\{\theta_j\}_{j=1}^{\Ninj} \sim p(\theta|{\rm draw})$ drawn from a fiducial population. The signals are then added to noise from the \ac{GW} detectors. Then, searches \citep[e.g.][]{Allen:2005fk, Usman:2015kfa, Messick:2016aqy} are run over these data, detecting some subset of the simulated events. We estimate the selection efficiency by \citep{Tiwari:2017ndi, Farr:2019rap}
 \beq
 \hat{\xi}(\Lambda) = \frac{1}{\Ninj}\sum_{j=1}^{\Ninj}\mathbb{D}[d_j]\frac{p(\theta_j|\Lambda)}{p(\theta_j|{\rm draw})} = \frac{1}{\Ninj}\sum_{j=1}^{\Nfound}\frac{p(\theta_j|\Lambda)}{p(\theta_j|{\rm draw})},
 \label{eq: selection effects estimator}
@@ -102,11 +102,11 @@ We show in Section~\ref{subsec: mc monte carlo bias} that running any estimator 
 %   \begin{center}
 %     \input{dag_GW}
 %   \end{center}
-%   \caption{Hierarchical probabilistic graphical model assumed in \GW population inference. $N(\theta)$ represents the intrinsic number density of mergers at parameters $\theta$. Over some observing time, there are $N_{\rm tot}$ mergers whose \GW are incident on the detectors, however not all are detected. After combining with some noise, the \GW associated with each merger produce data $d$ in the detectors. Detection pipelines are applied to the data $d_i$, and return an indicator ${\rm det}_{i} \in \{0,1\}$, flagging the data as noise or a detection.}
+%   \caption{Hierarchical probabilistic graphical model assumed in \ac{GW} population inference. $N(\theta)$ represents the intrinsic number density of mergers at parameters $\theta$. Over some observing time, there are $N_{\rm tot}$ mergers whose \ac{GW} are incident on the detectors, however not all are detected. After combining with some noise, the \ac{GW} associated with each merger produce data $d$ in the detectors. Detection pipelines are applied to the data $d_i$, and return an indicator ${\rm det}_{i} \in \{0,1\}$, flagging the data as noise or a detection.}
 %   \label{fig: population model dag}
 % \end{figure}
 
-% In the Bayesian approach, the source population is described by an inhomogeneous Poisson process, where each infinitesimal region of parameter space $[\theta, \theta + \dd\theta]$ produces events with Poisson parameter $N(\theta)\dd\theta$. A collection of events $\{\theta_i\}_{i \in \{1, ..., N_{\rm tot}\}}$ are incident on the \GW detectors within some observing time. After combining additively with the noise in the detectors, the resulting data segment $d_i$ is considered a ``detection'' if search pipeline algorithms flag the data ${\rm det}_i = 1$. Under this model, the likelihood of obtaining these $\Nobs$ detections $\{d_i\}$ is then 
+% In the Bayesian approach, the source population is described by an inhomogeneous Poisson process, where each infinitesimal region of parameter space $[\theta, \theta + \dd\theta]$ produces events with Poisson parameter $N(\theta)\dd\theta$. A collection of events $\{\theta_i\}_{i \in \{1, ..., N_{\rm tot}\}}$ are incident on the \ac{GW} detectors within some observing time. After combining additively with the noise in the detectors, the resulting data segment $d_i$ is considered a ``detection'' if search pipeline algorithms flag the data ${\rm det}_i = 1$. Under this model, the likelihood of obtaining these $\Nobs$ detections $\{d_i\}$ is then 
 % \beq
 %     \mathcal{L}_r(\{d_i\},\Nobs|\Lambda,N) \propto N^{\Nobs}e^{-N\xi(\Lambda)} \prod_{i=1}^{\Nobs}p(d_i|\Lambda).
 %     \label{eq: hierarchical likelihood}
@@ -142,7 +142,7 @@ We show in Section~\ref{subsec: mc monte carlo bias} that running any estimator 
 % \eeq
 % with the $\theta_j$ drawn from the \PE posterior $p(\theta|d_i)$, using the prior $\pi(\theta|{\rm PE})$. Apart from a constant evidence term, this is (proportional to) an unbiased estimator for the marginalized $p(d_i|\Lambda)$. Indeed, since a product of uncorrelated unbiased estimators is also an unbiased estimator, the likelihood would be unbiased, if not for the selection efficiency Monte Carlo integral.
 
-% The selection efficiency is estimated with a large number of simulated sources $\{\theta_j\}_{j=1}^{\Ninj} \sim p(\theta|{\rm draw})$ drawn from a fiducial population. The signals are then added to noise from the \GW detectors. Then, search pipeline codes are run over these data, detecting some subset of these simulated events. We then estimate the selection efficiency by
+% The selection efficiency is estimated with a large number of simulated sources $\{\theta_j\}_{j=1}^{\Ninj} \sim p(\theta|{\rm draw})$ drawn from a fiducial population. The signals are then added to noise from the \ac{GW} detectors. Then, search pipeline codes are run over these data, detecting some subset of these simulated events. We then estimate the selection efficiency by
 % \beq
 % \hat{\xi}(\Lambda) = \frac{1}{\Ninj}\sum_{j=1}^{\Ninj}\mathbb{D}_j\frac{p(\theta_j|\Lambda)}{p(\theta_j|{\rm draw})} = \frac{1}{\Ninj}\sum_{j=1}^{\Nfound}\frac{p(\theta_j|\Lambda)}{p(\theta_j|{\rm draw})},
 % \label{eq: selection effects estimator}
