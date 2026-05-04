@@ -1,0 +1,52 @@
+\begin{deluxetable*}{lll}
+\tablecaption{\label{tab:summary_of_models}Summary of Models}
+\tablehead{
+    \colhead{Model Type} & \colhead{Model Name} & \colhead{Description}
+}
+\startdata
+\textbf{Strongly Modeled:} & \PDB & Models the mass spectrum of all \acp{CBC} simultaneously with \\
+\textbf{Mass} & &  appropriate power-law and peak components. Also allows for a \\
+& & gap between the most massive \ac{NS} and the least massive \ac{BH}. \\[6pt]
+& \BrokenPLTwoPeaks $\bigstar$ & The primary mass distribution has a broken power law\\
+&  & continuum between a minimum and maximum mass, plus \\
+&  & two Gaussian peaks  around ${\sim} 10\,\Msun$ and ${\sim}35\,\Msun$. The   \\
+& &  distribution of mass ratio $q$ is a power law between  \\
+& & some minimum value and $1$. \\[6pt]
+& \textsc{Extended Broken Power} & The mass-ratio power-law is allowed to differ between \\
+& \textsc{Law + 2 Peaks} &  primary masses in the continuum and in the $35\,\Msun$ peak. \\
+\hline
+\textbf{Strongly Modeled:} & \default $\bigstar$ & The spin magnitude population is a Gaussian truncated over \\
+\textbf{Component Spin} & & the physical range $\chi\in[0,1)$.  The distribution of cosine spin tilts \\
+& &  relative to the orbital angular momentum  includes an isotropic \\
+& &  (i.e., uniform) component and a truncated Gaussian component. \\
+\hline
+\textbf{Strongly Modeled:} & \effectiveSpinModel & The joint $\chieff$--$\chip$ effective spin distribution is a bivariate   \\
+\textbf{Effective Spin} & & Gaussian allowing for correlations. \\[6pt]
+& \skewnormalChiEff & The $\chieff$ marginal effective spin distribution is skew normal,\\
+& &  truncated to $[-1,1]$. \\
+\hline
+\textbf{Strongly Modeled:} & \powerlawRedshift $\bigstar$ & The merger rate per unit comoving volume and source-frame \\
+\textbf{Redshift} & & time evolves with redshift $z$ as a power law i.e., $\propto (1+z)^\kappa$. \\
+\hline
+\textbf{Strongly Modeled:} & \copulacorrelation & Truncated Gaussian distributions are assumed for $\chieff$ and  \\
+\textbf{Correlations} & & $\chip$.  A Frank copula density function correlates two variables.\\
+& &   Separate copula models correlate $(q,\chieff)$, $(z,\chieff)$, $(m_1,\chieff)$, \\
+& &  and $(m_1,z)$. \\[6pt]
+& \linearcorrelation & A truncated Gaussian distribution is assumed for $\chieff$ with \\
+& & the mean and width linearly dependent on either $q$ or $z$. \\[6pt]
+& \splinecorrelation & A truncated Gaussian distribution is assumed for $\chieff$ with \\
+& & the mean and width dependent on either $q$ or $z$. This   \\
+& & dependence is flexibly modeled with a cubic spline. \\
+\hline
+\textbf{Weakly Modeled:} & {\BSpline} & Fits the astrophysical distribution as a separable joint \\
+\textbf{All Parameters} & & distribution with one-dimensional basis splines. Large numbers \\
+& &  of basis functions allow for flexibility, with difference-based \\
+& &  priors imposing smooth evolution \emph{a priori}. \\[6pt]
+& {\textsc{Binned Gaussian Process}} & Assumes a fixed binning scheme and infers the event rate under \\
+& &   the assumption of a constant rate within each bin, and a\\
+& &   Gaussian process prior imposing smooth covariance across bins. \\
+\enddata
+\tablenotetext{}{
+    \centering
+    \parbox{\textwidth}{Strongly modeled and weakly modeled approaches used to study the mass, spin, and redshift distributions of merging compact binaries. We provide a brief description of each model here, with detailed descriptions in Appendix~\ref{appendix:parametric_models_summary} and Appendix~\ref{appendix:non_parametric_models_summary}. Models marked with a $\bigstar$ are treated as defaults and are used whenever no model is explicitly indicated for a certain parameter. All \parametrics mentioned below target \acp{BBH}, with the exception of \PDB that is used to model the entire \ac{CBC} population.}}
+\end{deluxetable*}
