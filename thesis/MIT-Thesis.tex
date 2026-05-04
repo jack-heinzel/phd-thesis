@@ -15,24 +15,24 @@
 % This package requires TeX Live 2022 or later.
 
 
-%% Minimal DocumentMetadata: registers PDF infrastructure so hyperxmp contact-info keys
-%% (pdfcontactaddress, etc.) are defined by the mitthesis class without error.
-%% tagging/pdfstandard accessibility options are intentionally omitted -- they trigger
-%% LaTeX3 environment tracking that conflicts with \beq/\eeq inside biblatex refsections.
-\DocumentMetadata
-{
-	lang       = en-US,
-	pdfversion = 1.7,
+%% \DocumentMetadata is disabled: even the minimal form activates LaTeX3 environment
+%% tracking which conflicts with \beq/\eeq macros inside biblatex refsections.
+%% pdfcontact* keys in mitthesis.cls are guarded with \@ifundefined so they degrade
+%% gracefully when \DocumentMetadata is not loaded.
+%\DocumentMetadata
+%{
+%	lang       = en-US,
+%	pdfversion = 1.7,
 %	pdfstandard = a-2b,   % disabled: conflicts with \beq/\eeq in refsections
 %	tagging     = on,     % disabled: requires lualatex + no listings package
 %	debug       = { xmp-export },
-}
+%}
 
 %%%%%%%%%  Documentclass and options  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[twoside]{mitthesis}
-\usepackage{hyperxmp}
-\usepackage{hyperref}
+% hyperxmp and hyperref are already loaded by mitthesis.cls; loading them here
+% late (after hyperref) causes interaction issues with \DocumentMetadata.
 % 						fontset=libertinus, fontset=lmodern, fontset=lucida, 
 %						fontset=fira-newtxsf, fontset=newtx, fontset=newtx-sans-text,  
 %						fontset=heros-stix2,  fontset=stix2, fontset=termes-stix2, fontset=termes

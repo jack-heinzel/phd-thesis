@@ -395,8 +395,8 @@
 %    \RequirePackage{bookmark}
 %\fi
 
-% the user can alter these choices in the preamble, or by 
-% using \AtBeginDocument{ \hypersetup{..} } in mydesign.tex 
+% the user can alter these choices in the preamble, or by
+% using \AtBeginDocument{ \hypersetup{..} } in mydesign.tex
 \hypersetup{
 	colorlinks=true,
 	pdfborder={0 0 0},
@@ -407,7 +407,20 @@
 	pdfdisplaydoctitle=true,
 	pdfstartview=Fit,
 	pdfnewwindow=true,
-%
+}
+% pdfcontact* keys require \DocumentMetadata (LaTeX3 PDF management) or hyperxmp
+% loaded before hyperref. Register them as no-ops if not already provided, so the
+% \hypersetup call below works regardless of whether \DocumentMetadata was used.
+\@ifundefined{KV@Hyp@pdfcontactaddress}{%
+  \define@key{Hyp}{pdfcontactaddress}{}%
+  \define@key{Hyp}{pdfcontactcity}{}%
+  \define@key{Hyp}{pdfcontactpostcode}{}%
+  \define@key{Hyp}{pdfcontactcountry}{}%
+  \define@key{Hyp}{pdfcontacturl}{}%
+  \define@key{Hyp}{pdfcopyright}{}%
+  \define@key{Hyp}{pdfcaptionwriter}{}%
+}{}
+\hypersetup{
 	pdfcontactaddress={Massachusetts Institute of Technology, 77 Massachusetts Avenue},
 	pdfcontactcity={Cambridge, MA},
 	pdfcontactpostcode={02139-4307},
