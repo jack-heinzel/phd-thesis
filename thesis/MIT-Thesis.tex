@@ -305,10 +305,10 @@
 %%   \chapterauthors{Author One$^1$, Author Two$^{1,2}$, Author Three$^2$}
 %%   \chapteraffiliations{$^1$MIT, $^2$Some Other Institution}
 \newcommand{\chapterauthors}[1]{%
-  \medskip\noindent{\small\itshape #1}\par%
+  \medskip\noindent{#1}\par%
 }
 \newcommand{\chapteraffiliations}[1]{%
-  \smallskip\noindent{\footnotesize #1}\par\medskip%
+  \smallskip\noindent{\itshape #1}\par\medskip%
 }
 
 %% PRL-style inline heading (chapter 4 letter format).
@@ -409,7 +409,9 @@
 % If there is more than one supervisor, use the \Supervisor command for each.
 % NB: department field added with v1.21 in late 2025. It is used ONLY on the Thesis Committee page.
 %
- \Supervisor{Salvatore Vitale}{Associate Professor of Physics}[Department of Physics]
+ \Supervisor{Salvatore Vitale}{Associate Professor of Physics}[Department of Physics
+ \\ & MIT LIGO Laboratory
+ \\ & MIT Kavli Institute for Astrophysics and Space Research]
 % \Supervisor{Secunda Castor}{Professor of Research \\ & Professor of Knowledge \\ & Professor of Reason}[Department of Research ]
 % \Supervisor{Quintus Castor}{Professor of Log Dams}[Department of Civil \& Environmental Engineering \\ & Department of All Faculty Who Are Not Members of a Department] 
 % Separate multiple titles or departments with "\\ &".  If not preceded by "\\", an "&" will be converted to the string "&" (an "\&" by itself will be converted to "and"). 
@@ -418,7 +420,7 @@
 % Professor who formally accepts theses for your department (e.g., the Graduate Officer, Professor Sméagol,...)
 % If more than one department gives the degree, use once for each department
 %
-\Acceptor{Tertius Castor}{Professor of Log Dams}{Graduate Officer, Department of Research} % \\ & Third title}
+\Acceptor{...}{...}{...} % \\ & Third title}
 % \Acceptor{Quarta Castor}{Professor of Lodge Building}{Graduate Officer, Department of Mechanical Engineering}
 %%%  If you need to reduce vertical space, put the acceptor title in the second argument and leave the third blank, {}.
 % \Acceptor{Primus Castor}{Professor and Undergraduate Officer, Department of Physics}{}
@@ -437,9 +439,13 @@
 % The MIT libraries do not set a format for the committee members page, and if you prefer to use your own format,
 % omit ALL readers here and insert your page just before the abstract.
 %
-\Reader{Marcus Gavius Apicius}{Professor of Cooking Arts}{Department of Food Science}
-\Reader{Marie-Antoine Carême}{Professor of Haute Cuisine}{Department of Food Science}
-\Reader{Miles Gloriosus}{Professor of Personal Pronouns}{Department of Rhetoric}
+\Reader{Erin Kara}{Associate Professor of Physics}{Department of Physics
+\\ & MIT Kavli Institute for Astrophysics and Space Research}
+\Reader{William Detmold}{Professor of Physics}{Department of Physics 
+\\ & Center for Theoretical Physics 
+\\ & Laboratory for Nuclear Science}
+
+
 
 % Are your readers running off the page?  You can move the page heading upward with this command:
 % \CMPShortenTop
@@ -510,7 +516,7 @@
 
 \include{thesis/acknowledgments}% acknowledgments.tex (.tex extension is presumed by \include)
 
-\include{thesis/biography}% biography.tex (optional, see https://libraries.mit.edu/distinctive-collections/thesis-specs/#format)
+% \include{thesis/biography}% biography.tex (optional, see https://libraries.mit.edu/distinctive-collections/thesis-specs/#format)
 
 %%% Table of contents and lists of stuff (delete unused lists, i.e., if no tables or figures) %%%%%
 
@@ -533,9 +539,9 @@
 
 %%% Appendices of thesis  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\appendix
-\include{thesis/appendixa}% listings example (not compatible with tagged pdf, as of Oct. 2025)
-\include{thesis/appendixb}% longtable example
+% \appendix
+% \include{thesis/appendixa}% listings example (not compatible with tagged pdf, as of Oct. 2025)
+% \include{thesis/appendixb}% longtable example
 
 
 %%% Bibliography (biblatex)  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

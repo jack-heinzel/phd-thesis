@@ -86,7 +86,7 @@ We typically represent the generative model using a probabilistic diagram, the g
     \label{fig: dag single gw}
 \end{figure}
 
-Probabilistic models are helpful for writing down the \textit{likelihood function}, one of two ingredients for Bayesian inference. The likelihood function represents the probability of obtaining the observed data given the latent parameters. Here, there is just one step in the generative model and so the likelihood function\footnote{In most statistical literature, the likelihood function is denoted $\mathcal{L}(\theta)$. In gravitational wave literature, we often notate the likelihood function as $\mathcal{L}(d|\theta)$.} is trivially 
+Probabilistic models are helpful for writing down the \textit{likelihood function}, one of two ingredients for Bayesian inference. The likelihood function represents the probability of obtaining the observed data given the latent parameters. Here, there is just one step in the generative model and so the likelihood function\footnote{In most statistical literature, the likelihood function is denoted $\mathcal{L}(\theta)$. In gravitational wave literature, we often notate the likelihood function as $\mathcal{L}(d|\theta)$ to emphasize it is a normalized probability distribution over the space of observed data.} is trivially 
 \begin{equation}
     \mathcal{L}(\theta) = p(d | \theta).
 \end{equation}
@@ -106,7 +106,7 @@ In a hierarchical Bayesian inference, our aim is to use an ensemble of observati
 
 The model we use for the gravitational-wave population is called an \textit{inhomogeneous Poisson process}. Over the continuous space of \ac{GW} parameters $\theta$, each point has an intrinsic rate density $N(\theta|\Lambda)$. Specifically, within an infinitesimal region $d\theta$, the number of mergers is a Poisson random variable $dN \sim \mathrm{Pois}(N(\theta|\Lambda)d\theta)$.\footnote{The rate $N(\theta|\Lambda)$ varies over $\theta$, making the process inhomogeneous; if it were constant, it would be a homogeneous Poisson process.} This is equivalent to first drawing the total number of events $N_{\rm tot} \sim \mathrm{Pois}(N)$, where $N = \int N(\theta|\Lambda) \, d\theta$, and then drawing $N_{\rm tot}$ independent samples from the normalized population distribution $p(\theta|\Lambda) = N(\theta|\Lambda)/N$. 
 
-There are then $N_{\rm tot}$ \acp{GW} incident on the detectors which combine with the noise to produce observed data. Most of these events are far too quiet to detect, however, and so we then further downselect to a subset of the data by running sophisticated search algorithms \citep{} to determine which stretches of data confidently contain a \ac{GW} signal. 
+There are then $N_{\rm tot}$ \acp{GW} incident on the detectors which combine with the noise to produce observed data. Most of these events are far too quiet to detect, however, and so we then further downselect to a subset of the data by running sophisticated search algorithms \citep[e.g.,][]{Allen:2005fk, 2017CQGra..34f4003Z, 2019CQGra..36o5010C, 2021CQGra..38m5014D, 2021CQGra..38s5016S, 2022arXiv221015633A, 2022arXiv221015634A, 2021PTEP.2021eA102A, 2022CQGra..39q5004A} to determine which stretches of data confidently contain a \ac{GW} signal. 
 
 \begin{figure}[htbp]
     \centering
@@ -169,11 +169,40 @@ By substituting $k = N_{\rm tot} - N_{\rm obs}$ and using the Taylor series for 
 \end{equation}
 This is the hierarchical likelihood which forms the foundation of gravitational wave population studies. The $N_{\rm obs}$ detected events follow a Poisson distribution with an expected rate of $N\alpha(\Lambda)$, while the shape of the distribution is governed by the population-weighted individual event likelihoods.
 
-\subsection{Contaminated gravitational wave catalogs}
 
-For unbiased inference on the \ac{BBH} population, we must ensure the catalog of events included in the inference are all genuine astrophysical \acp{GW}. However, the \ac{LIGO} and Virgo interferometers are plagued by transient, non-Gaussian noise artifacts known as \textit{glitches}. These glitches rarely imitate astrophysical \acp{GW} as the \ac{LVK} collaboration correlates terrestrial noise sources with the observed strain \citep{}, and \ac{GW} search algorithms are tuned to penalize any excess, non-Gaussian power \citep{}. Furthermore, we require a strict threshold for inclusion into the \ac{GW} catalog, but even so it is possible that some non-astrophysical noise triggers contaminate the catalog. 
+Much of the difficulty in \ac{GW} population inference comes down to the construction of an appropriate model $p(\theta | \Lambda)$. There are broadly two paradigms for constructing these models, the \textit{strongly modeled} (or parametric) approach, which assumes a parametric functional form for the population. For instance, a classic model for the \ac{BBH} mass distribution is the power law plus peak model, where the mass distribution is characterized by a power law with a minimum, maximum, power law slope and smoothing window, and a Gaussian peak with some mean and width. The other complementary approach is the \textit{weakly modeled approach} (also known as data driven, nonparametric, or sometimes the misnomer ``unmodeled'' is used). 
 
-In the next chapter, we discuss the biases that arise when non-astrophysical \ac{GW} noise contaminants are incorrectly included in the catalog. We show how to include these non-Gaussian contaminants into the hierarchical \ac{GW} generative model and in doing so, we can correctly account for the bias due to the inclusion of non-astrophysical \ac{GW} events. 
+As the catalog sizes have increased, more and more structure is being included by hand into the strongly parameterized models. In early \ac{GW} population studies \citep[e.g.,][]{noauthor_population_nodate}, simple models sufficed, e.g., a power law for the mass distribution. As we obtain more data, we are not converging on a simple parametric form for the \ac{GW} population. Instead, we observe additional complex structures and higher-dimensional correlations, and so more baroque models are assembled (the modern mass distribution is characterized by a broken power law plus two Gaussian peaks \citep[e.g.,][]{abac_gwtc-40_2025}). On the other hand, weakly parameterized approaches are becoming more relevant for feature discovery in the astrophysical population \citep[e.g.,][]{Alvarez-Lopez:2025ltt}. This will be one of the central arguments of this thesis. 
+
+\section{Thesis overview}
+
+\subsection{Chapter \ref{chapter: glitches}: systematics due to non-astrophysical contaminants}
+
+For unbiased inference on the \ac{BBH} population, we must ensure the catalog of events included in the inference are all genuine astrophysical \acp{GW}. However, the \ac{LIGO} and Virgo interferometers are plagued by transient, non-Gaussian noise artifacts known as \textit{glitches}. In chapter \ref{chapter: glitches}, we investigate the impact of these glitches on the inference of the astrophysical population of \acp{BBH}. 
+
+Glitches rarely imitate astrophysical \acp{GW} as the \ac{LVK} collaboration correlates terrestrial noise sources with the observed strain \citep[e.g.,][]{Soni:2021cjy, 2021CQGra..38m5014D}, and \ac{GW} search algorithms are tuned to penalize any excess, non-Gaussian power \citep[e.g.,][]{2005PhRvD..71f2001A}. Furthermore, we require a strict threshold for inclusion into the \ac{GW} catalog, but even so, it is possible that some non-astrophysical noise triggers contaminate the catalog. 
+
+Furthermore, we are forced to adopt a very high threshold in order to ensure our catalog is relatively pure. This may be leaving important information on the table, so to speak. \acp{GW} merging at higher redshift of from lower mass \ac{BBH} mergers are preferentially quieter, and so tend to have lower significances. These are astrophysically interesting regions, e.g., high redshift mergers can probe the conditions of the Universe at an earlier condition, and we expect the \acp{BH} born from the first generation of stars (population III) to have different properties \citep{}. These population III stars have not been observed directly, and are an important missing piece for understanding the chemical evolution of the Universe. We expect that the population III stars massive enough to leave behind \acp{BH} are important for the synthesis of heavier elements in the young Universe. Lower mass compact binary mergers are astrophysically interesting as well. Binary neutron star mergers (which are lighter, $\sim 1-2\Msun$) are powerful probes of the equation of state of matter at nuclear densities, and offer an independent probe of the expansion rate of the cosmos. There may also be more exotic \textit{sub}-solar mass compact objects. These have not been observed, but their existence would challenge theories of compact object formation, hinting at exotic states of matter or potentially primordial-origin \acp{BH} \citep{}. 
+
+It is not so simple as just lowering the significance threshold for including a \ac{GW} source in the catalog. In chapter \ref{chapter: glitches}, we discuss the biases that arise when non-astrophysical \ac{GW} noise contaminants are incorrectly included in the catalog. We consider a particular class of non-astrophysical glitches which are known to occasionally imitate high-mass \ac{BBH}, known as blip glitches. If these glitches are mistakenly included into the catalog, we show that population inference is significantly biased. 
+
+We show how to include these non-Gaussian contaminants into the hierarchical \ac{GW} generative model and in doing so, we can correctly account for the bias due to the inclusion of non-astrophysical \ac{GW} events. By relaxing the threshold for inclusion into the \ac{GW} catalog, and simultaneously ensuring the contaminants are properly modeled, we can ultimately extract tighter constraints on these astrophysically important sources. 
+
+\subsection{Chapter \ref{chapter: splines}: }
+
+In chapter \ref{chapter: splines}, we move towards a characterization of the astrophysical population of \ac{BBH} mergers, and show how evidence for some correlations in the \ac{BBH} population can be model dependent, while others are more robust. By relaxing the assumption of linearity, we show that evidence for a correlation between mass ratio and spins disappears. In contrast, the correlation between spins and cosmological redshift is robust to an assumption of nonlinear correlations, and we find some evidence for a broader spin distribution at higher masses. 
+
+\subsection{Chapter \ref{chapter: pixelpop methods} and \ref{chapter: pixelpop gwtc3}: }
+
+Chapter \ref{chapter: pixelpop methods} introduces a new method for nonparametric Bayesian inference of the \ac{GW} population: \PixelPop. \PixelPop is designed for flexible reconstruction of complex correlated populations, the kinds of populations we expect in nature. We then show how \PixelPop performs on synthetic, correlated populations for near-future catalog sizes. In chapter \ref{chapter: pixelpop gwtc3}, we apply \PixelPop to the \ac{GW} catalog at the time of writing, \ac{GWTC-3}.
+
+\subsection{Chapter \ref{chapter: monte carlo}: }
+
+Chapter \ref{chapter: monte carlo} is a technical investigation into sources of systematic uncertainty in \ac{GW} population inference. In particular, \ac{GW} population inference typically approximates the hierarchical likelihood using Monte Carlo methods, which can lead to biases (sometimes catastrophic biases). We create a statistical metric for diagnosing the systematics due to this Monte Carlo noise, and argue that new methods will be necessary for unbiased \ac{GW} population inference in the near future.
+
+\subsection{Chapter \ref{chapter: gwtc4 paper}: }
+
+
 
 \printbibliography[heading=subbibliography]
 \end{refsection}
