@@ -70,10 +70,6 @@ o3b_end_intended,,2020-04-30 15:00:00,Yes
 o4_er15_start,,2023-04-26 15:00:00,Yes
 o4_er15_end,,2023-05-24 15:00:00,Yes
 
-# pre-O4b engineering run (ER16), see https://wiki.ligo.org/LSC/JRPComm/ObsRun4 (and ending at O4b start)
-o4_er16_start,,2024-03-20 15:00:00,No
-o4_er16_end,,2024-04-10 15:00:00,No
-
 # O4 Noto Peninsula, Japan earthquake
 # see: https://earthquake.usgs.gov/earthquakes/eventpage/us6000m0xl/technical
 o4_earthquake_noto_peninsula,,2024-01-01 07:10:09,Yes
@@ -132,8 +128,3 @@ o3b_asd_virgo, ,2020-02-09 01:16:00, Yes
 # Date/data source: https://dcc.ligo.org/LIGO-T2400104 "LLO/LHO data late O4a"
 o4a_asd_lho, , 2024-01-11 06:15:00, Yes
 o4a_asd_llo, , 2023-11-19 20:12:00, Yes
-
-# Date/data source: https://wiki.ligo.org/LSC/JRPComm/ObsRun4
-o4b_asd_lho, , 2024-04-10 15:00:00, No
-o4b_asd_llo, , 2024-04-10 15:00:00, No
-o4b_asd_virgo, ,2024-04-10 15:00:00, No

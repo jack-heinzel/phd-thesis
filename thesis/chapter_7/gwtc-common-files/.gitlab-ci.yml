@@ -112,5 +112,5 @@ uptodate:
   script:
    - pip install pandas
    - python create_macros.py
-   # If this line fails, you have edited a file in data/, but not run create_macros.py
+   # If this line fails, you have edited datetimes.csv, but not run create_datetime_macros.py
    - git diff --exit-code

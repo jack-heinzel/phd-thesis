@@ -47,7 +47,7 @@ o1_ground_motion_magnitude_reduction, , 10, , NA
 o1_ground_motion_suppression_frequency, , 10, hertz, NA
 o2_bns_range_improvement, , 100, Mpc, NA
 o2_duty_factors_percentage, , 50, percent, NA
-o2_commissioning_adv_bns_range, , 20, Mpc, NA
+o2_commissioning_adv_bns_range, , 8, Mpc, NA
 o2_adv_laser_power, , 13, watt, NA
 o4_commissioning_adv_laser_power_used, , 40, watt, NA
 o4_adv_cavity_finesse, , 450, , NA

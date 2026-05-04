@@ -125,7 +125,7 @@ do
     # - everything following an unescaped %
     # - % not preceded by a space
     # - colored text for reviewed / unreviewed / not applicable
-    # - replace \FIXME \TODO and \NOTE with red text
+    # - get rid of \FIXME \TODO and \NOTE
     cp "${tmpdir}/${file}" "${tmpdir}/${file}.tmp"
     sed \
         -e '/^[ ]*%/d' \
@@ -143,17 +143,10 @@ do
         -e '/^\\newcommand{\\FIXME}/d' \
         -e '/^\\newcommand{\\TODO}/d' \
         -e '/^\\newcommand{\\NOTE}/d' \
-        -e '/^\\newcommand{\\MODIFIED}/d' \
+        -e 's/\\FIXME{[^}]*}//g' \
+        -e 's/\\TODO{[^}]*}//g' \
+        -e 's/\\NOTE{[^}]*}//g' \
         "${tmpdir}/${file}.tmp" > "${tmpdir}/${file}"
-
-    # Handle multi-line MODIFIED calls
-    cp "${tmpdir}/${file}" "${tmpdir}/${file}.tmp"
-    perl -0777 -pe 's/\\MODIFIED\{((?:[^{}]++|\{(?1)\})*+)\}/$1/gs' "${tmpdir}/${file}.tmp" > "${tmpdir}/${file}"
-    rm -f "${tmpdir}/${file}.tmp"
-
-    # Handle multi-line FIXME, TODO, and NOTE calls: replace with \textcolor{red}{content}
-    cp "${tmpdir}/${file}" "${tmpdir}/${file}.tmp"
-    perl -0777 -pe 's/\\(?:FIXME|TODO|NOTE)\{((?:[^{}]++|\{(?1)\})*+)\}/\\textcolor{red}{$1}/gs' "${tmpdir}/${file}.tmp" > "${tmpdir}/${file}"
     rm -f "${tmpdir}/${file}.tmp"
 
     # explicitly replace \commonfiles

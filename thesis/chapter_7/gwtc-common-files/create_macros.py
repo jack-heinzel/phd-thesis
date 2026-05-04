@@ -58,7 +58,7 @@ for _, row in df.iterrows():
         latex_key = row.latex_key
 
     status = get_status_flag(row.reviewed)
-    apj_format_date = row.datetime_utc.strftime("%Y~%B~%-d")
+    apj_format_date = row.datetime_utc.strftime("%Y~%B~%d")
     apj_format_time = row.datetime_utc.strftime("%H:%M:%S")
     print_macro(latex_key + "Date", apj_format_date, status, datetime_macros_file)
     print_macro(latex_key + "Time", apj_format_time, status, datetime_macros_file)

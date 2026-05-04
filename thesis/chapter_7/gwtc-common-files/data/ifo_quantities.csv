@@ -20,17 +20,14 @@ o2_hanford_power, HANFORDPOWERTWO, 26, watt, Yes
 o3a_hanford_power, HANFORDPOWERTHREEA, 34, watt, Yes
 o3b_hanford_power, HANFORDPOWERTHREEB, 34, watt, Yes
 o4a_hanford_power, HANFORDPOWERFOURA, 57, watt, Yes
-o4b_hanford_power, HANFORDPOWERFOURB, 57, watt, No
 o1_livingston_power, LIVINGSTONPOWERONE, 22, watt, Yes
 o2_livingston_power, LIVINGSTONPOWERTWO, 25, watt, Yes
 o3a_livingston_power, LIVINGSTONPOWERTHREEA, 44, watt, Yes
 o3b_livingston_power, LIVINGSTONPOWERTHREEB, 40, watt, Yes
 o4a_livingston_power, LIVINGSTONPOWERFOURA, 64, watt, Yes
-o4b_livingston_power, LIVINGSTONPOWERFOURB, 62, watt, No
 o2_virgo_power, VIRGOPOWERTWO, 10, watt, Yes
 o3a_virgo_power, VIRGOPOWERTHREEA, 18, watt, Yes
 o3b_virgo_power, VIRGOPOWERTHREEB, 26, watt, Yes
-o4b_virgo_power, VIRGOPOWERFOURB, 17, watt, No
 o3gk_geo_power, GEOPOWERTHREEGK, 3, watt, Yes
 o3gk_kagra_power, KAGRAPOWERTHREEGK, 5, watt, Yes
 
@@ -40,16 +37,13 @@ o2_handrod_prg, HANFORDPRGTWO, 40,,  Yes
 o3a_hanford_prg, HANFORDPRGTHREEA, 44,,  Yes
 o3b_hanford_prg, HANFORDPRGTHREEB, 44,,  Yes
 o4a_hanford_prg, HANFORDPRGFOURA, 50,,  Yes
-o4b_hanford_prg, HANFORDPRGFOURB, 50,,  No
 o1_livingston_prg, LIVINGSTONPRGONE, 38,,  Yes
 o2_livingston_prg, LIVINGSTONPRGTWO, 36,,  Yes
 o3a_livingston_prg, LIVINGSTONPRGTHREEA, 47,,  Yes
 o3b_livingston_prg, LIVINGSTONPRGTHREEB, 42,,  Yes
 o4a_livingston_prg, LIVINGSTONPRGFOURA, 35,,  Yes
-o4b_livingston_prg, LIVINGSTONPRGFOURB, 40,,  No
 o2_virgo_prg, VIRGOPRGTWO, 38,,  Yes
 o3a_virgo_prg, VIRGOPRGTHREEA, 36,,  Yes
 o3b_virgo_prg, VIRGOPRGTHREEB, 34,,  Yes
-o4b_virgo_prg, VIRGOPRGFOURB, 39,,  No
 o3gk_geo_prg, GEOPRGTHREEGK, 1000, , Yes
 o3gk_kagra_prg, KAGRAPRGTHREEGK, 12, , Yes

@@ -32,9 +32,6 @@ o3b_llo_range, OthreebLLORange, 133.238300772, Mpc, Yes
 o3b_virgo_range, OthreebVirgoRange, 57.4187395607, Mpc, Yes
 o4a_lho_range, OfouraLHORange, 158.265761553, Mpc, Yes
 o4a_llo_range, OfouraLLORange, 161.970620142, Mpc, Yes
-o4b_lho_range, OfourbLHORange, 160.922259557, Mpc, No
-o4b_llo_range, OfourbLLORange, 171.076606979, Mpc, No
-o4b_virgo_range, OfourbVirgoRange, 53.0033013035, Mpc, No
 o1_lho_median_range, OoneLHOMedianRange, 76.2757110959, Mpc, Yes
 o1_llo_median_range, OoneLLOMedianRange, 65.8002996701, Mpc, Yes
 o2_lho_median_range, OtwoLHOMedianRange, 66.0108832944, Mpc, Yes
@@ -48,6 +45,3 @@ o3b_llo_median_range, OthreebLLOMedianRange, 131.913506405, Mpc, Yes
 o3b_virgo_median_range, OthreebVirgoMedianRange, 51.109122194, Mpc, Yes
 o4a_lho_median_range, OfouraLHOMedianRange, 147.242336787, Mpc, Yes
 o4a_llo_median_range, OfouraLLOMedianRange, 155.339647537, Mpc, Yes
-o4b_lho_median_range, OfourbLHOMedianRange, 157.617254862, Mpc, No
-o4b_llo_median_range, OfourbLLOMedianRange, 167.143700169, Mpc, No
-o4b_virgo_median_range, OfourbVirgoMedianRange, 51.5401372656, Mpc, No
