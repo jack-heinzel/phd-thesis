@@ -57,7 +57,6 @@
 
 
 %%%%%%%%  Packages used in the sample chapters (not otherwise required) %%%
-\usepackage{xspace}
 %% Package for code listing in Appendix A.
 \usepackage{listings}%   documentation is here https://ctan.org/pkg/listings
 
@@ -283,9 +282,25 @@
 
 %%%%%%%%%%  Compatibility layer for journal-paper chapters  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%% Chapter 7 (GWTC-4) macros — loaded here so every macro is available when
+%% .lof/.lot/.toc aux files are read back at the start of the document.
+%% Safety patches: \usepackage → no-op, \newcommand → \providecommand.
+\newcommand{\gwtccommonfiles}{thesis/chapter_7/gwtc-common-files}
+\makeatletter
+\input{thesis/chapter_7/macros}
+\input{thesis/chapter_7/macros_from_json}
+\input{\gwtccommonfiles/commands}
+\input{\gwtccommonfiles/macros/symbol_macros}
+\input{\gwtccommonfiles/macros/misc_macros}
+\input{\gwtccommonfiles/macros/datetime_macros}
+\input{\gwtccommonfiles/macros/quantities_macros}
+
+
 %% RevTeX / AASTeX commands that don't exist in mitthesis -- make them no-ops.
 %% The author/affiliation blocks in each chapter are commented out anyway; these
 %% definitions are a safety net in case any stray usage slips through.
+
+
 \providecommand{\affiliation}[1]{}
 \providecommand{\email}[1]{}
 
@@ -363,7 +378,7 @@
 \newcommand{\drm}{{\rm d}}
 \newcommand{\irm}{{\rm i}}
 \newcommand{\Cdot}{\!\cdot\!}
-\newcommand{\SNR}{\textnormal{SNR}}
+% \newcommand{\SNR}{\textnormal{SNR}}
 \newcommand{\pvtwo}{\texttt{IMRPhenomPv2}}
 \newcommand{\xphm}{\texttt{IMRPhenomXPHM}}
 \newcommand{\pastro}{p_{\rm astro}}
@@ -567,12 +582,11 @@
 %% If you want to use "double spacing", you should start here...
 
 \include{thesis/introduction/introduction}
-\include{thesis/chapter_1/mnras_final}
-\include{thesis/chapter_2/main}
-\include{thesis/chapter_3/main}
-\include{thesis/chapter_4/arxiv/main}
-% \include{thesis/chapter_5/main}
-\include{thesis/chapter_6/draft/main}
+% \include{thesis/chapter_1/mnras_final}
+% \include{thesis/chapter_2/main}
+% \include{thesis/chapter_3/main}
+% \include{thesis/chapter_4/arxiv/main}
+% \include{thesis/chapter_6/draft/main}
 \include{thesis/chapter_7/paper}
 
 %%% Appendices of thesis  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -3,10 +3,11 @@
 \tablehead{
     \colhead{Model Type} & \colhead{Model Name} & \colhead{Description}
 }
+\resizebox{\textwidth}{!}{
 \startdata
-\textbf{Strongly Modeled:} & \PDB & Models the mass spectrum of all \acp{CBC} simultaneously with \\
-\textbf{Mass} & &  appropriate power-law and peak components. Also allows for a \\
-& & gap between the most massive \ac{NS} and the least massive \ac{BH}. \\[6pt]
+\textbf{Strongly Modeled:} & \PDB & Models the mass spectrum of all CBCs simultaneously with \\
+\textbf{Mass} & &  appropriate power-law and peak components. Also allows \\
+& & for a gap between the most massive \ac{NS} and the least massive \ac{BH}. \\[6pt]
 & \BrokenPLTwoPeaks $\bigstar$ & The primary mass distribution has a broken power law\\
 &  & continuum between a minimum and maximum mass, plus \\
 &  & two Gaussian peaks  around ${\sim} 10\,\Msun$ and ${\sim}35\,\Msun$. The   \\
@@ -16,9 +17,10 @@
 & \textsc{Law + 2 Peaks} &  primary masses in the continuum and in the $35\,\Msun$ peak. \\
 \hline
 \textbf{Strongly Modeled:} & \default $\bigstar$ & The spin magnitude population is a Gaussian truncated over \\
-\textbf{Component Spin} & & the physical range $\chi\in[0,1)$.  The distribution of cosine spin tilts \\
-& &  relative to the orbital angular momentum  includes an isotropic \\
-& &  (i.e., uniform) component and a truncated Gaussian component. \\
+\textbf{Component Spin} & & the physical range $\chi\in[0,1)$.  The distribution of cosine \\
+& & spin tilts relative to the orbital angular momentum \\
+& & includes an isotropic (i.e., uniform) component and \\
+& & a truncated Gaussian component.  \\
 \hline
 \textbf{Strongly Modeled:} & \effectiveSpinModel & The joint $\chieff$--$\chip$ effective spin distribution is a bivariate   \\
 \textbf{Effective Spin} & & Gaussian allowing for correlations. \\[6pt]
@@ -39,14 +41,14 @@
 & & dependence is flexibly modeled with a cubic spline. \\
 \hline
 \textbf{Weakly Modeled:} & {\BSpline} & Fits the astrophysical distribution as a separable joint \\
-\textbf{All Parameters} & & distribution with one-dimensional basis splines. Large numbers \\
-& &  of basis functions allow for flexibility, with difference-based \\
-& &  priors imposing smooth evolution \emph{a priori}. \\[6pt]
-& {\textsc{Binned Gaussian Process}} & Assumes a fixed binning scheme and infers the event rate under \\
-& &   the assumption of a constant rate within each bin, and a\\
-& &   Gaussian process prior imposing smooth covariance across bins. \\
+\textbf{All Parameters} & & distribution with one-dimensional basis splines. Large \\
+& & numbers of basis functions allow for flexibility, with \\
+& & based priors imposing smooth evolution \emph{a priori}. \\[6pt]
+& {\textsc{Binned Gaussian Process}} & Assumes a fixed binning scheme and infers the event rate \\
+& & under the assumption of a constant rate within each bin, \\
+& & and a Gaussian process prior imposing smooth covariance \\ 
+& & across bins. \\
 \enddata
-\tablenotetext{}{
-    \centering
-    \parbox{\textwidth}{Strongly modeled and weakly modeled approaches used to study the mass, spin, and redshift distributions of merging compact binaries. We provide a brief description of each model here, with detailed descriptions in Appendix~\ref{appendix:parametric_models_summary} and Appendix~\ref{appendix:non_parametric_models_summary}. Models marked with a $\bigstar$ are treated as defaults and are used whenever no model is explicitly indicated for a certain parameter. All \parametrics mentioned below target \acp{BBH}, with the exception of \PDB that is used to model the entire \ac{CBC} population.}}
+}
+\tablenotetext{}{Strongly modeled and weakly modeled approaches used to study the mass, spin, and redshift distributions of merging compact binaries. We provide a brief description of each model here, with detailed descriptions in Appendix~\ref{appendix:parametric_models_summary} and Appendix~\ref{appendix:non_parametric_models_summary}. Models marked with a $\bigstar$ are treated as defaults and are used whenever no model is explicitly indicated for a certain parameter. All \parametrics mentioned below target \acp{BBH}, with the exception of \PDB that is used to model the entire \ac{CBC} population.}
 \end{deluxetable*}

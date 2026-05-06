@@ -15,14 +15,13 @@ Our mass model is parameterized as
 \end{equation}
 where the one-dimensional mass distribution $\pi_m(m|\PEhyperparam)$ is given by
 \begin{align}
-\pi_m(m|\PEhyperparam) &=& [1 + c_1 \mathcal{N}_{[m_{\text{min}}, m_{\text{max}}]}(m|\mu_1, \sigma_1) + c_2 \mathcal{N}_{[m_{\text{min}}, m_{\text{max}}]}(m|\mu_2, \sigma_2)]
-n_1(m\,|\,m_{\text{NSmax}}, m_{\text{BHmin}}, \eta_{\text{NSmax}}, \eta_{\text{BHmin}}, A) \nonumber \\
-&& \times n_2(m\,|\,m_{\text{UMGmin}}, m_{\text{UMGmax}}, \eta_{\text{UMGmin}}, \eta_{\text{UMGmax}}, A_2) h(m\,|\,m_{\text{NSmin}}, \eta_{\text{NSmin}}) l(m\,|\,m_{\text{BHmax}}, \eta_{\text{BHmax}}) \nonumber \\
-&& \times
+\pi_m&(m|\PEhyperparam) =  \left[1 + c_1 \mathcal{N}_{[m_{\text{min}}, m_{\text{max}}]}(m|\mu_1, \sigma_1) + c_2 \mathcal{N}_{[m_{\text{min}}, m_{\text{max}}]}(m|\mu_2, \sigma_2)\right] \nonumber \\
+& \times n_1(m|m_\text{max}^\text{NS}, m_\text{min}^\text{BH}, \eta_\text{max}^\text{NS}, \eta_\text{min}^\text{BH}, A) \, n_2(m|m_\text{min}^\text{UMG}, m_\text{max}^\text{UMG}, \eta_\text{min}^\text{UMG}, \eta_\text{max}^\text{UMG}, A_2) \nonumber \\
+& \times h(m|m_\text{min}^\text{NS}, \eta_\text{min}^\text{NS}) \,l(m|m_\text{max}^\text{BH}, \eta_\text{max}^\text{BH}) 
 \begin{cases}
-m^{\alpha_1} & \text{if } m < m_{\text{NSmax}} \\
-m^{\alpha_{\text{dip}}} m_{\text{NSmax}}^{\alpha_1 - \alpha_{\text{dip}}} & \text{if } m_{\text{NSmax}} \leq m < m_{\text{BHmin}} \\
-m^{\alpha_2} m_{\text{NSmax}}^{\alpha_1 - \alpha_{\text{dip}}} m_{\text{BHmin}}^{\alpha_{\text{dip}} - \alpha_2} & \text{if } m \geq m_{\text{BHmin}}.
+m^{\alpha_1} & m < m_\text{max}^\text{NS} \\
+m^{\alpha_{\text{dip}}} [m_\text{max}^\text{NS}]^{\alpha_1 - \alpha_{\text{dip}}} &  m \in [m_\text{max}^\text{NS}, m_\text{min}^\text{BH}) \\
+m^{\alpha_2} [m_\text{max}^\text{NS}]^{\alpha_1 - \alpha_{\text{dip}}} [m_\text{min}^\text{BH}]^{\alpha_{\text{dip}} - \alpha_2} & m \geq m_\text{min}^\text{BH}.
 \end{cases}
 \label{eq: pdb mass model}
 \end{align}
@@ -32,10 +31,10 @@ $\mathcal{N}_{[a,b]}(\mu, \sigma)$ represents a truncated normal distribution ov
 The high-pass, low-pass and notch functions are defined as follows:
 
 \begin{align}
-    l(m|m_{\text{BHmax}}, \eta_{\text{BHmax}}) &= \left[1+\left(\frac{m}{m_{\text{BHmax}}}\right)^{\eta_{\text{BHmax}}}\right]^{-1},\\
-    h(m|m_{\text{NSmin}}, \eta_{\text{NSmin}}) &= 1 - l(m|m_{\text{NSmin}}, \eta_{\text{NSmin}}),\\
-    n_1(m|m_{\text{NSmax}}, m_{\text{BHmin}}, \eta_{\text{NSmax}}, \eta_{\text{BHmin}}, A) &= 1 - A l(m|m_{\text{NSmax}}, \eta_{\text{NSmax}}) h(m|m_{\text{BHmin}}, \eta_{\text{BHmin}}),\\
-	n_2(m|m_{\text{UMGmin}}, m_{\text{UMGmax}}, \eta_{\text{UMGmin}}, \eta_{\text{UMGmax}}, A_2) &= 1 - A_2 l(m|m_{\text{UMGmin}}, \eta_{\text{UMGmin}}) h(m|m_{\text{UMGmax}}, \eta_{\text{UMGmax}}).\\
+    \,l(m|m_\text{max}^\text{BH}, \eta_\text{max}^\text{BH}) &= \left[1+\left(\frac{m}{m_\text{max}^\text{BH}}\right)^{\eta_\text{max}^\text{BH}}\right]^{-1},\\
+    h(m|m_\text{min}^\text{NS}, \eta_\text{min}^\text{NS}) &= 1 - l(m|m_\text{min}^\text{NS}, \eta_\text{min}^\text{NS}),\\
+    n_1(m|m_\text{max}^\text{NS}, m_\text{min}^\text{BH}, \eta_\text{max}^\text{NS}, \eta_\text{min}^\text{BH}, A) &= 1 - A \,l(m|m_\text{max}^\text{NS}, \eta_\text{max}^\text{NS}) \,h(m|m_\text{min}^\text{BH}, \eta_\text{min}^\text{BH}),\\
+	n_2(m|m_\text{min}^\text{UMG}, m_\text{max}^\text{UMG}, \eta_\text{min}^\text{UMG}, \eta_\text{max}^\text{UMG}, A_2) &= 1 - A_2 \,l(m|m_\text{min}^\text{UMG}, \eta_\text{min}^\text{UMG}) \,h(m|m_\text{max}^\text{UMG}, \eta_\text{max}^\text{UMG}).\\
 \end{align}
 
 The pairing function
@@ -59,15 +58,16 @@ Pairing Function & $\beta_1$ & -- & Spectral index below $5 \, \Msun$ & U($-2, 3
 & $\beta_2$ & -- & Spectral index above $5\, \Msun$ & U($-2, 7$) \\
 \colrule
 Broken Power-Law & $\alpha_1$ & -- & Powerlaw below $m_{\text{NS max}}$ & U($-10, 2$) \\
-& $\alpha_{\text{dip}}$ & -- & Powerlaw between $m_{\text{NS max}}$ and $m_{\text{BH min}}$ & U($-3, 2$) \\
+& $\alpha_{\text{dip}}$ & -- & Powerlaw between  & U($-3, 2$) \\
+&  &  & $m_{\text{NS max}}$ and $m_{\text{BH min}}$ &  \\
 & $\alpha_2$ & -- & Powerlaw above $m_{\text{BH min}}$ & U($-3, 2$) \\
 & $m_{\text{brk}}$ & $\Msun$ & Break point between $\alpha_1$ and $\alpha_2$ & $5$ \\
 \colrule
 Highpass Filter & $m_{\text{NS min}}$ & $\Msun$ & Low-mass roll-off & U($1, 1.4$) \\
 & $\eta_{\text{min}}$ & -- & Sharpness at $m_{\text{NS min}}$ & $50$ \\
 \colrule
-Lowpass Filter & $m_{\text{BHmax}}$ & $\Msun$ & High-mass roll-off & U($60, 200$) \\
-& $\eta_{\text{max}}$ & -- & Sharpness at $m_{\text{BHmax}}$ & U($-4, 12$) \\
+Lowpass Filter & $m_\text{max}^\text{BH}$ & $\Msun$ & High-mass roll-off & U($60, 200$) \\
+& $\eta_{\text{max}}$ & -- & Sharpness at $m_\text{max}^\text{BH}$ & U($-4, 12$) \\
 \colrule
 Low-Mass Notch & $m_{\text{NS max}}$ & $\Msun$ & Lower notch edge & U($1.4, 5$) \\
 & $\eta^{\text{low}}_1$ & -- & Sharpness at $m_{\text{NS max}}$ & $50$ \\
@@ -75,10 +75,10 @@ Low-Mass Notch & $m_{\text{NS max}}$ & $\Msun$ & Lower notch edge & U($1.4, 5$) 
 & $\eta^{\text{high}}_1$ & -- & Sharpness at $m_{\text{BH min}}$ & $50$ \\
 & $A_1$ & -- & Notch depth & $0$ \\
 \colrule
-High-Mass Notch & $m_{\text{UMGmin}}$ & $\Msun$ & Lower notch edge & U($30, 90$) \\
-& $\eta^{\text{low}}_2$ & -- & Sharpness at $m_{\text{UMGmin}}$ & $30$ \\
-& $m_{\text{UMGmax}}$ & $\Msun$ & Upper notch edge & U($60, 150$) \\
-& $\eta^{\text{high}}_2$ & -- & Sharpness at $m_{\text{UMGmax}}$ & $30$ \\
+High-Mass Notch & $m_\text{min}^\text{UMG}$ & $\Msun$ & Lower notch edge & U($30, 90$) \\
+& $\eta^{\text{low}}_2$ & -- & Sharpness at $m_\text{min}^\text{UMG}$ & $30$ \\
+& $m_\text{max}^\text{UMG}$ & $\Msun$ & Upper notch edge & U($60, 150$) \\
+& $\eta^{\text{high}}_2$ & -- & Sharpness at $m_\text{max}^\text{UMG}$ & $30$ \\
 & $A_2$ & -- & Depth of high-mass notch & U($0, 1$) \\
 \colrule
 Low-Mass Peak & $\mu^{\text{peak}}_2$ & $\Msun$ & Peak location & U($6, 12$) \\
@@ -103,11 +103,14 @@ High-Mass Peak & $\mu^{\text{peak}}_1$ & $\Msun$ & Peak location & U($17, 50$) \
 }
 \label{tab:parameters_ns}
 \startdata
-$\alpha$ & -- & Spectral index for the power-law in the \textsc{Power} NS mass distribution. & U($-15$, $5$) \\
+$\alpha$ & -- & Spectral index for the power-law in the  & U($-15$, $5$) \\
+&  & \textsc{Power} NS mass distribution. &  \\
 $m_{\rm min}$ & $\Msun$ & Minimum mass of the \ac{NS} mass distribution. & U($1.0$, $1.5$) \\
 $m_{\rm max}$ & $\Msun$ & Maximum mass of the \ac{NS} mass distribution. & U($1.5$, $3.0$) \\
-$\mu$ & $\Msun$ & Location of the Gaussian peak in the \textsc{Peak} \ac{NS} mass distribution. & U($1.0$, $3.0$) \\
-$\sigma$ & $\Msun$ & Width of the Gaussian peak in the \textsc{Peak} \ac{NS} mass distribution. & U($0.01$, $2.00$) \\
+$\mu$ & $\Msun$ & Location of the Gaussian peak in the  & U($1.0$, $3.0$) \\
+ & & \textsc{Peak} \ac{NS} mass distribution. &  \\
+$\sigma$ & $\Msun$ & Width of the Gaussian peak in the & U($0.01$, $2.00$) \\
+ &  & \textsc{Peak} \ac{NS} mass distribution. & \\
 \enddata
 \tablecomments{U($x$, $y$) denotes a Uniform prior between $x$ and $y$.}
 \end{deluxetable}
@@ -187,7 +190,7 @@ S(m|m_{\rm low}, \delta_m) =  \begin{cases}
 
 \noindent with
 $$
-f(m', \delta_m) = \text{exp} \Biggl( \frac{\delta_m}{m'} + \frac{\delta_m}{m' - \delta_m} \Biggr).
+f(m', \delta_m) = \exp \left( \frac{\delta_m}{m'} + \frac{\delta_m}{m' - \delta_m} \right).
 $$
 
 We model the mass ratio as a power law with index $\beta_q$ and low-mass tapering applied to secondary mass $m_2$, conditioned on primary mass $m_1$,
@@ -203,7 +206,7 @@ p_{\rm PL}(q | m_1, \beta_q, m_{2,{\rm low}}, \delta_{m,2}) \propto q^{\beta_q} 
 \begin{align} \label{eq:exbp2p}
 \pi(m_1, q | {\PEhyperparam})\propto \Biggl[ &\lambda_0 p_{\rm BP}(m_1|\alpha_1, \alpha_2, m_{\rm break}, m_{1,{\rm low}}, m_{\rm high}) p_{\rm PL}(q | m_1, \beta_q^{\rm BP}, m_{2,{\rm low}}^{\rm BP}, \delta_{m,2}^{\rm BP})  \\ \nonumber
 & + \lambda_1 \mathcal{N}_{lt}(m_1 | \mu_1, \sigma_1, \text{low} = m_{1,{\rm low}}) p_{\rm PL}(q | m_1, \beta_q^{\rm peak1}, m_{2,{\rm low}}^{\rm peak1}, \delta_{m,2}^{\rm peak1}) \\ \nonumber
-& + (1 - \lambda_0 - \lambda_1) \mathcal{N}_{lt}(m_1|\mu_2, \sigma_2, \text{low} = m_{1,{\rm low}}) p_{\rm PL}(q | m_1, \beta_q^{\rm peak2}, m_{2,{\rm low}}^{\rm peak2}, \delta_{m,2}^{\rm peak2}) \Biggr] S(m_1 | m_{1,{\rm low}}, \delta_{m,1}),
+&  + (1 - \lambda_0 - \lambda_1) \mathcal{N}_{lt}(m_1|\mu_2, \sigma_2, \text{low} = m_{1,{\rm low}}) p_{\rm PL}(q | m_1, \beta_q^{\rm peak2}, m_{2,{\rm low}}^{\rm peak2}, \delta_{m,2}^{\rm peak2}) \Biggr] \\ & \hspace{-4mm} \times S(m_1 | m_{1,{\rm low}}, \delta_{m,1}),\nonumber
 \end{align}
 
 \noindent where the superscripts (BP, peak1, and peak2) denote the different mass ratio hyperparameters ($\beta_q$, $m_{2,{\rm low}}$, $\delta_{m,2}$) for the broken power law, first Gaussian, and second Gaussian components. The priors on these hyperparameters are the same as those used in the \BrokenPLTwoPeaks model, listed in Table \ref{tab:parameters_default}, except for the power law index parameters $\beta_q$, which assume U$(-10,13)$.
@@ -225,7 +228,8 @@ $\sigma_2$ & Width of the second peak & U$(0,10)$ \\
 $m_{\rm 1, low}$ & Lower edge of taper function & U$(3, 10)$ \\
 $\delta_{\rm m,1}$ & Mass range of low mass tapering & U$(0,10)$ \\
 $\lambda_0, \lambda_1$ & Mixing fractions between power law and peaks & ${\rm Dir}(\mathbf{\alpha}=(1,1,1))$ \\
-$m_{\rm high}$ & Maximum mass for distribution, which is pinned to $m_{\rm high} = 300\,\Msun$ by default & $\delta(m_{\rm high} - 300)$ \\
+$m_{\rm high}$ & Maximum mass for distribution, which is pinned & $\delta(m_{\rm high} - 300)$ \\
+& to $m_{\rm high} = 300\,\Msun$ by default &  \\
 \colrule
 $\beta_q$ & Spectral index of mass ratio power law & U$(-2,7)$ \\
 $m_{\rm 2, low}$ & Lower edge of taper function in $m_2$ & U$(3, m_{\rm 1, low})$ \\
@@ -325,15 +329,14 @@ Priors on the \default~hyperparameters are given in Table~\ref{tab:componentSpin
 {\sc Minimum Tilt Model}:
 For the spin tilts, we also use a model in which $t_{\rm min}$ (where $t\equiv\cos\theta$), a hard lower truncation of $\pi(\cos\theta)$, is informed by the data. 
 In this case the population distribution becomes 
-\begin{equation}
-    \pi(\cos\theta_i| \mu_t, \sigma_t, \zeta, t_{\rm min} ) =
+\begin{multline}
+    \pi(\cos\theta_i| \mu_t, \sigma_t, \zeta, t_{\rm min} ) \\ =
 	\begin{cases} 
-        \zeta \,\mathcal{N}_{[t_{\rm min},1]}(\cos\theta_1 | \mu_t, \sigma_t)\mathcal{N}_{[t_{\rm min},1]}(\cos\theta_2 | \mu_t, \sigma_t) + \displaystyle \frac{1-\zeta}{(1-t_{\rm min})^2} \qquad\,\cos\theta_i > t_{\rm min}\,\,, \\
-        0 \qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\quad 
-		\cos\theta_i \leq t_{\rm min}\,\,.
+        \zeta \,\mathcal{N}_{[t_{\rm min},1]}(\cos\theta_1 | \mu_t, \sigma_t)\mathcal{N}_{[t_{\rm min},1]}(\cos\theta_2 | \mu_t, \sigma_t) + \displaystyle \frac{1-\zeta}{(1-t_{\rm min})^2} & \cos\theta_i > t_{\rm min}\,\,, \\
+        0 & \cos\theta_i \leq t_{\rm min}\,\,.
 	\end{cases}
 	\label{eqn:spin_tilt_model_with_min}
-\end{equation}
+\end{multline}
 Equation \eqref{eqn:spin_tilt_model} is the same as Equation~\eqref{eqn:spin_tilt_model_with_min} with $t_{\rm min} = - 1$.
 The prior on $t_{\rm min}$ and other hyperparameters are given in Table~\ref{tab:componentSpinPriors}.
 
@@ -368,12 +371,12 @@ The acronym IID means they are independently and identically distributed, while 
 	\label{eqn:ind_mags}
 \end{align}
 %
-The tilt angles, on the other hand, are \textit{non-independently} distributed, meaning that $\pi(\cos\theta_1, \cos\theta_2)$ is not separable.
-The acronynm NID means they are non-independently but identically distributed, while NND means non-independently and non-identically distributed:
+The tilt angles, on the other hand, are \textit{non-independently} distributed, meaning that the distribution $\pi(\cos\theta_1, \cos\theta_2)$ is not separable.
+The acronym NID means they are non-independently but identically distributed, while NND means non-independently and non-identically distributed:
 %
 \begin{align}
 	\cos\theta_i~\mathrm{NID} & \implies \pi(\cos\theta_{1,2}|\zeta, \mu_t, \sigma_t) = \zeta \,\mathcal{N}_{[-1,1]}(\cos\theta_1 | \mu_t, \sigma_t)\,\mathcal{N}_{[-1,1]}(\cos\theta_2 | \mu_t, \sigma_t) + \frac{1-\zeta}{4} \label{eqn:nid_tilts} \,\, ,\\
-	\cos\theta_i~\mathrm{NND} & \implies \pi(\cos\theta_{1,2}|\zeta, \mu_{t,1}, \sigma_{t,1}, \mu_{t,2}, \sigma_{t,2}) = \zeta \,\mathcal{N}_{[-1,1]}(\cos\theta_1 | \mu_{t,1}, \sigma_{t,1})\,\mathcal{N}_{[-1,1]}(\cos\theta_2 | \mu_{t,2}, \sigma_{t,2})  + \frac{1-\zeta}{4} \,\,.
+	\cos\theta_i~\mathrm{NND} & \implies \pi(\cos\theta_{1,2}|\zeta, \mu_{t,1}, \sigma_{t,1}, \mu_{t,2}, \sigma_{t,2}) \\ & \qquad\qquad\qquad\qquad = \zeta \,\mathcal{N}_{[-1,1]}(\cos\theta_1 | \mu_{t,1}, \sigma_{t,1})\,\mathcal{N}_{[-1,1]}(\cos\theta_2 | \mu_{t,2}, \sigma_{t,2})  + \frac{1-\zeta}{4} \,\,.
 	\label{eqn:nnd_tilts}
 \end{align}
 %
@@ -457,7 +460,9 @@ Priors on the hyperparameters are given in Table \ref{tab:effectiveSpinPriors}.
 }
 \label{tab:parameters_correlations}
 \startdata
-$\kappa_{x,y}$ & Level of correlation between parameters $x$ and $y$ inferred with a copula & U$(-20, 20)$ \\
+$\kappa_{x,y}$ & Level of correlation between parameters & U$(-20, 20)$ \\
+& $x$ and $y$ inferred with a copula &
+\\
 \colrule
 $\mu_{\mathrm{eff}|q}$ & $q=1$ intercept in linear $\mu_\mathrm{eff}(q)$ & U$(-1, 1)$ \\
 $\delta \mu_{\mathrm{eff}|q}$ & Gradient in linear $\mu_\mathrm{eff}(q)$ & U$(-2, 2)$ \\

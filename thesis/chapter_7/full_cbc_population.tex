@@ -57,17 +57,31 @@ We discuss the behavior of the population at the transition from \acp{NS} to \ac
 \tablecaption{Merger rates in units $\perGpcyr$ in different mass ranges, according to the \PDB and \ac{BGP} models. }
 \tablewidth{0pt}
 \tablehead{
-    \colhead{} & \colhead{BNS} & \colhead{NSBH} & \colhead{BBH} & \colhead{NS--Gap} & \colhead{BH--Gap} & \colhead{Full} \\
-    \colhead{} & \colhead{$m_1 \in [1, 2.5]\,\Msun$} & \colhead{$m_1 > 2.5 \,\Msun$} & \colhead{$m_1 > 2.5\,\Msun$} & \colhead{$m_1 \in [2.5, 5]\,\Msun$} & \colhead{$m_1 > 2.5\,\Msun$} & \colhead{$m_1 > 1\,\Msun$} \\
-    \colhead{} & \colhead{$m_2 \in [1, 2.5]\,\Msun$} & \colhead{$m_2 \in [1, 2.5]\,\Msun$} & \colhead{$m_2 > 2.5\,\Msun$} & \colhead{$m_2 \in [1, 2.5]\,\Msun$} & \colhead{$m_2 \in [2.5, 5]\,\Msun$} & \colhead{$m_2 > 1\,\Msun$}
+    \colhead{} & \colhead{BNS} & \colhead{NSBH} & \colhead{BBH}  \\
+    \colhead{} & \colhead{$m_1 \in [1, 2.5]\,\Msun$} & \colhead{$m_1 > 2.5 \,\Msun$} & \colhead{$m_1 > 2.5\,\Msun$}  \\
+    \colhead{} & \colhead{$m_2 \in [1, 2.5]\,\Msun$} & \colhead{$m_2 \in [1, 2.5]\,\Msun$} & \colhead{$m_2 > 2.5\,\Msun$} 
 }
 \label{tab:inferred_merger_rate}
 \startdata
-\PDB & $\FullMassSpectrumPDB[rates][BNS][median]^{+\FullMassSpectrumPDB[rates][BNS][error plus]}_{-\FullMassSpectrumPDB[rates][BNS][error minus]}$ & $\FullMassSpectrumPDB[rates][NSBH][median]^{+\FullMassSpectrumPDB[rates][NSBH][error plus]}_{-\FullMassSpectrumPDB[rates][NSBH][error minus]}$ & $\FullMassSpectrumPDB[rates][BBH][median]^{+\FullMassSpectrumPDB[rates][BBH][error plus]}_{-\FullMassSpectrumPDB[rates][BBH][error minus]}$ & $\FullMassSpectrumPDB[rates][NS-Gap][median]^{+\FullMassSpectrumPDB[rates][NS-Gap][error plus]}_{-\FullMassSpectrumPDB[rates][NS-Gap][error minus]}$ & $\FullMassSpectrumPDB[rates][BH-Gap][median]^{+\FullMassSpectrumPDB[rates][BH-Gap][error plus]}_{-\FullMassSpectrumPDB[rates][BH-Gap][error minus]}$ & $\FullMassSpectrumPDB[rates][Full][median]^{+\FullMassSpectrumPDB[rates][Full][error plus]}_{-\FullMassSpectrumPDB[rates][Full][error minus]}$ \\
-\ac{BGP} & $\FullMassSpectrumBGPRate[R_BNS][50th_percentile]^{+\FullMassSpectrumBGPRate[R_BNS][error_plus]}_{-\FullMassSpectrumBGPRate[R_BNS][error_minus]}$ & $\FullMassSpectrumBGPRate[R_NSBH][50th_percentile]^{+\FullMassSpectrumBGPRate[R_NSBH][error_plus]}_{-\FullMassSpectrumBGPRate[R_NSBH][error_minus]}$ & $\FullMassSpectrumBGPRate[R_BBH][50th_percentile]^{+\FullMassSpectrumBGPRate[R_BBH][error_plus]}_{-\FullMassSpectrumBGPRate[R_BBH][error_minus]}$ & $\FullMassSpectrumBGPRate[R_NS-Gap][50th_percentile]^{+\FullMassSpectrumBGPRate[R_NS-Gap][error_plus]}_{-\FullMassSpectrumBGPRate[R_NS-Gap][error_minus]}$ & $\FullMassSpectrumBGPRate[R_BH-Gap][50th_percentile]^{+\FullMassSpectrumBGPRate[R_BH-Gap][error_plus]}_{-\FullMassSpectrumBGPRate[R_BH-Gap][error_minus]}$ & $\FullMassSpectrumBGPRate[R_Full][50th_percentile]^{+\FullMassSpectrumBGPRate[R_Full][error_plus]}_{-\FullMassSpectrumBGPRate[R_Full][error_minus]}$ \\
-Merged & $\FullMassSpectrumMerged[R_BNS][5th_percentile]$--$\FullMassSpectrumMerged[R_BNS][95th_percentile]$ & $\FullMassSpectrumMerged[R_NSBH][5th_percentile]$--$\FullMassSpectrumMerged[R_NSBH][95th_percentile]$ & $\FullMassSpectrumMerged[R_BBH][5th_percentile]$--$\FullMassSpectrumMerged[R_BBH][95th_percentile]$ & $\FullMassSpectrumMerged[R_NS-Gap][5th_percentile]$--$\FullMassSpectrumMerged[R_NS-Gap][95th_percentile]$ & $\FullMassSpectrumMerged[R_BH-Gap][5th_percentile]$--$\FullMassSpectrumMerged[R_BH-Gap][95th_percentile]$ & $\FullMassSpectrumMerged[R_Full][5th_percentile]$--$\FullMassSpectrumMerged[R_Full][95th_percentile]$ \\
+\PDB & $\FullMassSpectrumPDB[rates][BNS][median]^{+\FullMassSpectrumPDB[rates][BNS][error plus]}_{-\FullMassSpectrumPDB[rates][BNS][error minus]}$ & $\FullMassSpectrumPDB[rates][NSBH][median]^{+\FullMassSpectrumPDB[rates][NSBH][error plus]}_{-\FullMassSpectrumPDB[rates][NSBH][error minus]}$ & $\FullMassSpectrumPDB[rates][BBH][median]^{+\FullMassSpectrumPDB[rates][BBH][error plus]}_{-\FullMassSpectrumPDB[rates][BBH][error minus]}$  \\
+\ac{BGP} & $\FullMassSpectrumBGPRate[R_BNS][50th_percentile]^{+\FullMassSpectrumBGPRate[R_BNS][error_plus]}_{-\FullMassSpectrumBGPRate[R_BNS][error_minus]}$ & $\FullMassSpectrumBGPRate[R_NSBH][50th_percentile]^{+\FullMassSpectrumBGPRate[R_NSBH][error_plus]}_{-\FullMassSpectrumBGPRate[R_NSBH][error_minus]}$ & $\FullMassSpectrumBGPRate[R_BBH][50th_percentile]^{+\FullMassSpectrumBGPRate[R_BBH][error_plus]}_{-\FullMassSpectrumBGPRate[R_BBH][error_minus]}$  \\
+Merged & $\FullMassSpectrumMerged[R_BNS][5th_percentile]$--$\FullMassSpectrumMerged[R_BNS][95th_percentile]$ & $\FullMassSpectrumMerged[R_NSBH][5th_percentile]$--$\FullMassSpectrumMerged[R_NSBH][95th_percentile]$ & $\FullMassSpectrumMerged[R_BBH][5th_percentile]$--$\FullMassSpectrumMerged[R_BBH][95th_percentile]$ \\
 \colrule
-\textsc{Simple Uniform BNS} & $\CIBoundsDash{\simplerates[RBNS]}$ & -- & -- & -- & -- & -- \\
+\textsc{Simple Uniform BNS} & $\simplerates[RBNS][5th percentile]$ -- $\simplerates[RBNS][95th percentile]$ & -- & -- \\
+\enddata
+\vspace{1mm}
+\tablewidth{0pt}
+\tablehead{
+    \colhead{} & \colhead{NS--Gap} & \colhead{BH--Gap} & \colhead{Full} \\
+    \colhead{} & \colhead{$m_1 \in [2.5, 5]\,\Msun$} & \colhead{$m_1 > 2.5\,\Msun$} & \colhead{$m_1 > 1\,\Msun$} \\
+    \colhead{} & \colhead{$m_2 \in [1, 2.5]\,\Msun$} & \colhead{$m_2 \in [2.5, 5]\,\Msun$} & \colhead{$m_2 > 1\,\Msun$}
+}
+\startdata
+\PDB & $\FullMassSpectrumPDB[rates][NS-Gap][median]^{+\FullMassSpectrumPDB[rates][NS-Gap][error plus]}_{-\FullMassSpectrumPDB[rates][NS-Gap][error minus]}$ & $\FullMassSpectrumPDB[rates][BH-Gap][median]^{+\FullMassSpectrumPDB[rates][BH-Gap][error plus]}_{-\FullMassSpectrumPDB[rates][BH-Gap][error minus]}$ & $\FullMassSpectrumPDB[rates][Full][median]^{+\FullMassSpectrumPDB[rates][Full][error plus]}_{-\FullMassSpectrumPDB[rates][Full][error minus]}$ \\
+\ac{BGP} & $\FullMassSpectrumBGPRate[R_NS-Gap][50th_percentile]^{+\FullMassSpectrumBGPRate[R_NS-Gap][error_plus]}_{-\FullMassSpectrumBGPRate[R_NS-Gap][error_minus]}$ & $\FullMassSpectrumBGPRate[R_BH-Gap][50th_percentile]^{+\FullMassSpectrumBGPRate[R_BH-Gap][error_plus]}_{-\FullMassSpectrumBGPRate[R_BH-Gap][error_minus]}$ & $\FullMassSpectrumBGPRate[R_Full][50th_percentile]^{+\FullMassSpectrumBGPRate[R_Full][error_plus]}_{-\FullMassSpectrumBGPRate[R_Full][error_minus]}$ \\
+Merged & $\FullMassSpectrumMerged[R_NS-Gap][5th_percentile]$--$\FullMassSpectrumMerged[R_NS-Gap][95th_percentile]$ & $\FullMassSpectrumMerged[R_BH-Gap][5th_percentile]$--$\FullMassSpectrumMerged[R_BH-Gap][95th_percentile]$ & $\FullMassSpectrumMerged[R_Full][5th_percentile]$--$\FullMassSpectrumMerged[R_Full][95th_percentile]$ \\
+\colrule
+\textsc{Simple Uniform BNS} & -- & -- & -- \\
 \enddata
 \tablecomments{For \ac{BNS} systems, we also estimate the rate assuming a \textsc{Simple Uniform BNS} model. We show rates of \ac{BNS}, \ac{NSBH}, and \ac{BBH} assuming objects with mass $m \in [1, 2.5]\,\Msun$ are \acp{NS} and $m>2.5\,\Msun$ are \acp{BH}. We also show rates within the purported lower-mass gap between astrophysical \acp{NS} and \acp{BH}, according to these models. In the third row, we show the merged estimates, taking the union of the 90\% credible intervals for the \PDB and \ac{BGP} models, in order to account for model systematics. We quote merger rates at redshift $z=0$.}
 \end{deluxetable*}
@@ -87,7 +101,7 @@ In Table~\ref{tab:inferred_merger_rate}, we show rates in these classes using di
 
 The \ac{BNS} merger rate measurements may be sensitive to assumptions about \ac{NS} pairing, and so we also estimate the \ac{BNS} merger rate assuming a simple, fixed population. 
 We assume a uniform mass distribution between $1\,\Msun$ and $2.5\,\Msun$ for the component masses, isotropically distributed spins with uniform spin magnitudes below $0.4$, and a merger rate uniform in comoving volume up to $z=0.15$. 
-Under this fiducial model (denoted \textsc{Simple Uniform BNS} in Table~\ref{tab:inferred_merger_rate}), we infer a \ac{BNS} merger rate of $\CIBoundsDash{\simplerates[RBNS]}\,\perGpcyr$. 
+Under this fiducial model (denoted \textsc{Simple Uniform BNS} in Table~\ref{tab:inferred_merger_rate}), we infer a \ac{BNS} merger rate of $\simplerates[RBNS][5th percentile]$ -- $\simplerates[RBNS][95th percentile]\,\perGpcyr$. 
 
 The estimates in Table~\ref{tab:inferred_merger_rate} are consistent with our previous analysis \citep{KAGRA:2021duu} and the uncertainties on the rate in each source class have generally decreased due to our larger catalog size. 
 Although it is within uncertainties, our inferred merger rate for \ac{BNS} systems has notably decreased by a factor of $\sim 2$ (cf. PDB (pair) and \ac{BGP} in Table 2 of \citealt{KAGRA:2021duu}). 
