@@ -57,34 +57,34 @@ We show the priors and describe the parameters of the \PDB model in Table~\ref{t
 \startdata
 Pairing Function & $\beta_1$ & -- & Spectral index below $5 \, \Msun$ & U($-2, 3$) \\
 & $\beta_2$ & -- & Spectral index above $5\, \Msun$ & U($-2, 7$) \\
-\tableline
+\colrule
 Broken Power-Law & $\alpha_1$ & -- & Powerlaw below $m_{\text{NS max}}$ & U($-10, 2$) \\
 & $\alpha_{\text{dip}}$ & -- & Powerlaw between $m_{\text{NS max}}$ and $m_{\text{BH min}}$ & U($-3, 2$) \\
 & $\alpha_2$ & -- & Powerlaw above $m_{\text{BH min}}$ & U($-3, 2$) \\
 & $m_{\text{brk}}$ & $\Msun$ & Break point between $\alpha_1$ and $\alpha_2$ & $5$ \\
-\tableline
+\colrule
 Highpass Filter & $m_{\text{NS min}}$ & $\Msun$ & Low-mass roll-off & U($1, 1.4$) \\
 & $\eta_{\text{min}}$ & -- & Sharpness at $m_{\text{NS min}}$ & $50$ \\
-\tableline
+\colrule
 Lowpass Filter & $m_{\text{BHmax}}$ & $\Msun$ & High-mass roll-off & U($60, 200$) \\
 & $\eta_{\text{max}}$ & -- & Sharpness at $m_{\text{BHmax}}$ & U($-4, 12$) \\
-\tableline
+\colrule
 Low-Mass Notch & $m_{\text{NS max}}$ & $\Msun$ & Lower notch edge & U($1.4, 5$) \\
 & $\eta^{\text{low}}_1$ & -- & Sharpness at $m_{\text{NS max}}$ & $50$ \\
 & $m_{\text{BH min}}$ & $\Msun$ & Upper notch edge & U($5, 9$) \\
 & $\eta^{\text{high}}_1$ & -- & Sharpness at $m_{\text{BH min}}$ & $50$ \\
 & $A_1$ & -- & Notch depth & $0$ \\
-\tableline
+\colrule
 High-Mass Notch & $m_{\text{UMGmin}}$ & $\Msun$ & Lower notch edge & U($30, 90$) \\
 & $\eta^{\text{low}}_2$ & -- & Sharpness at $m_{\text{UMGmin}}$ & $30$ \\
 & $m_{\text{UMGmax}}$ & $\Msun$ & Upper notch edge & U($60, 150$) \\
 & $\eta^{\text{high}}_2$ & -- & Sharpness at $m_{\text{UMGmax}}$ & $30$ \\
 & $A_2$ & -- & Depth of high-mass notch & U($0, 1$) \\
-\tableline
+\colrule
 Low-Mass Peak & $\mu^{\text{peak}}_2$ & $\Msun$ & Peak location & U($6, 12$) \\
 & $\sigma^{\text{peak}}_2$ & $\Msun$ & Peak width & U($0, 5$) \\
 & $c_2$ & -- & Peak height & U($0, 500$) \\
-\tableline
+\colrule
 High-Mass Peak & $\mu^{\text{peak}}_1$ & $\Msun$ & Peak location & U($17, 50$) \\
 & $\sigma^{\text{peak}}_1$ & $\Msun$ & Peak width & U($4, 20$) \\
 & $c_1$ & -- & Peak height & U($0, 1000$) \\
@@ -226,7 +226,7 @@ $m_{\rm 1, low}$ & Lower edge of taper function & U$(3, 10)$ \\
 $\delta_{\rm m,1}$ & Mass range of low mass tapering & U$(0,10)$ \\
 $\lambda_0, \lambda_1$ & Mixing fractions between power law and peaks & ${\rm Dir}(\mathbf{\alpha}=(1,1,1))$ \\
 $m_{\rm high}$ & Maximum mass for distribution, which is pinned to $m_{\rm high} = 300\,\Msun$ by default & $\delta(m_{\rm high} - 300)$ \\
-\tableline
+\colrule
 $\beta_q$ & Spectral index of mass ratio power law & U$(-2,7)$ \\
 $m_{\rm 2, low}$ & Lower edge of taper function in $m_2$ & U$(3, m_{\rm 1, low})$ \\
 $\delta_{\rm m,2}$ & Mass range of low mass tapering in $m_2$ & U$(0,10)$ \\
@@ -293,7 +293,7 @@ $\sigma_\chi$ & Width of the $\chi$ distribution & U($0.005$, $1$) \\
 $\mu_t$ & Location of the Gaussian component of the $\cos\theta$ distribution & U($-1$, $1$) \\
 $\sigma_t$ & Width of the Gaussian component of the $\cos\theta$ distribution & U($0.01$, $4$) \\
 $\zeta$ & Fraction in the Gaussian component of the $\cos\theta$ distribution & U($0$, $1$) \\
-\tableline
+\colrule
 $t_{\rm min}$ & Minimum of the $\cos\theta$ distribution & U($-1$, $1$) \\
 \enddata
 \tablecomments{U stands for a uniform prior.}
@@ -395,9 +395,9 @@ $\mu_\mathrm{eff}$ & Location of the $\chieff$ distribution & U($-1$, $1$) & U($
 $\sigma_\mathrm{eff}$ & Width of the $\chieff$ distribution & U($0.05$, $1$) & LU($0.01$, $4$) \\
 $\mu_p$ & Location of the $\chi_\mathrm{p}$ distribution & U($0.05$, $1$) & U($0.01$, $1$) \\
 $\sigma_p$ & Width of the $\chi_\mathrm{p}$ distribution & U($0.07$, $1$)& LU($0.01$, $1$)\\
-\tableline
+\colrule
 $\rho$ & Degree of correlation between $\chieff$ and $\chi_\mathrm{p}$ & U($-0.75$, $0.75$) & N/A \\
-\tableline
+\colrule
 $\epsilon $ & Skew of the $\chieff$ distribution & N/A & U($-1$, $1$) \\
 \enddata
 \tablecomments{The first column of priors ({\bf G}) gives those used for the \effectiveSpinModel results, the second column ({\bf SN}) is \skewnormalChiEff. U stands for a uniform prior; LU for log-uniform.}
@@ -458,20 +458,20 @@ Priors on the hyperparameters are given in Table \ref{tab:effectiveSpinPriors}.
 \label{tab:parameters_correlations}
 \startdata
 $\kappa_{x,y}$ & Level of correlation between parameters $x$ and $y$ inferred with a copula & U$(-20, 20)$ \\
-\tableline
+\colrule
 $\mu_{\mathrm{eff}|q}$ & $q=1$ intercept in linear $\mu_\mathrm{eff}(q)$ & U$(-1, 1)$ \\
 $\delta \mu_{\mathrm{eff}|q}$ & Gradient in linear $\mu_\mathrm{eff}(q)$ & U$(-2, 2)$ \\
 $\ln \sigma_{\mathrm{eff}|q}$ & $q=1$ intercept in linear $\ln \sigma_\mathrm{eff}(z)$ & U$(-5, 0)$ \\
 $\delta \ln \sigma_{\mathrm{eff}|q}$ & Gradient in linear $\ln \sigma_\mathrm{eff}(q)$ & U$(-12, 4)$ \\
-\tableline
+\colrule
 $\mu_{\mathrm{eff}|z}$ & $z=0$ intercept in linear $\mu_\mathrm{eff}(z)$ & U$(-1, 1)$ \\
 $\delta \mu_{\mathrm{eff}|z}$ & Gradient in linear $\mu_\mathrm{eff}(z)$ & U$(-1, 1)$ \\
 $\ln \sigma_{\mathrm{eff}|z}$ & $z=0$ intercept in linear $\ln \sigma_\mathrm{eff}(z)$ & U$(-5, 0)$ \\
 $\delta \ln \sigma_{\mathrm{eff}|z}$ & Gradient in linear $\ln \sigma_\mathrm{eff}(z)$ & U$(-3, 5)$ \\
-\tableline
+\colrule
 $\mu_{\mathrm{eff}|q}^i$ & $i^\mathrm{th}$ node in spline $\mu_\mathrm{eff}(q)$ & U$(-1, 1)$ \\
 $\ln \sigma_{\mathrm{eff}|q}^i$ & $i^\mathrm{th}$ node in spline $\ln \sigma_\mathrm{eff}(q)$ & U$(-5, 0)$ \\
-\tableline
+\colrule
 $\mu_{\mathrm{eff}|z}^i$ & $i^\mathrm{th}$ node in spline $\mu_\mathrm{eff}(z)$ & U$(-1, 1)$ \\
 $\ln \sigma_{\mathrm{eff}|z}^i$ & $i^\mathrm{th}$ node in spline $\ln \sigma_\mathrm{eff}(z)$ & U$(-5, 0)$ \\
 \enddata
