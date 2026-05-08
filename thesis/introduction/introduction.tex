@@ -5,6 +5,8 @@
 \acrodef{NS}{neutron star}
 \acrodef{TOV}{Tolman-Oppenheimer-Volkoff}
 \acrodef{LIGO}{Laser Interferometer Gravitational-Wave Observatory}
+\acrodef{PN}{post-Newtonian}
+\acrodef{NR}{numerical relativity}
 \acrodef{GWTC-3}[GWTC-3]{third gravitational-wave transient catalog}
 
 \chapter{Introduction}
@@ -60,8 +62,41 @@ While a general symmetric tensor $g_{\mu\nu}$ possesses ten independent componen
     \label{fig: bbh diagram}
 \end{figure}
 
-When a \ac{GW} is incident on an interferometer, the perturbation stretches and squeezes the spacetime proportional to $h\lesssim 10^{-20}$. This leads to a time-varying modification of the observed intensity at the output of the interferometer. By precisely recording the amplitude and phase evolution of the observed intensity modulation, we can reconstruct $h(t)$, and then reconstruct the underlying gravitational wave progenitor parameters $\theta$ (e.g., masses, spins). We show a diagram of the 15 gravitational wave parameters relevant for quasi-circular \ac{BBH} inspirals in Fig.~\ref{fig: bbh diagram}. However, accurate reconstruction of the source parameters requires decomposing the data into signal plus noise: and because we only have probabilistic knowledge about the noise, we can only recover probabilistic knowledge about the signal. 
+When a \ac{GW} is incident on an interferometer, the perturbation stretches and squeezes the spacetime proportional to $h\lesssim 10^{-20}$. This leads to a time-varying modification of the observed intensity at the output of the interferometer. By precisely recording the amplitude and phase evolution of the observed intensity modulation, we can reconstruct $h(t)$, and then reconstruct the underlying gravitational wave progenitor parameters $\theta$ (e.g., masses, spins) using a model for $h(t;\theta)$. 
 
+\subsection{Dynamics and anatomy of compact binary mergers}
+
+
+The construction of accurate waveform models is a major field of research in \ac{GW} astronomy. For \ac{BBH} merger, there are 15 parameters required to describe a quasi-circular inspiral. We show a diagram of these 15 parameters in Fig.~\ref{fig: bbh diagram}. \ac{BBH} mergers constitute the vast majority of signals observed by the \ac{LVK} collaborations, however a few compact binary mergers containing \ac{NS} have been observed; these must include an additional tidal term $\Lambda$ for each \ac{NS} to account for tidal interactions. 
+
+The dynamics of binary black hole mergers can be described via perturbation theory in the \ac{PN} formalism. To leading order, the energy loss of a time-varying quadrupole in general relativity was first computed by \citet{Einstein:1918btx} and is given by
+\begin{equation}
+    \dot{E} = -\frac{G}{5c^5}\left(\dddot{Q}_{ij}\dddot{Q}^{ij}\right)
+\end{equation}
+using the Einstein summation convention over spatial coordinates $ij$, and where 
+\begin{equation}
+    Q_{ij} = \int \rho(x)[x_ix_j-\frac{1}{3}x^2\delta_{ij}]dx
+\end{equation}
+is the standard (traceless) quadrupole.
+For a Keplerian circular binary system, the orbit-averaged energy loss is then given by
+\begin{equation}
+    \left\langle\dot{E}\right\rangle_\text{orbit averaged} = -\frac{32}{5}\frac{G^4}{c^5}\frac{m_1^2m_2^2(m_1+m_2)}{a^5},
+\end{equation}
+where $a$ is the orbital separation of the two bodies. Due to the radiation of energy, the Keplerian angular velocity $\Omega = \sqrt{G(m_1+m_2)/a^3}$ accelerates (and so does the \ac{GW} frequency; the leading order quadrupole \ac{GW} frequency is $2\pi f_{\rm GW} = 2\Omega$)
+\begin{equation}
+    \frac{d\Omega}{dt} = \frac{96}{5} \frac{G^{5/3}}{c^5} \mchirp ^{5/3} \Omega^{11/3} \qquad \text{where} \qquad \mchirp \equiv \frac{(m_1m_2)^{3/5}}{(m_1+m_2)^{1/5}}
+\end{equation}
+is the \textit{chirp} mass of the binary, which controls the leading order phase evolution of the \ac{GW} from a \ac{BBH} ($0^\text{th}$ order \ac{PN}). At higher order, additional terms in the mass and spin appear: at 1\ac{PN}, a phase-evolution correction involving the mass ratio appears, at 1.5\ac{PN}, the leading order dependence on spin appears, etc.  In particular, the leading order dependence on the spins involves the effective aligned spin parameter \citep{Ajith:2009bn, Santamaria:2010yb}
+\begin{equation}
+    \chieff = \frac{m_1\vec{\chi}_1 + m_2\vec{\chi}_2}{m_1 + m_2}\cdot \hat{L} \qquad \text{where} \qquad \vec{\chi}_i \equiv \frac{1}{m_i^2}\vec{S}_i,
+\end{equation}
+that is, the dimensionless spins $\vec{\chi}_i$, weighted by the mass of each \ac{BH}, projected along the orbital angular momentum $\hat{L}$. 
+The dimensionless spins $\vec{\chi}_i$ are such that the norm of these vectors is $|\vec{\chi}_i| \in [0,1)$ (in geometric units, $c=G=1$). This property is ensured by the Kerr solution in general relativity \citep{Kerr:1963ud, Teukolsky:2014vca}. 
+Indeed, because $\chieff$ defines the leading order spin-dependent modification to the phase evolution of the \ac{GW} signal, it is often well-measured in \ac{GW} signals \citep{Vitale:2016avz}. It is also approximately conserved (to 2PN order) \citep{Racine:2008qv}. 
+
+The \ac{PN} formalism can extend to higher and higher order in perturbation theory, and is included directly in state-of-the-art \ac{GW} waveform models for the inspiral phase of the \ac{GW} to $\gtrsim3.5$\ac{PN} \citep[e.g.,][]{Blanchet:2013haa, Hannam:2013oca, Bohe:2016gbl, Pratten:2020ceb, Varma:2018mmi}. However, the perturbative \ac{PN} expansion breaks down at late times, where highly nonlinear effects become computational intractable \citep[e.g.][]{Blanchet:2013haa}, and the perturbative parameter ($\sim v/c$, approximately related to the velocity divided by the speed of light) is close to 1. Here, the full Einstein equations can only be solved numerically, using \ac{NR} codes \citep[e.g.][]{Schnetter:2003rb, Pretorius:2005gq, Campanelli:2005dd, Scheel:2008rj, Loffler:2011ay}. These codes are able to successfully model the merger phase and final \textit{ringdown} of the remnant \ac{BH}. The final ringdown is accurately described by the relaxation of a perturbed Kerr \ac{BH} \citep{teukolsky_perturbations_1973, Press:1973zz} in terms of its quasi-normal mode structure as a superposition of damped sinusoids. Modern waveforms incorporate information from the perturbative \ac{PN} expansion, and calibrate the merger and ringdown phases to a suite a \ac{NR} simulations \citep[e.g.][]{Hannam:2013oca, Bohe:2016gbl, Pratten:2020ceb}.
+
+With an accurate phenomenological waveform model in hand, can reconstruct source properties of observed \ac{GW} signals. This requires decomposing the data into signal plus noise: because we only have probabilistic knowledge about the noise, we can only recover probabilistic knowledge about the signal. 
 
 
 \subsection{Bayesian inference}
@@ -196,7 +231,21 @@ We show how to include these non-Gaussian contaminants into the hierarchical \ac
 
 \subsection{Chapter \ref{chapter: splines}: }
 
-In chapter \ref{chapter: splines}, we move towards a characterization of the astrophysical population of \ac{BBH} mergers, and show how evidence for some correlations in the \ac{BBH} population can be model dependent, while others are more robust. By relaxing the assumption of linearity, we show that evidence for a correlation between mass ratio and spins disappears. In contrast, the correlation between spins and cosmological redshift is robust to an assumption of nonlinear correlations, and we find some evidence for a broader spin distribution at higher masses. 
+%\chieff
+Because it is relatively well-measured compared to other spin parameters, we can constrain the population properties of the $\chieff$ parameter much more efficiently than we can constrain the population properties of individual spin parameters or their spin-alignment with the orbital angular momentum. Secondly, this $\chieff$ parameter is relatively simple to interpret astrophysically, though it is a lossy parameter: the same $\chieff$ can correspond to many \ac{BBH} configurations.  
+
+At the time of writing chapter \ref{chapter: splines}, new and unexpected correlations were emerging in the astrophysical population of merging \ac{BBH}. Instead of building models which assume \textit{a-priori} that the astrophysical distributions of mass and spin are uncorrelated and do not evolve with redshift, \ac{GW} astronomers were beginning to ask: ``if we suppose there is a correlation between parameters $X$ and $Y$, what do the data support?'' \ac{GW} astronomers then designed parameterized models for answering these kinds of questions, and were finding unexpected results. 
+
+Population studies often take advantage of the effective aligned spin parameter
+
+% Furthermore, the spin tilts can precess and so population studies must ``rewind'' the spins to the astrophysically-relevant past-time infinity \citep[e.g.,][]{Mould:2021xst}. Such a process is not necessary for $\chieff$. 
+
+Before discussing correlated populations, we should describe the studies has assumed that $\chieff$ was distributed by an uncorrelated Gaussian, e.g, $p(\chieff|\mu,\sigma) = \mathcal{N}_{[-1,1]}(\mu, \sigma)$, normalized over the physical domain $-1 < \chieff < 1$ \citep[e.g.][]{Miller:2020zox,Roulet:2021hcu}, and found that the effective spins tend to be small, and favor positive values. 
+
+A classic study to first find positive evidence for an astrophysical correlation was \citet{Callister:2021fpo}. They designed a parameterized model to search for a correlation between mass ratio $q$ and the effective aligned spin $\chieff$. \citet{Callister:2021fpo} 
+
+
+and show how evidence for some correlations in the \ac{BBH} population can be model dependent, while others are more robust. By relaxing the assumption of linearity, we show that evidence for a correlation between mass ratio and spins disappears. In contrast, the correlation between spins and cosmological redshift is robust to an assumption of nonlinear correlations, and we find some evidence for a broader spin distribution at higher masses. 
 
 \subsection{Chapter \ref{chapter: pixelpop methods} and \ref{chapter: pixelpop gwtc3}: }
 
@@ -206,7 +255,7 @@ Chapter \ref{chapter: pixelpop methods} introduces a new method for nonparametri
 
 Chapter \ref{chapter: monte carlo} is a technical investigation into sources of systematic uncertainty in \ac{GW} population inference. In particular, \ac{GW} population inference typically approximates the hierarchical likelihood using Monte Carlo methods, which can lead to biases (sometimes catastrophic biases). We create a statistical metric for diagnosing the systematics due to this Monte Carlo noise, and argue that new methods will be necessary for unbiased \ac{GW} population inference in the near future.
 
-\subsection{Chapter \ref{chapter: gwtc4 paper}: }
+\subsection{Chapter \ref{chapter: gwtc4}: }
 
 
 
