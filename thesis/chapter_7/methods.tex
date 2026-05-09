@@ -12,10 +12,10 @@ The Bayesian \textit{evidence} $p(d)$ ensures that $p(\PEhyperparam | d)$ is pro
 In order to use Bayes' theorem to infer the posterior probability distribution of hyperparameters, we need the likelihood of obtaining the observed catalog of events given a set of hyperparameters and a population model. 
 Because \ac{GW} detectors are not equally sensitive to different astrophysical sources, the likelihood must account for selection biases. Various groups have developed independent frameworks to account for selection effects and infer population properties (e.g., \citet{Roulet:2021hcu,Wysocki:2018mpo}), providing a crucial cross-check to the standard approach used by collaboration analyses, detailed below.
 Assuming (i) a Poisson process generates realizations from the source population of which a subset is detected, and (ii) the observed data associated are statistically independent (e.g., no overlapping signals), the likelihood is given by~\citep{Loredo:2004nn, Hogg:2010ma, Farr:2013yna, Mandel:2018mve, Thrane:2018qnx, Taylor:2018iat, Vitale:2020aaz}
-\begin{multline}
-    \mathcal{L}(\{d_i\},\Ndet|\PEhyperparam) \propto \\ N(\PEhyperparam)^{\Ndet} e^{-\Nexp(\PEhyperparam)} \prod_{i=1}^{\Ndet}\int \mathrm{d}\PEparameter \, \mathcal{L}(d_i|\PEparameter)\pi(\PEparameter|\PEhyperparam) \ ,
+\begin{equation}
+    \mathcal{L}(\{d_i\},\Ndet|\PEhyperparam) \propto N(\PEhyperparam)^{\Ndet} e^{-\Nexp(\PEhyperparam)} \prod_{i=1}^{\Ndet}\int \mathrm{d}\PEparameter \, \mathcal{L}(d_i|\PEparameter)\pi(\PEparameter|\PEhyperparam),
     \label{eq:hierarchical_likelihood}
-\end{multline}
+\end{equation}
 where $N(\PEhyperparam)$ is the total number of mergers (detected and undetected) incident on the detectors within the observing period, $\Ndet$ is the number of detections, $d_i$ are the strain data corresponding to the $i$th detection, and $\mathcal{L}(d_i|\PEparameter)$ is the likelihood of the data $d_i$ given the \ac{GW} source parameters $\PEparameter$~\citep{GWTC:Methods}. 
 The expected number of detections is $\Nexp(\PEhyperparam) = N\,\xi(\PEhyperparam)$, with $\xi(\PEhyperparam)$ being the expected fraction of the population parameterized by $\PEhyperparam$ that is detectable. Formally, we impose a detection criterion on the data, e.g., a \ac{FAR} threshold, by the selection function $x(d)$ acting on a data segment $d$.
 A \ac{GW} event is detectable in $d$ if $x(d) > x_{\rm thr}$, where $x_{\rm thr}$ is the chosen detectability threshold. Then,
