@@ -15,9 +15,9 @@ and $M$ independent draws from a distribution $\theta_i \sim p(\theta)$, the Mon
 Monte Carlo integration is a general technique for estimating nonelementary or high dimensional integrals, because the uncertainty in the estimate is not explicitly dependent on the dimension of the domain of the integral. 
 
 We can compute the expectation of the estimator
-\beq
-\langle\hat{I}\rangle = \int \left(\frac{1}{M}\sum_{i=1}^M \frac{f(\theta_i)}{p(\theta_i)}\right) p(\theta_1) \dd\theta_1 p(\theta_2) \dd\theta_2 ... p(\theta_M) \dd\theta_M  = \frac{1}{M}\sum_{i=1}^M \int \left(\frac{f(\theta_i)}{p(\theta_i)}\right)p(\theta_1)\dd\theta_1 p(\theta_2) \dd\theta_2 ... p(\theta_M) \dd\theta_M
-\eeq
+\begin{align}
+\langle\hat{I}\rangle &= \int \left(\frac{1}{M}\sum_{i=1}^M \frac{f(\theta_i)}{p(\theta_i)}\right) p(\theta_1) \dd\theta_1 p(\theta_2) \dd\theta_2 ... p(\theta_M) \dd\theta_M  \nonumber \\ &= \frac{1}{M}\sum_{i=1}^M \int \left(\frac{f(\theta_i)}{p(\theta_i)}\right)p(\theta_1)\dd\theta_1 p(\theta_2) \dd\theta_2 ... p(\theta_M) \dd\theta_M
+\end{align}
 using the fact that integration is linear. Notice that for the $i^{\rm th}$ term in the sum, the integrand is independent of all but one of the integration variables $\theta_i$, and all others integrate away to 1. Therefore, 
 \beq
 \langle\hat{I}\rangle = \frac{1}{M}\sum_{i=1}^M \int \left(\frac{f(\theta_i)}{p(\theta_i)}\right)p(\theta_i)\dd\theta_i = \frac{1}{M}\sum_{i=1}^M \int f(\theta_i) \dd\theta_i = \int f(\theta)\dd\theta = I.
@@ -68,9 +68,10 @@ which cannot be simplified using the techniques from before. In fact, this is ge
 
 We can approximate the bias by a Taylor expansion to leading order. Expanding each weight $f(\theta_i) / p(\theta_i)$ around the expectation of that weight, $\expect{f(\theta_i) / p(\theta_i)} = I$, 
 \beq
-\expect{g(\hat{I})} \approx \int \left[g(I) + \frac{g'(I)}{M} \sum_{i=1}^M \left(\frac{f(\theta_i)}{p(\theta_i)} - I\right)  + \frac{g''(I)}{2M^2}\sum_{i=1}^M \left(\frac{f(\theta_i)}{p(\theta_i)} - I\right)^2 + \mathcal{O}\left(\frac{1}{M^2}\right)\right] p(\theta_1) \dd\theta_1 p(\theta_2) \dd\theta_2 ... p(\theta_M) \dd\theta_M,
+\expect{g(\hat{I})} \approx \int \left[g(I) + \frac{g''(I)}{2M^2}\sum_{i=1}^M \left(\frac{f(\theta_i)}{p(\theta_i)} - I\right)^2 + \mathcal{O}\left(\frac{1}{M^2}\right)\right] p(\theta_1) \dd\theta_1 p(\theta_2) \dd\theta_2 ... p(\theta_M) \dd\theta_M,
 \eeq
-where $g'(I)$ and $g''(I)$ are the first and second derivatives of $g$, evaluated at $I$. Using the same techniques as in Eq.~\ref{eq: expectation of Monte Carlo integral} and Eq.~\ref{eq: variance of Monte Carlo integral}, we can simplify to
+where $g'(I)$ and $g''(I)$ are the first and second derivatives of $g$, evaluated at $I$, and the term attached to $g'(I)$ vanishes as it measures the first central moment. The integral attached to $g''(I)$ is the second central moment, or the variance, and so
+using the same techniques as in Eq.~\ref{eq: expectation of Monte Carlo integral} and Eq.~\ref{eq: variance of Monte Carlo integral}, we can simplify to
 \beq
 \expect{g(\hat{I})} \approx g(I) + \frac{g''(I)}{2}\variance{\hat{I}} + \mathcal{O}\left(\frac{1}{M^2}\right) = I^{-\Nobs}\left[1 + \frac{\Nobs(\Nobs + 1)}{2}\frac{\variance{\hat{I}}}{I^2} + \mathcal{O}\left(\frac{1}{M^2}\right)\right].
 \label{eq: bias for mean raised to power}

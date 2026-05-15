@@ -26,8 +26,8 @@ For the accuracy statistic, which quantifies the total amount of bias in the pos
 \beq
 \bar{K}_{\ln\mathcal{L}}(\Lambda_n) = 
 \begin{cases}
-\dfrac{1}{2}\dfrac{\Nobs(\Nobs+1)\hat{\sigma}^2_{\xi}(\Lambda_n)}{\hat{\xi}(\Lambda_n)^2} - \left[\Nobs^2\bar{K}_{\ln \xi}(\Lambda_n) + \displaystyle\sum_{i=1}^{\Nobs} \bar{K}_{\ln p_i}(\Lambda_n)\right] & \begin{tabular}{@{}l@{}}  \text{if using uncorrected} \\ \text{likelihood (Eq.~\ref{eq: estimated hierarchical likelihood})}\end{tabular} \\ 
-\Nobs^2\bar{K}_{\ln \xi}(\Lambda_n) + \displaystyle\sum_{i=1}^{\Nobs} \bar{K}_{\ln p_i}(\Lambda_n)  & \begin{tabular}{@{}l@{}} \text{if using corrected} \\ \text{likelihood (Eq.~\ref{eq: unbiased likelihood estimator}).}\end{tabular}
+\dfrac{\Nobs(\Nobs+1)\hat{\sigma}^2_{\xi}(\Lambda_n)}{2\hat{\xi}(\Lambda_n)^2} - \Nobs^2\bar{K}_{\ln \xi}(\Lambda_n) - \displaystyle\sum_{i=1}^{\Nobs} \bar{K}_{\ln p_i}(\Lambda_n) & \begin{tabular}{@{}l@{}}  \text{if using uncorrected} \\ \text{likelihood (Eq.~\ref{eq: estimated hierarchical likelihood})}\end{tabular} \\ 
+\Nobs^2\bar{K}_{\ln \xi}(\Lambda_n) + \displaystyle\sum_{i=1}^{\Nobs} \bar{K}_{\ln p_i}(\Lambda_n)  & \begin{tabular}{@{}l@{}} \text{if using corrected} \\ \text{likelihood (Eq.~\ref{eq: unbiased likelihood estimator})}\end{tabular}
 \end{cases}
 \label{eq: weights for computing accuracy accelerated}
 \eeq
@@ -89,12 +89,12 @@ g(\expect{\hat{\bm X}(\Lambda)})
 \Bigg(
 1 
 + 
-\frac{1}{2}\frac{\partial_i\partial_jg(\expect{\hat{\bm X}(\Lambda)})}{g(\expect{\hat{\bm X}(\Lambda)})}C_{i,j}(\Lambda, \Lambda)
+\frac{1}{2}\frac{\partial_i\partial_jg(\expect{\hat{\bm X}(\Lambda)})}{g(\expect{\hat{\bm X}(\Lambda)})}C_{i,j}(\Lambda, \Lambda) \nonumber \\ 
 - 
-\frac{1}{\mathcal{Z}}\frac{\partial_ig(\expect{\hat{\bm X}(\Lambda)})}{g(\expect{\hat{\bm X}(\Lambda)})} \int {\rm d}\Lambda'\partial_jg(\expect{\hat{\bm X}(\Lambda')})C_{i,j}(\Lambda, \Lambda') \nonumber \\
-- &\frac{1}{2\mathcal{Z}}\int {\rm d}\Lambda' \partial_i\partial_jg(\expect{\hat{\bm X}(\Lambda')})C_{i,j}(\Lambda', \Lambda')
+&\frac{1}{\mathcal{Z}}\frac{\partial_ig(\expect{\hat{\bm X}(\Lambda)})}{g(\expect{\hat{\bm X}(\Lambda)})} \int {\rm d}\Lambda'\partial_jg(\expect{\hat{\bm X}(\Lambda')})C_{i,j}(\Lambda, \Lambda') 
+- \frac{1}{2\mathcal{Z}}\int {\rm d}\Lambda' \partial_i\partial_jg(\expect{\hat{\bm X}(\Lambda')})C_{i,j}(\Lambda', \Lambda') \nonumber \\
 +
-\frac{1}{\mathcal{Z}^2}\int {\rm d}\Lambda' {\rm d}\Lambda'' \partial_i g(\expect{\hat{\bm X}(\Lambda')})\partial_j g(\expect{\hat{\bm X}(\Lambda'')})C_{i,j}(\Lambda', \Lambda'')+ \mathcal{O}(\hat{\bm \delta}^3)
+&\frac{1}{\mathcal{Z}^2}\int {\rm d}\Lambda' {\rm d}\Lambda'' \partial_i g(\expect{\hat{\bm X}(\Lambda')})\partial_j g(\expect{\hat{\bm X}(\Lambda'')})C_{i,j}(\Lambda', \Lambda'')+ \mathcal{O}(\hat{\bm \delta}^3)
 \Bigg)
 \label{eq: full bias}
 \end{align}
@@ -142,10 +142,10 @@ In Eq.~\ref{eq: expectation of Monte Carlo integral} we pointed out that the exp
 and so the expectation is independent of $i$.
 
 We must consider each weight as a separate, independent random variable. Let there be an additional modifying term $m$ so that the leading order bias vanishes. 
-\beq
-g(\hat{\bm X}(\Lambda)) \to g\left(\left\{\frac{1}{M_j}\sum_{i=1}^{M_j}\hat{W}_{ij}^\Lambda\right\}_{j=1}^{N}\right)m\left(\left\{\hat{W}_{ij}^\Lambda\right\}_{i=1,j=1}^{M_j,N}, \left\{\hat{W}_{ij}^{\Lambda'}\right\}_{i=1,j=1}^{M_j,N}\right) \equiv g(\hat{\bm W}^\Lambda)m(\hat{\bm W}^\Lambda, \hat{\bm W}^{\Lambda'}).
+\begin{align}
+g(\hat{\bm X}(\Lambda)) &\to g\left(\left\{\frac{1}{M_j}\sum_{i=1}^{M_j}\hat{W}_{ij}^\Lambda\right\}_{j=1}^{N}\right)m\left(\left\{\hat{W}_{ij}^\Lambda\right\}_{i=1,j=1}^{M_j,N}, \left\{\hat{W}_{ij}^{\Lambda'}\right\}_{i=1,j=1}^{M_j,N}\right) \nonumber \\ &\equiv g(\hat{\bm W}^\Lambda)m(\hat{\bm W}^\Lambda, \hat{\bm W}^{\Lambda'}).
 \label{eq: definition of m}
-\eeq
+\end{align}
 In order to retain the property that $g(\expect{\hat{\bm X}(\Lambda)}) = \pi(\Lambda)\mathcal{L}(\Lambda)$, we demand that $m(\expect{\hat{\bm W}^\Lambda}, \expect{\hat{\bm W}^{\Lambda'}}) = 1$.
 % We can insert Eq.~\ref{eq: definition of m} directly into Eq.~\ref{eq: the parametric bias}, if we identify the random variable $\hat{\bm X}(\Lambda)$ in Eq.~\ref{eq: the parametric bias} to the larger set of weights $\hat{\bm W}^\Lambda$. 
 % \begin{align}
@@ -186,10 +186,10 @@ In order to retain the property that $g(\expect{\hat{\bm X}(\Lambda)}) = \pi(\La
 
 So long as the modifying term is biased in exactly the opposite way to the bias in Eq.~\ref{eq: the parametric bias} at leading order, then the leading order bias will vanish. 
 Based on the form of the bias in Eq.~\ref{eq: the parametric bias}, the following modifying term will work: to leading order it is exactly the opposite of the biasing terms in Eq.~\ref{eq: the parametric bias}. Furthermore, it is positive everywhere and, as we will verify, evaluates to 1 at the expectation $\expect{\hat{\bm W}^\Lambda}$
-\beq
-m(\hat{\bm W}^\Lambda, \hat{\bm W}^{\Lambda'}) = \exp\left(\sum_{p,q=1}^{M_q,N}\left[-\frac{1}{2}\frac{\partial^2g(\hat{\bm W}^\Lambda)}{(\partial \hat{W}^\Lambda_{pq})^2}\frac{\hat{C}^2_q(\hat{\bm W}^\Lambda, \hat{\bm W}^\Lambda)}{g(\hat{\bm W}^\Lambda)} + \int {\rm d}\Lambda' \hat{p}(\Lambda') \frac{\partial \ln g(\hat{\bm W}^\Lambda)}{\partial \hat{W}^\Lambda_{pq}}\frac{\partial \ln g(\hat{\bm W}^{\Lambda'})}{\partial \hat{W}^{\Lambda'}_{pq}}\hat{C}^2_q(\hat{\bm W}^\Lambda, \hat{\bm W}^{\Lambda'})\right]\right)
+\begin{align}
+m(\hat{\bm W}^\Lambda, \hat{\bm W}^{\Lambda'}) = \exp\Bigg(\sum_{p,q=1}^{M_q,N}\Bigg[&-\frac{1}{2}\frac{\partial^2g(\hat{\bm W}^\Lambda)}{(\partial \hat{W}^\Lambda_{pq})^2}\frac{\hat{C}^2_q(\hat{\bm W}^\Lambda, \hat{\bm W}^\Lambda)}{g(\hat{\bm W}^\Lambda)} \nonumber \\ &+ \int {\rm d}\Lambda' \hat{p}(\Lambda') \frac{\partial \ln g(\hat{\bm W}^\Lambda)}{\partial \hat{W}^\Lambda_{pq}}\frac{\partial \ln g(\hat{\bm W}^{\Lambda'})}{\partial \hat{W}^{\Lambda'}_{pq}}\hat{C}^2_q(\hat{\bm W}^\Lambda, \hat{\bm W}^{\Lambda'})\Bigg]\Bigg)
 \label{eq: modifying term}
-\eeq
+\end{align}
 where 
 \beq
 \hat{C}^2_q(\hat{\bm W}^\Lambda, \hat{\bm W}^{\Lambda'}) = \frac{1}{M_q-1}\left[\sum_{p=1}^{M_q}\hat{W}_{pq}^\Lambda\hat{W}_{pq}^{\Lambda'} - \frac{1}{M_q}\left(\sum_{i=1}^{M_q}\hat{W}_{iq}^\Lambda\right)\left(\sum_{j=1}^{M_q}\hat{W}_{jq}^{\Lambda'}\right)\right]
@@ -242,7 +242,7 @@ Notice, however, when we evaluate Eq.~\ref{eq: general variance estimator} and E
 where $\Delta_{jq} = 1$ for $j=q$ and $0$ for $j\neq q$ is the Kronecker delta. We want to show that the modifying term corrects the bias.
 To see this, Taylor expand
 \beq
-g(\hat{\bm W}^{\Lambda})\exp\left(\sum_{p,q=1}^{M_q,N}\left[-\frac{1}{2}\frac{\partial^2g(\hat{\bm W}^\Lambda)}{(\partial \hat{W}^\Lambda_{pq})^2}\frac{\hat{C}^2_q(\hat{\bm W}^\Lambda, \hat{\bm W}^\Lambda)}{g(\hat{\bm W}^\Lambda)} + \int {\rm d}\Lambda' \hat{p}(\Lambda') \frac{\partial \ln g(\hat{\bm W}^\Lambda)}{\partial \hat{W}^\Lambda_{pq}}\frac{\partial \ln g(\hat{\bm W}^{\Lambda'})}{\partial \hat{W}^{\Lambda'}_{pq}}\hat{C}^2_q(\hat{\bm W}^\Lambda, \hat{\bm W}^{\Lambda'})\right]\right)
+g(\hat{\bm W}^{\Lambda})m(\hat{\bm W}^\Lambda, \hat{\bm W}^{\Lambda'})
 \eeq
 around the expectation $\expect{\hat{\bm W}^\Lambda}$. Many terms vanish immediately as only the second derivatives in Eq.~\ref{eq: variance estimator derivatives expectation} are nonzero. We are left with all the same terms as Eq.~\ref{eq: full bias}, plus the biasing terms from the modifying function, of which only two terms remain
 \begin{align}
@@ -326,37 +326,38 @@ As before, we can recognize that $\frac{1}{\mathcal{Z}} = \frac{p(\Lambda)}{g(\L
 % \mathcal{O}(\hat{\bm \delta}^3)\Bigg).
 % \end{align}
 
-\begin{align}
-\expect{\hat{p}&(\Lambda)} = \frac{
-g(\expect{\hat{\bm W}^\Lambda})
-}{
-\mathcal{Z}
-}
-\Bigg(
-1 
-+ 
-\frac{1}{2}\sum_{i,j=1}^{M_j,N}
-\left(\frac{\partial^2 g(\expect{\hat{\bm W}^\Lambda})}{(\partial \hat{W}_{ij}^\Lambda)^2}\frac{C_{ij,ij}(\Lambda, \Lambda)}{g(\expect{\hat{\bm W}^\Lambda})} 
--
-\frac{\partial \ln g(\expect{\hat{\bm X}(\Lambda)})}{\partial \hat{W}_{ij}^\Lambda} \int {\rm d}\Lambda'p(\Lambda')\frac{\partial \ln g(\expect{\hat{\bm W}^{\Lambda'}})}{\partial \hat{W}_{ij}^{\Lambda'}}C_{ij,ij}(\Lambda, \Lambda') \right.
-\nonumber \\ 
-&- \left. \frac{1}{2}\int {\rm d}\Lambda' p(\Lambda')\frac{\partial^2 g(\expect{\hat{\bm W}^{\Lambda'}})}{(\partial \hat{W}_{ij}^{\Lambda'})(\partial \hat{W}_{ij}^{\Lambda'})}\frac{C_{ij,ij}(\Lambda', \Lambda')}{g(\expect{\hat{\bm W}^\Lambda})}
-+
-\int {\rm d}\Lambda' {\rm d}\Lambda'' p(\Lambda')p(\Lambda'')\frac{\partial \ln g(\expect{\hat{\bm W}^{\Lambda'}})}{\partial \hat{W}_{ij}^{\Lambda'}}\frac{\partial \ln g(\expect{\hat{\bm W}^{\Lambda''}})}{\partial \hat{W}_{ij}^{\Lambda'}}C_{ij,ij}(\Lambda', \Lambda'') \right. \nonumber \\
-&+ 
-\left. \frac{1}{M_j}\sum_{p}^{M_j}\left[- \frac{\partial^2g(\expect{\hat{\bm W}^\Lambda})}{(\partial \hat{W}^\Lambda_{pj})^2}
-\frac{C_{ij,ij}(\Lambda, \Lambda)}{g(\expect{\hat{\bm W}^\Lambda})}
-+ 
-\frac{\partial \ln g(\expect{\hat{\bm W}^\Lambda})}{\partial \hat{W}^\Lambda_{pj}}\int {\rm d}\Lambda' p(\Lambda') \frac{\partial \ln g(\expect{\hat{\bm W}^{\Lambda'}})}{\partial \hat{W}^{\Lambda'}_{pj}}C_{ij,ij}(\Lambda, \Lambda') \nonumber \right.\right. \\ 
-&+
-\left.\left.
-\int {\rm d}\Lambda' p(\Lambda')\frac{\partial^2g(\expect{\hat{\bm W}^{\Lambda'}})}{(\partial \hat{W}^{\Lambda'}_{pj})^2}\frac{C_{ij,ij}(\Lambda', \Lambda')}{g(\expect{\hat{\bm W}^{\Lambda'}})}
-- 
-\int {\rm d}\Lambda' {\rm d}{\Lambda''} p(\Lambda')p(\Lambda'') \frac{\partial \ln g(\expect{\hat{\bm W}^{\Lambda'}})}{\partial \hat{W}^{\Lambda'}_{pq}} \frac{\partial \ln g(\expect{\hat{\bm W}^{\Lambda''}})}{\partial \hat{W}^{\Lambda''}_{pq}}C_{ij,ij}(\Lambda', \Lambda'')
-\right]\right) \nonumber \\
-&+
-\mathcal{O}(\hat{\bm \delta}^3)\Bigg).
-\end{align}
+% \begin{align}
+% \expect{\hat{p}&(\Lambda)} = \frac{
+% g(\expect{\hat{\bm W}^\Lambda})
+% }{
+% \mathcal{Z}
+% }
+% \Bigg(
+% 1 
+% + 
+% \frac{1}{2}\sum_{i,j=1}^{M_j,N}
+% \left(\frac{\partial^2 g(\expect{\hat{\bm W}^\Lambda})}{(\partial \hat{W}_{ij}^\Lambda)^2}\frac{C_{ij,ij}(\Lambda, \Lambda)}{g(\expect{\hat{\bm W}^\Lambda})} 
+% -
+% \frac{\partial \ln g(\expect{\hat{\bm X}(\Lambda)})}{\partial \hat{W}_{ij}^\Lambda} \int {\rm d}\Lambda'p(\Lambda')\frac{\partial \ln g(\expect{\hat{\bm W}^{\Lambda'}})}{\partial \hat{W}_{ij}^{\Lambda'}}C_{ij,ij}(\Lambda, \Lambda') \right.
+% \nonumber \\ 
+% &- \left. \frac{1}{2}\int {\rm d}\Lambda' p(\Lambda')\frac{\partial^2 g(\expect{\hat{\bm W}^{\Lambda'}})}{(\partial \hat{W}_{ij}^{\Lambda'})(\partial \hat{W}_{ij}^{\Lambda'})}\frac{C_{ij,ij}(\Lambda', \Lambda')}{g(\expect{\hat{\bm W}^\Lambda})}
+% +
+% \int {\rm d}\Lambda' {\rm d}\Lambda'' p(\Lambda')p(\Lambda'')\frac{\partial \ln g(\expect{\hat{\bm W}^{\Lambda'}})}{\partial \hat{W}_{ij}^{\Lambda'}}\frac{\partial \ln g(\expect{\hat{\bm W}^{\Lambda''}})}{\partial \hat{W}_{ij}^{\Lambda'}}C_{ij,ij}(\Lambda', \Lambda'') \right. \nonumber \\
+% &+ 
+% \left. \frac{1}{M_j}\sum_{p}^{M_j}\left[- \frac{\partial^2g(\expect{\hat{\bm W}^\Lambda})}{(\partial \hat{W}^\Lambda_{pj})^2}
+% \frac{C_{ij,ij}(\Lambda, \Lambda)}{g(\expect{\hat{\bm W}^\Lambda})}
+% + 
+% \frac{\partial \ln g(\expect{\hat{\bm W}^\Lambda})}{\partial \hat{W}^\Lambda_{pj}}\int {\rm d}\Lambda' p(\Lambda') \frac{\partial \ln g(\expect{\hat{\bm W}^{\Lambda'}})}{\partial \hat{W}^{\Lambda'}_{pj}}C_{ij,ij}(\Lambda, \Lambda') \nonumber \right.\right. \\ 
+% &+
+% \left.\left.
+% \int {\rm d}\Lambda' p(\Lambda')\frac{\partial^2g(\expect{\hat{\bm W}^{\Lambda'}})}{(\partial \hat{W}^{\Lambda'}_{pj})^2}\frac{C_{ij,ij}(\Lambda', \Lambda')}{g(\expect{\hat{\bm W}^{\Lambda'}})}
+% - 
+% \int {\rm d}\Lambda' {\rm d}{\Lambda''} p(\Lambda')p(\Lambda'') \frac{\partial \ln g(\expect{\hat{\bm W}^{\Lambda'}})}{\partial \hat{W}^{\Lambda'}_{pq}} \frac{\partial \ln g(\expect{\hat{\bm W}^{\Lambda''}})}{\partial \hat{W}^{\Lambda''}_{pq}}C_{ij,ij}(\Lambda', \Lambda'')
+% \right]\right) \nonumber \\
+% &+
+% \mathcal{O}(\hat{\bm \delta}^3)\Bigg).
+% \end{align}
+
 The final simplification comes in noticing that $g$ is designed as a function of Monte Carlo sums, so within each $j^{\rm th}$ Monte Carlo sum, the partial derivative of with respect to any weight $\hat{W}_{pj}^\Lambda$ is the same for all $p$. In particular, the sum over all $p$ is just $M_j$ copies of the same partial derivative. We can fix the derivatives with respect to $\hat{W}_{pj}^\Lambda$, $\hat{W}_{pj}^{\Lambda'}$ and $\hat{W}_{pj}^{\Lambda''}$ to the $ij$ weight, and multiply by $M_j$. All terms then cancel, leaving only the third order contribution to the bias.
 \beq
 \expect{\hat{p}(\Lambda)} = \frac{g(\expect{\hat{\bm W}^\Lambda})}{\mathcal{Z}}\left(1 + \mathcal{O}(\hat{\bm \delta}^3)\right).
