@@ -294,6 +294,7 @@
 \input{\gwtccommonfiles/macros/misc_macros}
 \input{\gwtccommonfiles/macros/datetime_macros}
 \input{\gwtccommonfiles/macros/quantities_macros}
+\input{\gwtccommonfiles/acronyms}
 
 
 %% RevTeX / AASTeX commands that don't exist in mitthesis -- make them no-ops.
@@ -407,8 +408,10 @@
 %%       AASTeX semantics. Storage uses public names (no @) for access outside \makeatletter.
 \def\dxtblhead{}   % stores column header row(s)
 \def\dxtblcols{}   % stores column spec string
-\renewcommand{\tablecaption}[1]{\caption{#1}}
-\renewcommand{\tablehead}[1]{\def\dxtblhead{#1}}
+\AtBeginDocument{%
+  \renewcommand{\tablecaption}[1]{\caption{#1}}%
+  \renewcommand{\tablehead}[1]{\def\dxtblhead{#1}}%
+}
 \providecommand{\colhead}[1]{\textbf{#1}}
 \providecommand{\colrule}{\midrule}
 \providecommand{\tablewidth}[1]{}
@@ -432,6 +435,8 @@
   \def\dxtblhead{}\def\dxtblcols{#1}%
   \begin{table}[htbp]\centering
 }{\end{table}}
+
+\makeatother % close the \makeatletter opened at the Chapter 7 macro-loading block above
 
 %%%%%%%%%%%%%%  End preamble %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -581,12 +586,12 @@
 
 %% If you want to use "double spacing", you should start here...
 
-% \include{thesis/introduction/introduction}
-% \include{thesis/chapter_1/mnras_final}
-% \include{thesis/chapter_2/main}
-% \include{thesis/chapter_3/main}
-% \include{thesis/chapter_4/arxiv/main}
-% \include{thesis/chapter_6/draft/main}
+\include{thesis/introduction/introduction}
+\include{thesis/chapter_1/mnras_final}
+\include{thesis/chapter_2/main}
+\include{thesis/chapter_3/main}
+\include{thesis/chapter_4/arxiv/main}
+\include{thesis/chapter_6/draft/main}
 \include{thesis/chapter_7/paper}
 
 %%% Appendices of thesis  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

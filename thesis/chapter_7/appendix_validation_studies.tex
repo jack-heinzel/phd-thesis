@@ -20,13 +20,13 @@ Finally, Appendix~\ref{appendix:supplementary_correlations} provides supplementa
 \enddata
 \end{deluxetable}
 
-\begin{figure*}[t]
+\begin{figure}[t]
 	\centering
 	  \includegraphics[width=\textwidth]{figures/fig_primary_mass_appendix.pdf}
 	  \caption{Inferred mass distributions of various \parametrics compared to the fiducial mass model \BrokenPLTwoPeaks (gray shaded) and 
 	  the \BSpline model (black dashed). The fiducial model from \gwtcthree, \PLPeak, is shown in orange, a broken power law with a single peak in blue, and a broken power law with three peaks in pink.}
 	  \label{fig:mass_model_comp_1}
-  \end{figure*}
+  \end{figure}
 
 \subsection{Model Comparison Study: Mass}\label{appendix:model_comparison_mass}
 
@@ -117,13 +117,13 @@ Assuming identical distribution makes the hyperparameters more-precisely constra
 The only difference of note is that $\chi_2$ has less support for a small $\mu_\chi$ than $\chi_1$, potentially hinting at more highly spinning secondary BHs on a population level. 
 
 %
-\begin{figure*}
+\begin{figure}
 	\centering
 	\includegraphics[width=0.8\linewidth]{figures/spins/spin_model_comparison_cornerplot.pdf}
 	\caption{Distribution of \default~hyperparameters for the primary \ac{BH} (blue) and secondary \ac{BH} (red) when neither magnitudes nor tilts are assumed identical (last row of Table~\ref{tab:modelComparisonSpins}), compared to when they are both assumed identical (gray, first row of Table~\ref{tab:modelComparisonSpins}).
 	The contours of the two dimensional distributions mark the 50th and 90th percentiles.}
 	\label{fig:spin_mags_tilts_comparison_cornerplot}
-  \end{figure*}
+  \end{figure}
 %
 
 \subsection{Dependence of the Effective Spin Distribution on the Likelihood Variance Cut}\label{appendix:model_comparison_effective_spins}
@@ -154,7 +154,7 @@ Using alternative spin priors in parameter estimation could aid in getting more 
 The Monte Carlo uncertainty from working with a finite number of samples to estimate the likelihood will only grow more problematic as the number of observed \acp{CBC} increases~\citep{Talbot:2023pex}; development of mitigation techniques is an area of active research~\citep[e.g.,][]{Gerosa:2020pgy,Rinaldi:2021bhm,Talbot:2020oeu,Callister:2022qwb, Talbot:2023pex, Leyde:2023iof,Hussain:2024qzl,Callister:2024qyq,Lorenzo-Medina:2024opt,Mancarella:2025uat}.
 
 %
-\begin{figure*}
+\begin{figure}
 	\centering
 	\includegraphics[width=\linewidth]{figures/spins/chi_eff_chi_p_model_comparison_cornerplot.pdf}
 	\caption{
@@ -164,11 +164,11 @@ The Monte Carlo uncertainty from working with a finite number of samples to esti
 	The $\chieff$ hyperparameters are not affected by the cuts, while the $\chip$ and joint-distribution hyperparameters are.
 	The contours of the two dimensional distributions mark the 50th and 90th percentiles.}
 	\label{fig:effective_spins_comparison_cornerplot}
-  \end{figure*}
+  \end{figure}
 %
 
 %
-\begin{figure*}
+\begin{figure}
 	\centering
 	\includegraphics[width=\linewidth]{figures/spins/chi_eff_chi_p_model_comparison_dists.pdf}
 	\caption{
@@ -176,20 +176,20 @@ The Monte Carlo uncertainty from working with a finite number of samples to esti
 	The marginal distributions show the median (solid line) and 90\% credible interval on the probability density for each population distribution (shaded).
 	The joint distribution is the \ac{PPD} with contours marking the 50th and 90th quantiles.}
 	\label{fig:effective_spins_comparison_dists}
-  \end{figure*}
+  \end{figure}
 %
 
 
 \subsection{Comparison of Weakly Modeled Approach Results}\label{appendix:non_parameteric_comparison}
 
 
-\begin{figure*}[t]
+\begin{figure}[t]
 	\centering
 	  \includegraphics[width=0.9\textwidth]{figures/primary_mass_non_parametric.pdf}
 	  \includegraphics[scale=0.7]{figures/mass_ratio_non_parametric.pdf}
 	  \caption{(\textit{Top}) Primary mass distributions using the \nonparametrics outlined in Appendix \ref{appendix:non_parametric_models_summary}. The \BrokenPLTwoPeaks result is shown in black for comparison. All distributions show rates evaluated at $z=0.2$, except for BGP, which shows the rate evaluated on the $z=0.1-0.25$ bin. Note that Flexible Mixtures does not infer primary mass directly, but instead derives it from the chirp mass Gaussian mixture model and the mass ratio as a power law distribution. The lack of substructure in the Flexible Mixtures mass distribution relative to the other models is likely due to model misspecification from assuming a power law mass ratio model. (\textit{Bottom}) Mass ratio distributions using the \nonparametrics outlined in Appendix \ref{appendix:non_parametric_models_summary}. The \BrokenPLTwoPeaks result is shown in black for comparison. Flexible Mixtures models the chirp mass as a Gaussian mixture model and the mass ratio as a power law. For the \BSpline and \ac{AR} models, the separable distribution $p(q)$ is shown by dashed lines and the conditional marginal distribution $p(q|m_2 > 3\Msun) = \int p(q)p(m_1)\Theta(m_1q-3){\rm d}m_1$ is shown by the shaded regions, highlighting that the low mass ratio truncation seen in the \parametric is largely a prior effect.}
 	  \label{fig:bbh_mass_non_parametrics}
-  \end{figure*}
+  \end{figure}
 
 \textit{Mass distributions}: We supplement the \parametric with various \nonparametrics. Figure \ref{fig:bbh_mass_non_parametrics} (top panel) shows the inferred primary mass distribution using the \BSpline, AR, Flexible Mixtures, and BGP models compared to the fiducial \BrokenPLTwoPeaks model. All models agree within their $90\%$ credible regions, though the Flexible Mixtures model is the only model that does not exhibit a prominent peak at ${\sim}10 \Msun$. The Flexible Mixtures model does not directly infer the primary mass, but instead it models the chirp mass as a Gaussian mixture model and the mass ratio with a power law. The primary mass distribution shown in Figure \ref{fig:bbh_mass_non_parametrics} is then derived from these two distributions. The discrepancy between this model and the other \nonparametrics could be due to model misspecification, i.e., assuming the mass ratio distribution follows a power law for all primary masses. The fact that the discrepancy exists primarily in the ${\sim}10 \Msun$ region supports the \textsc{Isolated Peak} result in Section \ref{subsec:bbh_ratio}, which suggests the ${\sim}10 \Msun$ peak disfavors equal mass mergers (i.e., is inconsistent with a power law in mass ratio) compared to higher mass \acp{BBH}. The mass ratio distributions inferred by the \BSpline, AR, and Flexible Mixtures is shown Figure \ref{fig:bbh_mass_non_parametrics} (bottom panel). The $90\%$ credible regions are consistent between each model. The \BSpline model infers a peak away from $q=1$, which is not present in the AR or Flexible Mixtures results. This may be due to the \BSpline model's greater flexibility compared to the AR and Flexible Mixtures models, as it infers all parameters simultaneously with B-Splines. The AR model assumes an auto-regressive process only in primary mass and mass ratio, while other parameters are inferred with the fiducial models listed in Table \ref{tab:summary_of_models}. As noted in Appendix \ref{appendix:BSpline}, the figure includes the marginal distributions conditioned on $m_2 > 3\Msun$ from the \BSpline and AR models in addition to the fully separable components (dashed lines). The two distributions are essentially identical above $q \sim0.4$, below which the marginal distribution falls off sharply. This implies that the behavior of the \parametric below $q \sim 0.4$ is primarily due to the prior assumption of a minimum mass cutoff, and not due to information inferred about the shape of the distribution in that regime. 
 
@@ -343,7 +343,7 @@ Finally, we investigate mass and spin correlations with the data-driven \vamana~
 In the bottom panels of Figure~\ref{fig:correlation_appendix}, we plot the inferred distribution of orbital aligned spin $\chi_z$ as a function of both chirp mass and mass ratio, obtained with the \vamana~analysis.
 We see that the results have a large degree of uncertainty, and are broadly consistent with findings explored here and in Section~\ref{sec:Population-level correlations between parameters}.
 
-\begin{figure*}
+\begin{figure}
 	\centering
 	\includegraphics[width=0.7\columnwidth]{figures/correlation_appendix.pdf}
 	\caption{
@@ -362,4 +362,4 @@ We see that the results have a large degree of uncertainty, and are broadly cons
 	Following the mass- and spin-correlated \ac{BGP} results then, it is unsurprising that the \vamana results prefer a local minimum in aligned spin magnitude in this region.
 	}
 	\label{fig:correlation_appendix}
-\end{figure*}
+\end{figure}

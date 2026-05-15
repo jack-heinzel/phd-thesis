@@ -46,29 +46,8 @@
 \newenvironment{PE_table}{\renewcommand{\arraystretch}{1.5}\setlength{\tabcolsep}{0pt}}{}
 \newenvironment{event_table}{\renewcommand{\arraystretch}{1.22}\setlength{\tabcolsep}{0pt}\setlength{\aboverulesep}{1pt}\setlength{\belowrulesep}{1pt}}{}
 
-%%% Macro files — paths updated for compilation from project root
-\newcommand{\commonfiles}{thesis/chapter_7/gwtc-common-files}
-\input{thesis/chapter_7/macros}
-\input{thesis/chapter_7/macros_from_json}
+%%% Chapter-specific acronyms (gwtc-common-files acronyms are loaded in the thesis preamble)
 \input{thesis/chapter_7/acronyms}
-
-% Load gwtc-common-files with safety patches:
-%   - \usepackage → no-op (packages already loaded in thesis preamble)
-%   - \newcommand → \providecommand (prevents "already defined" errors)
-\makeatletter
-\let\gwtc@newcmd\newcommand
-\let\newcommand\providecommand
-\let\gwtc@usepkg\usepackage
-\renewcommand{\usepackage}[2][]{}
-\input{\commonfiles/acronyms}
-\input{\commonfiles/commands}
-\input{\commonfiles/macros/symbol_macros}
-\input{\commonfiles/macros/misc_macros}
-\input{\commonfiles/macros/datetime_macros}
-\input{\commonfiles/macros/quantities_macros}
-\let\newcommand\gwtc@newcmd
-\let\usepackage\gwtc@usepkg
-\makeatother
 
 %%% Editorial macros — \providecommand to avoid clobbering thesis-level definitions
 \definecolor{NOTECOLOR}{rgb}{0.4, 0.2, 0.1}
@@ -106,7 +85,7 @@
 \input{thesis/chapter_7/conclusion.tex}
 
 \section*{Acknowledgments}
-\input{\commonfiles/LVKack}
+\input{\gwtccommonfiles/LVKack}
 
 \begin{subappendices}
 \input{thesis/chapter_7/appendix.tex}
